@@ -46,7 +46,7 @@ export default function Navbar() {
 
           {/* Contact - Desktop */}
           <div className="hidden md:flex items-center space-x-2">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+            <button className=" border-2 border-white text-white font-medium py-2 px-4 rounded-lg transition duration-300 bg-white/15 backdrop-blur-lg border border-white/25 rounded-2xl shadow-lg">
               Get yours now
             </button>
           </div>
@@ -83,7 +83,7 @@ export default function Navbar() {
               </a>
             ))}
             <div className="px-3 py-3">
-              <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+              <button className="w-full .glass-glow text-white font-medium py-2 px-4 rounded-lg transition duration-300">
                 Get yours now
               </button>
             </div>
