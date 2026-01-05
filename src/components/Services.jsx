@@ -1,182 +1,186 @@
-import React from 'react';
-import { 
-  MdDesignServices, 
-  MdCode, 
-  MdMobileFriendly, 
+import {
+  MdCode,
+  MdMobileFriendly,
   MdSearch,
   MdAnalytics,
   MdSecurity,
   MdCloud,
   MdSettings
-} from 'react-icons/md';
+} from "react-icons/md";
+import { HiArrowRight } from "react-icons/hi";
 
-export const Services = () => {
+const Services = () => {
   const services = [
     {
-      icon: <MdDesignServices className="w-12 h-12" />,
-      title: 'UI/UX Design',
-      description: 'Beautiful, intuitive interfaces that provide exceptional user experiences and drive engagement. eautiful, intuitive interfaces that provide exceptional user experiences and drive eautiful, intuitive interfaces that provide exceptional user experiences and drive engagementengagement',
+      icon: <MdMobileFriendly className="w-10 h-10 md:w-12 md:h-12" />,
+      title: "Mobile App Development",
+      description:
+        "High-performance mobile applications designed for speed, scalability, and real-world usage.",
+      longDescription:
+        "We design and develop robust mobile applications for both iOS and Android platforms, focusing on performance, intuitive design, and long-term scalability. From idea validation and UI planning to development, testing, and deployment, we ensure your app delivers real value, engages users, and supports business growth.",
+      link: "#"
     },
     {
-      icon: <MdCode className="w-12 h-12" />,
-      title: 'Web Development',
-      description: 'Custom web applications built with modern technologies for optimal performance and scalability.',
+      icon: <MdCode className="w-10 h-10 md:w-12 md:h-12" />,
+      title: "Web Development",
+      description:
+        "Custom-built websites and web applications using modern, reliable technologies.",
+      longDescription:
+        "Our web development process focuses on building fast, secure, and scalable digital products. Whether it’s a business website, portfolio, or complex web application, we combine clean code, optimized performance, and modern frameworks to create solutions that are easy to maintain and ready to grow with your business.",
+      link: "#"
     },
     {
-      icon: <MdMobileFriendly className="w-12 h-12" />,
-      title: 'Mobile Responsive',
-      description: 'Fully responsive designs that work perfectly on all devices from desktop to mobile.',
+      icon: <MdMobileFriendly className="w-10 h-10 md:w-12 md:h-12" />,
+      title: "Mobile Responsive",
+      description:
+        "Fully responsive layouts that adapt seamlessly across all screen sizes and devices.",
+      longDescription:
+        "We ensure your website looks and functions perfectly on smartphones, tablets, laptops, and desktops. By applying responsive design principles and extensive testing, we deliver a consistent user experience that improves accessibility, engagement, and conversion rates on every device.",
+      link: "#"
     },
     {
-      icon: <MdSearch className="w-12 h-12" />,
-      title: 'SEO Optimization',
-      description: 'Search engine optimized websites that rank higher and attract more organic traffic.',
+      icon: <MdSearch className="w-10 h-10 md:w-12 md:h-12" />,
+      title: "SEO Optimization",
+      description:
+        "Search-engine-friendly websites built to increase visibility and organic traffic.",
+      longDescription:
+        "Our SEO optimization process combines clean semantic code, fast load speeds, and technical best practices to help your website rank higher on search engines. We optimize site structure, metadata, and performance to attract qualified traffic and improve long-term discoverability.",
+      link: "#"
     },
     {
-      icon: <MdAnalytics className="w-12 h-12" />,
-      title: 'Analytics & Tracking',
-      description: 'Comprehensive analytics setup to track performance and user behavior.',
+      icon: <MdAnalytics className="w-10 h-10 md:w-12 md:h-12" />,
+      title: "Analytics & Tracking",
+      description:
+        "Advanced tracking systems that turn user activity into meaningful insights.",
+      longDescription:
+        "We set up comprehensive analytics and tracking tools that allow you to understand how users interact with your website or app. From traffic sources to user behavior and conversion tracking, we provide data-driven insights that support smarter business decisions and continuous improvement.",
+      link: "#"
     },
     {
-      icon: <MdSecurity className="w-12 h-12" />,
-      title: 'Security Solutions',
-      description: 'Enterprise-grade security measures to protect your website and user data.',
+      icon: <MdSecurity className="w-10 h-10 md:w-12 md:h-12" />,
+      title: "Security Solutions",
+      description:
+        "Strong security layers to protect your platform, users, and sensitive data.",
+      longDescription:
+        "Security is built into every solution we deliver. We implement SSL encryption, secure authentication, regular updates, and best-practice security measures to protect your website or application against threats, vulnerabilities, and unauthorized access.",
+      link: "#"
     },
     {
-      icon: <MdCloud className="w-12 h-12" />,
-      title: 'Cloud Hosting',
-      description: 'Reliable cloud hosting solutions with high uptime and fast loading speeds.',
+      icon: <MdCloud className="w-10 h-10 md:w-12 md:h-12" />,
+      title: "Cloud Hosting",
+      description:
+        "Reliable, scalable cloud hosting optimized for speed and uptime.",
+      longDescription:
+        "Our cloud hosting solutions provide high availability, fast performance, and flexible scaling as your traffic grows. We handle deployment, configuration, and optimization to ensure your website or application remains stable, secure, and accessible at all times.",
+      link: "#"
     },
     {
-      icon: <MdSettings className="w-12 h-12" />,
-      title: 'Maintenance & Support',
-      description: 'Ongoing maintenance and support to keep your website running smoothly.',
+      icon: <MdSettings className="w-10 h-10 md:w-12 md:h-12" />,
+      title: "Maintenance & Support",
+      description:
+        "Ongoing support to keep your digital products running smoothly.",
+      longDescription:
+        "We offer continuous maintenance and technical support to keep your website or app updated, secure, and performing at its best. From bug fixes and content updates to performance monitoring and feature enhancements, we ensure long-term reliability and peace of mind.",
+      link: "#"
     }
   ];
 
   return (
-    <>
-     
-      {/* Services Grid Section */}
-      <section className="px-6 py-12">
+    <main className="min-h-screen bg-[#011936]">
+      {/* Page Header */}
+      <section className="px-6 pt-24 pb-12 text-center">
+        <h1 className="text-white text-4xl md:text-5xl font-bold mb-4">
+          Services
+        </h1>
+        <p className="text-gray-300 max-w-2xl mx-auto">
+          We deliver modern digital solutions designed to help brands grow,
+          scale, and stand out in today’s competitive landscape.
+        </p>
+      </section>
+
+      {/* Services Grid */}
+      <section className="px-6 pb-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {services.map((service, index) => (
-              <div 
+              <div
                 key={index}
                 className="
                   backdrop-blur-xl bg-white/5
                   border border-white/10
                   rounded-2xl
-                  p-6
+                  p-4 md:p-6
                   text-left
                   hover:bg-white/10
                   hover:border-blue-500/30
-                  hover:transform hover:-translate-y-2
+                  hover:-translate-y-2
                   transition-all duration-300
-                  cursor-pointer
                 "
               >
-                {/* Service Icon */}
+                {/* Icon */}
                 <div className="
-                  w-16 h-16
-                  mx-auto
+                  w-14 h-14 md:w-16 md:h-16
                   bg-gradient-to-br from-blue-500 to-blue-700
                   rounded-2xl
                   flex items-center justify-center
                   mb-4
                 ">
-                  <div className="text-white">
-                    {service.icon}
-                  </div>
+                  <div className="text-white">{service.icon}</div>
                 </div>
 
-                {/* Service Title */}
-                <h3 className="text-white text-xl font-bold mb-3">
+                {/* Title */}
+                <h3 className="text-white text-lg md:text-xl font-bold mb-2 leading-snug">
                   {service.title}
                 </h3>
 
-                {/* Service Description */}
-                <p className="text-gray-300 text-sm leading-relaxed">
+                {/* Short description */}
+                <p className="text-blue-300 text-xs md:text-sm mb-2">
                   {service.description}
                 </p>
+
+                {/* Long description */}
+                <p className="text-gray-300 text-xs md:text-sm leading-relaxed mb-5">
+                  {service.longDescription}
+                </p>
+
+                {/* CTA */}
+                <a
+                  href={service.link}
+                  className="
+                    group
+                    flex items-center justify-between
+                    w-full md:w-2/3
+                    border border-white/20
+                    rounded-full
+                    px-3 py-2
+                    hover:bg-white/10
+                    transition
+                  "
+                >
+                  <span className="text-white text-xs md:text-sm font-medium">
+                    Learn more
+                  </span>
+
+                  <span
+                    className="
+                      w-8 h-8 md:w-9 md:h-9
+                      bg-yellow-400
+                      rounded-full
+                      flex items-center justify-center
+                      group-hover:translate-x-1
+                      transition
+                    "
+                  >
+                    <HiArrowRight className="text-black w-4 h-4 md:w-5 md:h-5" />
+                  </span>
+                </a>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Process Section in Glass Card Style */}
-      <section className="px-6 py-12">
-        <div className="max-w-5xl mx-auto">
-          <div className="backdrop-blur-xl bg-white/5 rounded-3xl shadow-2xl p-8 md:p-12 border border-white/10">
-            <h3 className="text-white text-3xl font-bold text-center mb-2">
-              Our <span className="text-blue-300">Process</span>
-            </h3>
-            
-            <p className="text-gray-300 text-center mb-10 max-w-2xl mx-auto">
-              A structured approach to delivering exceptional results
-            </p>
-            
-            <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-              {[
-                { number: '01', title: 'Discovery', desc: 'Research & Planning' },
-                { number: '02', title: 'Design', desc: 'UI/UX Creation' },
-                { number: '03', title: 'Develop', desc: 'Coding & Building' },
-                { number: '04', title: 'Deploy', desc: 'Launch & Support' }
-              ].map((step, index) => (
-                <div key={index} className="flex flex-col items-center text-center">
-                  <div className="
-                    w-16 h-16
-                    bg-gradient-to-br from-blue-500 to-blue-700
-                    rounded-2xl
-                    flex items-center justify-center
-                    mb-4
-                  ">
-                    <span className="text-white text-2xl font-bold">{step.number}</span>
-                  </div>
-                  <h4 className="text-white text-lg font-semibold mb-1">
-                    {step.title}
-                  </h4>
-                  <p className="text-gray-300 text-sm">
-                    {step.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="px-6 py-12">
-        <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-white text-3xl font-bold mb-4">
-            Ready to Start Your Project?
-          </h3>
-          
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Get a free consultation and project estimate tailored to your needs
-          </p>
-          
-          <button className="
-            bg-gradient-to-r from-blue-500 to-blue-700
-            hover:from-blue-600 hover:to-blue-800
-            text-white
-            font-semibold
-            py-3 px-8
-            rounded-xl
-            transition-all duration-300
-            hover:scale-105
-            flex items-center gap-2
-            mx-auto
-          ">
-            <MdSettings className="w-5 h-5" />
-            Get Started Today
-          </button>
-        </div>
-      </section>
-    </>
+    </main>
   );
 };
-export default Services
+
+export default Services;
