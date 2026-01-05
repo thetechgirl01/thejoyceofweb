@@ -91,22 +91,23 @@ const ServicesPage = () => {
     <div className="min-h-screen my-10">
       {/* Hero/Header */}
       <header className="px-6 py-12 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row justify-between items-start mb-12">
-          {/* Left: Our Services */}
-          <h1 className="text-white font-bold text-7xl lg:text-8xl leading-none mb-6 lg:mb-0 w-1/2">
-           What We Offer
-          </h1>
+  <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-6">
+    {/* Left: Our Services */}
+    <h1 className="text-white font-bold text-5xl sm:text-4xl md:text-6xl  leading-none text-center md:text-left">
+      What Are The Services We Offer?
+    </h1>
 
-          {/* Right: Quote */}
-          <p className="text-white/50 text-lg lg:text-2xl max-w-lg">
-            "Excellence is not an act, but a habit. Delivering quality in every line of code."
-          </p>
-        </div>
-      </header>
+    {/* Right: Quote */}
+    <p className="text-white/50 text-lg sm:text-xl md:text-2xl max-w-lg text-center md:text-right">
+      "Excellence is not an act, but a habit. Delivering quality in every line of code."
+    </p>
+  </div>
+</header>
+
 
       {/* Services Section */}
       <section className="px-6 pb-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
