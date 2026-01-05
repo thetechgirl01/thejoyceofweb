@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { MdLocationOn } from 'react-icons/md';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import gsap from 'gsap';
 
 export const Hero = () => {
   const technologies = [
@@ -9,30 +10,53 @@ export const Hero = () => {
   ];
 
   const scrollRef = useRef(null);
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+  const techneikRef = useRef(null);
 
+  // Drag/swipe state
+  const [isDown, setIsDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // GSAP animation on page load
+  useEffect(() => {
+    gsap.fromTo(
+      techneikRef.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 2, ease: 'power3.out' }
+    );
+  }, []);
+
+  // Mouse events
   const handleMouseDown = (e) => {
-    isDown = true;
-    startX = e.pageX - scrollRef.current.offsetLeft;
-    scrollLeft = scrollRef.current.scrollLeft;
+    setIsDown(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
   };
-
-  const handleMouseLeave = () => { isDown = false; };
-  const handleMouseUp = () => { isDown = false; };
+  const handleMouseUp = () => setIsDown(false);
+  const handleMouseLeave = () => setIsDown(false);
   const handleMouseMove = (e) => {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // scroll faster
+    const walk = (x - startX) * 2; // scroll speed
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Touch events
+  const handleTouchStart = (e) => {
+    setStartX(e.touches[0].pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+  const handleTouchMove = (e) => {
+    const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
     scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-6 py-0 relative">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-6 py-0 relative ">
       {/* Glass Card */}
-      <div className=" rounded-3xl shadow-2xl max-w-5xl w-full p-6 sm:p-8 md:p-16 z-10">
+      <div className="rounded-3xl shadow-2xl max-w-5xl w-full p-6 sm:p-8 md:p-16 z-10 ">
         <div className="flex flex-col items-center text-center">
           {/* Location */}
           <h3 className="flex items-center gap-2 text-white/50 text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2 md:mb-4">
@@ -41,7 +65,10 @@ export const Hero = () => {
           </h3>
 
           {/* Main Title */}
-          <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-2 sm:mb-3 md:mb-6 leading-tight sm:leading-snug md:leading-none">
+          <h1
+            ref={techneikRef}
+            className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-2 sm:mb-3 md:mb-6 leading-tight sm:leading-snug md:leading-none"
+          >
             TECHNEIK
           </h1>
 
@@ -85,15 +112,8 @@ export const Hero = () => {
               onMouseLeave={handleMouseLeave}
               onMouseUp={handleMouseUp}
               onMouseMove={handleMouseMove}
-              onTouchStart={(e) => {
-                startX = e.touches[0].pageX - scrollRef.current.offsetLeft;
-                scrollLeft = scrollRef.current.scrollLeft;
-              }}
-              onTouchMove={(e) => {
-                const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
-                const walk = (x - startX) * 2;
-                scrollRef.current.scrollLeft = scrollLeft - walk;
-              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
             >
               {technologies.map((tech) => (
                 <span

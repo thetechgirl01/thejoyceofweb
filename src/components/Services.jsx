@@ -88,12 +88,12 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen ">
       {/* Hero/Header */}
       <header className="px-6 py-12 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-start mb-12">
           {/* Left: Our Services */}
-          <h1 className="text-white font-bold text-7xl lg:text-[10rem] leading-none mb-6 lg:mb-0">
+          <h1 className="text-white font-bold text-7xl lg:text-9xl leading-none mb-6 lg:mb-0">
             Our Services
           </h1>
 
