@@ -9,7 +9,7 @@ function App() {
     <div className="min-h-screen ">
       <Navbar/>
       <Hero/>
-      <div className="px-9">
+      <div className="px-9 bg-gray-900/95">
         <Services/>
       </div>
    

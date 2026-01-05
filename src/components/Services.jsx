@@ -93,13 +93,19 @@ const ServicesPage = () => {
       <header className="px-6 py-12 max-w-7xl mx-auto">
   <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-6">
     {/* Left: Our Services */}
-    <h1 className="text-white font-bold text-5xl sm:text-4xl md:text-6xl  leading-none text-center md:text-left">
+    <h1 className="text-white font-bold text-5xl sm:text-3xl md:text-6xl  leading-none text-center md:text-left">
       What Are The Services We Offer?
     </h1>
 
     {/* Right: Quote */}
     <p className="text-white/50 text-lg sm:text-xl md:text-2xl max-w-lg text-center md:text-right">
-      "Excellence is not an act, but a habit. Delivering quality in every line of code."
+        “Excellence is not an act, but a habit. It is achieved through discipline,
+  precision, and a commitment to doing things right even when no one is watching.
+  That is why we focus on delivering quality, performance, and reliability in
+  every line of code we write.”
+  <span className="block mt-3 text-white/40 text-base">
+    — Inspired by Aristotle
+  </span>
     </p>
   </div>
 </header>
