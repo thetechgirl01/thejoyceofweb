@@ -1,38 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './App.css';
+import Navbar from './components/Navbar';
+import { Hero } from './components/Hero';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-       <h1 class="text-3xl font-bold underline">
-    Hello world! this is the start of my new project with tailwindcss
-  </h1>
-    </>
-  )
+    <div className="min-h-screen bg-[rgb(6,6,99)]">
+      <Navbar/>
+      <Hero/>
+      
+      {/* Technologies Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <h3 className="text-white text-3xl font-bold mb-12 text-center">
+            Technologies I use
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {['JavaScript', 'Reactive', 'Node', 'Express', 'Bootstrap', 'jQuery', 
+              'PHP', 'MySQL', 'MongoDB', 'Git', 'Github', 'Fgrme', 'WordPress'].map((tech) => (
+              <div 
+                key={tech}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition duration-300"
+              >
+                <span className="text-white font-medium text-lg">{tech}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
 
-export default App
+export default App;
