@@ -33,7 +33,7 @@ const Projects = () => {
     <>
     <section className="px-6 py-16 sm:py-24 max-w-7xl mx-auto ">
       {/* Horizontal scrolling header */}
-      <div className="overflow- mb-12 flex-row">
+      <div className="overflow- mb-12 flex-row overflow-hidden">
         
                
         <div className="flex flex-row animate-scroll whitespace-nowrap  h2 text-gray-300  text-md sm:text-lg font-medium uppercase">
