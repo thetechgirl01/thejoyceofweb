@@ -30,30 +30,25 @@ const FAQComponentExact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 md:p-12">
+    <div className="min-h-screen bg-gray-50 px-6 py-16">
       <div className="max-w-3xl mx-auto">
-        
-        {/* Header Section - Exact visual hierarchy */}
-        <div className="mb-20 text-center">
-          <div className="mb-4">
-            <h1 className="text-6xl md:text-7xl font-black text-gray-900 tracking-tight leading-none">
-              FAQ:
-            </h1>
-          </div>
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight leading-tight">
-              FREQUENTLY ASKED QUESTIONS
-            </h2>
-          </div>
+
+        {/* Header Section */}
+        <div className="mb-16 flex flex-col justify-end items-center sm:items-start">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-gray-900 tracking-tight leading-none text-center sm:text-left">
+            FAQ:
+          </h1>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 tracking-tight leading-tight text-center sm:text-left">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
         </div>
 
         {/* FAQ Container */}
-        <div className="space-y-8">
+        <div className="space-y-6">
           {faqItems.map((item, index) => (
             <div
               key={item.id}
               className={`
-                bg-white 
                 border border-gray-300
                 rounded-xl
                 overflow-hidden
@@ -67,20 +62,19 @@ const FAQComponentExact = () => {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="
                   w-full 
-                  p-8 
+                  p-6 sm:p-8
                   flex 
                   justify-between 
                   items-center
-                  hover:bg-gray-50
-                  active:bg-gray-100
+                  hover:bg-gray-100/20
+                  active:bg-gray-100/40
                   transition-colors
                 "
               >
                 {/* Question Text */}
-                <div className="flex-1 pr-8">
+                <div className="flex-1 pr-4 sm:pr-8">
                   <span className="
-                    text-xl 
-                    md:text-2xl 
+                    text-lg sm:text-xl md:text-2xl 
                     font-medium 
                     text-gray-900 
                     leading-relaxed
@@ -89,49 +83,23 @@ const FAQComponentExact = () => {
                     {item.question}
                   </span>
                 </div>
-                
+
                 {/* Plus/Minus Indicator */}
-                <div className="
-                  w-12 
-                  h-12 
-                  flex 
-                  items-center 
-                  justify-center 
-                  flex-shrink-0
-                ">
-                  <span className="
-                    text-3xl 
-                    font-light 
-                    text-gray-700
-                  ">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-light text-gray-700">
                     {openIndex === index ? '−' : '+'}
                   </span>
                 </div>
               </button>
 
-              {/* Answer Content - Appears when open */}
+              {/* Answer Content */}
               {openIndex === index && item.answer && (
-                <div className="
-                  border-t 
-                  border-gray-200 
-                  px-8 
-                  pb-8 
-                  pt-6
-                ">
-                  <div className="space-y-6">
+                <div className="border-t border-gray-200 px-6 sm:px-8 pb-6 pt-4 sm:pt-6">
+                  <div className="space-y-4 sm:space-y-6">
                     {item.answer.map((paragraph, idx) => (
-                      <div key={idx}>
-                        <p className="
-                          text-gray-800 
-                          text-lg 
-                          md:text-xl 
-                          leading-relaxed 
-                          font-normal
-                          tracking-normal
-                        ">
-                          {paragraph}
-                        </p>
-                      </div>
+                      <p key={idx} className="text-gray-800 text-base sm:text-lg md:text-xl leading-relaxed font-normal tracking-normal">
+                        {paragraph}
+                      </p>
                     ))}
                   </div>
                 </div>
@@ -141,7 +109,7 @@ const FAQComponentExact = () => {
         </div>
 
         {/* Bottom spacing */}
-        <div className="h-24"></div>
+        <div className="h-16"></div>
       </div>
     </div>
   );
