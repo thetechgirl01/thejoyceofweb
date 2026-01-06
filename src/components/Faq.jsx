@@ -30,18 +30,39 @@ const FAQComponentExact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 px-6 py-16">
-      <div className="max-w-3xl mx-auto">
+     <div className="min-h-screen py-10 sm:py-16">
+    
 
         {/* Header Section */}
-        <div className="mb-16 flex flex-col justify-end items-center sm:items-start">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-gray-900 tracking-tight leading-none text-center sm:text-left">
-            FAQ:
+         <header className="px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-20">
+        <div className="flex flex-col lg:flex-row justify-between gap-8">
+          
+          <h1 className="
+            text-white font-bold leading-tight
+            text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+            text-center lg:text-left
+            max-w-xl
+          ">
+            What Are The Services We Offer?
           </h1>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 tracking-tight leading-tight text-center sm:text-left">
-            FREQUENTLY ASKED QUESTIONS
-          </h2>
+
+          <p className="
+            text-white/50
+            text-sm sm:text-base md:text-lg
+            max-w-lg
+            text-center lg:text-right
+            leading-relaxed
+          ">
+            “Excellence is not an act, but a habit. It is achieved through discipline,
+            precision, and a commitment to doing things right even when no one is watching.”
+            <span className="block mt-2 text-white/40 text-xs sm:text-sm">
+              — Inspired by Aristotle
+            </span>
+          </p>
         </div>
+      </header>
+
+       
 
         {/* FAQ Container */}
         <div className="space-y-6">
@@ -111,7 +132,7 @@ const FAQComponentExact = () => {
         {/* Bottom spacing */}
         <div className="h-16"></div>
       </div>
-    </div>
+
   );
 };
 

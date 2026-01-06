@@ -10,7 +10,8 @@ import {
   FaDribbble,
   FaBehance,
   FaPhone,
-  FaMapMarkerAlt
+  FaMapMarkerAlt,
+  FaRegEnvelope
 } from "react-icons/fa";
 
 const Contact = () => {
@@ -58,7 +59,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen px-6">
       <div className="py-6 sm:py-8 md:py-12 px-3 sm:px-4 md:px-6">
         
         {/* Header */}
@@ -75,14 +76,15 @@ const Contact = () => {
 
             {/* Envelope Icon */}
             <div className="
-              w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 
-              rounded-full border-2 border-white 
+              w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 md:flex sm:hidden
+              rounded-full border-2 border-blue-400 
+              bg-blue-400
               flex items-center justify-center
               flex-shrink-0
               mt-2 sm:mt-0
-              bg-gray-900/50
+             
             ">
-              <FaEnvelope className="text-white w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+              <FaRegEnvelope className="text-white w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
             </div>
           </div>
 
@@ -103,14 +105,7 @@ const Contact = () => {
             gap-3 sm:gap-4 
             justify-center lg:justify-start
           ">
-            <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-300">
-              <FaPhone className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="text-xs sm:text-sm md:text-base">+1 (555) 123-4567</span>
-            </div>
-            <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-300">
-              <FaMapMarkerAlt className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="text-xs sm:text-sm md:text-base">San Francisco, CA</span>
-            </div>
+           
           </div>
         </header>
 
@@ -129,7 +124,7 @@ const Contact = () => {
                       <React.Fragment key={num}>
                         <div className={`
                           w-8 h-8 sm:w-10 sm:h-10 
-                          rounded-full flex items-center justify-center
+                          rounded-md flex items-center justify-center
                           border-2 ${step >= num ? 'border-yellow-400 bg-yellow-400/20' : 'border-gray-600'}
                           ${step === num ? 'ring-2 ring-yellow-400/30' : ''}
                         `}>
@@ -156,23 +151,22 @@ const Contact = () => {
                   {/* Name */}
                   {step === 1 && (
                     <div className="relative">
-                      <label className="block text-gray-400 text-sm sm:text-base mb-2">
-                        What's your name?
-                      </label>
+                      
                       <input
                         type="text"
-                        placeholder="Enter your full name"
+                        placeholder="Enter your name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         onKeyDown={handleKeyDown}
                         className="
-                          w-full bg-gray-900/60 
+                          w-full 
                           border-b-2 border-gray-600 
                           text-white placeholder-gray-500 
+                          font-semibold
                           px-3 sm:px-4 py-3 sm:py-4
-                          text-base sm:text-lg md:text-xl font-medium
-                          focus:outline-none focus:border-yellow-400
-                          transition-colors
+                          text-xl sm:text-3xl md:text-5xl 
+                          focus:outline-none
+                          transition-colors 
                           rounded-t-lg
                         "
                         autoFocus
@@ -181,17 +175,17 @@ const Contact = () => {
                       <button
                         onClick={handleNext}
                         className="
-                          absolute right-0 top-9 sm:top-10
+                          absolute right-0 top-1 sm:top-6
                           w-10 h-10 sm:w-12 sm:h-12
-                          border-2 border-yellow-400 
-                          text-yellow-400 rounded-full 
+                          border-2 
+                          text-black rounded-full 
                           flex items-center justify-center 
-                          hover:bg-yellow-400 hover:text-black 
+                         yellow hover:text-black 
                           transition-all duration-300
                           active:scale-95
                         "
                       >
-                        <HiArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <HiArrowRight className="w-4 h-4 sm:w-5 sm:h-5 -rotate-45" />
                       </button>
                     </div>
                   )}
@@ -199,9 +193,7 @@ const Contact = () => {
                   {/* Email */}
                   {step === 2 && (
                     <div className="relative">
-                      <label className="block text-gray-400 text-sm sm:text-base mb-2">
-                        What's your email?
-                      </label>
+                      
                       <input
                         type="email"
                         placeholder="Enter your email address"
@@ -209,13 +201,14 @@ const Contact = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         onKeyDown={handleKeyDown}
                         className="
-                          w-full bg-gray-900/60 
+                           w-full 
                           border-b-2 border-gray-600 
-                          text-white placeholder-gray-500 
+                          text-white 
+                          font-semibold
                           px-3 sm:px-4 py-3 sm:py-4
-                          text-base sm:text-lg md:text-xl font-medium
-                          focus:outline-none focus:border-yellow-400
-                          transition-colors
+                          text-xl sm:text-3xl md:text-5xl 
+                          focus:outline-none
+                          transition-colors 
                           rounded-t-lg
                         "
                         autoFocus
@@ -224,17 +217,17 @@ const Contact = () => {
                       <button
                         onClick={handleNext}
                         className="
-                          absolute right-0 top-9 sm:top-10
+                        absolute right-0 top-1 sm:top-6
                           w-10 h-10 sm:w-12 sm:h-12
-                          border-2 border-yellow-400 
-                          text-yellow-400 rounded-full 
+                          border-2 
+                          text-black rounded-full 
                           flex items-center justify-center 
-                          hover:bg-yellow-400 hover:text-black 
+                         yellow hover:text-black 
                           transition-all duration-300
                           active:scale-95
                         "
                       >
-                        <HiArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <HiArrowRight className="w-4 h-4 sm:w-5 sm:h-5 -rotatae-45" />
                       </button>
                     </div>
                   )}
@@ -243,7 +236,7 @@ const Contact = () => {
                   {step === 3 && (
                     <div className="relative">
                       <label className="block text-gray-400 text-sm sm:text-base mb-2">
-                        Your message
+                     
                       </label>
                       <textarea
                         rows={3}
@@ -251,13 +244,16 @@ const Contact = () => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         className="
-                          w-full bg-gray-900/60 
-                          border-2 border-gray-600 
+                            w-full 
+                          border-b-2 border-gray-600 
                           text-white placeholder-gray-500 
+                          font-semibold
                           px-3 sm:px-4 py-3 sm:py-4
-                          text-base sm:text-lg md:text-xl font-medium
-                          focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400/20
-                          transition-colors
+                          text-2xl sm:text-3xl md:text-5xl 
+                          focus:outline-none
+                          transition-colors 
+                          rounded-t-lg
+                        
                           rounded-lg
                           resize-none
                           min-h-[120px] sm:min-h-[150px]
@@ -413,7 +409,7 @@ const Contact = () => {
                         hover:border-gray-600
                         hover:bg-gray-800/50
                         transition-all duration-300
-                        group
+                        group yellow-text
                       `}
                     >
                       <div className="flex items-center gap-3 sm:gap-4">
@@ -432,9 +428,9 @@ const Contact = () => {
                         </span>
                       </div>
                       <HiArrowRight className="
-                        w-3 h-3 sm:w-4 sm:h-4 
-                        opacity-0 group-hover:opacity-100 
-                        group-hover:translate-x-1
+                        w-4 h-3 sm:w-4 sm:h-4 
+                        opacity-0 group-hover:opacity-100 -rotate-45 
+                        group-hover:translate-x-1 
                         transition-all
                       " />
                     </a>
@@ -462,12 +458,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Footer Note */}
-        <div className="max-w-7xl mx-auto mt-6 sm:mt-8">
-          <p className="text-gray-500 text-center text-xs sm:text-sm">
-            We typically respond within 24 hours. Your privacy is important to us.
-          </p>
-        </div>
+     
       </div>
     </div>
   );

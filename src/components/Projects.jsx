@@ -1,10 +1,15 @@
 import React from "react";
 import Project from '../assets/director.jpg';
 import { HiArrowUpRight } from "react-icons/hi2";
+import Asterisks from "./Asterisks";
 
 const projects = [
-  { title: "Comprehensive Web Development", image: Project, link: "#" },
+  { title: "Best Lagos State Logistics & Errands Comapny", 
+    
+    image: Project,
+     link: "#" },
   { title: "Performance & SEO Optimization", image: Project, link: "#" },
+  { title: "Content Management", image: Project, link: "#" },
   { title: "Content Management", image: Project, link: "#" },
 ];
 
@@ -18,24 +23,44 @@ const websiteTypes = [
   "Web App",
   "Non-Profit",
   "Educational",
+  "Web3",
+  "Real Estate",
+  "Construction",
 ];
 
 const Projects = () => {
   return (
-    <section className="px-6 py-16 sm:py-24 max-w-7xl mx-auto">
+    <>
+    <section className="px-6 py-16 sm:py-24 max-w-7xl mx-auto ">
       {/* Horizontal scrolling header */}
-      <div className="overflow-hidden mb-12">
-        <div className="flex animate-scroll whitespace-nowrap gap-8 text-gray-800 text-md sm:text-lg font-medium">
+      <div className="overflow- mb-12 flex-row">
+        
+               
+        <div className="flex flex-row animate-scroll whitespace-nowrap  h2 text-gray-300  text-md sm:text-lg font-medium uppercase">
+          
+    
+       
           {websiteTypes.concat(websiteTypes).map((type, index) => (
-            <span key={index} className="inline-block">
+            <span key={index} className="flex">
               {type}
+                <Asterisks/>
+              
+             
+        
             </span>
+            
+        
+           
           ))}
+        
+
         </div>
+        
+
       </div>
 
       {/* Projects grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {projects.map((project, index) => (
           <div key={index} className="relative">
             {/* Card */}
@@ -46,7 +71,7 @@ const Projects = () => {
                 rounded-3xl
                 overflow-hidden
                 bg-black
-                border border-white
+              
                 group
               "
               style={{
@@ -54,8 +79,8 @@ const Projects = () => {
                   polygon(
                     0 0,
                     70% 0,
-                    70% 25%,
-                    100% 25%,
+                    70% 20%,
+                    100% 20%,
                     100% 100%,
                     0 100%
                   )
@@ -85,13 +110,15 @@ const Projects = () => {
               href={project.link}
               className="
                 absolute top-2 right-2
-                w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20
+                 w-20 h-12  md:w-14 md:h-14 mt-2 mr-2 
                 rounded-lg
-                bg-lime-300
+                yellow
                 flex items-center justify-center
                 shadow-lg
                 hover:scale-110
                 transition
+                
+                
               "
             >
               <HiArrowUpRight className="text-black w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
@@ -102,7 +129,7 @@ const Projects = () => {
 
       {/* More Projects Button */}
       <div className="mt-12 flex justify-center">
-        <button className="px-8 py-4 bg-lime-300 text-black font-semibold rounded-lg shadow-lg hover:bg-lime-400 transition">
+        <button className="px-8 py-4 yellow text-black font-semibold rounded-lg shadow-lg  transition">
           More Projects
         </button>
       </div>
@@ -119,6 +146,7 @@ const Projects = () => {
         }
       `}</style>
     </section>
+    </>
   );
 };
 

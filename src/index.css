@@ -7,8 +7,12 @@
 @import "tailwindcss";
 /* src/App.css */
 
+
+
 * {
   box-sizing: border-box;
+  user-select: none;
+  cursor: ;
 }
 :root {
   /* colors */
@@ -16,7 +20,7 @@
   --secondary-color: #1E293B;
   --accent-color: #E5E7EB;
   --primary-text: #E5E7EB;
-  --secondary-text: #22D3EE;
+  --secondary-text: ;
 
   /* fonts */
   --font-h1: 'gotu', sans-serif;
@@ -37,6 +41,12 @@ body {
   margin: 0;
   padding: 0;
   position: ;
+}
+.yellow {
+  background-color: goldenrod;
+}
+.yellow-text:hover {
+color: goldenrod;
 }
 
 /* Smooth scrolling */

@@ -21,13 +21,13 @@ const steps = [
 
 const Workprocess = () => {
   return (
-    <div className="min-h-screen bg-gray-900 py-12 sm:py-16 md:py-20 px-4 sm:px-6">
+    <div className="min-h-fit  py-12 sm:py-16 md:py-20 px-4 sm:px-6">
       {/* Header */}
       <header className="max-w-6xl mx-auto mb-12 sm:mb-16 text-center">
-        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
+        <h1 className="text-black font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
           Our Work Process
         </h1>
-        <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-black text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
           A clear and simple 4-step process to ensure every project is delivered efficiently and with excellence.
         </p>
       </header>
@@ -57,12 +57,12 @@ const Workprocess = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-white font-semibold text-lg md:text-xl mb-2 sm:mb-3 text-center">
+              <h3 className="text-blue-400 font-semibold text-lg md:text-xl mb-2 sm:mb-3 text-center">
                 {step.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-400 text-sm md:text-base text-center leading-relaxed px-2">
+              <p className="text-black text-sm md:text-base text-center leading-relaxed px-2">
                 {step.description}
               </p>
             </div>
@@ -107,28 +107,7 @@ const Workprocess = () => {
       </div>
 
       {/* Minimal Stats Section */}
-      <div className="max-w-6xl mx-auto mt-16 sm:mt-20 md:mt-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {[
-            { number: "4", label: "Simple Steps" },
-            { number: "100%", label: "Transparent" },
-            { number: "24/7", label: "Support" },
-            { number: "∞", label: "Iterations" },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="bg-gray-800/30 rounded-xl p-4 sm:p-6 text-center border border-gray-700/50"
-            >
-              <div className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-400 text-xs sm:text-sm">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+    
     </div>
   );
 };

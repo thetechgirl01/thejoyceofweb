@@ -27,17 +27,16 @@ function App() {
        <div className="px-9  bg-gray-900/95">
        <Projects/>
       </div>
-       <div className="px-9  bg-gray-900/95">
-       <FAQComponent/>
+         <div className="px-9  bg-white">
+       <Workprocess/>
+       
       </div>
-       <div className="px-9  bg-gray-900/95">
+     
+       <div className="px-9  ">
        <Contact/>
        
       </div>
-      <div className="px-9  bg-gray-900/95">
-       <Workprocess/>/
-       
-      </div>
+   
        <div className="px-9  bg-gray-900/95">
        <Blog/>
        
@@ -47,7 +46,7 @@ function App() {
        <Youtube/>
        
       </div>
-           <div className="px-9  bg-gray-900/95">
+           <div className="px-9  ">
        <Footer/>
        
       </div>

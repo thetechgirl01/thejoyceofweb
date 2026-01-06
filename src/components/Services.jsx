@@ -185,7 +185,7 @@ const ServicesPage = () => {
                   group-hover:translate-x-1
                   transition
                 ">
-                  <HiArrowRight className="text-black w-4 h-4 -rotate-18" />
+                  <HiArrowRight className="text-black w-4 h-4 -rotate-45" />
                 </span>
               </a>
             </div>

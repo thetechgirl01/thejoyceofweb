@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiPhone, FiMenu, FiX } from "react-icons/fi";
+import Tklogo from '../assets/tklogo.png'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,11 +25,11 @@ export default function Navbar() {
           : "bg-transparent text-white bg-white/5 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-1 md:2">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 font-bold text-xl">
-            Rakesh
+          <div className="flex-shrink-0 font-bold text-xl w-10 sm:w-full md:w-14">
+           <img src={Tklogo} alt="Teckneik Logo w-50 h-50" />
           </div>
 
           {/* Center Links - Desktop */}

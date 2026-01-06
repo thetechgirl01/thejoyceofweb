@@ -13,7 +13,7 @@ const About = () => {
         <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
           <h1 className="
             text-black font-bold uppercase leading-tight
-            text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+            text-3xl sm:text-4xl md:text-5xl lg:text-6xl h1
           ">
             Behind <br className="hidden lg:block" /> The Pixels
           </h1>
@@ -61,7 +61,7 @@ const About = () => {
               group-hover:translate-x-1
               transition
             ">
-              <HiArrowRight className="text-black w-4 h-4 sm:w-5 sm:h-5 -rotate-18" />
+              <HiArrowRight className="text-black w-4 h-4 sm:w-5 sm:h-5 -rotate-45" />
             </span>
           </a>
         </div>
