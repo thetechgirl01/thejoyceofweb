@@ -8,9 +8,33 @@ const projects = [
   { title: "Content Management", image: Project, link: "#" },
 ];
 
+const websiteTypes = [
+  "E-commerce",
+  "Portfolio",
+  "Blog",
+  "Landing Page",
+  "Corporate",
+  "SaaS",
+  "Web App",
+  "Non-Profit",
+  "Educational",
+];
+
 const Projects = () => {
   return (
-    <section className="px-4 sm:px-6 py-16 sm:py-24 max-w-7xl mx-auto">
+    <section className="px-6 py-16 sm:py-24 max-w-7xl mx-auto">
+      {/* Horizontal scrolling header */}
+      <div className="overflow-hidden mb-12">
+        <div className="flex animate-scroll whitespace-nowrap gap-8 text-gray-800 text-md sm:text-lg font-medium">
+          {websiteTypes.concat(websiteTypes).map((type, index) => (
+            <span key={index} className="inline-block">
+              {type}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Projects grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <div key={index} className="relative">
@@ -75,6 +99,25 @@ const Projects = () => {
           </div>
         ))}
       </div>
+
+      {/* More Projects Button */}
+      <div className="mt-12 flex justify-center">
+        <button className="px-8 py-4 bg-lime-300 text-black font-semibold rounded-lg shadow-lg hover:bg-lime-400 transition">
+          More Projects
+        </button>
+      </div>
+
+      {/* Smooth scroll animation */}
+      <style jsx>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+          display: inline-flex;
+          animation: scroll 20s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };

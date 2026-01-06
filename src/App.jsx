@@ -6,6 +6,9 @@ import Services from './components/Services';
 import About from './components/About';
 import Projects from './components/Projects';
 import FAQComponent from './components/Faq';
+import Contact from './components/contact';
+import Workprocess from './components/WorkProcess';
+
 
 function App() {
   return (
@@ -24,6 +27,16 @@ function App() {
        <div className="px-9  bg-gray-900/95">
        <FAQComponent/>
       </div>
+       <div className="px-9  bg-gray-900/95">
+       <Contact/>
+       
+      </div>
+      <div className="px-9  bg-gray-900/95">
+       <Workprocess/>/
+       
+      </div>
+      
+
 
 
    
