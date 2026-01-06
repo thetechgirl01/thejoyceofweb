@@ -18,6 +18,7 @@ function App() {
         <About/>
       </div>
        <div className="px-9  bg-gray-900/95">
+       <Projects/>
       </div>
    
     </div>
