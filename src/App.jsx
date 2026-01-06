@@ -6,7 +6,7 @@ import Services from './components/Services';
 import About from './components/About';
 import Projects from './components/Projects';
 import FAQComponent from './components/Faq';
-import Contact from './components/contact';
+import Contact from './components/Contact';
 import Workprocess from './components/WorkProcess';
 import Blog from './components/Blog';
 import Youtube from './components/Youtube';
