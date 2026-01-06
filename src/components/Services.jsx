@@ -42,7 +42,7 @@ const ServicesPage = () => {
     },
     {
       icon: <MdSearch className="w-12 h-12" />,
-      title: "SEO Optimization",
+      title: "Performance & SEO Optimization",
       description:
         "Search-engine-friendly websites built to increase visibility and organic traffic.",
       longDescription:
@@ -88,12 +88,12 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen my-10">
+    <div className="min-h-screen mt-10 py-5">
       {/* Hero/Header */}
       <header className="px-6 py-12 max-w-7xl mx-auto">
   <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-6">
     {/* Left: Our Services */}
-    <h1 className="text-white font-bold text-5xl sm:text-3xl md:text-6xl  leading-none text-center md:text-left">
+    <h1 className="text-white font-bold text-5xl sm:text-3xl md:text-6xl  leading-none text-center md:text-left h1">
       What Are The Services We Offer?
     </h1>
 
@@ -141,7 +141,7 @@ const ServicesPage = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-white text-xl font-bold mb-2">
+              <h3 className="text-white text-xl font-semibold mb-2 uppercase">
                 {service.title}
               </h3>
 
@@ -171,7 +171,7 @@ const ServicesPage = () => {
                 "
               >
                 <span className="text-white font-medium">
-                  Learn more
+                  Read more about it
                 </span>
 
                 {/* Yellow circular arrow */}
@@ -183,7 +183,7 @@ const ServicesPage = () => {
                   group-hover:translate-x-1
                   transition
                 ">
-                  <HiArrowRight className="text-black w-5 h-5" />
+                  <HiArrowRight className="text-black w-5 h-5 -rotate-18" />
                 </span>
               </a>
             </div>

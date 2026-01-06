@@ -87,14 +87,14 @@ export const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-6 py-5 relative ">
+    <section className="min-h-screen flex flex-col  items-center justify-center px-4 sm:px-6 md:px-6 py-5 relative ">
       {/* Glass Card */}
-      <div className="rounded-3xl shadow-2xl max-w-5xl w-full p-6 sm:p-8 md:p-16 z-10 ">
+      <div className="rounded-3xl shadow-2xl max-w-5xl w-full p-6 sm:p-8 md:p-16 z-10 mt-16">
         <div className="flex flex-col items-center text-center">
           {/* Location */}
           <h3 className="flex items-center gap-2 text-white/50 text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2 md:mb-2">
             <MdLocationOn className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span>Lagos, Nigeria</span>
+            <span>Lagos, Nigeria.</span>
           </h3>
 
           {/* Main Title - Updated with inline-block for proper overlay positioning */}
@@ -172,3 +172,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+export default Hero

@@ -48,7 +48,9 @@ html {
 /* Headings */
 h1 {
   font-family: var(--font-h1);
-  color: var(--primary-text);
+  text-transform: uppercase;
+ 
+  
 }
 
 h2 {

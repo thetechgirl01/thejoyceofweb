@@ -18,10 +18,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-colors duration-300 ${
+      className={`fixed w-full z-50 transition-colors  duration-300 ${
         scrolled 
-          ? "bg-white/90 backdrop-blur-sm shadow-md text-black" 
-          : "bg-transparent text-white"
+          ? "bg-white/5 backdrop-blur-sm shadow-md text-black" 
+          : "bg-transparent text-white bg-white/5 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,7 +37,7 @@ export default function Navbar() {
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="hover:text-blue-300 transition-colors font-medium"
+                className="hover:text-yellow-300 transition-colors font-medium"
               >
                 {link}
               </a>
