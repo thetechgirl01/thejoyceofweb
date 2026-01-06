@@ -8,6 +8,8 @@ import Projects from './components/Projects';
 import FAQComponent from './components/Faq';
 import Contact from './components/contact';
 import Workprocess from './components/WorkProcess';
+import Blog from './components/Blog';
+import Youtube from './components/Youtube';
 
 
 function App() {
@@ -35,6 +37,16 @@ function App() {
        <Workprocess/>/
        
       </div>
+       <div className="px-9  bg-gray-900/95">
+       <Blog/>
+       
+      </div>
+
+        <div className="px-9  bg-gray-900/95">
+       <Youtube/>
+       
+      </div>
+      
       
 
 
