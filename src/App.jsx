@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import Workprocess from './components/WorkProcess';
 import Blog from './components/Blog';
 import Youtube from './components/Youtube';
+import Footer from './components/Footer.jsx';
 
 
 function App() {
@@ -44,6 +45,10 @@ function App() {
 
         <div className="px-9  bg-gray-900/95">
        <Youtube/>
+       
+      </div>
+           <div className="px-9  bg-gray-900/95">
+       <Footer/>
        
       </div>
       
