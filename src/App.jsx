@@ -36,6 +36,7 @@ function App() {
        <Contact/>
        
       </div>
+      {/** 
    
        <div className="px-9  bg-gray-900/95">
        <Blog/>
@@ -46,6 +47,7 @@ function App() {
        <Youtube/>
        
       </div>
+      */}
            <div className="px-9  ">
        <Footer/>
        

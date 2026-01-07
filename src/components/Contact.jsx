@@ -169,7 +169,7 @@ const Contact = () => {
                           transition-colors 
                           rounded-t-lg
                         "
-                        autoFocus
+                    
                       />
                       {error && <p className="text-red-400 text-xs sm:text-sm mt-2">{error}</p>}
                       <button
@@ -211,7 +211,7 @@ const Contact = () => {
                           transition-colors 
                           rounded-t-lg
                         "
-                        autoFocus
+                     
                       />
                       {error && <p className="text-red-400 text-xs sm:text-sm mt-2">{error}</p>}
                       <button
@@ -258,7 +258,7 @@ const Contact = () => {
                           resize-none
                           min-h-[120px] sm:min-h-[150px]
                         "
-                        autoFocus
+                    
                       />
                       {error && <p className="text-red-400 text-xs sm:text-sm mt-2">{error}</p>}
                       <div className="flex justify-between items-center mt-4">
