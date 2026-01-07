@@ -11,6 +11,7 @@ import Workprocess from './components/WorkProcess';
 import Blog from './components/Blog';
 import Youtube from './components/Youtube';
 import Footer from './components/Footer.jsx';
+import Tesst from './components/Tesst.jsx';
 
 
 function App() {
@@ -48,6 +49,11 @@ function App() {
        
       </div>
       */}
+
+       <div className="px-9  bg-white">
+       <Tesst/>
+       
+      </div>
            <div className="px-9  ">
        <Footer/>
        

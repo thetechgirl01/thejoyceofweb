@@ -74,19 +74,19 @@ const Contact = () => {
               Let's Build Something Amazing
             </h1>
 
-            {/* Envelope Icon */}
-            <div className="
-              w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 md:flex sm:hidden
-              rounded-full border-2 border-blue-400 
-              bg-blue-400
-              flex items-center justify-center
-              flex-shrink-0
-              mt-2 sm:mt-0
-              
-             
-            ">
-              <FaRegEnvelope className="text-white w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 " />
-            </div>
+           {/* Envelope Icon */}
+<div className="
+  w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32
+  rounded-full border-2 border-blue-400 
+  bg-blue-400
+  flex items-center justify-center
+  flex-shrink-0
+   sm:mt-0
+  mx-auto lg:mx-0
+">
+  <FaRegEnvelope className="text-white w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+</div>
+
           </div>
 
           {/* Subtitle */}
@@ -383,7 +383,7 @@ const Contact = () => {
                   mb-4 sm:mb-6
                   text-center lg:text-left
                 ">
-                  Connect With Us
+                  Where to find CrownWebs.
                 </h2>
                 
                 {/* Social Media Grid */}
@@ -443,7 +443,7 @@ const Contact = () => {
                   <p className="text-gray-400 text-sm sm:text-base text-center lg:text-left mb-3">
                     Quick Response Guaranteed
                   </p>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-row gap-2 justify-center ">
                     <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-300">
                       <FaEnvelope className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span className="text-xs sm:text-sm">hello@example.com</span>
