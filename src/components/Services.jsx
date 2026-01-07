@@ -13,18 +13,10 @@ import { HiArrowRight } from "react-icons/hi";
 
 const ServicesPage = () => {
   const services = [
-    {
-      icon: <MdMobileFriendly className="w-6 h-6 sm:w-8 sm:h-8" />,
-      title: "Mobile App Development",
-      description:
-        "High-performance mobile applications designed for speed, scalability, and real-world usage.",
-      longDescription:
-        "We design and develop robust mobile applications for both iOS and Android platforms, focusing on performance, intuitive design, and long-term scalability.",
-      link: "#"
-    },
+   
     {
       icon: <MdCode className="w-6 h-6 sm:w-8 sm:h-8" />,
-      title: "Web Development",
+      title: "Web Design & Development",
       description:
         "Custom-built websites and web applications using modern, reliable technologies.",
       longDescription:
@@ -64,7 +56,8 @@ const ServicesPage = () => {
       description:
         "Strong security layers to protect platforms and data.",
       longDescription:
-        "We implement SSL, secure authentication, updates, and best practices to protect against threats.",
+        "We implement SSL, secure authentication, updates, and best practices to protect against threats. Continuous maintenance, updates, monitoring, and feature enhancements for long-term reliability.",
+      
       link: "#"
     },
     {
@@ -76,15 +69,7 @@ const ServicesPage = () => {
         "High availability hosting with flexible scaling and performance optimization.",
       link: "#"
     },
-    {
-      icon: <MdSettings className="w-6 h-6 sm:w-8 sm:h-8" />,
-      title: "Maintenance & Support",
-      description:
-        "Ongoing support to keep products running smoothly.",
-      longDescription:
-        "Continuous maintenance, updates, monitoring, and feature enhancements for long-term reliability.",
-      link: "#"
-    }
+
   ];
 
   return (

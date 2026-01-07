@@ -102,7 +102,7 @@ export const Hero = () => {
             ref={techneikRef}
             className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-2 sm:mb-3 md:mb-6 leading-tight sm:leading-snug md:leading-none inline-block relative overflow-hidden"
           >
-            TECHNEIK
+            AxenWebs
           </h1>
 
           {/* Subtitle */}

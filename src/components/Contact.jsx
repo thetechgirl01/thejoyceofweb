@@ -59,12 +59,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen px-6">
-      <div className="py-6 sm:py-8 md:py-12 px-3 sm:px-4 md:px-6">
-        
-        {/* Header */}
-        <header className="max-w-7xl mx-auto mb-8 sm:mb-12">
-          <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:items-center gap-4 sm:gap-6">
+      <div className="min-h-screen py-10 sm:py-16">
+      
+      {/* HERO */}
+      <header className="px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-20">
+        <div className="flex flex-col lg:flex-row justify-between gap-8">
+
             <h1 className="
               text-white font-bold leading-tight text-center lg:text-left
               text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl
@@ -460,7 +460,7 @@ const Contact = () => {
 
      
       </div>
-    </div>
+ 
   );
 };
 
