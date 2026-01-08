@@ -5,96 +5,108 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import Asterisks from "./Asterisks";
 
 const projects = [
-  { title: "Best Lagos State Logistics & Errands Company", image: Project },
-  { title: "Performance & SEO Optimization", image: Project },
-  { title: "Content Management System", image: Project },
-  { title: "High Conversion Landing Pages", image: Project },
+  { title: "Best Lagos State Logistics & Errands Company", image: Project, link: "#" },
+  { title: "Performance & SEO Optimization", image: Project, link: "#" },
+  { title: "Content Management System", image: Project, link: "#" },
+  { title: "High Conversion Landing Pages", image: Project, link: "#" },
 ];
 
 const websiteTypes = [
-  "E-commerce","Portfolio","Blog","Landing Page","Corporate",
-  "SaaS","Web App","Web3","Real Estate","Construction",
+  "E-commerce","Portfolio","Blog","Landing Page",
+  "Corporate","SaaS","Web App","Web3","Real Estate",
 ];
 
 const Projects = () => {
   const scrollRef = useRef(null);
-  const [index, setIndex] = useState(0);
+  const [active, setActive] = useState(0);
 
-  const next = () => setIndex((i) => Math.min(i + 1, projects.length - 1));
-  const prev = () => setIndex((i) => Math.max(i - 1, 0));
+  const scrollTo = (index) => {
+    const cardWidth = 340; // card + gap
+    scrollRef.current.scrollTo({
+      left: index * cardWidth,
+      behavior: "smooth",
+    });
+  };
+
+  const handleScroll = () => {
+    const cardWidth = 340;
+    const index = Math.round(scrollRef.current.scrollLeft / cardWidth);
+    setActive(index);
+  };
 
   return (
-    <section className="px-6 py-20 sm:py-28 max-w-7xl mx-auto">
-      
-      {/* H1 INTRO */}
-      <div className="mb-16 max-w-3xl">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white">
-          Projects that don’t just look good —
-          <span className="yellow block mt-2">they perform.</span>
-        </h1>
-        <p className="text-gray-400 mt-6 text-lg">
-          Carefully crafted websites engineered for speed, clarity,
-          and real business results.
-        </p>
-      </div>
+    <section className="px-6 py-24 max-w-7xl mx-auto">
 
-      {/* ANIMATED SKILLS */}
-      <div className="overflow-hidden mb-20">
-        <div className="flex animate-scroll whitespace-nowrap uppercase text-gray-300 text-sm sm:text-base">
-          {websiteTypes.concat(websiteTypes).map((type, i) => (
-            <span key={i} className="flex items-center mr-6">
-              {type}
-              <Asterisks />
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* TWO FLEX SIDES */}
+      <div className="flex flex-col lg:flex-row gap-16">
 
-      {/* CONTENT AREA */}
-      <div className="flex flex-col lg:flex-row gap-12">
-
-        {/* TEXT SIDE */}
+        {/* LEFT SIDE — TEXTS */}
         <div className="lg:w-1/3">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-white">
-            Selected Work
-          </h2>
-          <p className="text-gray-400 mt-4">
-            A mix of client projects, experimental builds,
-            and performance-focused websites.
+          <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-white">
+            Real projects.
+            <span className="yellow block">Real results.</span>
+          </h1>
+
+          <p className="text-gray-400 mt-6 text-lg">
+            Carefully engineered websites designed to convert,
+            scale, and stand out in competitive markets.
           </p>
         </div>
 
-        {/* PROJECTS – LARGE SCREEN SCROLL */}
-        <div
-          ref={scrollRef}
-          className="
-            hidden lg:flex
-            lg:w-2/3
-            gap-6
-            overflow-x-auto
-            pb-6
-            scroll-smooth
-            fancy-scrollbar
-          "
-        >
-          {projects.map((project, i) => (
-            <div key={i} className="min-w-[320px] relative">
-              <ProjectCard project={project} />
+        {/* RIGHT SIDE — SKILLS + CARDS */}
+        <div className="lg:w-2/3 relative">
+
+          {/* ANIMATED SKILLS */}
+          <div className="overflow-hidden mb-8">
+            <div className="flex animate-scroll whitespace-nowrap uppercase text-gray-300 text-sm">
+              {websiteTypes.concat(websiteTypes).map((type, i) => (
+                <span key={i} className="flex items-center mr-6">
+                  {type}
+                  <Asterisks />
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* PROJECTS – MOBILE SLIDER */}
-        <div className="lg:hidden relative">
-          <ProjectCard project={projects[index]} />
+          {/* LEFT / RIGHT ARROWS */}
+          <div className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 text-gray-500">
+            <HiChevronLeft className="w-5 h-5" />
+          </div>
+          <div className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 text-gray-500">
+            <HiChevronRight className="w-5 h-5" />
+          </div>
 
-          {/* CONTROLS */}
-          <div className="flex justify-between mt-6">
-            <button onClick={prev} className="p-3 rounded-lg yellow">
-              <HiChevronLeft className="w-5 h-5 text-black" />
-            </button>
-            <button onClick={next} className="p-3 rounded-lg yellow">
-              <HiChevronRight className="w-5 h-5 text-black" />
+          {/* CARDS SCROLL */}
+          <div
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="flex gap-6 overflow-x-auto scroll-smooth pb-6 hide-scrollbar"
+          >
+            {projects.map((project, i) => (
+              <ProjectCard key={i} project={project} />
+            ))}
+          </div>
+
+          {/* PROGRESS / BUTTONS */}
+          <div className="flex gap-3 mt-6">
+            {projects.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollTo(i)}
+                className={`
+                  transition-all duration-300
+                  ${active === i
+                    ? "w-8 h-1 bg-yellow-400"
+                    : "w-3 h-3 bg-gray-600 rounded-full"}
+                `}
+              />
+            ))}
+          </div>
+
+          {/* MORE PROJECTS BUTTON */}
+          <div className="mt-12 flex justify-end">
+            <button className="px-8 py-4 yellow text-black font-semibold rounded-lg shadow-lg hover:scale-105 transition">
+              More Projects
             </button>
           </div>
         </div>
@@ -107,18 +119,14 @@ const Projects = () => {
           100% { transform: translateX(-50%); }
         }
         .animate-scroll {
-          animation: scroll 25s linear infinite;
+          animation: scroll 22s linear infinite;
         }
-
-        .fancy-scrollbar::-webkit-scrollbar {
-          height: 6px;
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
         }
-        .fancy-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .fancy-scrollbar::-webkit-scrollbar-thumb {
-          background: #facc15;
-          border-radius: 999px;
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </section>
@@ -126,44 +134,44 @@ const Projects = () => {
 };
 
 const ProjectCard = ({ project }) => (
-  <div
-    className="
-      relative
-      h-[380px]
-      rounded-3xl
-      overflow-hidden
-      bg-black
-      group
-    "
-    style={{
-      clipPath: `
-        polygon(
-          0 0,
-          70% 0,
-          70% 20%,
-          100% 20%,
-          100% 100%,
-          0 100%
-        )
-      `
-    }}
-  >
-    <img
-      src={project.image}
-      alt={project.title}
-      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition"
-    />
-    <div className="absolute inset-0 bg-black/60" />
+  <div className="relative min-w-[320px]">
 
-    <div className="absolute bottom-6 left-6 right-6">
-      <h3 className="text-white font-semibold uppercase text-lg">
-        {project.title}
-      </h3>
+    {/* CARD */}
+    <div
+      className="relative h-[380px] rounded-3xl overflow-hidden bg-black group"
+      style={{
+        clipPath: `
+          polygon(
+            0 0,
+            70% 0,
+            70% 20%,
+            100% 20%,
+            100% 100%,
+            0 100%
+          )
+        `
+      }}
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute bottom-6 left-6 right-6">
+        <h3 className="text-white font-semibold uppercase text-lg">
+          {project.title}
+        </h3>
+      </div>
     </div>
 
-    <div className="absolute top-3 right-3 w-14 h-14 yellow rounded-lg flex items-center justify-center">
+    {/* LINK BUTTON — RESTORED */}
+    <a
+      href={project.link}
+      className="absolute top-2 right-2 w-14 h-14 rounded-lg yellow flex items-center justify-center shadow-lg hover:scale-110 transition z-10"
+    >
       <HiArrowUpRight className="w-6 h-6 text-black" />
-    </div>
+    </a>
   </div>
 );
 
