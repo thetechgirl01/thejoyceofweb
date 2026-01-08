@@ -13,73 +13,67 @@ export const Hero = () => {
   const techneikRef = useRef(null);
   const overlayRef = useRef(null);
 
-  // Drag/swipe state
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  // GSAP animation on page load
+  // GSAP intro animation
   useEffect(() => {
-    // Create overlay element
     const overlay = document.createElement('div');
     overlay.style.position = 'absolute';
     overlay.style.top = '0';
     overlay.style.left = '0';
     overlay.style.width = '100%';
     overlay.style.height = '100%';
-    overlay.style.backgroundColor = '#011936'; // Blue background
+    overlay.style.backgroundColor = '#011936';
     overlay.style.zIndex = '1';
-    
-    // Insert overlay before the text content
+
     if (techneikRef.current) {
       techneikRef.current.style.position = 'relative';
       techneikRef.current.appendChild(overlay);
       overlayRef.current = overlay;
-      
-      // Animate the text to slide up
+
       gsap.fromTo(
         techneikRef.current,
-        { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 3, ease: 'power3.out' }
+        { y: 80, opacity: 0 },
+        { y: 0, opacity: 1, duration: 2.5, ease: 'power3.out' }
       );
-      
-      // Animate the overlay to slide up and reveal the text
+
       gsap.fromTo(
         overlay,
         { y: 0 },
-        { y: '-100%', duration: 3, ease: 'power3.out', delay: 0.1 }
+        { y: '-100%', duration: 2.5, ease: 'power3.out', delay: 0.1 }
       );
     }
-    
-    // Cleanup
+
     return () => {
-      if (overlayRef.current && overlayRef.current.parentNode) {
+      if (overlayRef.current?.parentNode) {
         overlayRef.current.parentNode.removeChild(overlayRef.current);
       }
     };
   }, []);
 
-  // Mouse events
+  // Mouse drag
   const handleMouseDown = (e) => {
     setIsDown(true);
     setStartX(e.pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
   };
-  const handleMouseUp = () => setIsDown(false);
-  const handleMouseLeave = () => setIsDown(false);
+
   const handleMouseMove = (e) => {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // scroll speed
+    const walk = (x - startX) * 2;
     scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  // Touch events
+  // Touch drag
   const handleTouchStart = (e) => {
     setStartX(e.touches[0].pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
   };
+
   const handleTouchMove = (e) => {
     const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
     const walk = (x - startX) * 2;
@@ -87,62 +81,66 @@ export const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center md:items-center md:justify-center sm:justify-left sm:items-start px-4 sm:px-0 md:px-6 py-5 relative ">
+    <section className="min-h-screen flex flex-col items-start justify-start px-4 md:px-6 py-10 relative">
       {/* Glass Card */}
-      <div className=" max-w-5xl w-full p-6 sm:p-8 md:p-16 z-10 mt-16">
-        <div className="flex flex-col items-center text-center md:items-center md:text-center sm:text-l ">
+      <div className="max-w-5xl w-full p-6 sm:p-8 md:p-16 mt-16">
+        <div className="flex flex-col items-start text-left">
+
           {/* Location */}
-          <h3 className="flex items-center gap-2 text-white/50 text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2 md:mb-2">
-            <MdLocationOn className="w-4 h-4 sm:w-5 sm:h-5" />
+          <h3 className="flex items-center gap-2 text-white/50 text-sm md:text-lg font-semibold mb-2">
+            <MdLocationOn className="w-5 h-5" />
             <span>Lagos, Nigeria.</span>
           </h3>
 
-          {/* Main Title - Updated with inline-block for proper overlay positioning */}
+          {/* Title */}
           <h1
             ref={techneikRef}
-            className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-2 sm:mb-3 md:mb-6 leading-tight sm:leading-snug md:leading-none inline-block relative overflow-hidden"
+            className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-4 leading-tight inline-block relative overflow-hidden"
           >
-           Web development services
+            npm run dev  
+            <br />
+            Web development services
           </h1>
 
           {/* Subtitle */}
-          <h2 className="text-blue-300 text-lg sm:text-xl md:text-3xl font-semibold mb-2 sm:mb-4 md:mb-4 leading-snug sm:leading-snug md:leading-none">
+          <h2 className="text-blue-300 text-lg sm:text-xl md:text-3xl font-semibold mb-4">
             CROWNWEBS
           </h2>
 
           {/* Description */}
-          <p className="text-gray-300 text-sm sm:text-base md:text-xl mb-4 sm:mb-6 md:mb-10 leading-snug sm:leading-relaxed md:leading-relaxed max-w-3xl">
-           is a creative code studio that focuses on building software solutions for busineses and startups with TASTE.
+          <p className="text-gray-300 text-sm sm:text-base md:text-xl mb-8 max-w-3xl">
+            A creative code studio focused on building software solutions
+            for businesses and startups with taste.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
-            <button className="flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-black font-semibold py-3 px-8 sm:px-10 md:px-12 rounded-xl transition duration-300 hover:scale-105">
-              Need A Website? <AiOutlineArrowRight className="w-4 h-4 md:w-5 md:h-5 -rotate-45" />
+          <div className="flex flex-wrap justify-start gap-4 mb-12">
+            <button className="flex items-center gap-2 bg-white text-black font-semibold py-3 px-8 rounded-xl transition hover:scale-105">
+              Need A Website?
+              <AiOutlineArrowRight className="-rotate-45" />
             </button>
 
-            <button className="flex items-center justify-center gap-2 bg-transparent hover:bg-blue-500/20 border-2 border-white text-white font-semibold py-3 px-8 sm:px-10 md:px-12 rounded-xl transition duration-300 hover:scale-105">
-              Works<AiOutlineArrowRight className="w-4 h-4 md:w-5 md:h-5 -rotate-45" />
+            <button className="flex items-center gap-2 border-2 border-white text-white font-semibold py-3 px-8 rounded-xl transition hover:bg-blue-500/20 hover:scale-105">
+              Works
+              <AiOutlineArrowRight className="-rotate-45" />
             </button>
           </div>
 
-          {/* Technologies Section */}
-          <h3 className="text-white/50 text-md sm:text-sm font-bold mb-6 mt-10 text-center">
-           What We Bring To The Table:
+          {/* Technologies */}
+          <h3 className="text-white/50 font-bold mb-4">
+            What We Bring To The Table:
           </h3>
 
           <div className="relative w-full overflow-hidden">
-            {/* Smoky overlay on both sides */}
-            <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black/50 pointer-events-none z-20" />
-            <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black/50 pointer-events-none z-20" />
+            <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black/50 z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black/50 z-10 pointer-events-none" />
 
-            {/* Tech items container with drag-to-scroll - HIDDEN SCROLLBAR */}
             <div
               ref={scrollRef}
-              className="flex gap-2 py-2 px-4 cursor-grab overflow-x-hidden" // Changed to overflow-x-hidden
+              className="flex gap-2 py-2 px-1 cursor-grab overflow-x-hidden"
               onMouseDown={handleMouseDown}
-              onMouseLeave={handleMouseLeave}
-              onMouseUp={handleMouseUp}
+              onMouseUp={() => setIsDown(false)}
+              onMouseLeave={() => setIsDown(false)}
               onMouseMove={handleMouseMove}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
@@ -150,27 +148,18 @@ export const Hero = () => {
               {technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="
-                    bg-white/10 backdrop-blur-md
-                    border border-white/20
-                    rounded-full
-                    px-3 py-1
-                    text-white text-sm font-medium
-                    hover:bg-white/20
-                    whitespace-nowrap
-                    flex-shrink-0
-                    transition
-                  "
+                  className="bg-white/10 border border-white/20 rounded-full px-4 py-1 text-white text-sm whitespace-nowrap transition hover:bg-white/20"
                 >
                   {tech}
                 </span>
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>
   );
 };
 
-export default Hero
+export default Hero;
