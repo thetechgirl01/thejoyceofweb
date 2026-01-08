@@ -21,10 +21,7 @@ export const Hero = () => {
   useEffect(() => {
     const overlay = document.createElement('div');
     overlay.style.position = 'absolute';
-    overlay.style.top = '0';
-    overlay.style.left = '0';
-    overlay.style.width = '100%';
-    overlay.style.height = '100%';
+    overlay.style.inset = '0';
     overlay.style.backgroundColor = '#011936';
     overlay.style.zIndex = '1';
 
@@ -35,14 +32,14 @@ export const Hero = () => {
 
       gsap.fromTo(
         techneikRef.current,
-        { y: 80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 2.5, ease: 'power3.out' }
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 2.2, ease: 'power3.out' }
       );
 
       gsap.fromTo(
         overlay,
         { y: 0 },
-        { y: '-100%', duration: 2.5, ease: 'power3.out', delay: 0.1 }
+        { y: '-100%', duration: 2.2, ease: 'power3.out', delay: 0.1 }
       );
     }
 
@@ -53,7 +50,7 @@ export const Hero = () => {
     };
   }, []);
 
-  // Mouse drag
+  // Drag logic
   const handleMouseDown = (e) => {
     setIsDown(true);
     setStartX(e.pageX - scrollRef.current.offsetLeft);
@@ -64,11 +61,10 @@ export const Hero = () => {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    scrollRef.current.scrollLeft = scrollLeft - walk;
+    scrollRef.current.scrollLeft = scrollLeft - (x - startX) * 2;
   };
 
-  // Touch drag
+  // Touch logic
   const handleTouchStart = (e) => {
     setStartX(e.touches[0].pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
@@ -76,34 +72,42 @@ export const Hero = () => {
 
   const handleTouchMove = (e) => {
     const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    scrollRef.current.scrollLeft = scrollLeft - walk;
+    scrollRef.current.scrollLeft = scrollLeft - (x - startX) * 2;
   };
 
   return (
     <section className="min-h-screen flex flex-col items-start justify-start px-4 md:px-6 py-10 relative">
-      {/* Glass Card */}
       <div className="max-w-5xl w-full p-6 sm:p-8 md:p-16 mt-16">
         <div className="flex flex-col items-start text-left">
 
           {/* Location */}
           <h3 className="flex items-center gap-2 text-white/50 text-sm md:text-lg font-semibold mb-2">
             <MdLocationOn className="w-5 h-5" />
-            <span>Lagos, Nigeria.</span>
+            Lagos, Nigeria.
           </h3>
 
           {/* Title */}
           <h1
             ref={techneikRef}
-            className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-4 leading-tight inline-block relative overflow-hidden"
+            className="
+              text-white
+              text-4xl sm:text-5xl md:text-8xl
+              font-bold
+              leading-none
+              m-0
+              p-0
+              inline-block
+              relative
+              overflow-hidden
+            "
           >
-            npm run dev  
+            npm run dev
             <br />
             Web development services
           </h1>
 
           {/* Subtitle */}
-          <h2 className="text-blue-300 text-lg sm:text-xl md:text-3xl font-semibold mb-4">
+          <h2 className="text-blue-300 text-lg sm:text-xl md:text-3xl font-semibold mt-2 mb-4">
             CROWNWEBS
           </h2>
 
@@ -126,18 +130,18 @@ export const Hero = () => {
             </button>
           </div>
 
-          {/* Technologies */}
+          {/* Tech stack */}
           <h3 className="text-white/50 font-bold mb-4">
             What We Bring To The Table:
           </h3>
 
           <div className="relative w-full overflow-hidden">
-            <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black/50 z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black/50 z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black/50 pointer-events-none z-10" />
+            <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black/50 pointer-events-none z-10" />
 
             <div
               ref={scrollRef}
-              className="flex gap-2 py-2 px-1 cursor-grab overflow-x-hidden"
+              className="flex gap-2 py-2 cursor-grab overflow-x-hidden"
               onMouseDown={handleMouseDown}
               onMouseUp={() => setIsDown(false)}
               onMouseLeave={() => setIsDown(false)}
