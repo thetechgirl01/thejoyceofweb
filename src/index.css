@@ -11,8 +11,7 @@
 
 * {
   box-sizing: border-box;
-  user-select: none;
-  
+ 
 
 }
 :root {
@@ -59,7 +58,8 @@ html {
 /* Headings */
 h1 {
   font-family: var(--font-h1);
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-weight: lighter;
  
   
 }

@@ -87,10 +87,10 @@ export const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col  items-center justify-center px-4 sm:px-6 md:px-6 py-5 relative ">
+    <section className="min-h-screen flex flex-col items-center justify-center md:items-center md:justify-center sm:justify-left sm:items-start px-4 sm:px-0 md:px-6 py-5 relative ">
       {/* Glass Card */}
-      <div className="rounded-3xl shadow-2xl max-w-5xl w-full p-6 sm:p-8 md:p-16 z-10 mt-16">
-        <div className="flex flex-col items-center text-center">
+      <div className=" max-w-5xl w-full p-6 sm:p-8 md:p-16 z-10 mt-16">
+        <div className="flex flex-col items-center text-center md:items-center md:text-center sm:text-l ">
           {/* Location */}
           <h3 className="flex items-center gap-2 text-white/50 text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2 md:mb-2">
             <MdLocationOn className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -102,27 +102,27 @@ export const Hero = () => {
             ref={techneikRef}
             className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-2 sm:mb-3 md:mb-6 leading-tight sm:leading-snug md:leading-none inline-block relative overflow-hidden"
           >
-            AxenWebs
+           Web development services
           </h1>
 
           {/* Subtitle */}
           <h2 className="text-blue-300 text-lg sm:text-xl md:text-3xl font-semibold mb-2 sm:mb-4 md:mb-4 leading-snug sm:leading-snug md:leading-none">
-            Best Web Software Services
+            CROWNWEBS
           </h2>
 
           {/* Description */}
           <p className="text-gray-300 text-sm sm:text-base md:text-xl mb-4 sm:mb-6 md:mb-10 leading-snug sm:leading-relaxed md:leading-relaxed max-w-3xl">
-           We're a creative studio that focuses on building software solutions for busineses and startups with TASTE.
+           is a creative code studio that focuses on building software solutions for busineses and startups with TASTE.
           </p>
 
           {/* Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             <button className="flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-black font-semibold py-3 px-8 sm:px-10 md:px-12 rounded-xl transition duration-300 hover:scale-105">
-              Let's Talk <AiOutlineArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+              Need A Website? <AiOutlineArrowRight className="w-4 h-4 md:w-5 md:h-5 -rotate-45" />
             </button>
 
             <button className="flex items-center justify-center gap-2 bg-transparent hover:bg-blue-500/20 border-2 border-white text-white font-semibold py-3 px-8 sm:px-10 md:px-12 rounded-xl transition duration-300 hover:scale-105">
-              Works<AiOutlineArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+              Works<AiOutlineArrowRight className="w-4 h-4 md:w-5 md:h-5 -rotate-45" />
             </button>
           </div>
 

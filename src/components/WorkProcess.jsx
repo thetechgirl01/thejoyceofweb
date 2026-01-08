@@ -83,14 +83,17 @@ const Workprocess = () => {
                   flex items-center justify-center
                   flex-shrink-0
                 ">
-                  <span className="text-white font-medium text-sm">{index + 1}</span>
+                  <span className="text font-medium text-sm">{index + 1}</span>
                 </div>
+                
 
                 {/* Content */}
                 <div>
                   <h3 className="text-white font-semibold text-lg mb-1">
                     {step.title}
                   </h3>
+                  
+
                   <p className="text-gray-400 text-sm leading-relaxed">
                     {step.description}
                   </p>

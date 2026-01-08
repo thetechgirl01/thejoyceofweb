@@ -73,7 +73,7 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen py-10 sm:py-16">
+    <div className="min-h-screen py-10 sm:py-16 ">
       
       {/* HERO */}
       <header className="px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-20">
