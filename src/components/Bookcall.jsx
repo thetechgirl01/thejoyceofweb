@@ -14,7 +14,7 @@ const Bookcall = () => {
   return (
     <>
       {/* Floating button with rotating words */}
-      <div className={`fixed bottom-32 right-20 z-40 flex items-center justify-center`}>
+      <div className={`fixed md:bottom-32 bottom-20 right-20 z-40 flex items-center justify-center`}>
         {/* Rotating text ring - larger on md+ screens */}
         <div className="absolute w-32 h-32 md:w-36 md:h-36 flex items-center justify-center">
           <div className="w-full h-full rounded-full animate-spin-slow">
@@ -47,7 +47,7 @@ const Bookcall = () => {
         {/* Circular image button - slightly smaller on md+ to create more gap */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-18 h-18 md:w-20 md:h-20 rounded-full overflow-hidden  shadow-lg hover:scale-105 transition-transform duration-300 relative flex items-center justify-center bg-white"
+          className="w-18 h-18 md:w-20 md:h-20 rounded-full overflow-hidden  shadow-lg hover:scale-105 transition-transform duration-300 relative flex items-center justify-center bg-black"
         >
           <img 
             src={BookcallPick} 
