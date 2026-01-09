@@ -14,7 +14,7 @@ const Bookcall = () => {
   return (
     <>
       {/* Floating button with rotating words */}
-      <div className={`fixed md:bottom-32 bottom-20 md:right-20  right-12 z-40 flex items-center justify-center`}>
+      <div className={`fixed md:bottom-32 bottom-20 md:right-20  right-9 z-40 flex items-center justify-center`}>
         {/* Rotating text ring - larger on md+ screens */}
         <div className="absolute w-32 h-32 md:w-36 md:h-36 flex items-center justify-center">
           <div className="w-full h-full rounded-full animate-spin-slow">
@@ -63,7 +63,7 @@ const Bookcall = () => {
           {/* Blur rest of page */}
           <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30"></div>
 
-          <div className="fixed bottom-[200px] md:bottom-[270px] right-6 md:right-40  z-50 flex flex-col items-end">
+          <div className="fixed bottom-[200px] md:bottom-[270px] right-4 md:right-40  z-50 flex flex-col items-end">
             {/* Close button outside modal */}
             <button
               onClick={() => setIsOpen(false)}
