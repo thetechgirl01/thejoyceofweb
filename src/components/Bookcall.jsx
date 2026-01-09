@@ -17,23 +17,23 @@ const Bookcall = () => {
       <div className={`fixed bottom-6 right-6 z-40 flex items-center justify-center`}>
         {/* Rotating text ring */}
         <div className="absolute w-28 h-28 flex items-center justify-center">
-          <div className="w-full h-full rounded-full animate-spin-slow">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <defs>
-                <path
-                  id="circlePath"
-                  d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
-                  fill="none"
-                />
-              </defs>
-              <text className="text-[#eee] text-xs sm:text-sm uppercase tracking-widest">
-                <textPath href="#circlePath" startOffset="0%">
-                  15 MINUTES • FREE • CONSULT • 15 MINUTES • FREE • CONSULT •
-                </textPath>
-              </text>
-            </svg>
-          </div>
-        </div>
+  <div className="w-full h-full rounded-full animate-spin-slow">
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <defs>
+        <path
+          id="circlePath"
+          d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
+          fill="none"
+        />
+      </defs>
+      <text className="text-white text-xs sm:text-sm uppercase tracking-widest">
+        <textPath href="#circlePath" startOffset="0%">
+          15 MINUTES • FREE • CONSULT • 15 MINUTES • FREE • CONSULT •
+        </textPath>
+      </text>
+    </svg>
+  </div>
+</div>
 
         {/* Circular image button */}
         <button
@@ -64,15 +64,15 @@ const Bookcall = () => {
               
               {/* Modal header flex justified */}
               <div className="flex justify-between items-center mb-3">
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900">15-minute consult</h2>
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900 w-1/3 ">15-minute consult</h1>
                 <span className="px-3 py-1 border-2 border-black text-sm font-bold rounded-full bg-transparent">
                   FREE
                 </span>
               </div>
 
               {/* Description */}
-              <p className="text-gray-700 text-sm sm:text-base mb-4">
-                This is a quick free call with Shakuro's design & development producer to talk about your project and figure out if there is a match.
+              <p className="text-gray-700 text-sm sm:text-base mb-4 my-3">
+                This is a quick free call with Crownwebs's design & development producer to talk about your project and figure out if there is a match.
               </p>
 
               {/* Book button */}
