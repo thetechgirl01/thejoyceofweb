@@ -44,7 +44,7 @@ const Projects = () => {
         <div className="lg:w-1/3">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-white">
             Real projects.
-            <span className="yellow block">Real results.</span>
+            <span className=""> Real results.</span>
           </h1>
 
           <p className="text-gray-400 mt-6 text-lg">
@@ -143,8 +143,8 @@ const ProjectCard = ({ project }) => (
         clipPath: `
           polygon(
             0 0,
-            70% 0,
-            70% 20%,
+            75% 0,
+            75% 20%,
             100% 20%,
             100% 100%,
             0 100%

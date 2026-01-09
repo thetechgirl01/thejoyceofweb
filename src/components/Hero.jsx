@@ -76,11 +76,12 @@ export const Hero = () => {
   };
 
   return (
-    <section className="w-full py-10">
-      {/* HORIZONTAL CENTERING */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
-        {/* INNER CONTENT */}
-        <div className="max-w-5xl">
+    <section 
+      className="flex flex-col items-start justify-start px-4 md:px-6 py-10 relative"
+      style={{ minHeight: '80vh' }}
+    >
+      <div className="max-w-5xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
+        <div className="flex flex-col items-start text-left">
 
           {/* Location */}
           <h3 className="flex items-center gap-2 text-white/50 text-sm md:text-lg font-semibold mb-2">
@@ -103,8 +104,6 @@ export const Hero = () => {
               overflow-hidden
             "
           >
-         
-            <br />
             Web development services
           </h1>
 
@@ -120,7 +119,7 @@ export const Hero = () => {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="flex flex-wrap justify-start gap-4 mb-12">
             <button className="flex items-center gap-2 bg-white text-black font-semibold py-3 px-8 rounded-xl transition hover:scale-105">
               Need A Website?
               <AiOutlineArrowRight className="-rotate-45" />
