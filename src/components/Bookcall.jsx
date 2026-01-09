@@ -14,7 +14,7 @@ const Bookcall = () => {
   return (
     <>
       {/* Floating button with rotating words */}
-      <div className={`fixed md:bottom-32 bottom-20 md:right-20  right-18 z-40 flex items-center justify-center`}>
+      <div className={`fixed md:bottom-32 bottom-20 md:right-20  right-16 z-40 flex items-center justify-center`}>
         {/* Rotating text ring - larger on md+ screens */}
         <div className="absolute w-32 h-32 md:w-36 md:h-36 flex items-center justify-center">
           <div className="w-full h-full rounded-full animate-spin-slow">
