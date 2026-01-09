@@ -18,8 +18,11 @@ function App() {
   return (
     <div className="relative min-h-screen"> {/* Make this relative for modals if needed */}
       <Navbar />
+       <div className="px-9 rounded-tr-3xl rounded-tl-3xl">
+          <Hero />
+      </div>
 
-      <Hero />
+   
 
       <div className="px-9 bg-gray-900/95 border border-white/20 rounded-tr-3xl rounded-tl-3xl">
         <Services />

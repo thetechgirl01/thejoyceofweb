@@ -77,7 +77,7 @@ export const Hero = () => {
 
   return (
     <section 
-      className="flex flex-col items-start justify-start px-4 md:px-6 py-10 relative"
+      className="flex flex-col items-start justify-start  py-10 relative"
       style={{ minHeight: '80vh' }}
     >
       <div className="max-w-5xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
