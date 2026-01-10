@@ -76,8 +76,9 @@ export const Hero = () => {
   };
 
   return (
+  <div className="min-h-screen py-10 sm:py-16 ">
     <section 
-      className="flex flex-col items-start justify-start px-4 md:px-6 py-10 relative"
+      className="flex flex-col items-start justify-start px-4 md:px-24 py-8 relative"
       style={{ minHeight: '80vh' }}
     >
       <div className="max-w-5xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
@@ -121,7 +122,7 @@ export const Hero = () => {
           {/* Buttons */}
           <div className="flex flex-wrap justify-start gap-4 mb-12">
             <button className="flex items-center gap-2 bg-white text-black font-semibold py-3 px-8 rounded-xl transition hover:scale-105">
-              Need A Website?
+              Get in touch
               <AiOutlineArrowRight className="-rotate-45" />
             </button>
 
@@ -164,6 +165,7 @@ export const Hero = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

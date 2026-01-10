@@ -14,7 +14,7 @@ const Bookcall = () => {
   return (
     <>
       {/* Floating button with rotating words */}
-      <div className={`fixed md:bottom-32 bottom-20 md:right-20  right-9 z-40 flex items-center justify-center`}>
+      <div className={`fixed md:bottom-32 bottom-20 md:right-20  right-8 z-40 flex items-center justify-center`}>
         {/* Rotating text ring - larger on md+ screens */}
         <div className="absolute w-32 h-32 md:w-36 md:h-36 flex items-center justify-center">
           <div className="w-full h-full rounded-full animate-spin-slow">
@@ -77,7 +77,7 @@ const Bookcall = () => {
               
               {/* Modal header flex justified */}
               <div className="flex justify-between items-center mb-3">
-                <h2 className=" sm:text-xl font-semibold text-2xl text-gray-900 w-1/2 ">15-minute consult</h2>
+                <h2 className=" text-2xl font-semibold  text-gray-900 w-1/2 ">15 - minute consult</h2>
                 <span className="mb-5 px-3 py-1 border-1 border-black text-sm font-light rounded-full bg-transparent text-black">
                   FREE
                 </span>
@@ -93,7 +93,7 @@ const Bookcall = () => {
                 href="https://calendly.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-full inline-flex items-center bg-black justify-between border-2 border-black rounded-full px-6 py-3 hover:bg-black/5 transition-all duration-300 text-black font-medium no-underline"
+                className="group w-full inline-flex items-center bg-black justify-between border-2 border-black rounded-full px-6 py-3 hover:bg-black/95 transition-all duration-300 text-black font-medium no-underline"
               >
                 <span>Book a call</span>
                 <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">

@@ -87,7 +87,8 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* PROGRESS / BUTTONS */}
+         <div className="flex flex-row justify-between">
+           {/* PROGRESS / BUTTONS */}
           <div className="flex gap-3 mt-6">
             {projects.map((_, i) => (
               <button
@@ -96,7 +97,7 @@ const Projects = () => {
                 className={`
                   transition-all duration-300
                   ${active === i
-                    ? "w-8 h-1 bg-yellow-400"
+                    ? "w-8 h-1 mt-2 bg-yellow-400"
                     : "w-3 h-3 bg-gray-600 rounded-full"}
                 `}
               />
@@ -109,6 +110,7 @@ const Projects = () => {
               More Projects
             </button>
           </div>
+         </div>
         </div>
       </div>
 
@@ -143,8 +145,8 @@ const ProjectCard = ({ project }) => (
         clipPath: `
           polygon(
             0 0,
-            75% 0,
-            75% 20%,
+            76% 0,
+            76% 20%,
             100% 20%,
             100% 100%,
             0 100%
