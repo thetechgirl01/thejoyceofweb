@@ -10,7 +10,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Works from './pages/Works';
 import Blogs from './pages/Blogs';
-import ContactPage from './pages/Contact';
+import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/works" element={<Works />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
       </Routes>
 
