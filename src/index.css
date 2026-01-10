@@ -33,9 +33,15 @@
     0 0 40px rgba(0, 255, 255, 0.08),
     0 8px 32px rgba(0, 0, 0, 0.35);
 }
-
+.bg {
+  background-color: var(--primary-color);
+}
 body {
   background-color: var(--primary-color);
+  background-image:
+    linear-gradient(rgba(204,204,204,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204,204,204,0.08) 1px, transparent 1px);
+  background-size: 100px 100px;
   color: var(--primary-text);
   font-family: var(--font-h3);
   margin: 0;
@@ -44,6 +50,9 @@ body {
 }
 .yellow {
   background-color: goldenrod;
+}
+.blue {
+  background-color: #011936;
 }
 .yellow-text:hover {
 color: goldenrod;

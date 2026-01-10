@@ -68,33 +68,28 @@ const Works = () => {
 
       {/* Header */}
       <header className="px-4 sm:px-6 o mb-12 sm:mb-20 mt-20">
-        <h1 className="text-2xl font-medium mb-5">Our works</h1>
+       
 
-        <h2 className="text-white text-4xl sm:text-5xl lg:text-[3.5rem] leading-tight max-w-[800px]">
+        <h1 className="text-white text-4xl blue sm:text-5xl lg:text-[3.5rem] leading-tight max-w-[800px]">
           Helping businesses achieve goals. Solving people's problems.
-        </h2>
+        </h1>
       </header>
 
        <div className="overflow-hidden mb-8">
-            <div className="flex animate-scroll whitespace-nowrap capitalize  text-gray-300 text-sm">
-            {industry.map((industry, index) => {
-              <div className="text.white" key={index}>
-                {industry}
-
-
-              </div>
-            })}
-            
-            
-
-             
+            <div className="flex mx-auto whitespace-nowrap capitalize blue text-gray-300 text-sm">
+           
+            {industry.map((item, index) => (
+  <div className="text-white mr-6 w-50 text-lg rounded-3xl border-1 text-center border-gray-500 p-3 " key={index}>
+    {item}
+  </div>
+))}       
             </div>
           </div>
 
      
 
       {/* Works Grid */}
-      <main className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-24">
+      <main className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-12 md:gap-y-0 blue">
         {works.map((work, index) => (
           <div
             key={work.id}
@@ -107,7 +102,7 @@ const Works = () => {
               {work.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="text-xs font-medium uppercase tracking-wide text-gray-500"
+                  className="text-xs font-medium uppercase tracking-wide text-gray-500 oncli"
                 >
                   {tag}
                 </span>
@@ -128,7 +123,7 @@ const Works = () => {
               <h3 className="text-3xl sm:text-[2.5rem] font-bold leading-tight mb-5">
                 {work.title}
               </h3>
-              <p className="text-lg leading-relaxed text-gray-800">
+              <p className="text-lg leading-relaxed text-gray-400">
                 {work.description}
               </p>
             </div>

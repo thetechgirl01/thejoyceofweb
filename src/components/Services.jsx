@@ -16,57 +16,32 @@ const ServicesPage = () => {
    
     {
       icon: <MdCode className="w-6 h-6 sm:w-8 sm:h-8" />,
-      title: "Web Design & Development",
+      title: "Custom Web Design & Development",
       description:
         "Custom-built websites and web applications using modern, reliable technologies.",
       longDescription:
-        "Our web development process focuses on fast, secure, and scalable digital products that are easy to maintain and ready to grow.",
+        "Fully responsive layouts that adapt seamlessly across all screen sizes. We ensure your website looks and works perfectly across smartphones, tablets, and desktops through responsive design and testing. Our web development process focuses on fast, secure, and scalable digital products that are easy to maintain and ready to grow.",
       link: "#"
     },
-    {
-      icon: <MdMobileFriendly className="w-6 h-6 sm:w-8 sm:h-8" />,
-      title: "Mobile Responsive",
-      description:
-        "Fully responsive layouts that adapt seamlessly across all screen sizes.",
-      longDescription:
-        "We ensure your website looks and works perfectly across smartphones, tablets, and desktops through responsive design and testing.",
-      link: "#"
-    },
+ 
     {
       icon: <MdSearch className="w-6 h-6 sm:w-8 sm:h-8" />,
-      title: "Performance & SEO",
+      title: "Performance & SEO optimization",
       description:
         "Search-engine-friendly websites built to increase visibility.",
       longDescription:
-        "We combine clean semantic code, fast load speeds, and SEO best practices to improve rankings and discoverability.",
+        "We combine clean semantic code, fast load speeds, and SEO best practices to improve rankings and discoverability. Advanced tracking systems that turn user activity into insights. We set up analytics tools to understand user behavior, traffic sources, and conversions for smarter decisions.",
       link: "#"
     },
-    {
-      icon: <MdAnalytics className="w-6 h-6 sm:w-8 sm:h-8" />,
-      title: "Analytics & Tracking",
-      description:
-        "Advanced tracking systems that turn user activity into insights.",
-      longDescription:
-        "We set up analytics tools to understand user behavior, traffic sources, and conversions for smarter decisions.",
-      link: "#"
-    },
-    {
-      icon: <MdSecurity className="w-6 h-6 sm:w-8 sm:h-8" />,
-      title: "Security Solutions",
-      description:
-        "Strong security layers to protect platforms and data.",
-      longDescription:
-        "We implement SSL, secure authentication, updates, and best practices to protect against threats. Continuous maintenance, updates, monitoring, and feature enhancements for long-term reliability.",
-      
-      link: "#"
-    },
+
+
     {
       icon: <MdCloud className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: "Cloud Hosting",
       description:
         "Reliable, scalable cloud hosting optimized for uptime.",
       longDescription:
-        "High availability hosting with flexible scaling and performance optimization.",
+        "High availability hosting with flexible scaling and performance optimization. Strong security layers to protect platforms and data. We implement SSL, secure authentication, updates, and best practices to protect against threats. Continuous maintenance, updates, monitoring, and feature enhancements for long-term reliability.",
       link: "#"
     },
 
@@ -149,7 +124,7 @@ const ServicesPage = () => {
                 className="
                   group
                   flex items-center justify-between
-                  w-full
+                  w-2/3
                   border border-white/20
                   rounded-full
                   px-3 py-2

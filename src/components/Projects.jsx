@@ -107,7 +107,7 @@ const Projects = () => {
           {/* MORE PROJECTS BUTTON */}
           <div className="mt-12 flex justify-end">
             <button className="px-8 py-4 yellow text-black font-semibold rounded-lg shadow-lg hover:scale-105 transition">
-              More Projects
+             
             </button>
           </div>
          </div>

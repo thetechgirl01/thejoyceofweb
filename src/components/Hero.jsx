@@ -76,12 +76,12 @@ export const Hero = () => {
   };
 
   return (
-  <div className="min-h-screen py-10 sm:py-16 ">
+  <div className="py-10 sm:py-1  " style={{ minHeight: '80vh' }}>
     <section 
-      className="flex flex-col items-start justify-start px-4 md:px-24 py-8 relative"
-      style={{ minHeight: '80vh' }}
+      className=" flex flex-col items-start justify-start px-4 md:px-24 py-8 relative"
+      
     >
-      <div className="max-w-5xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
+      <div className="bg max-w-6xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
         <div className="flex flex-col items-start text-left">
 
           {/* Location */}
@@ -95,7 +95,7 @@ export const Hero = () => {
             ref={techneikRef}
             className="
               text-white
-              text-4xl sm:text-5xl md:text-8xl
+              text-4xl sm:text-5xl md:text-7xl
               font-bold
               leading-none
               m-0
@@ -105,12 +105,12 @@ export const Hero = () => {
               overflow-hidden
             "
           >
-            Web development services
+            Web design & development company
           </h1>
 
           {/* Subtitle */}
           <h2 className="text-blue-300 text-lg sm:text-xl md:text-3xl font-semibold mt-2 mb-4">
-            CROWNWEBS
+          CROWNTECH
           </h2>
 
           {/* Description */}
@@ -137,7 +137,7 @@ export const Hero = () => {
             What We Bring To The Table:
           </h3>
 
-          <div className="relative w-full overflow-hidden">
+          <div className="relative w-full overflow-hidden ">
             <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black/50 pointer-events-none z-10" />
             <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black/50 pointer-events-none z-10" />
 
