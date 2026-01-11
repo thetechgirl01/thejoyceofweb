@@ -11,7 +11,7 @@ import AboutUs from './pages/AboutUs';
 import Works from './pages/Works';
 import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
-import FAQ from './pages/FAQ';
+import FAQ from './pages/Faq';
 
 function App() {
   return (
