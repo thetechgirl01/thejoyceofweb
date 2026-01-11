@@ -75,16 +75,19 @@ const Works = () => {
         </h1>
       </header>
 
-       <div className="overflow-hidden mb-8">
-            <div className="flex mx-auto whitespace-nowrap capitalize blue text-gray-300 text-sm">
-           
-            {industry.map((item, index) => (
-  <div className="text-white mr-6 w-50 text-lg rounded-3xl border-1 text-center border-gray-500 p-3 " key={index}>
-    {item}
+      <div className="overflow-x-auto mb-8">
+  <div className="flex flex-wrap justify-start gap-4">
+    {industry.map((item, index) => (
+      <div
+        key={index}
+        className="text-white text-lg px-4 py-2 rounded-3xl border border-gray-500 text-center flex-shrink-0"
+      >
+        {item}
+      </div>
+    ))}
   </div>
-))}       
-            </div>
-          </div>
+</div>
+
 
      
 
