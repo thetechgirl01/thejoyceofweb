@@ -3,6 +3,7 @@ import { FaRocket, FaUsers, FaAward, FaLightbulb, FaHeart, FaCode } from 'react-
 import { HiArrowRight } from 'react-icons/hi';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Contact from '../components/contact';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -126,7 +127,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <div ref={aboutRef} className="min-h-screen pt-16 sm:pt-20 pb-10">
+    <div ref={aboutRef} className="min-h-screen pt-32 pb-10">
       
       {/* HERO SECTION */}
       <header className="about-header px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-20">
@@ -134,19 +135,9 @@ const AboutUs = () => {
           
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="
-                hero-icon
-                w-12 h-12
-                bg-blue-300
-                rounded-xl
-                flex items-center justify-center
-              ">
-                <FaCode className="w-6 h-6 text-black" />
-              </div>
+             
               <div>
-                <h2 className="text-white/70 text-sm font-medium uppercase tracking-wider">
-                  About CrownTech
-                </h2>
+              
                 <h1 className="
                   text-white font-bold leading-tight
                   text-3xl sm:text-4xl md:text-5xl lg:text-6xl
@@ -474,80 +465,9 @@ const AboutUs = () => {
       </section>
 
       {/* CTA SECTION */}
-      <section className="px-4 sm:px-6 max-w-4xl mx-auto">
-        <div
-          ref={el => sectionRefs.current[10] = el}
-          className="
-            backdrop-blur-xl bg-white/5
-            border border-white/10
-            rounded-2xl
-            p-8 sm:p-12
-            text-center
-          "
-        >
-          <h3 className="
-            text-white
-            text-2xl sm:text-3xl font-bold
-            mb-4
-          ">
-            Ready to Build Together?
-          </h3>
-          <p className="
-            text-white/70
-            text-base sm:text-lg
-            max-w-2xl mx-auto
-            mb-8
-          ">
-            Let's discuss your project and how we can help bring your vision to life.
-          </p>
-          
-          <button
-            onClick={() => {
-              gsap.to(window, {
-                duration: 1,
-                scrollTo: { y: "#contact", offsetY: 100 },
-                ease: "power2.inOut"
-              });
-            }}
-            className="
-              group
-              inline-flex items-center gap-3
-              px-8 py-4
-              backdrop-blur-xl bg-white/5
-              border border-white/10
-              rounded-xl
-              text-white font-semibold
-              hover:bg-white/10
-              hover:scale-105
-              transition-all duration-300
-            "
-          >
-            Start Your Project
-            <HiArrowRight className="
-              w-5 h-5
-              text-yellow-300
-              group-hover:translate-x-1
-              transition-transform
-            " />
-          </button>
-          
-          <div className="mt-6">
-            <a 
-              href="mailto:contact@crownatech.com"
-              className="
-                inline-flex items-center gap-2
-                text-blue-300
-                text-sm sm:text-base
-                hover:text-yellow-300
-                transition-colors duration-300
-              "
-            >
-              contact@crownatech.com
-              <HiArrowRight className="w-4 h-4 -rotate-45" />
-            </a>
-          </div>
-        </div>
-      </section>
+  
+     <Contact/>
+ 
 
       {/* SPACER FOR NAVBAR */}
       <div className="h-16 sm:h-20"></div>
