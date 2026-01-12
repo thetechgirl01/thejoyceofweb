@@ -1,467 +1,699 @@
-// src/pages/Contact.jsx
-import React, { useState } from "react";
-import { HiArrowRight } from "react-icons/hi";
-import {
-  FaEnvelope,
-  FaFacebookF,
+import React, { useState } from 'react';
+import { 
+  FaRegEnvelope, 
+  FaMapMarkerAlt, 
+  FaPhoneAlt, 
+  FaPaperPlane,
   FaTwitter,
+  FaLinkedin,
+  FaGithub,
   FaInstagram,
-  FaLinkedinIn,
-  FaDribbble,
-  FaBehance,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaRegEnvelope
-} from "react-icons/fa";
+  FaYoutube,
+  FaDribbble
+} from 'react-icons/fa';
+import { HiArrowRight } from 'react-icons/hi';
 
 const Contact = () => {
-  const [step, setStep] = useState(1);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    projectType: '',
+    budget: '',
+    customBudget: '',
+    message: ''
+  });
 
-  const handleNext = () => {
-    if (step === 1 && !name.trim()) {
-      setError("Please enter your name");
-      return;
-    }
-    if (step === 2) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        setError("Please enter a valid email");
-        return;
-      }
-    }
-    setError("");
-    setStep(step + 1);
+  const projectTypes = [
+    'Business Website',
+    'E-commerce Store',
+    'Web Application',
+    'Portfolio Site',
+    'Blog/Content',
+    'SaaS Platform',
+    'Landing Page',
+    'Redesign/Update'
+  ];
+
+  const budgetRanges = [
+    'Under $500',
+    '$500 - $2,000',
+    '$2,000 - $5,000',
+    '$5,000 - $10,000',
+    'Over $10,000'
+  ];
+
+  const socialLinks = [
+    { icon: <FaTwitter />, label: 'Twitter', url: 'https://twitter.com/crownatech' },
+    { icon: <FaLinkedin />, label: 'LinkedIn', url: 'https://linkedin.com/company/crownatech' },
+    { icon: <FaGithub />, label: 'GitHub', url: 'https://github.com/crownatech' },
+    { icon: <FaInstagram />, label: 'Instagram', url: 'https://instagram.com/crownatech' },
+    { icon: <FaYoutube />, label: 'YouTube', url: 'https://youtube.com/@crownatech' },
+    { icon: <FaDribbble />, label: 'Dribbble', url: 'https://dribbble.com/crownatech' }
+  ];
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleSend = () => {
-    if (!message.trim()) {
-      setError("Please enter your message");
-      return;
-    }
-    setError("");
-    alert(`Message sent!\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
-    setStep(1);
-    setName("");
-    setEmail("");
-    setMessage("");
+  const handleProjectTypeSelect = (type) => {
+    setFormData(prev => ({
+      ...prev,
+      projectType: type
+    }));
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      if (step < 3) handleNext();
-      else handleSend();
-    }
+  const handleBudgetSelect = (range) => {
+    setFormData(prev => ({
+      ...prev,
+      budget: range,
+      customBudget: '' // Clear custom budget when selecting a range
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Add your form submission logic here
   };
 
   return (
-      <div className="min-h-screen py-10 sm:py-16">
+    <div className="min-h-screen py-10 sm:py-16">
       
       {/* HERO */}
       <header className="px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-20">
-        <div className="flex flex-col lg:flex-row justify-between gap-8">
-
+        <div className="flex flex-col lg:flex-row justify-between gap-8 items-center">
+          
+          <div className="flex-1">
             <h1 className="
               text-white font-bold leading-tight text-center lg:text-left
               text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl
               max-w-lg sm:max-w-xl
-              px-2
             ">
               Let's Build Something Amazing
             </h1>
 
-           {/* Envelope Icon */}
-<div className="
-  w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32
-  rounded-full border-2 border-blue-400 
-  bg-blue-400
-  flex items-center justify-center
-  flex-shrink-0
-   sm:mt-0
-  mx-auto lg:mx-0
-">
-  <FaRegEnvelope className="text-white w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
-</div>
+            {/* Subtitle */}
+            <p className="
+              text-center lg:text-left
+              text-gray-300 mt-4 sm:mt-6
+              text-sm sm:text-base md:text-lg
+              max-w-2xl
+            ">
+              Get in touch and let's discuss how we can bring your vision to life.
+            </p>
 
-          </div>
-
-          {/* Subtitle */}
-          <p className="
-            text-center lg:text-left
-            text-gray-300 mt-4 sm:mt-6
-            text-sm sm:text-base md:text-lg
-            max-w-2xl
-          ">
-            Get in touch and let's discuss how we can bring your vision to life.
-          </p>
-
-          {/* Contact Info Bar */}
-          <div className="
-            mt-6 sm:mt-8 
-            flex flex-col xs:flex-row 
-            gap-3 sm:gap-4 
-            justify-center lg:justify-start
-          ">
-           
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 items-start">
-            
-            {/* Form Section */}
-            <div className="w-full lg:w-2/3">
-              <div className="bg-gray-900/40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-700/50">
-                
-                {/* Progress Indicator */}
-                <div className="flex justify-center mb-6 sm:mb-8">
-                  <div className="flex items-center space-x-2 sm:space-x-4">
-                    {[1, 2, 3].map((num) => (
-                      <React.Fragment key={num}>
-                        <div className={`
-                          w-8 h-8 sm:w-10 sm:h-10 
-                          rounded-md flex items-center justify-center
-                          border-2 ${step >= num ? 'border-yellow-400 bg-yellow-400/20' : 'border-gray-600'}
-                          ${step === num ? 'ring-2 ring-yellow-400/30' : ''}
-                        `}>
-                          <span className={`
-                            text-sm sm:text-base font-semibold
-                            ${step >= num ? 'text-yellow-400' : 'text-gray-500'}
-                          `}>
-                            {num}
-                          </span>
-                        </div>
-                        {num < 3 && (
-                          <div className={`
-                            w-6 sm:w-8 h-0.5 
-                            ${step > num ? 'bg-yellow-400' : 'bg-gray-700'}
-                          `} />
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Form Inputs */}
-                <div className="space-y-6 sm:space-y-8">
-                  {/* Name */}
-                  {step === 1 && (
-                    <div className="relative">
-                      
-                      <input
-                        type="text"
-                        placeholder="Enter your name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        onKeyDown={handleKeyDown}
-                        className="
-                          w-full 
-                          border-b-2 border-gray-600 
-                          text-white placeholder-gray-500 
-                          font-semibold
-                          px-3 sm:px-4 py-3 sm:py-4
-                          text-xl sm:text-3xl md:text-5xl 
-                          focus:outline-none
-                          transition-colors 
-                          rounded-t-lg
-                        "
-                    
-                      />
-                      {error && <p className="text-red-400 text-xs sm:text-sm mt-2">{error}</p>}
-                      <button
-                        onClick={handleNext}
-                        className="
-                          absolute right-0 top-1 sm:top-6
-                          w-10 h-10 sm:w-12 sm:h-12
-                          border-2 
-                          text-black rounded-full 
-                          flex items-center justify-center 
-                         yellow hover:text-black 
-                          transition-all duration-300
-                          active:scale-95
-                        "
-                      >
-                        <HiArrowRight className="w-4 h-4 sm:w-5 sm:h-5 -rotate-45" />
-                      </button>
-                    </div>
-                  )}
-
-                  {/* Email */}
-                  {step === 2 && (
-                    <div className="relative">
-                      
-                      <input
-                        type="email"
-                        placeholder="Enter your email address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        onKeyDown={handleKeyDown}
-                        className="
-                           w-full 
-                          border-b-2 border-gray-600 
-                          text-white 
-                          font-semibold
-                          px-3 sm:px-4 py-3 sm:py-4
-                          text-xl sm:text-3xl md:text-5xl 
-                          focus:outline-none
-                          transition-colors 
-                          rounded-t-lg
-                        "
-                     
-                      />
-                      {error && <p className="text-red-400 text-xs sm:text-sm mt-2">{error}</p>}
-                      <button
-                        onClick={handleNext}
-                        className="
-                        absolute right-0 top-1 sm:top-6
-                          w-10 h-10 sm:w-12 sm:h-12
-                          border-2 
-                          text-black rounded-full 
-                          flex items-center justify-center 
-                         yellow hover:text-black 
-                          transition-all duration-300
-                          active:scale-95
-                        "
-                      >
-                        <HiArrowRight className="w-4 h-4 sm:w-5 sm:h-5 -rotatae-45" />
-                      </button>
-                    </div>
-                  )}
-
-                  {/* Message */}
-                  {step === 3 && (
-                    <div className="relative">
-                      <label className="block text-gray-400 text-sm sm:text-base mb-2">
-                     
-                      </label>
-                      <textarea
-                        rows={3}
-                        placeholder="Tell us about your project..."
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        className="
-                            w-full 
-                          border-b-2 border-gray-600 
-                          text-white placeholder-gray-500 
-                          font-semibold
-                          px-3 sm:px-4 py-3 sm:py-4
-                          text-2xl sm:text-3xl md:text-5xl 
-                          focus:outline-none
-                          transition-colors 
-                          rounded-t-lg
-                        
-                          rounded-lg
-                          resize-none
-                          min-h-[120px] sm:min-h-[150px]
-                        "
-                    
-                      />
-                      {error && <p className="text-red-400 text-xs sm:text-sm mt-2">{error}</p>}
-                      <div className="flex justify-between items-center mt-4">
-                        <button
-                          onClick={() => setStep(2)}
-                          className="
-                            text-gray-400 hover:text-white
-                            text-sm sm:text-base
-                            flex items-center gap-1
-                            transition-colors
-                          "
-                        >
-                          ← Back
-                        </button>
-                        <button
-                          onClick={handleSend}
-                          className="
-                            px-4 sm:px-6 py-2 sm:py-3
-                            bg-gradient-to-r from-yellow-500 to-yellow-600
-                            text-black font-semibold
-                            text-sm sm:text-base
-                            rounded-full
-                            hover:from-yellow-400 hover:to-yellow-500
-                            transform hover:-translate-y-0.5
-                            transition-all duration-300
-                            flex items-center gap-2
-                            shadow-lg hover:shadow-yellow-500/20
-                          "
-                        >
-                          Send Message
-                          <HiArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </div>
+            {/* Contact Info Bar */}
+            <div className="
+              mt-6 sm:mt-8 
+              flex flex-col xs:flex-row 
+              gap-3 sm:gap-4 
+              justify-center lg:justify-start
+            ">
+              <div className="flex items-center gap-2 text-white/70 text-sm sm:text-base">
+                <FaRegEnvelope className="w-4 h-4" />
+                <span>contact@crownatech.com</span>
               </div>
-
-              {/* Matching Height Content for Large Screens */}
-              <div className="hidden lg:block mt-6">
-                <div className="bg-gray-900/40 rounded-2xl p-8 border border-gray-700/50 h-full">
-                  <h3 className="text-white text-xl font-semibold mb-6">
-                    Why Choose Us?
-                  </h3>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
-                        <span className="text-yellow-400 font-bold">✓</span>
-                      </div>
-                      <div>
-                        <h4 className="text-white font-medium mb-1">Expert Consultation</h4>
-                        <p className="text-gray-400 text-sm">
-                          Get personalized advice from industry experts with 10+ years of experience.
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
-                        <span className="text-yellow-400 font-bold">✓</span>
-                      </div>
-                      <div>
-                        <h4 className="text-white font-medium mb-1">Fast Turnaround</h4>
-                        <p className="text-gray-400 text-sm">
-                          We deliver high-quality results faster than industry standards.
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
-                        <span className="text-yellow-400 font-bold">✓</span>
-                      </div>
-                      <div>
-                        <h4 className="text-white font-medium mb-1">Ongoing Support</h4>
-                        <p className="text-gray-400 text-sm">
-                          24/7 support and maintenance to keep your project running smoothly.
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
-                        <span className="text-yellow-400 font-bold">✓</span>
-                      </div>
-                      <div>
-                        <h4 className="text-white font-medium mb-1">Transparent Pricing</h4>
-                        <p className="text-gray-400 text-sm">
-                          No hidden fees. Get a clear, upfront quote for your project.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Stats Section */}
-                  <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-gray-700/50">
-                    <div className="text-center">
-                      <div className="text-yellow-400 text-2xl font-bold">24h</div>
-                      <div className="text-gray-300 text-sm mt-1">Response Time</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-yellow-400 text-2xl font-bold">100%</div>
-                      <div className="text-gray-300 text-sm mt-1">Satisfaction</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-yellow-400 text-2xl font-bold">50+</div>
-                      <div className="text-gray-300 text-sm mt-1">Projects Done</div>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex items-center gap-2 text-white/70 text-sm sm:text-base">
+                <FaPhoneAlt className="w-4 h-4" />
+                <span>+234 123 456 7890</span>
               </div>
             </div>
+          </div>
 
-            {/* Social Media Section */}
-            <div className="w-full lg:w-1/3">
-              <div className="bg-gray-900/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-gray-700/50">
-                <h2 className="
-                  text-white font-semibold 
-                  text-lg sm:text-xl md:text-2xl 
-                  mb-4 sm:mb-6
-                  text-center lg:text-left
-                ">
-                  Where to find CrownWebs.
-                </h2>
-                
-                {/* Social Media Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
-                  {[
-                    { icon: FaFacebookF, label: "Facebook", color: "hover:text-blue-500" },
-                    { icon: FaTwitter, label: "Twitter", color: "hover:text-sky-400" },
-                    { icon: FaInstagram, label: "Instagram", color: "hover:text-pink-500" },
-                    { icon: FaLinkedinIn, label: "LinkedIn", color: "hover:text-blue-400" },
-                    { icon: FaDribbble, label: "Dribbble", color: "hover:text-pink-400" },
-                    { icon: FaBehance, label: "Behance", color: "hover:text-blue-300" },
-                  ].map((social, idx) => (
-                    <a
-                      key={idx}
-                      href="#"
+          {/* Envelope Icon */}
+          <div className="
+            w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32
+            rounded-full border-2 border-blue-400 
+            bg-blue-400
+            flex items-center justify-center
+            flex-shrink-0
+            mt-6 lg:mt-0
+            mx-auto lg:mx-0
+          ">
+            <FaRegEnvelope className="text-white w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+          </div>
+
+        </div>
+      </header>
+
+      {/* CONTENT SECTION */}
+      <div className="px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          
+          {/* LEFT COLUMN - CONTACT INFO */}
+          <div className="lg:col-span-1">
+            <div className="
+              backdrop-blur-xl bg-white/5
+              border border-white/10
+              rounded-2xl
+              p-6 sm:p-8
+              h-fit
+              sticky top-6
+            ">
+              <h3 className="
+                text-white
+                text-xl sm:text-2xl font-bold
+                mb-6
+              ">
+                Why Choose CrownTech
+              </h3>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="
+                    w-10 h-10
+                    bg-blue-500/20
+                    rounded-lg
+                    flex items-center justify-center
+                    flex-shrink-0
+                  ">
+                    <span className="text-blue-400 text-lg font-bold">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium mb-1">Expert Consultation</h4>
+                    <p className="text-white/60 text-sm">
+                      Free initial consultation to understand your needs
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="
+                    w-10 h-10
+                    bg-blue-500/20
+                    rounded-lg
+                    flex items-center justify-center
+                    flex-shrink-0
+                  ">
+                    <span className="text-blue-400 text-lg font-bold">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium mb-1">Transparent Pricing</h4>
+                    <p className="text-white/60 text-sm">
+                      Clear quotes with no hidden fees
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="
+                    w-10 h-10
+                    bg-blue-500/20
+                    rounded-lg
+                    flex items-center justify-center
+                    flex-shrink-0
+                  ">
+                    <span className="text-blue-400 text-lg font-bold">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium mb-1">Fast Response</h4>
+                    <p className="text-white/60 text-sm">
+                      We typically respond within 24 hours
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="
+                    w-10 h-10
+                    bg-blue-500/20
+                    rounded-lg
+                    flex items-center justify-center
+                    flex-shrink-0
+                  ">
+                    <span className="text-blue-400 text-lg font-bold">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium mb-1">Ongoing Support</h4>
+                    <p className="text-white/60 text-sm">
+                      Post-launch support and maintenance included
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Location Info */}
+              <div className="mt-8 pt-8 border-t border-white/10">
+                <div className="flex items-center gap-3 mb-4">
+                  <FaMapMarkerAlt className="w-5 h-5 text-blue-400" />
+                  <h4 className="text-white font-medium">Our Location</h4>
+                </div>
+                <p className="text-white/60 text-sm">
+                  Lagos, Nigeria<br />
+                  Available for worldwide projects
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN - CONTACT FORM */}
+          <div className="lg:col-span-2">
+            <form onSubmit={handleSubmit} className="
+              backdrop-blur-xl bg-white/5
+              border border-white/10
+              rounded-2xl
+              p-6 sm:p-8
+            ">
+              <h3 className="
+                text-white
+                text-xl sm:text-2xl font-bold
+                mb-6
+              ">
+                Tell Us About Your Project
+              </h3>
+
+              {/* Name & Email */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                  <label className="block text-white/70 text-sm mb-2">
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="
+                      w-full
+                      px-4 py-3
+                      backdrop-blur-xl bg-white/10
+                      border border-white/20
+                      rounded-xl
+                      text-white
+                      placeholder:text-white/40
+                      focus:outline-none focus:border-blue-500
+                      transition
+                    "
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-white/70 text-sm mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="
+                      w-full
+                      px-4 py-3
+                      backdrop-blur-xl bg-white/10
+                      border border-white/20
+                      rounded-xl
+                      text-white
+                      placeholder:text-white/40
+                      focus:outline-none focus:border-blue-500
+                      transition
+                    "
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
+
+              {/* Project Type */}
+              <div className="mb-6">
+                <label className="block text-white/70 text-sm mb-3">
+                  Project Type *
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {projectTypes.map((type) => (
+                    <button
+                      key={type}
+                      type="button"
+                      onClick={() => handleProjectTypeSelect(type)}
                       className={`
-                        flex items-center justify-between
-                        p-3 sm:p-4
-                        rounded-xl
-                        bg-gray-900/60
-                        border border-gray-700
-                        text-gray-300
-                        ${social.color}
-                        hover:border-gray-600
-                        hover:bg-gray-800/50
-                        transition-all duration-300
-                        group yellow-text
+                        px-4 py-2
+                        rounded-full
+                        text-sm font-medium
+                        transition-all
+                        ${formData.projectType === type
+                          ? 'bg-blue-500 text-white'
+                          : 'backdrop-blur-xl bg-white/10 text-white hover:bg-white/20'
+                        }
                       `}
                     >
-                      <div className="flex items-center gap-3 sm:gap-4">
-                        <div className="
-                          w-8 h-8 sm:w-10 sm:h-10
-                          rounded-lg
-                          bg-gray-800
-                          flex items-center justify-center
-                          group-hover:scale-110
-                          transition-transform
-                        ">
-                          <social.icon className="w-3 h-3 sm:w-4 sm:h-4" />
-                        </div>
-                        <span className="font-medium text-sm sm:text-base">
-                          {social.label}
-                        </span>
-                      </div>
-                      <HiArrowRight className="
-                        w-4 h-3 sm:w-4 sm:h-4 
-                        opacity-0 group-hover:opacity-100 -rotate-45 
-                        group-hover:translate-x-1 
+                      {type}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Budget */}
+              <div className="mb-6">
+                <label className="block text-white/70 text-sm mb-3">
+                  Estimated Budget *
+                </label>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {budgetRanges.map((range) => (
+                    <button
+                      key={range}
+                      type="button"
+                      onClick={() => handleBudgetSelect(range)}
+                      className={`
+                        px-4 py-2
+                        rounded-full
+                        text-sm font-medium
                         transition-all
-                      " />
-                    </a>
+                        ${formData.budget === range
+                          ? 'bg-blue-500 text-white'
+                          : 'backdrop-blur-xl bg-white/10 text-white hover:bg-white/20'
+                        }
+                      `}
+                    >
+                      {range}
+                    </button>
                   ))}
                 </div>
 
-                {/* Quick Contact */}
-                <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-700/50">
-                  <p className="text-gray-400 text-sm sm:text-base text-center lg:text-left mb-3">
-                    Quick Response Guaranteed
-                  </p>
-                  <div className="flex flex-row gap-2 justify-center ">
-                    <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-300">
-                      <FaEnvelope className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span className="text-xs sm:text-sm">hello@example.com</span>
-                    </div>
-                    <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-300">
-                      <FaPhone className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span className="text-xs sm:text-sm">Mon-Fri: 9AM-6PM EST</span>
-                    </div>
-                  </div>
+                {/* Custom Budget Input */}
+                <div>
+                  <label className="block text-white/70 text-sm mb-2">
+                    Or enter a custom budget (optional)
+                  </label>
+                  <input
+                    type="text"
+                    name="customBudget"
+                    value={formData.customBudget}
+                    onChange={handleInputChange}
+                    placeholder="Enter specific amount"
+                    className="
+                      w-full
+                      px-4 py-3
+                      backdrop-blur-xl bg-white/10
+                      border border-white/20
+                      rounded-xl
+                      text-white
+                      placeholder:text-white/40
+                      focus:outline-none focus:border-blue-500
+                      transition
+                    "
+                  />
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="mb-8">
+                <label className="block text-white/70 text-sm mb-2">
+                  Tell us about your project *
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={5}
+                  className="
+                    w-full
+                    px-4 py-3
+                    backdrop-blur-xl bg-white/10
+                    border border-white/20
+                    rounded-xl
+                    text-white
+                    placeholder:text-white/40
+                    focus:outline-none focus:border-blue-500
+                    transition
+                    resize-none
+                  "
+                  placeholder="Describe your project, goals, timeline, and any specific requirements..."
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="
+                  group
+                  flex items-center justify-between
+                  w-full
+                  border border-white/20
+                  rounded-full
+                  px-6 py-4
+                  text-sm sm:text-base
+                  hover:bg-white/10
+                  transition
+                "
+              >
+                <span className="text-white font-medium">
+                  Send Request
+                </span>
+
+                <span className="
+                  w-8 h-8
+                  sm:w-10 sm:h-10
+                  bg-yellow-400
+                  rounded-full
+                  flex items-center justify-center
+                  group-hover:translate-x-1
+                  transition
+                ">
+                  <FaPaperPlane className="text-black w-4 h-4 -rotate-45" />
+                </span>
+              </button>
+
+              {/* Privacy Note */}
+              <p className="
+                text-white/40 text-xs sm:text-sm
+                text-center mt-6
+              ">
+                By submitting this form, you agree to our Privacy Policy. 
+                We'll never share your information with third parties.
+              </p>
+            </form>
+
+            {/* Additional Info */}
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="
+                backdrop-blur-xl bg-white/5
+                border border-white/10
+                rounded-xl
+                p-4
+                text-center
+              ">
+                <div className="text-blue-400 text-lg font-bold mb-1">
+                  24-48 Hours
+                </div>
+                <div className="text-white/60 text-sm">
+                  Average Response Time
+                </div>
+              </div>
+
+              <div className="
+                backdrop-blur-xl bg-white/5
+                border border-white/10
+                rounded-xl
+                p-4
+                text-center
+              ">
+                <div className="text-blue-400 text-lg font-bold mb-1">
+                  100+ Projects
+                </div>
+                <div className="text-white/60 text-sm">
+                  Successfully Delivered
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-     
       </div>
- 
+
+      {/* SOCIALS & LOGO SECTION */}
+      <div className="mt-20 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="
+          bg-white
+          rounded-2xl sm:rounded-3xl
+          overflow-hidden
+          shadow-2xl
+        ">
+          <div className="flex flex-col lg:flex-row">
+            
+            {/* LEFT SIDE - SOCIALS */}
+            <div className="
+              lg:w-1/2
+              p-8 sm:p-12 md:p-16
+              bg-gradient-to-br from-blue-50 to-gray-50
+            ">
+              <h3 className="
+                text-gray-800
+                text-2xl sm:text-3xl md:text-4xl
+                font-bold
+                mb-6 sm:mb-8
+              ">
+                Connect With Us
+              </h3>
+              
+              <p className="
+                text-gray-600
+                text-base sm:text-lg
+                mb-8 sm:mb-10
+                leading-relaxed
+              ">
+                Follow CrownTech on social media to stay updated with our latest projects, 
+                tech insights, and company news.
+              </p>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      group
+                      flex flex-col items-center
+                      p-4
+                      bg-white
+                      border border-gray-200
+                      rounded-xl
+                      hover:bg-blue-50
+                      hover:border-blue-300
+                      hover:shadow-lg
+                      transition-all duration-300
+                    "
+                  >
+                    <div className="
+                      w-12 h-12
+                      flex items-center justify-center
+                      text-gray-700
+                      group-hover:text-blue-600
+                      transition-colors
+                      mb-3
+                    ">
+                      <div className="w-6 h-6">
+                        {social.icon}
+                      </div>
+                    </div>
+                    <span className="
+                      text-gray-800
+                      text-sm font-medium
+                      group-hover:text-blue-700
+                      transition-colors
+                    ">
+                      {social.label}
+                    </span>
+                  </a>
+                ))}
+              </div>
+              
+              <div className="mt-8 sm:mt-10 pt-6 border-t border-gray-200">
+                <p className="text-gray-500 text-sm">
+                  Connect with our community of developers, designers, and innovators.
+                </p>
+              </div>
+            </div>
+            
+            {/* RIGHT SIDE - LOGO */}
+            <div className="
+              lg:w-1/2
+              p-8 sm:p-12 md:p-16
+              flex flex-col items-center justify-center
+              bg-gradient-to-br from-blue-600 to-blue-800
+              relative
+              overflow-hidden
+            ">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-400/10 rounded-full -translate-x-20 translate-y-20"></div>
+              
+              {/* Logo Container */}
+              <div className="relative z-10 text-center">
+                <div className="
+                  w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48
+                  mx-auto
+                  mb-6 sm:mb-8
+                  relative
+                ">
+                  {/* Logo Placeholder - Replace with your actual logo */}
+                  <div className="
+                    w-full h-full
+                    bg-white/10
+                    backdrop-blur-sm
+                    rounded-3xl
+                    border-2 border-white/20
+                    flex items-center justify-center
+                  ">
+                    <div className="text-center">
+                      <div className="
+                        text-white
+                        text-4xl sm:text-5xl md:text-6xl
+                        font-bold
+                        tracking-wider
+                      ">
+                        CT
+                      </div>
+                      <div className="
+                        text-white/80
+                        text-xs sm:text-sm
+                        mt-2
+                        font-medium
+                        tracking-widest
+                      ">
+                        LOGO
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Decorative Ring */}
+                  <div className="
+                    absolute inset-0
+                    border-4 border-white/10
+                    rounded-3xl
+                    animate-pulse
+                  "></div>
+                </div>
+                
+                {/* Logo Text */}
+                <h2 className="
+                  text-white
+                  text-3xl sm:text-4xl md:text-5xl
+                  font-bold
+                  mb-3
+                  tracking-tight
+                ">
+                  CrownTech
+                </h2>
+                
+                <p className="
+                  text-white/70
+                  text-base sm:text-lg
+                  mb-6 sm:mb-8
+                  max-w-sm mx-auto
+                ">
+                  Web Design & Development Company
+                </p>
+                
+                {/* Tagline */}
+                <div className="
+                  inline-block
+                  px-6 py-3
+                  bg-white/10
+                  backdrop-blur-sm
+                  border border-white/20
+                  rounded-full
+                ">
+                  <span className="
+                    text-white
+                    text-sm font-medium
+                  ">
+                    Building Digital Excellence
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

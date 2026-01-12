@@ -1,391 +1,296 @@
-import React from "react";
-import { HiPlay, HiArrowRight, HiExternalLink } from "react-icons/hi";
-import { FaYoutube } from "react-icons/fa";
+import React from 'react';
+import { MdPlayArrow, MdChevronRight } from 'react-icons/md';
+import { FaYoutube } from 'react-icons/fa';
 
 const YoutubeSection = () => {
-  const videos = [
+  const youtubeVideos = [
     {
       id: 1,
-      title: "Building a Modern Portfolio with React & Tailwind CSS",
-      description: "Learn how to create a stunning portfolio website from scratch using React and Tailwind CSS.",
-      duration: "15:42",
-      views: "12.5K",
-      date: "2 weeks ago",
-      thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      link: "https://youtube.com/watch?v=example1",
-      category: "Tutorial"
+      title: "Building a Modern Dashboard with React & Tailwind CSS",
+      description: "Learn how to create a responsive admin dashboard with modern UI patterns.",
+      thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      duration: "15:24",
+      uploadDate: "2 days ago"
     },
     {
       id: 2,
-      title: "Advanced CSS Grid Techniques You Should Know",
-      description: "Master CSS Grid with these advanced techniques for complex layouts.",
+      title: "Performance Optimization Techniques for Web Apps",
+      description: "Advanced techniques to improve your web application's performance.",
+      thumbnail: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       duration: "22:18",
-      views: "8.3K",
-      date: "1 month ago",
-      thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      link: "https://youtube.com/watch?v=example2",
-      category: "CSS"
+      uploadDate: "1 week ago"
     },
     {
       id: 3,
-      title: "React Hooks Explained: From Basics to Advanced",
-      description: "Complete guide to React Hooks with practical examples and use cases.",
-      duration: "38:15",
-      views: "25.7K",
-      date: "2 months ago",
-      thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      link: "https://youtube.com/watch?v=example3",
-      category: "React"
-    },
-    {
-      id: 4,
-      title: "Website Performance Optimization Guide",
-      description: "Improve your website's loading speed and Core Web Vitals with these techniques.",
-      duration: "29:47",
-      views: "15.2K",
-      date: "3 months ago",
-      thumbnail: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      link: "https://youtube.com/watch?v=example4",
-      category: "Performance"
-    },
-    {
-      id: 5,
-      title: "Building a Full-Stack Web App with Next.js",
-      description: "Step-by-step guide to creating a complete full-stack application using Next.js.",
-      duration: "45:32",
-      views: "32.1K",
-      date: "4 months ago",
-      thumbnail: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      link: "https://youtube.com/watch?v=example5",
-      category: "Full-Stack"
-    },
-    {
-      id: 6,
-      title: "UI/UX Design Principles for Developers",
-      description: "Essential design principles every web developer should know.",
-      duration: "18:25",
-      views: "9.8K",
-      date: "5 months ago",
-      thumbnail: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      link: "https://youtube.com/watch?v=example6",
-      category: "Design"
+      title: "Modern Animations with Framer Motion & GSAP",
+      description: "Create stunning animations and micro-interactions for your React applications.",
+      thumbnail: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      duration: "18:45",
+      uploadDate: "2 weeks ago"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 py-12 sm:py-16 md:py-20 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Header Section - Left Aligned */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
-            {/* Left Side - Header Content */}
-            <div className="lg:w-2/5">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="
-                  w-12 h-12 sm:w-14 sm:h-14
-                  bg-gradient-to-br from-red-600 to-red-800
-                  rounded-xl
-                  flex items-center justify-center
-                ">
-                  <FaYoutube className="text-white w-6 h-6 sm:w-7 sm:h-7" />
-                </div>
+    <div className="py-10 sm:py-16">
+      
+      {/* HERO HEADER */}
+      <header className="px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-16">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+          
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="
+                w-12 h-12
+                bg-gradient-to-br from-red-500 to-red-700
+                rounded-xl
+                flex items-center justify-center
+              ">
+                <FaYoutube className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-white/70 text-sm font-medium uppercase tracking-wider">
+                  Also on YouTube
+                </h2>
                 <h1 className="
-                  text-white font-bold
-                  text-3xl sm:text-4xl md:text-5xl
-                  leading-tight
+                  text-white font-bold leading-tight
+                  text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                  mt-1
                 ">
-                  We are now on YouTube
+                  Video Tutorials & Guides
                 </h1>
-              </div>
-              
-              <p className="text-gray-400 text-base sm:text-lg md:text-xl mb-6 leading-relaxed">
-                Watch our latest tutorials, web development guides, and tech insights on YouTube.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="https://youtube.com/channel/example"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-flex items-center justify-center gap-2
-                    px-6 py-3
-                    bg-red-600
-                    text-white
-                    rounded-lg
-                    hover:bg-red-700
-                    transition-colors
-                    group
-                    text-sm sm:text-base font-medium
-                  "
-                >
-                  <FaYoutube className="w-5 h-5" />
-                  Subscribe to Channel
-                </a>
-                
-                <a
-                  href="https://youtube.com/channel/example/videos"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-flex items-center justify-center gap-2
-                    px-6 py-3
-                    bg-gray-800
-                    border border-gray-700
-                    text-white
-                    rounded-lg
-                    hover:bg-gray-700
-                    transition-colors
-                    group
-                    text-sm sm:text-base font-medium
-                  "
-                >
-                  View All Videos
-                  <HiExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-              
-              {/* Channel Stats */}
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                <div className="text-center">
-                  <div className="text-white text-xl sm:text-2xl font-bold">50+</div>
-                  <div className="text-gray-400 text-sm">Videos</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-white text-xl sm:text-2xl font-bold">100K+</div>
-                  <div className="text-gray-400 text-sm">Views</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-white text-xl sm:text-2xl font-bold">5K+</div>
-                  <div className="text-gray-400 text-sm">Subscribers</div>
-                </div>
               </div>
             </div>
             
-            {/* Right Side - Featured Video Preview */}
-            <div className="lg:w-3/5">
-              <div className="
-                bg-gray-800/30
-                rounded-xl sm:rounded-2xl
-                border border-gray-700/50
-                overflow-hidden
-                hover:border-gray-600
-                transition-all duration-300
-                group
-              ">
-                <div className="relative">
-                  {/* Video Thumbnail */}
-                  <div className="h-48 sm:h-64 md:h-80 bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="
-                        w-16 h-16 sm:w-20 sm:h-20
-                        bg-red-600
-                        rounded-full
-                        flex items-center justify-center
-                        hover:scale-110
-                        transition-transform
-                        cursor-pointer
-                      ">
-                        <HiPlay className="text-white w-6 h-6 sm:w-8 sm:h-8 ml-1" />
-                      </div>
-                    </div>
-                    
-                    {/* Video Info Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                          <span className="px-2 py-1 bg-red-600/80 text-white text-xs rounded">
-                            Latest Video
-                          </span>
-                          <span className="text-white text-sm">25:18</span>
-                        </div>
-                        <span className="text-gray-300 text-sm">2 days ago</span>
-                      </div>
-                    </div>
+            <p className="
+              text-white/70
+              text-base sm:text-lg md:text-xl
+              leading-relaxed mt-4
+            ">
+              Check out our YouTube channel for web development tutorials, tech insights, 
+              and behind-the-scenes content from CrownTech.
+            </p>
+          </div>
+
+          {/* FEATURED VIDEO */}
+          <div className="
+            backdrop-blur-xl bg-white/5
+            border border-white/10
+            rounded-2xl
+            overflow-hidden
+            max-w-2xl lg:max-w-md
+            w-full
+            hover:border-white/20
+            transition-all duration-300
+          ">
+            <div className="relative">
+              {/* Thumbnail */}
+              <div className="relative h-48 sm:h-56 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                  alt="Featured Video"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                
+                {/* Play Button */}
+                <button className="
+                  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+                  w-14 h-14
+                  bg-red-600
+                  rounded-full
+                  flex items-center justify-center
+                  hover:bg-red-700
+                  hover:scale-110
+                  transition-all duration-300
+                ">
+                  <MdPlayArrow className="w-7 h-7 text-white ml-1" />
+                </button>
+
+                {/* Duration */}
+                <div className="
+                  absolute bottom-4 right-4
+                  px-2 py-1
+                  bg-black/80 backdrop-blur-sm
+                  rounded
+                  text-white text-sm font-medium
+                ">
+                  42:18
+                </div>
+              </div>
+
+              {/* Featured Content */}
+              <div className="p-5">
+                <h3 className="
+                  text-white
+                  text-lg font-bold
+                  mb-2
+                  line-clamp-2
+                  hover:text-red-300
+                  transition-colors
+                ">
+                  Complete Web Development Roadmap 2024
+                </h3>
+
+                <p className="
+                  text-gray-300
+                  text-sm
+                  mb-4
+                  line-clamp-2
+                ">
+                  Learn the exact path to become a full-stack developer with modern technologies.
+                </p>
+
+                <div className="flex items-center justify-between">
+                  <div className="text-white/50 text-xs">
+                    3 days ago
                   </div>
-                  
-                  <div className="p-4 sm:p-6">
-                    <h3 className="
-                      text-white
-                      text-lg sm:text-xl md:text-2xl
-                      font-semibold
-                      mb-2
-                      group-hover:text-red-400
-                      transition-colors
-                    ">
-                      How We Built This Website - Complete Walkthrough
-                    </h3>
-                    <p className="text-gray-400 text-sm sm:text-base mb-4 leading-relaxed">
-                      Join us as we walk through the complete process of building this portfolio website, from design to deployment.
-                    </p>
-                    
-                    <a
-                      href="https://youtube.com/watch?v=latest"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="
-                        inline-flex items-center gap-2
-                        text-red-400
-                        hover:text-red-300
-                        transition-colors
-                        font-medium
-                        text-sm sm:text-base
-                      "
-                    >
-                      Watch Now
-                      <HiArrowRight className="w-4 h-4" />
-                    </a>
-                  </div>
+                  <button className="
+                    inline-flex items-center gap-1
+                    text-red-400 text-sm font-medium
+                    hover:text-red-300
+                    transition-colors
+                  ">
+                    Watch Now
+                    <MdChevronRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
-        {/* Video Grid */}
-        <div className="mb-12 sm:mb-16">
-          <h2 className="
-            text-white
-            text-2xl sm:text-3xl md:text-4xl
-            font-bold
-            mb-6 sm:mb-8
-          ">
-            Latest Uploads
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {videos.map((video) => (
-              <div
-                key={video.id}
-                className="
-                  bg-gray-800/30
-                  rounded-xl sm:rounded-2xl
-                  border border-gray-700/50
-                  overflow-hidden
-                  hover:border-gray-600
-                  hover:bg-gray-800/40
-                  transition-all duration-300
-                  group
-                "
-              >
-                {/* Video Thumbnail */}
-                <div className="relative">
-                  <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="
-                        w-12 h-12
-                        bg-red-600/80
-                        rounded-full
-                        flex items-center justify-center
-                        opacity-0 group-hover:opacity-100
-                        transition-opacity
-                        cursor-pointer
-                      ">
-                        <HiPlay className="text-white w-5 h-5 ml-0.5" />
-                      </div>
-                    </div>
-                    
-                    {/* Video Duration */}
-                    <div className="absolute bottom-3 right-3">
-                      <span className="
-                        px-2 py-1
-                        bg-black/80
-                        text-white
-                        text-xs
-                        rounded
-                      ">
-                        {video.duration}
-                      </span>
-                    </div>
-                    
-                    {/* Category Badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className="
-                        px-2 py-1
-                        bg-gray-900/80
-                        text-gray-300
-                        text-xs
-                        rounded
-                      ">
-                        {video.category}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+      </header>
+
+      {/* VIDEO GRID */}
+      <section className="px-4 sm:px-6 max-w-7xl mx-auto mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {youtubeVideos.map((video) => (
+            <div
+              key={video.id}
+              className="
+                group
+                backdrop-blur-xl bg-white/5
+                border border-white/10
+                rounded-2xl
+                overflow-hidden
+                hover:bg-white/10
+                hover:border-white/20
+                hover:-translate-y-1
+                transition-all duration-300
+              "
+            >
+              {/* Video Thumbnail */}
+              <div className="relative overflow-hidden">
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
                 
-                {/* Video Info */}
-                <div className="p-4 sm:p-6">
-                  <h3 className="
-                    text-white
-                    text-lg sm:text-xl
-                    font-semibold
-                    mb-2
-                    line-clamp-2
-                    group-hover:text-red-400
-                    transition-colors
+                {/* Duration Overlay */}
+                <div className="
+                  absolute bottom-3 right-3
+                  px-2 py-1
+                  bg-black/80 backdrop-blur-sm
+                  rounded
+                  text-white text-xs font-medium
+                ">
+                  {video.duration}
+                </div>
+
+                {/* Play Button Overlay */}
+                <div className="
+                  absolute inset-0
+                  bg-black/40
+                  opacity-0 group-hover:opacity-100
+                  transition-opacity duration-300
+                  flex items-center justify-center
+                ">
+                  <div className="
+                    w-12 h-12
+                    bg-red-600
+                    rounded-full
+                    flex items-center justify-center
+                    transform scale-90 group-hover:scale-100
+                    transition-transform duration-300
                   ">
-                    {video.title}
-                  </h3>
-                  
-                  <p className="
-                    text-gray-400
-                    text-sm
-                    mb-4
-                    line-clamp-2
-                    leading-relaxed
-                  ">
-                    {video.description}
-                  </p>
-                  
-                  {/* Video Stats */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-4 text-gray-400 text-xs sm:text-sm">
-                      <div className="flex items-center gap-1">
-                        <span>{video.views} views</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span>{video.date}</span>
-                      </div>
-                    </div>
-                    
-                    <span className="text-red-400 text-xs font-medium">
-                      YouTube
-                    </span>
+                    <MdPlayArrow className="w-6 h-6 text-white ml-0.5" />
                   </div>
-                  
-                  {/* Watch Button */}
-                  <a
-                    href={video.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      w-full
-                      flex items-center justify-center gap-2
-                      py-2.5
-                      bg-gray-800
-                      border border-gray-700
-                      text-gray-300
-                      rounded-lg
-                      text-sm font-medium
-                      hover:bg-gray-700
-                      hover:border-red-500/50
-                      hover:text-red-400
-                      transition-colors
-                      group-hover:bg-gray-800/50
-                    "
-                  >
-                    <HiPlay className="w-4 h-4" />
-                    Watch on YouTube
-                  </a>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Video Info */}
+              <div className="p-5">
+                <h4 className="
+                  text-white
+                  text-lg font-bold
+                  mb-2
+                  line-clamp-2
+                  group-hover:text-red-300
+                  transition-colors
+                ">
+                  {video.title}
+                </h4>
+
+                <p className="
+                  text-gray-300
+                  text-sm
+                  mb-4
+                  line-clamp-2
+                ">
+                  {video.description}
+                </p>
+
+                <div className="flex items-center justify-between">
+                  <div className="text-white/50 text-xs">
+                    {video.uploadDate}
+                  </div>
+                  <button className="
+                    inline-flex items-center gap-1
+                    text-red-400 text-sm font-medium
+                    hover:text-red-300
+                    transition-colors
+                  ">
+                    Watch
+                    <MdChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        
-       
-      </div>
+
+        {/* CTA BUTTON */}
+        <div className="mt-12 text-center">
+          <a
+            href="https://youtube.com/@crownatech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              group
+              inline-flex items-center gap-3
+              px-8 py-4
+              backdrop-blur-xl bg-white/5
+              border border-white/10
+              rounded-xl
+              text-white font-semibold
+              hover:bg-white/10
+              hover:border-white/20
+              hover:scale-105
+              transition-all
+            "
+          >
+            <FaYoutube className="w-6 h-6" />
+            Visit CrownTech on YouTube
+            <MdChevronRight className="
+              w-5 h-5
+              group-hover:translate-x-1
+              transition-transform
+            " />
+          </a>
+        </div>
+      </section>
     </div>
   );
 };
