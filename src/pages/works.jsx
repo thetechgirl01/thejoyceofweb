@@ -134,12 +134,7 @@ const Works = () => {
         ))}
       </main>
 
-      {/* Footer */}
-      <footer className="mt-24 pt-5 border-t border-gray-200">
-        <p className="text-sm text-gray-500 text-center">
-          This website uses cookies to ensure you get the best experience on our website.
-        </p>
-      </footer>
+   
     </div>
   );
 };

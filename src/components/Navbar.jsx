@@ -20,7 +20,7 @@ export default function Navbar() {
     { name: "Blogs", path: "/blogs" },
     { name: "Works", path: "/works" },
     { name: "About Us", path: "/about" },
-    { name: "FAQ", path: "/faq" },
+    
    
   ];
 

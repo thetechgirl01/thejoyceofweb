@@ -37,7 +37,7 @@ const Home = () => {
         <Contact />
       </div>
 
-      <div className="px-9 bg-gray-900/95 border border-white/20 rounded-tr-3xl rounded-tl-3xl ">
+      <div className="px-9 bg-gray-900/95 border border-b-none border-white/20 rounded-tr-3xl rounded-tl-3xl ">
         <Blog />
       </div>
 
@@ -51,9 +51,7 @@ const Home = () => {
 
 
 
-      <div className="px-9 rounded-tr-3xl rounded-tl-3xl">
-        <Footer />
-      </div>
+      
     </div>
   );
 };
