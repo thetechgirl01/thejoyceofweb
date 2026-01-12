@@ -12,7 +12,7 @@ import YoutubeSection from '../components/Youtube';
 
 const Home = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen ">
       <div className="px- rounded-tr-3xl rounded-tl-3xl">
         <Hero />
       </div>
@@ -21,23 +21,23 @@ const Home = () => {
         <Services />
       </div>
 
-      <div className="px-9 bg-white rounded-tr-3xl rounded-tl-3xl">
+      <div className="px-9 bg-white rounded-tr-3xl rounded-tl-3xl ">
         <About />
       </div>
 
-      <div className="px-9 bg-gray-900/95 rounded-tr-3xl rounded-tl-3xl border-white/20">
+      <div className="px-9 bg-gray-900/95 border border-white/20 rounded-tr-3xl rounded-tl-3xl ">
         <Projects />
       </div>
 
-      <div className="px-9 bg-white rounded-tr-3xl rounded-tl-3xl">
+      <div className="px-9 bg-white border border-white/20 rounded-tr-3xl rounded-tl-3xl">
         <Workprocess />
       </div>
 
-      <div className="px-9 bg-[#011936]">
+      <div className="px-9 bg-[#011936] border border-white/20 rounded-tr-3xl rounded-tl-3xl">
         <Contact />
       </div>
 
-      <div className="px-9 bg-white">
+      <div className="px-9 bg-gray-900/95 border border-white/20 rounded-tr-3xl rounded-tl-3xl ">
         <Blog />
       </div>
 
