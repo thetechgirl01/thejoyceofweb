@@ -7,6 +7,7 @@ import Workprocess from '../components/WorkProcess';
 import Contact from '../components/Contact';
 import Tesst from '../components/Tesst';
 import Footer from '../components/Footer';
+import Blog from '../components/Blog';
 
 const Home = () => {
   return (
@@ -36,7 +37,7 @@ const Home = () => {
       </div>
 
       <div className="px-9 bg-white">
-        <Tesst />
+        <Blog />
       </div>
 
       <div className="px-9 rounded-tr-3xl rounded-tl-3xl">
