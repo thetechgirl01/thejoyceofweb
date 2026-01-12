@@ -8,6 +8,7 @@ import Contact from '../components/Contact';
 import Tesst from '../components/Tesst';
 import Footer from '../components/Footer';
 import Blog from '../components/Blog';
+import YoutubeSection from '../components/Youtube';
 
 const Home = () => {
   return (
@@ -39,6 +40,12 @@ const Home = () => {
       <div className="px-9 bg-white">
         <Blog />
       </div>
+
+      <div className="px-9 bg-whte">
+        <YoutubeSection />
+      </div>
+
+
 
       <div className="px-9 rounded-tr-3xl rounded-tl-3xl">
         <Footer />
