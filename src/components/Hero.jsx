@@ -110,7 +110,7 @@ export const Hero = () => {
 
           {/* Subtitle */}
           <h2 className="text-blue-300 text-lg sm:text-xl md:text-3xl font-semibold mt-2 mb-4">
-          CROWNTECH
+          CROWNATECH
           </h2>
 
           {/* Description */}

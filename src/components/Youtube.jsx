@@ -67,7 +67,7 @@ const YoutubeSection = () => {
               leading-relaxed mt-4
             ">
               Check out our YouTube channel for web development tutorials, tech insights, 
-              and behind-the-scenes content from CrownTech.
+              and behind-the-scenes content from CrownaTech.
             </p>
           </div>
 
@@ -282,7 +282,7 @@ const YoutubeSection = () => {
             "
           >
             <FaYoutube className="w-6 h-6" />
-            Visit CrownTech on YouTube
+            Visit CrownaTech on YouTube
             <MdChevronRight className="
               w-5 h-5
               group-hover:translate-x-1

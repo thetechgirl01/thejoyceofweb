@@ -41,9 +41,13 @@ const Home = () => {
         <Blog />
       </div>
 
+      {/**
+
       <div className="px-9 bg-whte">
         <YoutubeSection />
       </div>
+
+       */}
 
 
 
