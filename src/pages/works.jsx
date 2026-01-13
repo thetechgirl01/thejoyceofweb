@@ -29,31 +29,7 @@ const Works = () => {
       description:
         "Zad is a mobile investment platform that integrates both robo-advisor and trading features.",
     },
-    {
-      id: 4,
-      tags: ["B2C", "GAMING", "SOCIAL COMMUNITY", "WEB PLATFORM"],
-      Image: Workpic,
-      title:
-        "Crafting Void: Comprehensive Design, Branding, Illustrations and Video Creation",
-      description:
-        "We crafted user-centric, game-specific interfaces for an immersive gaming experience.",
-    },
-    {
-      id: 5,
-      tags: ["B2C", "SONIC TUNER MOBILE APP"],
-      Image: Workpic,
-      title: "Designed and built a prolific string instruments tuning app",
-      description:
-        "Whenever passion meets expertise, expect fireworks.",
-    },
-    {
-      id: 6,
-      tags: ["B2C", "E-LEARNING", "WEB PLATFORM"],
-      Image: Workpic,
-      title: "Designed and developed a virtual classroom platform",
-      description:
-        "We developed a richly functional educational environment.",
-    },
+   
   ];
 
   const industry = [
