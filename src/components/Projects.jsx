@@ -114,23 +114,9 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* STYLES */}
-      <style jsx>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-scroll {
-          animation: scroll 22s linear infinite;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
+    
+       
+   
     </section>
   );
 };

@@ -105,33 +105,7 @@ const Bookcall = () => {
         </>
       )}
 
-      {/* Tailwind CSS for animations */}
-      <style jsx>{`
-        @keyframes spin-slow {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-
-        @keyframes fade-up {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-spin-slow {
-          animation: spin-slow 20s linear infinite;
-        }
-
-        .animate-fade-up {
-          animation: fade-up 0.25s ease-out;
-        }
-        
-        /* Responsive font size for SVG text */
-        @media (min-width: 768px) {
-          svg text {
-            font-size: 10px !important;
-          }
-        }
-      `}</style>
+     
     </>
   );
 };

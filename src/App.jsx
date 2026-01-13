@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Bookcall from './components/Bookcall.jsx';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Router, Routes, Route } from 'react-router-dom';
 
 // Pages
 import Home from './pages/Home';
@@ -13,11 +13,12 @@ import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import FAQ from './pages/Faq';
 import Footer from './components/Footer.jsx';
+import BlogcontntPage from './pages/BlogcontntPage.jsx';
 
 function App() {
   return (
-    <Router>
-      {/* Navbar is global */}
+    <>
+      {/* Global Navbar */}
       <Navbar />
 
       {/* Routes */}
@@ -28,20 +29,17 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/blog/id" element={<BlogcontntPage />} />
       </Routes>
-    
-      {/* Floating Bookcall button stays global */}
+
+      {/* Global Floating Button */}
       <Bookcall />
 
-        <div className="px-9 rounded-tr-3xl rounded-tl-3xl">
+      {/* Footer */}
+      <div className="px-9 rounded-tr-3xl rounded-tl-3xl">
         <Footer />
       </div>
-
-      
-    </Router>
-
-    
+    </>
   );
 }
-
 export default App;
