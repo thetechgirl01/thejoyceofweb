@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="py-6 text-center">
           <p className="text-gray-500 text-sm">
-            © {currentYear} CrownaTech. All rights reserved.
+            © {currentYear} CrownaTech 2026. All rights reserved.
           </p>
         </div>
       </div>
