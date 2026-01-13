@@ -12,33 +12,7 @@ const Blog = () => {
       readTime: "5 min read",
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
-    {
-      id: 2,
-      title: "Building Scalable Applications with React",
-      excerpt: "Learn best practices for building scalable React applications that can grow with your user base.",
-      category: "Development",
-      date: "Mar 10, 2024",
-      readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 3,
-      title: "UI/UX Principles for Modern Web Apps",
-      excerpt: "Essential UI/UX principles that every developer should know to create intuitive user experiences.",
-      category: "Design",
-      date: "Mar 5, 2024",
-      readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 4,
-      title: "Performance Optimization Techniques",
-      excerpt: "Advanced techniques to optimize your website's performance and improve Core Web Vitals scores.",
-      category: "Performance",
-      date: "Feb 28, 2024",
-      readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    }
+
   ];
 
   return (
