@@ -6,11 +6,11 @@ import { HiCalendar, HiClock } from "react-icons/hi";
 const allBlogPosts = [
   {
     id: 1,
-    title: "React Tips for Beginners",
-    excerpt: "Learn essential React tips and tricks to build your first app.",
-    category: "Web Development",
-    date: "Jan 5, 2024",
-    readTime: "5 min read",
+    title: "Blog 1",
+      excerpt: "Learn essential React tips and tricks to build your first app.",
+      category: "Web Development",
+      date: "Jan 5, 2024",
+      readTime: "5 min read",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
     content:
       "Here is the full content of the React Tips for Beginners post. You can write your detailed article here, including paragraphs, code snippets, images, etc.",
@@ -88,7 +88,7 @@ const BlogContentPage = () => {
       </span>
 
       {/* Title */}
-      <h1 className="text-4xl font-bold mb-4">{id}</h1>
+      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
 
       {/* Meta Info */}
       <div className="flex gap-4 text-sm text-white/60 mb-6">
