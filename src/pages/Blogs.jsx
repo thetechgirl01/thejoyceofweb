@@ -9,6 +9,7 @@ const Blogs = ({ blogs = [] }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const postRefs = useRef([]);
 
+  // Categories dynamically based on existing blogs
   const categories = [
     { name: "All", count: blogs.length },
     { name: "Web Development", count: blogs.filter(b => b.attributes?.category === "Web Development").length },
@@ -18,7 +19,8 @@ const Blogs = ({ blogs = [] }) => {
     { name: "Business", count: blogs.filter(b => b.attributes?.category === "Business").length },
   ];
 
-  const filteredPosts = blogs.filter((blog) => {
+  // Filter blogs by category + search
+  const filteredPosts = blogs.filter(blog => {
     const matchesCategory = activeCategory === "All" || blog.attributes?.category === activeCategory;
     const matchesSearch = searchQuery === "" ||
       (blog.attributes?.blogTitle?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
@@ -26,6 +28,7 @@ const Blogs = ({ blogs = [] }) => {
     return matchesCategory && matchesSearch;
   });
 
+  // Animate cards on render
   useEffect(() => {
     gsap.fromTo(
       postRefs.current,
@@ -41,10 +44,8 @@ const Blogs = ({ blogs = [] }) => {
   };
 
   const getImageUrl = (blog) => {
-    if (!blog.attributes?.coverImg?.data?.attributes?.url) {
-      return "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
-    }
-    return `http://localhost:1337${blog.attributes.coverImg.data.attributes.url}`;
+    const img = blog.attributes?.coverImg?.data?.attributes?.url;
+    return img ? `http://localhost:1337${img}` : "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
   };
 
   return (
@@ -63,7 +64,7 @@ const Blogs = ({ blogs = [] }) => {
           <HiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" />
           <input
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search articles..."
             className="w-full pl-12 py-4 bg-white/5 border border-white/10 rounded-xl text-white"
           />
@@ -72,7 +73,7 @@ const Blogs = ({ blogs = [] }) => {
 
       {/* CATEGORY BUTTONS */}
       <section className="px-6 max-w-7xl mx-auto mb-8 flex gap-2 flex-wrap">
-        {categories.map((cat) => (
+        {categories.map(cat => (
           <button
             key={cat.name}
             onClick={() => setActiveCategory(cat.name)}
@@ -92,7 +93,7 @@ const Blogs = ({ blogs = [] }) => {
             {filteredPosts.map((blog, i) => (
               <Link to={`/blog/${blog.id}`} key={blog.id}>
                 <article
-                  ref={(el) => (postRefs.current[i] = el)}
+                  ref={el => postRefs.current[i] = el}
                   className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
                 >
                   <div className="h-48 w-full overflow-hidden">
