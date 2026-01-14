@@ -40,6 +40,8 @@ function App() {
       </div>
     );
   }
+  console.log('App.jsx - blogsData to pass:', blogsData);
+
 
   return (
     <>

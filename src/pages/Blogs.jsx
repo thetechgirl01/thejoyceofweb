@@ -9,7 +9,7 @@ const Blogs = ({ blogs = [] }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const postRefs = useRef([]);
 
-  // Categories dynamically based on existing blogs
+  // Dynamic categories based on your Strapi data
   const categories = [
     { name: "All", count: blogs.length },
     { name: "Web Development", count: blogs.filter(b => b.attributes?.category === "Web Development").length },
@@ -19,16 +19,18 @@ const Blogs = ({ blogs = [] }) => {
     { name: "Business", count: blogs.filter(b => b.attributes?.category === "Business").length },
   ];
 
-  // Filter blogs by category + search
+  // Filter blogs by category and search query
   const filteredPosts = blogs.filter(blog => {
-    const matchesCategory = activeCategory === "All" || blog.attributes?.category === activeCategory;
-    const matchesSearch = searchQuery === "" ||
-      (blog.attributes?.blogTitle?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
-      (blog.attributes?.header?.[0]?.children?.[0]?.text?.toLowerCase() || "").includes(searchQuery.toLowerCase());
+    const attrs = blog.attributes;
+    const matchesCategory = activeCategory === "All" || attrs?.category === activeCategory;
+    const matchesSearch =
+      searchQuery === "" ||
+      (attrs?.blogTitle?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
+      (attrs?.header?.[0]?.children?.[0]?.text?.toLowerCase() || "").includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
-  // Animate cards on render
+  // GSAP animation for blog cards
   useEffect(() => {
     gsap.fromTo(
       postRefs.current,
@@ -37,14 +39,16 @@ const Blogs = ({ blogs = [] }) => {
     );
   }, [filteredPosts]);
 
-  const formatDate = (dateString) => {
+  // Format date nicely
+  const formatDate = dateString => {
     if (!dateString) return "No date";
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   };
 
-  const getImageUrl = (blog) => {
-    const img = blog.attributes?.coverImg?.data?.attributes?.url;
+  // Get cover image URL from Strapi
+  const getImageUrl = blog => {
+    const img = blog.attributes?.coverImg?.url || blog.attributes?.coverImg?.data?.attributes?.url;
     return img ? `http://localhost:1337${img}` : "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
   };
 
@@ -90,48 +94,51 @@ const Blogs = ({ blogs = [] }) => {
       <section className="px-6 max-w-7xl mx-auto">
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((blog, i) => (
-              <Link to={`/blog/${blog.id}`} key={blog.id}>
-                <article
-                  ref={el => postRefs.current[i] = el}
-                  className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
-                >
-                  <div className="h-48 w-full overflow-hidden">
-                    <img
-                      src={getImageUrl(blog)}
-                      alt={blog.attributes?.blogTitle || 'Blog post'}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">
-                      {blog.attributes?.category || "Uncategorized"}
-                    </span>
-
-                    <div className="flex gap-4 text-sm text-white/60 mb-3">
-                      <span className="flex items-center gap-1">
-                        <HiCalendar /> {formatDate(blog.attributes?.date)}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <HiClock /> {blog.attributes?.readTime || "?"} min read
-                      </span>
+            {filteredPosts.map((blog, i) => {
+              const attrs = blog.attributes;
+              return (
+                <Link to={`/blog/${blog.id}`} key={blog.id}>
+                  <article
+                    ref={el => postRefs.current[i] = el}
+                    className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
+                  >
+                    <div className="h-48 w-full overflow-hidden">
+                      <img
+                        src={getImageUrl(blog)}
+                        alt={attrs?.blogTitle || 'Blog post'}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
+                    <div className="p-6">
+                      <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">
+                        {attrs?.category || "Uncategorized"}
+                      </span>
 
-                    <h3 className="text-white font-bold text-lg mb-2 line-clamp-2">
-                      {blog.attributes?.blogTitle || "Untitled Blog"}
-                    </h3>
+                      <div className="flex gap-4 text-sm text-white/60 mb-3">
+                        <span className="flex items-center gap-1">
+                          <HiCalendar /> {formatDate(attrs?.date)}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <HiClock /> {attrs?.readTime || "?"} min read
+                        </span>
+                      </div>
 
-                    <p className="text-white/70 text-sm mb-4 line-clamp-3">
-                      {blog.attributes?.header?.[0]?.children?.[0]?.text || "No description available"}
-                    </p>
+                      <h3 className="text-white font-bold text-lg mb-2 line-clamp-2">
+                        {attrs?.blogTitle || "Untitled Blog"}
+                      </h3>
 
-                    <button className="w-full py-3 bg-white/10 rounded-xl text-white hover:bg-yellow-400 hover:text-black transition flex items-center justify-center">
-                      Read Article <HiArrowRight className="inline ml-2" />
-                    </button>
-                  </div>
-                </article>
-              </Link>
-            ))}
+                      <p className="text-white/70 text-sm mb-4 line-clamp-3">
+                        {attrs?.header?.[0]?.children?.[0]?.text || "No description available"}
+                      </p>
+
+                      <button className="w-full py-3 bg-white/10 rounded-xl text-white hover:bg-yellow-400 hover:text-black transition flex items-center justify-center">
+                        Read Article <HiArrowRight className="inline ml-2" />
+                      </button>
+                    </div>
+                  </article>
+                </Link>
+              );
+            })}
           </div>
         ) : (
           <div className="text-center py-20 text-white/70">
