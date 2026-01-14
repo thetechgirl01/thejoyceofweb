@@ -88,7 +88,7 @@ const BlogContentPage = () => {
       </span>
 
       {/* Title */}
-      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+      <h1 className="text-4xl font-bold mb-4">{id}</h1>
 
       {/* Meta Info */}
       <div className="flex gap-4 text-sm text-white/60 mb-6">

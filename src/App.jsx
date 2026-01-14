@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Bookcall from './components/Bookcall.jsx';
 import Footer from './components/Footer.jsx';
 
-import { Router, Routes, Route } from 'react-router-dom';
+import {Router, Routes, Route } from 'react-router-dom';
 
 // Pages
 import Home from './pages/Home';
@@ -14,10 +14,9 @@ import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import FAQ from './pages/Faq';
 import BlogContentPage from './pages/BlogContentPage.jsx'; // renamed for clarity
-
 function App() {
   return (
-    <Router>
+    <>
       {/* Global Navbar */}
       <Navbar />
 
@@ -44,8 +43,9 @@ function App() {
       <div className="px-9 rounded-tr-3xl rounded-tl-3xl">
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }
+
 
 export default App;
