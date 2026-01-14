@@ -13,6 +13,38 @@
   "attributes": {
     "blogTitle": {
       "type": "string"
+    },
+    "coverImg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "header": {
+      "type": "blocks"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Web Development",
+        "Performance",
+        "UI/UX Design",
+        "Technology",
+        "Business"
+      ]
+    },
+    "date": {
+      "type": "date"
+    },
+    "readTime": {
+      "type": "integer"
+    },
+    "content": {
+      "type": "blocks"
     }
   }
 }
