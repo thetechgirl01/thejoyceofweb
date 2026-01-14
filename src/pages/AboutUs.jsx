@@ -3,7 +3,7 @@ import { FaRocket, FaUsers, FaAward, FaLightbulb, FaHeart, FaCode } from 'react-
 import { HiArrowRight } from 'react-icons/hi';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Contact from '../components/Contact';
+import Contact from '../components/Contact.jsx';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
