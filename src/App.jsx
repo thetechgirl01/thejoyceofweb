@@ -3,8 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Bookcall from './components/Bookcall.jsx';
 import Footer from './components/Footer.jsx';
-import useFetch from './hooks/useFetch.js'
-
+import useFetch from './hooks/useFetch.js';
 import { Routes, Route } from 'react-router-dom';
 
 // Pages
@@ -17,18 +16,11 @@ import FAQ from './pages/Faq';
 import BlogContentPage from './pages/BlogContentPage.jsx';
 
 function App() {
-  // Add debugging to see what data looks like
-  console.log('App.jsx - Fetching data...');
-  
-  let { loading, error, data } = useFetch('http://localhost:1337/api/blogs?populate=*');
-  
-  // Debug what we get from useFetch
-  console.log('App.jsx - Loading:', loading);
-  console.log('App.jsx - Error:', error);
-  console.log('App.jsx - Data:', data);
-  console.log('App.jsx - Data?.data:', data?.data);
-  console.log('App.jsx - Is data?.data an array?', Array.isArray(data?.data));
-  
+  // Fetch all blogs from Strapi
+  const { loading, error, data } = useFetch('http://localhost:1337/api/blogs?populate=*');
+
+  const blogsData = data?.data || [];
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -36,9 +28,8 @@ function App() {
       </div>
     );
   }
-  
+
   if (error) {
-    console.error('App.jsx - Fetch error:', error);
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-4">
         <h1 className="text-2xl text-red-600 mb-4">Error Loading Data</h1>
@@ -50,23 +41,18 @@ function App() {
     );
   }
 
-  // Extract blogs array from Strapi response
-  // Strapi v4 returns: { data: [...], meta: {...} }
-  const blogsData = data?.data || [];
-  console.log('App.jsx - blogsData to pass:', blogsData);
-  
   return (
     <>
       <Navbar />
       <Routes>
-        {/* Pass blogsData to components that need it */}
         <Route path="/" element={<Home blogs={blogsData} />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/works" element={<Works />} />
         <Route path="/blogs" element={<Blogs blogs={blogsData} />} />
+        {/* Pass blogsData to single blog page */}
+        <Route path="/blog/:id" element={<BlogContentPage blogs={blogsData} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/blog/:id" element={<BlogContentPage blogs={blogsData} />} />
         <Route path="*" element={<Blogs blogs={blogsData} />} />
       </Routes>
       <Bookcall />
