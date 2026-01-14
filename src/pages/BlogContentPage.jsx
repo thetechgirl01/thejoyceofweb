@@ -5,16 +5,14 @@ import { HiCalendar, HiClock } from "react-icons/hi";
 const BlogContentPage = ({ blogs = [] }) => {
   const { id } = useParams();
 
-  // Find the blog from Strapi data
-  const blog = blogs.find((b) => b.id === parseInt(id));
+  // Find the blog from Strapi by ID
+  const blog = blogs.find(b => b.id === parseInt(id));
 
   if (!blog) {
     return (
       <div className="min-h-screen p-10 bg-gray-900 text-white flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-4">Blog not found</h1>
-        <Link to="/blogs" className="text-yellow-400 underline">
-          Back to Blogs
-        </Link>
+        <Link to="/blogs" className="text-yellow-400 underline">Back to Blogs</Link>
       </div>
     );
   }
@@ -46,12 +44,8 @@ const BlogContentPage = ({ blogs = [] }) => {
 
       {/* Meta Info */}
       <div className="flex gap-4 text-sm text-white/60 mb-6">
-        <span className="flex items-center gap-1">
-          <HiCalendar /> {formatDate(blogAttrs?.date)}
-        </span>
-        <span className="flex items-center gap-1">
-          <HiClock /> {blogAttrs?.readTime || "?"} min read
-        </span>
+        <span className="flex items-center gap-1"><HiCalendar /> {formatDate(blogAttrs?.date)}</span>
+        <span className="flex items-center gap-1"><HiClock /> {blogAttrs?.readTime || "?"} min read</span>
       </div>
 
       {/* Excerpt */}
@@ -60,16 +54,12 @@ const BlogContentPage = ({ blogs = [] }) => {
       {/* Full Content */}
       <div className="text-white/80 text-lg leading-relaxed">
         {blogAttrs?.content?.map((block, idx) => (
-          <p key={idx} className="mb-4">
-            {block.children?.map((child) => child.text).join(" ")}
-          </p>
+          <p key={idx} className="mb-4">{block.children?.map(c => c.text).join(" ")}</p>
         )) || "No content available"}
       </div>
 
       {/* Back Button */}
-      <Link to="/blogs" className="mt-6 inline-block text-yellow-400 underline">
-        ← Back to Blogs
-      </Link>
+      <Link to="/blogs" className="mt-6 inline-block text-yellow-400 underline">← Back to Blogs</Link>
     </div>
   );
 };
