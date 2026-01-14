@@ -5,7 +5,7 @@ import Bookcall from './components/Bookcall.jsx';
 import Footer from './components/Footer.jsx';
 import useFetch from './hooks/useFetch.js'
 
-import {Router, Routes, Route, UNSAFE_FetchersContext } from 'react-router-dom';
+import {Routes, Route,  } from 'react-router-dom';
 
 // Pages
 import Home from './pages/Home';
@@ -22,7 +22,7 @@ function App() {
     return <p>Loading...</p>
   }
   if(error) return <p>Error Loading</p>
-  console.log(data)
+
   return (
     <>
       {/* Global Navbar */}

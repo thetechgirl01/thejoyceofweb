@@ -4,7 +4,9 @@ import { FaEnvelope } from "react-icons/fa";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
 
-const Blogs = () => {
+const Blogs = ({blogs}) => {
+  console.log("Blogs")
+  console.log(blogs)
   const [activeCategory, setActiveCategory] = useState("All"); // category filter
   const [searchQuery, setSearchQuery] = useState(""); // search filter
   const postRefs = useRef([]);
@@ -139,7 +141,7 @@ const Blogs = () => {
       <section className="px-6 max-w-7xl mx-auto">
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((post, i) => (
+            {filteredPosts.data.map((post, i) => (
               <Link to={`/blog/${post.id}`} key={post.id}>
                 <article
                   ref={(el) => (postRefs.current[i] = el)}
@@ -148,7 +150,7 @@ const Blogs = () => {
                   {/* Thumbnail */}
                   <div className="h-48 w-full overflow-hidden">
                     <img
-                      src={post.image}
+                      src={'https://localhost:1337${post.attributes.coverImg.data.attribytes.url}'}
                       alt={post.title}
                       className="w-full h-full object-cover"
                     />
@@ -213,3 +215,47 @@ const Blogs = () => {
 };
 
 export default Blogs;
+{/*/
+  
+  <Link to={`/blog/${post.id}`} key={post.id}>
+                <article
+                  ref={(el) => (postRefs.current[i] = el)}
+                  className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
+              
+                  <div className="h-48 w-full overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+              
+                  <div className="p-6">
+                    <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">
+                      {post.category}
+                    </span>
+
+                    <div className="flex gap-4 text-sm text-white/60 mb-3">
+                      <span className="flex items-center gap-1">
+                        <HiCalendar /> {post.date}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <HiClock /> {post.readTime}
+                      </span>
+                    </div>
+
+                    <h3 className="text-white font-bold text-lg mb-2">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-white/70 text-sm mb-4">{post.excerpt}</p>
+
+                    <button className="w-full py-3 bg-white/10 rounded-xl text-white hover:bg-yellow-400 hover:text-black transition">
+                      Read Article <HiArrowRight className="inline ml-2" />
+                    </button>
+                  </div>
+                </article>
+              </Link>
+             */}
+             

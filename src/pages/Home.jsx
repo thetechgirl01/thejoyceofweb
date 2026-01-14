@@ -7,10 +7,11 @@ import Workprocess from '../components/WorkProcess';
 import Contact from '../components/Contact';
 import Tesst from '../components/Tesst';
 import Footer from '../components/Footer';
-import Blog from '../components/Blog';
+import Blog from './Blogs'
 import YoutubeSection from '../components/Youtube';
 
-const Home = () => {
+const Home = ({blogs}) => {
+ 
   return (
     <div className="relative min-h-screen ">
       <div className="px- rounded-tr-3xl rounded-tl-3xl">
@@ -38,7 +39,7 @@ const Home = () => {
       </div>
 
       <div className="px-9 bg-gray-900/95 border border-b-none border-white/20 rounded-tr-3xl rounded-tl-3xl ">
-        <Blog />
+        <Blog  blogs={blogs?blogs:''} />
       </div>
 
       {/**
