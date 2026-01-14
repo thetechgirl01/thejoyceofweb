@@ -16,7 +16,7 @@ import FAQ from './pages/Faq';
 import BlogContentPage from './pages/BlogContentPage.jsx';
 
 function App() {
-  // Fetch all blogs from Strapi
+  // Fetch all blogs from Strapi with images populated
   const { loading, error, data } = useFetch('http://localhost:1337/api/blogs?populate=*');
 
   const blogsData = data?.data || [];
@@ -49,7 +49,6 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/works" element={<Works />} />
         <Route path="/blogs" element={<Blogs blogs={blogsData} />} />
-        {/* Pass blogsData to single blog page */}
         <Route path="/blog/:id" element={<BlogContentPage blogs={blogsData} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
