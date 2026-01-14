@@ -9,7 +9,7 @@ import {Router, Routes, Route } from 'react-router-dom';
 // Pages
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
-import Works from './pages/Works';
+import Works from './pages/works';
 import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import FAQ from './pages/Faq';
