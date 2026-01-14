@@ -6,7 +6,7 @@ import { HiCalendar, HiClock } from "react-icons/hi";
 const allBlogPosts = [
   {
     id: 1,
-    title: "Blog 1",
+    title: "Larning React Tips for Beginners",
       excerpt: "Learn essential React tips and tricks to build your first app.",
       category: "Web Development",
       date: "Jan 5, 2024",
