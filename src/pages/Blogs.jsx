@@ -5,13 +5,10 @@ import gsap from "gsap";
 import { Link } from "react-router-dom";
 
 const Blogs = ({ blogs = [] }) => {
-  console.log("Blogs component received:", blogs);
-  
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const postRefs = useRef([]);
 
-  // Categories array - you can update counts dynamically
   const categories = [
     { name: "All", count: blogs.length },
     { name: "Web Development", count: blogs.filter(b => b.attributes?.category === "Web Development").length },
@@ -21,47 +18,28 @@ const Blogs = ({ blogs = [] }) => {
     { name: "Business", count: blogs.filter(b => b.attributes?.category === "Business").length },
   ];
 
-  // Filter blogs by category + search
   const filteredPosts = blogs.filter((blog) => {
-    const matchesCategory = 
-      activeCategory === "All" || 
-      blog.attributes?.category === activeCategory;
-    
-    const matchesSearch = 
-      searchQuery === "" ||
+    const matchesCategory = activeCategory === "All" || blog.attributes?.category === activeCategory;
+    const matchesSearch = searchQuery === "" ||
       (blog.attributes?.blogTitle?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
       (blog.attributes?.header?.[0]?.children?.[0]?.text?.toLowerCase() || "").includes(searchQuery.toLowerCase());
-    
     return matchesCategory && matchesSearch;
   });
 
-  // GSAP animation
   useEffect(() => {
     gsap.fromTo(
       postRefs.current,
       { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        stagger: 0.1,
-        ease: "power3.out",
-      }
+      { y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: "power3.out" }
     );
   }, [filteredPosts]);
 
-  // Format date
   const formatDate = (dateString) => {
     if (!dateString) return "No date";
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      month: 'short', 
-      day: 'numeric', 
-      year: 'numeric' 
-    });
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   };
 
-  // Get image URL
   const getImageUrl = (blog) => {
     if (!blog.attributes?.coverImg?.data?.attributes?.url) {
       return "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
@@ -73,9 +51,7 @@ const Blogs = ({ blogs = [] }) => {
     <div className="min-h-screen py-16 bg-gray-900">
       {/* HEADER */}
       <header className="px-6 max-w-7xl mx-auto mb-12">
-        <h1 className="text-white text-4xl font-bold">
-          Read our daily blogs on everything web
-        </h1>
+        <h1 className="text-white text-4xl font-bold">Read our daily blogs on everything web</h1>
         <p className="text-white/70 mt-4 max-w-2xl">
           Articles on web development, design, technology, and business.
         </p>
@@ -101,9 +77,7 @@ const Blogs = ({ blogs = [] }) => {
             key={cat.name}
             onClick={() => setActiveCategory(cat.name)}
             className={`px-4 py-2 rounded-full text-sm ${
-              activeCategory === cat.name
-                ? "bg-yellow-400 text-black"
-                : "bg-white/10 text-white"
+              activeCategory === cat.name ? "bg-yellow-400 text-black" : "bg-white/10 text-white"
             }`}
           >
             {cat.name} ({cat.count})
@@ -121,7 +95,6 @@ const Blogs = ({ blogs = [] }) => {
                   ref={(el) => (postRefs.current[i] = el)}
                   className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
                 >
-                  {/* Thumbnail */}
                   <div className="h-48 w-full overflow-hidden">
                     <img
                       src={getImageUrl(blog)}
@@ -129,8 +102,6 @@ const Blogs = ({ blogs = [] }) => {
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-
-                  {/* Category tag on top of card */}
                   <div className="p-6">
                     <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">
                       {blog.attributes?.category || "Uncategorized"}
@@ -150,8 +121,7 @@ const Blogs = ({ blogs = [] }) => {
                     </h3>
 
                     <p className="text-white/70 text-sm mb-4 line-clamp-3">
-                      {blog.attributes?.header?.[0]?.children?.[0]?.text || 
-                       "No description available"}
+                      {blog.attributes?.header?.[0]?.children?.[0]?.text || "No description available"}
                     </p>
 
                     <button className="w-full py-3 bg-white/10 rounded-xl text-white hover:bg-yellow-400 hover:text-black transition flex items-center justify-center">
@@ -175,16 +145,12 @@ const Blogs = ({ blogs = [] }) => {
         <div className="bg-white/5 border border-white/10 rounded-2xl p-10 text-center">
           <FaEnvelope className="mx-auto text-3xl text-yellow-400 mb-4" />
           <h3 className="text-white text-2xl font-bold mb-2">Stay Updated</h3>
-          <p className="text-white/60 mb-6">
-            Get new articles straight to your inbox.
-          </p>
+          <p className="text-white/60 mb-6">Get new articles straight to your inbox.</p>
           <input
             placeholder="Email address"
             className="w-full px-6 py-4 bg-white/10 rounded-xl text-white mb-4"
           />
-          <button className="px-8 py-4 bg-yellow-400 rounded-xl font-semibold">
-            Subscribe
-          </button>
+          <button className="px-8 py-4 bg-yellow-400 rounded-xl font-semibold">Subscribe</button>
         </div>
       </section>
     </div>
