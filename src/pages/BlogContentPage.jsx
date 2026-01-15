@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { HiCalendar, HiClock } from "react-icons/hi";
 
 const BlogContentPage = ({ blogs = [] }) => {
-  const { slug } = useParams(); // use slug instead of id
+  const { slug } = useParams();
   const blog = blogs.find(b => b.slug === slug);
 
   if (!blog) {
@@ -15,8 +15,8 @@ const BlogContentPage = ({ blogs = [] }) => {
     );
   }
 
-  const imageUrl = blog.coverImg?.url
-    ? `http://localhost:1337${blog.coverImg.url}`
+  const imageUrl = blog.coverImg?.data?.attributes?.url
+    ? `http://localhost:1337${blog.coverImg.data.attributes.url}`
     : "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
 
   const formatDate = dateString => {

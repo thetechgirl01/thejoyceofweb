@@ -19,7 +19,6 @@ const Blogs = ({ blogs = [] }) => {
     { name: "Business", count: blogs.filter(b => b.category === "Business").length },
   ];
 
-  // Filter blogs by category and search
   const filteredPosts = blogs.filter(blog => {
     const matchesCategory = activeCategory === "All" || blog.category === activeCategory;
     const headerText = blog.header?.[0]?.children?.[0]?.text || "";
@@ -30,7 +29,6 @@ const Blogs = ({ blogs = [] }) => {
     return matchesCategory && matchesSearch;
   });
 
-  // GSAP animation
   useEffect(() => {
     gsap.fromTo(
       postRefs.current,
@@ -39,17 +37,15 @@ const Blogs = ({ blogs = [] }) => {
     );
   }, [filteredPosts]);
 
-  // Format date
   const formatDate = dateString => {
     if (!dateString) return "No date";
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   };
 
-  // Get cover image
   const getImageUrl = blog => {
-    return blog.coverImg?.url
-      ? `http://localhost:1337${blog.coverImg.url}`
+    return blog.coverImg?.data?.attributes?.url
+      ? `http://localhost:1337${blog.coverImg.data.attributes.url}`
       : "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
   };
 
@@ -82,9 +78,7 @@ const Blogs = ({ blogs = [] }) => {
           <button
             key={cat.name}
             onClick={() => setActiveCategory(cat.name)}
-            className={`px-4 py-2 rounded-full text-sm ${
-              activeCategory === cat.name ? "bg-yellow-400 text-black" : "bg-white/10 text-white"
-            }`}
+            className={`px-4 py-2 rounded-full text-sm ${activeCategory === cat.name ? "bg-yellow-400 text-black" : "bg-white/10 text-white"}`}
           >
             {cat.name} ({cat.count})
           </button>
@@ -99,10 +93,7 @@ const Blogs = ({ blogs = [] }) => {
               const headerText = blog.header?.[0]?.children?.[0]?.text || "No description available";
               return (
                 <Link to={`/blog/${blog.slug}`} key={blog.id}>
-                  <article
-                    ref={el => (postRefs.current[i] = el)}
-                    className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
-                  >
+                  <article ref={el => (postRefs.current[i] = el)} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="h-48 w-full overflow-hidden">
                       <img
                         src={getImageUrl(blog)}
@@ -111,23 +102,13 @@ const Blogs = ({ blogs = [] }) => {
                       />
                     </div>
                     <div className="p-6">
-                      <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">
-                        {blog.category || "Uncategorized"}
-                      </span>
-
+                      <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">{blog.category || "Uncategorized"}</span>
                       <div className="flex gap-4 text-sm text-white/60 mb-3">
-                        <span className="flex items-center gap-1">
-                          <HiCalendar /> {formatDate(blog.date)}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <HiClock /> {blog.readTime || "?"} min read
-                        </span>
+                        <span className="flex items-center gap-1"><HiCalendar /> {formatDate(blog.date)}</span>
+                        <span className="flex items-center gap-1"><HiClock /> {blog.readTime || "?"} min read</span>
                       </div>
-
                       <h3 className="text-white font-bold text-lg mb-2 line-clamp-2">{blog.blogTitle}</h3>
-
                       <p className="text-white/70 text-sm mb-4 line-clamp-3">{headerText}</p>
-
                       <button className="w-full py-3 bg-white/10 rounded-xl text-white hover:bg-yellow-400 hover:text-black transition flex items-center justify-center">
                         Read Article <HiArrowRight className="inline ml-2" />
                       </button>
@@ -151,10 +132,7 @@ const Blogs = ({ blogs = [] }) => {
           <FaEnvelope className="mx-auto text-3xl text-yellow-400 mb-4" />
           <h3 className="text-white text-2xl font-bold mb-2">Stay Updated</h3>
           <p className="text-white/60 mb-6">Get new articles straight to your inbox.</p>
-          <input
-            placeholder="Email address"
-            className="w-full px-6 py-4 bg-white/10 rounded-xl text-white mb-4"
-          />
+          <input placeholder="Email address" className="w-full px-6 py-4 bg-white/10 rounded-xl text-white mb-4" />
           <button className="px-8 py-4 bg-yellow-400 rounded-xl font-semibold">Subscribe</button>
         </div>
       </section>

@@ -4,8 +4,9 @@ module.exports = {
     if (data.blogTitle) {
       data.slug = data.blogTitle
         .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-') // replace spaces/special chars with -
-        .replace(/^-+|-+$/g, '');   // remove leading/trailing dashes
+        .trim()
+        .replace(/[^a-z0-9]+/g, '-') // replace spaces and special chars with '-'
+        .replace(/^-+|-+$/g, '');    // remove leading/trailing '-'
     }
   },
   beforeUpdate(event) {
@@ -13,6 +14,7 @@ module.exports = {
     if (data.blogTitle) {
       data.slug = data.blogTitle
         .toLowerCase()
+        .trim()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '');
     }
