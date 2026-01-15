@@ -38,7 +38,7 @@ const Works = () => {
     {
       id: 4,
       tags: ["E-COMMERCE", "SHOPPING", "RETAIL"],
-      industries: ["E-commerce", "Web App", "B2C"],
+      industries: ["E-commerce", "Web App", "B2C", "Featured"],
       image: Workpic,
       title: "Modern e-commerce platform for fashion retailers",
       description:
@@ -48,7 +48,7 @@ const Works = () => {
     {
       id: 5,
       tags: ["PORTFOLIO", "DESIGN", "CREATIVE"],
-      industries: ["Portfolio", "Corporate", "Landing Page"],
+      industries: ["Portfolio", "Corporate", "Landing Page", "Featured"],
       image: Workpic,
       title: "Interactive portfolio for creative agency",
       description:
@@ -58,11 +58,31 @@ const Works = () => {
     {
       id: 6,
       tags: ["REAL ESTATE", "PROPERTY", "VR"],
-      industries: ["Real Estate", "Web App", "Web3", "Landing Page"],
+      industries: ["Real Estate", "Web App", "Web3", "Landing Page", "Featured"],
       image: Workpic,
       title: "Virtual reality property tours platform",
       description:
         "Revolutionizing real estate viewings with immersive VR experiences.",
+      link: "#",
+    },
+    {
+      id: 7,
+      tags: ["BLOG", "CONTENT", "CMS"],
+      industries: ["Blog", "Web App", "Corporate"],
+      image: Workpic,
+      title: "Modern blogging platform with AI content assistance",
+      description:
+        "A content management system with integrated AI writing tools and analytics.",
+      link: "#",
+    },
+    {
+      id: 8,
+      tags: ["SAAS", "PRODUCTIVITY", "TEAM COLLABORATION"],
+      industries: ["SaaS", "Web App", "Corporate"],
+      image: Workpic,
+      title: "Team collaboration and project management SaaS platform",
+      description:
+        "Streamlining team workflows with integrated task management and communication tools.",
       link: "#",
     },
   ];
@@ -122,7 +142,7 @@ const Works = () => {
     }
   };
 
-  // Card component with your specified design
+  // Card component with polygon design
   const ProjectCard = ({ project }) => (
     <div className="relative min-w-[320px]">
       {/* CARD */}
@@ -202,57 +222,58 @@ const Works = () => {
         </div>
       </div>
 
-      {/* Works Grid */}
-      <main className="px-4">
+      {/* Works Grid - Original 2-column layout with staggered cards */}
+      <main className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-12 md:gap-y-0 px-4">
         {filteredWorks.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredWorks.map((work) => (
-              <div key={work.id} className="flex flex-col">
-                {/* Project Card */}
-                <ProjectCard project={work} />
+          filteredWorks.map((work, index) => (
+            <div
+              key={work.id}
+              className={`flex flex-col ${index % 2 === 1 ? "lg:mt-96" : ""}`}
+            >
+              {/* Project Card with polygon design */}
+              <ProjectCard project={work} />
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mt-6 mb-4">
-                  {work.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-xs font-medium uppercase tracking-wide text-gray-500"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Industries */}
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {work.industries.map((industry, i) => (
-                    <span
-                      key={i}
-                      className={`text-xs font-medium uppercase tracking-wide px-3 py-1 rounded-full ${
-                        selectedIndustries.includes(industry)
-                          ? "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
-                          : "bg-gray-800/50 text-gray-400"
-                      }`}
-                    >
-                      {industry}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Content */}
-                <div className="max-w-[800px]">
-                  <h3 className="text-2xl sm:text-3xl font-bold leading-tight mb-5 text-white">
-                    {work.title}
-                  </h3>
-                  <p className="text-lg leading-relaxed text-gray-400">
-                    {work.description}
-                  </p>
-                </div>
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mt-6 mb-4">
+                {work.tags.map((tag, i) => (
+                  <span
+                    key={i}
+                    className="text-xs font-medium uppercase tracking-wide text-gray-500"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-            ))}
-          </div>
+
+              {/* Industries */}
+              <div className="flex flex-wrap gap-2 mb-5">
+                {work.industries.map((industry, i) => (
+                  <span
+                    key={i}
+                    className={`text-xs font-medium uppercase tracking-wide px-3 py-1 rounded-full ${
+                      selectedIndustries.includes(industry)
+                        ? "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
+                        : "bg-gray-800/50 text-gray-400"
+                    }`}
+                  >
+                    {industry}
+                  </span>
+                ))}
+              </div>
+
+              {/* Content */}
+              <div className="max-w-[800px]">
+                <h3 className="text-3xl sm:text-[2.5rem] font-bold leading-tight mb-5 text-white">
+                  {work.title}
+                </h3>
+                <p className="text-lg leading-relaxed text-gray-400">
+                  {work.description}
+                </p>
+              </div>
+            </div>
+          ))
         ) : (
-          <div className="text-center py-20">
+          <div className="col-span-2 text-center py-20">
             <h3 className="text-2xl text-white mb-4">No projects found</h3>
             <p className="text-gray-400">
               Try selecting different industries or tags
