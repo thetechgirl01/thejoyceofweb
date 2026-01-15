@@ -14,6 +14,7 @@ import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import FAQ from './pages/Faq';
 import BlogContentPage from './pages/BlogContentPage.jsx';
+import WorkContentPage from './pages/WorkContntPage.jsx';
 
 function App() {
   // Fetch all blogs from Strapi with images populated
@@ -54,6 +55,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogContentPage blogs={blogsData} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/work" element={<WorkContentPage/>} />
         <Route path="*" element={<Blogs blogs={blogsData} />} />
       </Routes>
       <Bookcall />

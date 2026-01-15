@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { HiArrowUpRight } from "react-icons/hi2";
 import Workpic from "../assets/director.jpg";
+import { Link } from "react-router-dom";
 
 const Works = () => {
   // Updated works data with industry tags and links
@@ -168,9 +169,10 @@ const Works = () => {
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute bottom-6 left-6 right-6">
-          <h3 className="text-white font-semibold uppercase text-lg">
+         <Link to="/work"><h3 className="text-white font-semibold uppercase text-lg">
             {project.title}
-          </h3>
+          </h3> 
+          </Link> 
         </div>
       </div>
 

@@ -21,11 +21,12 @@ const Blogs = ({ blogs = [] }) => {
 
   // Filter blogs by category and search
   const filteredPosts = blogs.filter(blog => {
-    const matchesCategory = activeCategory === "All" || blog.attributes.category === activeCategory;
-    const headerText = blog.attributes.header?.[0]?.children?.[0]?.text || "";
+    const { attributes } = blog;
+    const matchesCategory = activeCategory === "All" || attributes.category === activeCategory;
+    const headerText = attributes.header?.[0]?.children?.[0]?.text || "";
     const matchesSearch =
       searchQuery === "" ||
-      blog.attributes.blogTitle?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      attributes.blogTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
       headerText.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
@@ -48,8 +49,9 @@ const Blogs = ({ blogs = [] }) => {
 
   // Get cover image
   const getImageUrl = blog => {
-    const url = blog.attributes.coverImg?.data?.attributes?.url;
-    return url ? `http://localhost:1337${url}` : "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
+    return blog.attributes.coverImg?.data?.attributes?.url
+      ? `http://localhost:1337${blog.attributes.coverImg.data.attributes.url}`
+      : "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
   };
 
   return (
@@ -95,11 +97,10 @@ const Blogs = ({ blogs = [] }) => {
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map((blog, i) => {
-              const attrs = blog.attributes;
-              const headerText = attrs.header?.[0]?.children?.[0]?.text || "No description available";
-
+              const { attributes } = blog;
+              const headerText = attributes.header?.[0]?.children?.[0]?.text || "No description available";
               return (
-                <Link to={`/blog/${attrs.slug}`} key={blog.id}>
+                <Link to={`/blog/${attributes.slug}`} key={blog.id}>
                   <article
                     ref={el => (postRefs.current[i] = el)}
                     className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
@@ -107,25 +108,25 @@ const Blogs = ({ blogs = [] }) => {
                     <div className="h-48 w-full overflow-hidden">
                       <img
                         src={getImageUrl(blog)}
-                        alt={attrs.blogTitle || "Blog post"}
+                        alt={attributes.blogTitle || "Blog post"}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <div className="p-6">
                       <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">
-                        {attrs.category || "Uncategorized"}
+                        {attributes.category || "Uncategorized"}
                       </span>
 
                       <div className="flex gap-4 text-sm text-white/60 mb-3">
                         <span className="flex items-center gap-1">
-                          <HiCalendar /> {formatDate(attrs.date)}
+                          <HiCalendar /> {formatDate(attributes.date)}
                         </span>
                         <span className="flex items-center gap-1">
-                          <HiClock /> {attrs.readTime || "?"} min read
+                          <HiClock /> {attributes.readTime || "?"} min read
                         </span>
                       </div>
 
-                      <h3 className="text-white font-bold text-lg mb-2 line-clamp-2">{attrs.blogTitle}</h3>
+                      <h3 className="text-white font-bold text-lg mb-2 line-clamp-2">{attributes.blogTitle}</h3>
 
                       <p className="text-white/70 text-sm mb-4 line-clamp-3">{headerText}</p>
 
