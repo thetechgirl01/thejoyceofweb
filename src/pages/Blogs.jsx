@@ -12,21 +12,20 @@ const Blogs = ({ blogs = [] }) => {
   // Categories with dynamic counts
   const categories = [
     { name: "All", count: blogs.length },
-    { name: "Web Development", count: blogs.filter(b => b.attributes.category === "Web Development").length },
-    { name: "UI/UX Design", count: blogs.filter(b => b.attributes.category === "UI/UX Design").length },
-    { name: "Technology", count: blogs.filter(b => b.attributes.category === "Technology").length },
-    { name: "Performance", count: blogs.filter(b => b.attributes.category === "Performance").length },
-    { name: "Business", count: blogs.filter(b => b.attributes.category === "Business").length },
+    { name: "Web Development", count: blogs.filter(b => b.category === "Web Development").length },
+    { name: "UI/UX Design", count: blogs.filter(b => b.category === "UI/UX Design").length },
+    { name: "Technology", count: blogs.filter(b => b.category === "Technology").length },
+    { name: "Performance", count: blogs.filter(b => b.category === "Performance").length },
+    { name: "Business", count: blogs.filter(b => b.category === "Business").length },
   ];
 
   // Filter blogs by category and search
   const filteredPosts = blogs.filter(blog => {
-    const { attributes } = blog;
-    const matchesCategory = activeCategory === "All" || attributes.category === activeCategory;
-    const headerText = attributes.header?.[0]?.children?.[0]?.text || "";
+    const matchesCategory = activeCategory === "All" || blog.category === activeCategory;
+    const headerText = blog.header?.[0]?.children?.[0]?.text || "";
     const matchesSearch =
       searchQuery === "" ||
-      attributes.blogTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (blog.blogTitle?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
       headerText.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
@@ -49,8 +48,8 @@ const Blogs = ({ blogs = [] }) => {
 
   // Get cover image
   const getImageUrl = blog => {
-    return blog.attributes.coverImg?.data?.attributes?.url
-      ? `http://localhost:1337${blog.attributes.coverImg.data.attributes.url}`
+    return blog.coverImg?.url
+      ? `http://localhost:1337${blog.coverImg.url}`
       : "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
   };
 
@@ -97,10 +96,9 @@ const Blogs = ({ blogs = [] }) => {
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map((blog, i) => {
-              const { attributes } = blog;
-              const headerText = attributes.header?.[0]?.children?.[0]?.text || "No description available";
+              const headerText = blog.header?.[0]?.children?.[0]?.text || "No description available";
               return (
-                <Link to={`/blog/${attributes.slug}`} key={blog.id}>
+                <Link to={`/blog/${blog.slug.toLowerCase()}`} key={blog.slug}>
                   <article
                     ref={el => (postRefs.current[i] = el)}
                     className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
@@ -108,25 +106,25 @@ const Blogs = ({ blogs = [] }) => {
                     <div className="h-48 w-full overflow-hidden">
                       <img
                         src={getImageUrl(blog)}
-                        alt={attributes.blogTitle || "Blog post"}
+                        alt={blog.blogTitle || "Blog post"}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <div className="p-6">
                       <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">
-                        {attributes.category || "Uncategorized"}
+                        {blog.category || "Uncategorized"}
                       </span>
 
                       <div className="flex gap-4 text-sm text-white/60 mb-3">
                         <span className="flex items-center gap-1">
-                          <HiCalendar /> {formatDate(attributes.date)}
+                          <HiCalendar /> {formatDate(blog.date)}
                         </span>
                         <span className="flex items-center gap-1">
-                          <HiClock /> {attributes.readTime || "?"} min read
+                          <HiClock /> {blog.readTime || "?"} min read
                         </span>
                       </div>
 
-                      <h3 className="text-white font-bold text-lg mb-2 line-clamp-2">{attributes.blogTitle}</h3>
+                      <h3 className="text-white font-bold text-lg mb-2 line-clamp-2">{blog.blogTitle}</h3>
 
                       <p className="text-white/70 text-sm mb-4 line-clamp-3">{headerText}</p>
 
