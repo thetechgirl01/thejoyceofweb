@@ -4,7 +4,7 @@ import { HiCalendar, HiClock } from "react-icons/hi";
 
 const BlogContentPage = ({ blogs = [] }) => {
   const { slug } = useParams();
-  const blog = blogs.find(b => b.slug === slug);
+  const blog = blogs.find(b => b.slug.toLowerCase() === slug.toLowerCase());
 
   if (!blog) {
     return (
