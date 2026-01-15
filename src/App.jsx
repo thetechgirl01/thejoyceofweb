@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Bookcall from './components/Bookcall.jsx';
@@ -20,7 +20,20 @@ function App() {
   // Fetch all blogs from Strapi with images populated
   const { loading, error, data } = useFetch('http://localhost:1337/api/blogs?populate=*');
 
-  const blogsData = data?.data || [];
+  // Transform data: map Strapi structure to easier format
+  const blogsData = data?.data?.map(item => ({
+    id: item.id,
+    blogTitle: item.attributes.blogTitle,
+    category: item.attributes.category,
+    slug: item.attributes.slug?.toLowerCase(), // lowercase for URL
+    date: item.attributes.date,
+    readTime: item.attributes.readTime,
+    header: item.attributes.header,
+    content: item.attributes.content,
+    coverImg: item.attributes.coverImg?.data?.attributes
+      ? { url: item.attributes.coverImg.data.attributes.url }
+      : null,
+  })) || [];
 
   if (loading) {
     return (
@@ -41,8 +54,6 @@ function App() {
       </div>
     );
   }
-  console.log('App.jsx - blogsData to pass:', blogsData);
-
 
   return (
     <>
@@ -52,10 +63,10 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/works" element={<Works />} />
         <Route path="/blogs" element={<Blogs blogs={blogsData} />} />
-        <Route path="/blog/:id" element={<BlogContentPage blogs={blogsData} />} />
+        <Route path="/blog/:slug" element={<BlogContentPage blogs={blogsData} />} /> {/* slug route */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/work" element={<WorkContentPage/>} />
+        <Route path="/work" element={<WorkContentPage />} />
         <Route path="*" element={<Blogs blogs={blogsData} />} />
       </Routes>
       <Bookcall />
