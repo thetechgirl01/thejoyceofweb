@@ -9,6 +9,7 @@ const Blogs = ({ blogs = [] }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const postRefs = useRef([]);
 
+  // Categories with dynamic counts
   const categories = [
     { name: "All", count: blogs.length },
     { name: "Web Development", count: blogs.filter(b => b.category === "Web Development").length },
@@ -18,6 +19,7 @@ const Blogs = ({ blogs = [] }) => {
     { name: "Business", count: blogs.filter(b => b.category === "Business").length },
   ];
 
+  // Filter blogs by category and search
   const filteredPosts = blogs.filter(blog => {
     const matchesCategory = activeCategory === "All" || blog.category === activeCategory;
     const headerText = blog.header?.[0]?.children?.[0]?.text || "";
@@ -28,6 +30,7 @@ const Blogs = ({ blogs = [] }) => {
     return matchesCategory && matchesSearch;
   });
 
+  // GSAP animation
   useEffect(() => {
     gsap.fromTo(
       postRefs.current,
@@ -36,12 +39,14 @@ const Blogs = ({ blogs = [] }) => {
     );
   }, [filteredPosts]);
 
+  // Format date
   const formatDate = dateString => {
     if (!dateString) return "No date";
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   };
 
+  // Get cover image
   const getImageUrl = blog => {
     return blog.coverImg?.url
       ? `http://localhost:1337${blog.coverImg.url}`
@@ -50,6 +55,7 @@ const Blogs = ({ blogs = [] }) => {
 
   return (
     <div className="min-h-screen py-16 bg-gray-900">
+      {/* HEADER */}
       <header className="px-6 max-w-7xl mx-auto mb-12">
         <h1 className="text-white text-4xl font-bold">Read our daily blogs on everything web</h1>
         <p className="text-white/70 mt-4 max-w-2xl">
@@ -57,6 +63,7 @@ const Blogs = ({ blogs = [] }) => {
         </p>
       </header>
 
+      {/* SEARCH */}
       <section className="px-6 max-w-4xl mx-auto mb-8">
         <div className="relative">
           <HiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" />
@@ -69,6 +76,7 @@ const Blogs = ({ blogs = [] }) => {
         </div>
       </section>
 
+      {/* CATEGORY BUTTONS */}
       <section className="px-6 max-w-7xl mx-auto mb-8 flex gap-2 flex-wrap">
         {categories.map(cat => (
           <button
@@ -83,13 +91,14 @@ const Blogs = ({ blogs = [] }) => {
         ))}
       </section>
 
+      {/* BLOG GRID */}
       <section className="px-6 max-w-7xl mx-auto">
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map((blog, i) => {
               const headerText = blog.header?.[0]?.children?.[0]?.text || "No description available";
               return (
-                <Link to={`/blog/${blog.slug}`} key={blog.slug}> {/* lowercase slug already set in App.jsx */}
+                <Link to={`/blog/${blog.id}`} key={blog.id}>
                   <article
                     ref={el => (postRefs.current[i] = el)}
                     className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
@@ -136,6 +145,7 @@ const Blogs = ({ blogs = [] }) => {
         )}
       </section>
 
+      {/* NEWSLETTER */}
       <section className="px-6 max-w-4xl mx-auto mt-20">
         <div className="bg-white/5 border border-white/10 rounded-2xl p-10 text-center">
           <FaEnvelope className="mx-auto text-3xl text-yellow-400 mb-4" />

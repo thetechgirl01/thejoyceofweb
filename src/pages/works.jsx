@@ -169,10 +169,13 @@ const Works = () => {
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute bottom-6 left-6 right-6">
-         <Link to="/work"><h3 className="text-white font-semibold uppercase text-lg">
-            {project.title}
-          </h3> 
-          </Link> 
+       <Link to="/work" className="block">
+  <h3 className="text-white font-semibold uppercase text-lg">
+    {project.title}
+  </h3>
+</Link>
+
+        
         </div>
       </div>
 
