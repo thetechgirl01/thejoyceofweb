@@ -98,7 +98,7 @@ const Blogs = ({ blogs = [] }) => {
             {filteredPosts.map((blog, i) => {
               const headerText = blog.header?.[0]?.children?.[0]?.text || "No description available";
               return (
-                <Link to={`/blog/${blog.id}`} key={blog.id}>
+                <Link to={`/blog/${blog.slug}`} key={blog.id}>
                   <article
                     ref={el => (postRefs.current[i] = el)}
                     className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"

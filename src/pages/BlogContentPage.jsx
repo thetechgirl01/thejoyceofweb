@@ -3,8 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { HiCalendar, HiClock } from "react-icons/hi";
 
 const BlogContentPage = ({ blogs = [] }) => {
-  const { id } = useParams();
-  const blog = blogs.find(b => b.id === parseInt(id));
+  const { slug } = useParams(); // use slug instead of id
+  const blog = blogs.find(b => b.slug === slug);
 
   if (!blog) {
     return (
