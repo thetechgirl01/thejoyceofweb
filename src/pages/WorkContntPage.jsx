@@ -1,231 +1,318 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const WorkContentPage = () => {
+  const heroRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const contentRefs = useRef([]);
+  
   const [projectData] = useState({
-    title: 'AJP: World\'s fastest growing jiu jitsu tournament organization',
-    excerpt: 'Abu Dhabi Jiu Jitsu Pro (AJP) is a professional Brazilian Jiu Jitsu organization created with the goal of developing the sport of jiu jitsu around the world. In 2023, Shakuro has been privileged to design and build a website for AJP.',
-    heroImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    logo: 'https://shakuro.com/logo-ajp.svg',
+    title: 'AJP Case Study',
+    description: 'Building the World\'s Fastest-Growing Jiu-Jitsu Platform',
+    excerpt: 'Professional Brazilian Jiu Jitsu organization with global events in over 40 countries worldwide.',
+    
     sections: [
       {
-        id: 'the-jiu-jitsu-mecca',
+        id: 'overview',
+        title: 'World\'s fastest growing jiu jitsu tournament organization',
+        text: 'Abu Dhabi Jiu Jitsu Pro (AJP) is a professional Brazilian Jiu Jitsu organization created with the goal of developing the sport of jiu jitsu around the world. In 2023, Shakuro has been privileged to design and build a website for AJP.'
+      },
+      {
+        id: 'mecca',
         title: 'The jiu jitsu Mecca',
-        content: 'AJP represents a unique synergy of a modern grass-roots combat subculture and a national sport in the UAE all due to the vision and support of jiu jitsu by Sheikh Mohammed bin Zayed. The federation that he had founded has quickly expanded beyond the UAE and now hosts local and international events in over 40 countries worldwide.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'
+        text: 'AJP represents a unique synergy of a modern grass-roots combat subculture and a national sport in the UAE all due to the vision and support of jiu jitsu by Sheikh Mohammed bin Zayed.',
+        stats: ['7,000+ registered athletes', '40+ countries worldwide', 'Global tournament network']
       },
       {
-        id: 'the-mission',
+        id: 'mission',
         title: 'The mission',
-        content: 'We were brought in as a result of a concept design we delivered to showcase our passion for the sport as practitioners and as a token of gratitude to the organization that has elevated the level of professional jiu jitsu competition to an unprecedented level. We\'ve had the honor to work on the visual brand update and the design of a new global website experience.',
-        image: null
+        text: 'We were brought in as a result of a concept design we delivered to showcase our passion for the sport as practitioners and as a token of gratitude to the organization.'
       },
       {
-        id: 'the-challenge',
+        id: 'challenge',
         title: 'The challenge',
-        content: 'As a sports organization with over 7,000 registered athletes, AJP was already thriving. What they needed was a way to gain control over the infrastructure of the platform, customize it in a way that would be unique for the organization. Brand visuals update and modern UX practices came as important additions to the new platform.',
+        text: 'As a sports organization with over 7,000 registered athletes, AJP needed control over their platform infrastructure and unique customization.',
         features: [
           'Interactive event map',
-          'New navigation',
+          'New navigation system',
           'Redesigned athlete profile',
           'New content library',
-          'Redefined event registration experience',
+          'Redefined event registration',
           'New mobile experience',
           'Brand visual language'
         ]
       },
       {
-        id: 'identity-system',
-        title: 'Identity system',
-        content: 'AJP, being a part of the UAEJJF is under the brand umbrella but is not limited to the assets used by this larger parent entity. This gave us the freedom to create a dynamic but strict style of the website and brand visuals, dominated by the dark theme and dramatic heroic effects in posters and event graphics.',
-        subsections: [
-          {
-            title: 'Palette',
-            content: 'The color palette is inspired by faded colors of the desert at day- and nighttime. The bright accent colors are chosen to represent the solidity of jiu jitsu levels represented by the belts athletes tie around their waist.'
-          },
-          {
-            title: 'Logo update',
-            content: 'The AJP logo is more complex than it looks. The square represents the mat where since the ancient times two athletes meet in the middle to settle on who is the best. The city of Abu Dhabi has its own mark and features a strong presence on the AJP logo. The subtle update made by our team is improved geometry of the type, symmetry, and organization of the negative space.'
-          },
-          {
-            title: 'Sub-brands',
-            content: 'AJP is more than just a sports competition network. It\'s a platform that connects athletes, staff, coaches, students, and enthusiasts of jiu jitsu. To cater to them, AJP builds a variety of educational and informational resources under one banner. Our goal was to create a diverse system allowing to scale different divisions as they emerge.'
-          },
-          {
-            title: 'Art',
-            content: 'To support AJP\'s global expansion, we have developed a distinct visual style to replace stock photography used to produce event posters. The main idea is to represent the style of AJP\'s vision while also promoting international tourism through jiu jitsu.'
-          }
-        ]
-      },
-      {
-        id: 'ui-ux-design',
-        title: 'UI/UX design',
-        content: 'Our biggest challenge in creating the experience was making it a welcoming platform while maintaining the technical complexity of a sports league. That means we had to rediscover the way athletes approach registration, plan their competitive calendar, analyze stats and opponets\' performance based on past tournaments.',
-        uiComponents: [
-          {
-            title: 'Home page',
-            content: 'The Home page attributes to the main goal of the website – help athletes in their competition career by providing the avenue to maximize their potential. To do that, we heave created a layout that keeps them motivated, provides visual guidance, and sets them up for a safe and exciting jiu jitsu journey.'
-          },
-          {
-            title: 'Rankings',
-            content: 'Ranked athletes rack up points and get qualified to take part in World Championships for a chance to win a title, cash prizes, and cement themselves as exceptional competitors. AJP is a very meticulous organization that rewards consistent performance. Our goal for the Rankings section was to help athletes navigate through categories and divisions, discover other competitors, and analyze their performance.'
-          },
-          {
-            title: 'Athlete profile',
-            content: 'As a sports league, AJP puts emphasis on individual athlete performance. The profiles are public, so the information has to be visual, stats easily identifiable, and achievements thoroughly displayed. Our athlete profile design caters to professionals and super stars as well as hobbyists, beginners, and kids. Minimal, straight-to-the-point, and universal.'
-          },
-          {
-            title: 'Events',
-            content: 'AJP jiu jitsu competitions are festive events that players and academies plan months ahead. Our goal here was to create an interactive experience with easy and intuitive registration, clear distinction of different caliber events, and unfold the global reach of the organization.'
-          }
-        ]
-      },
-      {
         id: 'outcome',
         title: 'Outcome',
-        content: 'The ajp.world website went live in 2024 and became a stepping stone in the company\'s journey towards an innovative digital experience.',
-        testimonial: {
-          text: 'As a team that consists of avid jiu jitsu practitioners, this was a dream project for us and a chance to give back to the organization that grows our sport like no other league on the planet.',
-          author: 'Moses Kim',
-          role: 'Creative Producer'
-        }
+        text: 'The ajp.world website went live in 2024 and became a stepping stone in the company\'s journey towards an innovative digital experience.'
       }
+    ],
+    
+    // Button links
+    demoLink: '#demo',
+    buyScriptLink: 'https://buy.stripe.com/test_123456',
+    demoText: 'View Live Demo',
+    buyText: 'Buy Script ($149)',
+    
+    // Stats for hero
+    heroStats: [
+      { value: '7,000+', label: 'Athletes' },
+      { value: '40+', label: 'Countries' },
+      { value: '2024', label: 'Launch' }
     ]
   });
 
+  // GSAP Animations
+  useEffect(() => {
+    // Hero animations
+    const heroTimeline = gsap.timeline();
+    
+    heroTimeline
+      .fromTo(titleRef.current, 
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
+      )
+      .fromTo(subtitleRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+        '-=0.5'
+      )
+      .fromTo('.hero-stat',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.2, ease: 'power3.out' },
+        '-=0.3'
+      )
+      .fromTo('.hero-button',
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'back.out(1.7)' },
+        '-=0.2'
+      );
+
+    // Content section animations
+    contentRefs.current.forEach((section, index) => {
+      if (section) {
+        gsap.fromTo(section,
+          { y: 60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 80%',
+              end: 'top 30%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+      }
+    });
+
+    // Feature list animation
+    gsap.utils.toArray('.feature-item').forEach((item, index) => {
+      gsap.fromTo(item,
+        { x: -20, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.6,
+          delay: index * 0.1,
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 90%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
+  const addToRefs = (el) => {
+    if (el && !contentRefs.current.includes(el)) {
+      contentRefs.current.push(el);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative">
-        {/* Hero Image */}
-        <div className="h-screen max-h-[90vh] overflow-hidden">
-          <img 
-            src={projectData.heroImage} 
-            alt="AJP Jiu Jitsu" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+      <div 
+        ref={heroRef}
+        className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white overflow-hidden"
+      >
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl"></div>
         </div>
         
-        {/* Hero Content */}
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
-          <div className="container mx-auto max-w-6xl">
-            <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              {projectData.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
-              {projectData.excerpt}
-            </p>
+        <div className="container mx-auto px-4 py-16 relative z-10">
+          {/* Logo */}
+          <div className="mb-8">
+            <img 
+              src={projectData.logo} 
+              alt={`${projectData.title} Logo`}
+              className="h-12 w-auto opacity-0" // GSAP will animate
+              ref={el => {
+                if (el) {
+                  gsap.fromTo(el,
+                    { opacity: 0, y: -20 },
+                    { opacity: 1, y: 0, duration: 1, delay: 0.3 }
+                  );
+                }
+              }}
+            />
+          </div>
+          
+          {/* Title */}
+          <h1 
+            ref={titleRef}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight opacity-0"
+          >
+            {projectData.title}
+          </h1>
+          
+          {/* Description */}
+          <h2 
+            ref={subtitleRef}
+            className="text-xl md:text-2xl lg:text-3xl text-blue-200 mb-8 font-light opacity-0"
+          >
+            {projectData.description}
+          </h2>
+          
+          {/* Excerpt */}
+          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mb-12 opacity-0">
+            {projectData.excerpt}
+          </p>
+
+          {/* Stats */}
+          <div className="flex flex-wrap gap-6 md:gap-12 mb-12">
+            {projectData.heroStats.map((stat, index) => (
+              <div 
+                key={index}
+                className="hero-stat opacity-0"
+              >
+                <div className="text-3xl md:text-4xl font-bold">{stat.value}</div>
+                <div className="text-sm md:text-base text-blue-300 uppercase tracking-wider">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-4">
+            <a
+              href={projectData.demoLink}
+              className="hero-button bg-white text-blue-900 font-semibold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors duration-300 shadow-lg opacity-0 inline-block"
+            >
+              {projectData.demoText}
+            </a>
+            <a
+              href={projectData.buyScriptLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-button bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold px-8 py-4 rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg opacity-0 inline-block"
+            >
+              {projectData.buyText}
+            </a>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto max-w-6xl px-4 py-16">
+      <div className="container mx-auto px-4 py-12 md:py-24">
         {projectData.sections.map((section, index) => (
-          <section key={section.id} className="mb-24 last:mb-0">
-            {/* Section Header */}
-            <div className="mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <section 
+            key={section.id}
+            ref={addToRefs}
+            className="mb-20 md:mb-32 last:mb-0 opacity-0"
+          >
+            <div className="max-w-4xl mx-auto">
+              {/* Section Title */}
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 md:mb-10">
                 {section.title}
               </h2>
-              {section.content && (
-                <p className="text-lg md:text-xl text-gray-600 max-w-4xl">
-                  {section.content}
-                </p>
+              
+              {/* Section Text */}
+              <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-12">
+                {section.text}
+              </p>
+              
+              {/* Stats Grid */}
+              {section.stats && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-12">
+                  {section.stats.map((stat, idx) => (
+                    <div 
+                      key={idx}
+                      className="border-l-4 border-blue-500 pl-4 py-2"
+                    >
+                      <div className="text-gray-700">{stat}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              
+              {/* Features List */}
+              {section.features && (
+                <div className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-100">
+                  <h3 className="text-lg font-semibold text-gray-700 mb-6 uppercase tracking-wider">
+                    THE SCOPE
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {section.features.map((feature, idx) => (
+                      <div 
+                        key={idx}
+                        className="feature-item flex items-start opacity-0"
+                      >
+                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="text-gray-600">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               )}
             </div>
-
-            {/* Section Image */}
-            {section.image && (
-              <div className="mb-12 rounded-xl overflow-hidden">
-                <img 
-                  src={section.image} 
-                  alt={section.title}
-                  className="w-full h-64 md:h-96 object-cover"
-                />
-              </div>
-            )}
-
-            {/* Features List */}
-            {section.features && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <div>
-                  <h3 className="text-lg font-semibold mb-4">THE SCOPE</h3>
-                  <ul className="space-y-3">
-                    {section.features.slice(0, 4).map((feature, idx) => (
-                      <li key={idx} className="text-gray-600">
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="pt-8 md:pt-0">
-                  <ul className="space-y-3">
-                    {section.features.slice(4).map((feature, idx) => (
-                      <li key={idx} className="text-gray-600">
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
-
-            {/* Subsections */}
-            {section.subsections && (
-              <div className="space-y-12">
-                {section.subsections.map((subsection, idx) => (
-                  <div key={idx}>
-                    <h3 className="text-2xl font-bold mb-4">
-                      {subsection.title}
-                    </h3>
-                    <p className="text-gray-600">
-                      {subsection.content}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* UI Components */}
-            {section.uiComponents && (
-              <div className="space-y-12">
-                {section.uiComponents.map((component, idx) => (
-                  <div key={idx}>
-                    <h3 className="text-2xl font-bold mb-4">
-                      {component.title}
-                    </h3>
-                    <p className="text-gray-600">
-                      {component.content}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Testimonial */}
-            {section.testimonial && (
-              <div className="mt-16 p-8 bg-gray-50 rounded-2xl">
-                <div className="max-w-3xl">
-                  <h3 className="text-lg font-semibold mb-4">Producer comment</h3>
-                  <p className="text-xl italic text-gray-700 mb-6">
-                    "{section.testimonial.text}"
-                  </p>
-                  <div>
-                    <p className="font-semibold">{section.testimonial.author}</p>
-                    <p className="text-gray-600">{section.testimonial.role}</p>
-                  </div>
-                </div>
-              </div>
-            )}
           </section>
         ))}
       </div>
 
-      {/* Footer Note */}
-      <div className="border-t border-gray-200 py-8">
-        <div className="container mx-auto max-w-6xl px-4">
-          <p className="text-sm text-gray-500 text-center">
-            This website uses cookies to ensure you get the best experience on our website. Learn More.
+      {/* Final CTA Section */}
+      <div className="bg-gray-100 py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            Ready to implement this design?
+          </h2>
+          <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
+            Get the complete React implementation with GSAP animations and responsive design.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={projectData.demoLink}
+              className="bg-gray-800 text-white font-semibold px-8 py-4 rounded-lg hover:bg-gray-900 transition-colors duration-300 inline-block"
+            >
+              View Full Demo
+            </a>
+            <a
+              href={projectData.buyScriptLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-8 py-4 rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg inline-block"
+            >
+              Purchase Complete Script
+            </a>
+          </div>
+          <p className="text-gray-500 text-sm mt-6">
+            Includes React components, GSAP animations, and Tailwind CSS configuration
           </p>
         </div>
       </div>
