@@ -169,13 +169,11 @@ const Works = () => {
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute bottom-6 left-6 right-6">
-       <Link to="/work" className="block">
-  <h3 className="text-white font-semibold uppercase text-lg">
-    {project.title}
-  </h3>
-</Link>
-
-        
+          <Link to="/work" className="block">
+            <h3 className="text-white font-semibold uppercase text-lg">
+              {project.title}
+            </h3>
+          </Link>
         </div>
       </div>
 
@@ -215,16 +213,6 @@ const Works = () => {
             </button>
           ))}
         </div>
-        
-        {/* Selected filters indicator */}
-        <div className="px-4 mt-4">
-          <p className="text-gray-400 text-sm">
-            {selectedIndustries.length === 1 && selectedIndustries[0] === "Featured"
-              ? "Showing all featured projects"
-              : `Showing projects in: ${selectedIndustries.join(", ")}`
-            }
-          </p>
-        </div>
       </div>
 
       {/* Works Grid - Original 2-column layout with staggered cards */}
@@ -250,16 +238,12 @@ const Works = () => {
                 ))}
               </div>
 
-              {/* Industries */}
+              {/* Industries - Updated to not highlight selected ones */}
               <div className="flex flex-wrap gap-2 mb-5">
                 {work.industries.map((industry, i) => (
                   <span
                     key={i}
-                    className={`text-xs font-medium uppercase tracking-wide px-3 py-1 rounded-full ${
-                      selectedIndustries.includes(industry)
-                        ? "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
-                        : "bg-gray-800/50 text-gray-400"
-                    }`}
+                    className="text-xs font-medium uppercase tracking-wide px-3 py-1 rounded-full bg-gray-800/50 text-gray-400"
                   >
                     {industry}
                   </span>
@@ -286,13 +270,6 @@ const Works = () => {
           </div>
         )}
       </main>
-
-      {/* Results Count */}
-      <div className="px-4 mt-12 pt-8 border-t border-gray-800">
-        <p className="text-gray-400">
-          Showing {filteredWorks.length} of {works.length} projects
-        </p>
-      </div>
     </div>
   );
 };

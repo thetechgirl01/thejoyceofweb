@@ -12,7 +12,7 @@ const WorkContentPage = () => {
   // Project data
   const projectData = {
     logo: 'https://shakuro.com/logo-ajp.svg',
-    title: 'AJP',
+    title: 'Errandsbybrownie',
     description: 'World\'s fastest growing jiu jitsu tournament organization',
     excerpt: 'Professional Brazilian Jiu Jitsu organization with global events in over 40 countries worldwide.',
     
@@ -43,13 +43,9 @@ const WorkContentPage = () => {
       }
     ],
     
-    stats: [
-      { value: '7,000+', label: 'Registered athletes' },
-      { value: '40+', label: 'Countries' },
-      { value: 'Global', label: 'Tournament network' }
-    ],
+
     
-    demoLink: 'https://demo.example.com',
+    demoLink: 'https://www.errandsbybrownie.com',
     buyLink: 'https://buy.stripe.com/test_123456'
   };
 
@@ -162,14 +158,7 @@ const WorkContentPage = () => {
             </p>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-8 mb-12">
-              {projectData.stats.map((stat, i) => (
-                <div key={i} className="border-l-2 border-blue-500 pl-4 py-1">
-                  <div className="text-3xl font-bold">{stat.value}</div>
-                  <div className="text-sm text-gray-400 uppercase tracking-wider">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+         
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
@@ -177,7 +166,7 @@ const WorkContentPage = () => {
                 href={projectData.demoLink}
                 className="hero-button bg-transparent border-2 border-white text-white px-8 py-4 rounded-none hover:bg-white hover:text-black transition-all duration-300 font-medium text-lg"
               >
-                View Live Demo
+                View Live Project
               </a>
               <a
                 href={projectData.buyLink}
