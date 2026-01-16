@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -6,108 +6,77 @@ gsap.registerPlugin(ScrollTrigger);
 
 const WorkContentPage = () => {
   const heroRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const contentRefs = useRef([]);
+  const imageRefs = useRef([]);
+  const sectionRefs = useRef([]);
   
-  const [projectData] = useState({
+  // Project data
+  const projectData = {
     logo: 'https://shakuro.com/logo-ajp.svg',
-    title: 'AJP Case Study',
-    description: 'Building the World\'s Fastest-Growing Jiu-Jitsu Platform',
+    title: 'AJP',
+    description: 'World\'s fastest growing jiu jitsu tournament organization',
     excerpt: 'Professional Brazilian Jiu Jitsu organization with global events in over 40 countries worldwide.',
     
     sections: [
       {
-        id: 'overview',
-        title: 'World\'s fastest growing jiu jitsu tournament organization',
-        text: 'Abu Dhabi Jiu Jitsu Pro (AJP) is a professional Brazilian Jiu Jitsu organization created with the goal of developing the sport of jiu jitsu around the world. In 2023, Shakuro has been privileged to design and build a website for AJP.'
-      },
-      {
-        id: 'mecca',
         title: 'The jiu jitsu Mecca',
         text: 'AJP represents a unique synergy of a modern grass-roots combat subculture and a national sport in the UAE all due to the vision and support of jiu jitsu by Sheikh Mohammed bin Zayed.',
-        stats: ['7,000+ registered athletes', '40+ countries worldwide', 'Global tournament network']
+        image: 'https://images.unsplash.com/photo-1546717122-08b9d6d1ac75?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        wide: true
       },
       {
-        id: 'mission',
         title: 'The mission',
-        text: 'We were brought in as a result of a concept design we delivered to showcase our passion for the sport as practitioners and as a token of gratitude to the organization.'
+        text: 'We were brought in as a result of a concept design we delivered to showcase our passion for the sport as practitioners and as a token of gratitude to the organization that has elevated the level of professional jiu jitsu competition.',
+        image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
       },
       {
-        id: 'challenge',
-        title: 'The challenge',
-        text: 'As a sports organization with over 7,000 registered athletes, AJP needed control over their platform infrastructure and unique customization.',
-        features: [
-          'Interactive event map',
-          'New navigation system',
-          'Redesigned athlete profile',
-          'New content library',
-          'Redefined event registration',
-          'New mobile experience',
-          'Brand visual language'
-        ]
+        title: 'Identity system',
+        text: 'A dynamic but strict style dominated by dark theme and dramatic heroic effects in posters and event graphics.',
+        features: ['Color palette inspired by desert colors', 'Logo geometry update', 'Sub-brands system', 'Distinct visual art style'],
+        image: 'https://images.unsplash.com/photo-1511886929837-354d826aae2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        wide: true
       },
       {
-        id: 'outcome',
-        title: 'Outcome',
-        text: 'The ajp.world website went live in 2024 and became a stepping stone in the company\'s journey towards an innovative digital experience.'
+        title: 'UI/UX design',
+        text: 'Creating a welcoming platform while maintaining the technical complexity of a sports league.',
+        features: ['Home page layout', 'Rankings system', 'Athlete profiles', 'Event management'],
+        image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
       }
     ],
     
-    // Button links
-    demoLink: '#demo',
-    buyScriptLink: 'https://buy.stripe.com/test_123456',
-    demoText: 'View Live Demo',
-    buyText: 'Buy Script ($149)',
-    
-    // Stats for hero
-    heroStats: [
-      { value: '7,000+', label: 'Athletes' },
+    stats: [
+      { value: '7,000+', label: 'Registered athletes' },
       { value: '40+', label: 'Countries' },
-      { value: '2024', label: 'Launch' }
-    ]
-  });
+      { value: 'Global', label: 'Tournament network' }
+    ],
+    
+    demoLink: 'https://demo.example.com',
+    buyLink: 'https://buy.stripe.com/test_123456'
+  };
 
-  // GSAP Animations
+  // GSAP animations
   useEffect(() => {
     // Hero animations
-    const heroTimeline = gsap.timeline();
-    
-    heroTimeline
-      .fromTo(titleRef.current, 
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
-      )
-      .fromTo(subtitleRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-        '-=0.5'
-      )
-      .fromTo('.hero-stat',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, stagger: 0.2, ease: 'power3.out' },
-        '-=0.3'
-      )
-      .fromTo('.hero-button',
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'back.out(1.7)' },
-        '-=0.2'
-      );
+    const heroTl = gsap.timeline();
+    heroTl
+      .from('.hero-title', { y: 100, opacity: 0, duration: 1.2, ease: 'power3.out' })
+      .from('.hero-description', { y: 50, opacity: 0, duration: 1, ease: 'power3.out' }, '-=0.5')
+      .from('.hero-excerpt', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+      .from('.hero-button', { y: 20, opacity: 0, stagger: 0.2, duration: 0.6, ease: 'back.out(1.7)' }, '-=0.2');
 
-    // Content section animations
-    contentRefs.current.forEach((section, index) => {
-      if (section) {
-        gsap.fromTo(section,
-          { y: 60, opacity: 0 },
+    // Image animations
+    imageRefs.current.forEach((img, i) => {
+      if (img) {
+        gsap.fromTo(img,
+          { y: 100, opacity: 0, scale: 0.95 },
           {
             y: 0,
             opacity: 1,
-            duration: 1,
+            scale: 1,
+            duration: 1.2,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: section,
-              start: 'top 80%',
-              end: 'top 30%',
+              trigger: img,
+              start: 'top 85%',
               toggleActions: 'play none none reverse'
             }
           }
@@ -115,22 +84,25 @@ const WorkContentPage = () => {
       }
     });
 
-    // Feature list animation
-    gsap.utils.toArray('.feature-item').forEach((item, index) => {
-      gsap.fromTo(item,
-        { x: -20, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 0.6,
-          delay: index * 0.1,
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse'
+    // Section text animations
+    sectionRefs.current.forEach((section, i) => {
+      if (section) {
+        gsap.fromTo(section.querySelectorAll('.section-content > *'),
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 75%',
+              toggleActions: 'play none none reverse'
+            }
           }
-        }
-      );
+        );
+      }
     });
 
     return () => {
@@ -138,181 +110,184 @@ const WorkContentPage = () => {
     };
   }, []);
 
-  const addToRefs = (el) => {
-    if (el && !contentRefs.current.includes(el)) {
-      contentRefs.current.push(el);
+  const addImageRef = (el) => {
+    if (el && !imageRefs.current.includes(el)) {
+      imageRefs.current.push(el);
+    }
+  };
+
+  const addSectionRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <div 
         ref={heroRef}
-        className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-blue-900"
       >
         {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl"></div>
         </div>
-        
-        <div className="container mx-auto px-4 py-16 relative z-10">
-          {/* Logo */}
-          <div className="mb-8">
-            <img 
-              src={projectData.logo} 
-              alt={`${projectData.title} Logo`}
-              className="h-12 w-auto opacity-0" // GSAP will animate
-              ref={el => {
-                if (el) {
-                  gsap.fromTo(el,
-                    { opacity: 0, y: -20 },
-                    { opacity: 1, y: 0, duration: 1, delay: 0.3 }
-                  );
-                }
-              }}
-            />
-          </div>
-          
-          {/* Title */}
-          <h1 
-            ref={titleRef}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight opacity-0"
-          >
-            {projectData.title}
-          </h1>
-          
-          {/* Description */}
-          <h2 
-            ref={subtitleRef}
-            className="text-xl md:text-2xl lg:text-3xl text-blue-200 mb-8 font-light opacity-0"
-          >
-            {projectData.description}
-          </h2>
-          
-          {/* Excerpt */}
-          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mb-12 opacity-0">
-            {projectData.excerpt}
-          </p>
 
-          {/* Stats */}
-          <div className="flex flex-wrap gap-6 md:gap-12 mb-12">
-            {projectData.heroStats.map((stat, index) => (
-              <div 
-                key={index}
-                className="hero-stat opacity-0"
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            {/* Logo */}
+            <div className="mb-12">
+              <img 
+                src={projectData.logo} 
+                alt="AJP Logo" 
+                className="h-20 w-auto opacity-90"
+              />
+            </div>
+            
+            {/* Title */}
+            <h1 className="hero-title text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight">
+              {projectData.title}
+            </h1>
+            
+            {/* Description */}
+            <h2 className="hero-description text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-8 font-light max-w-3xl">
+              {projectData.description}
+            </h2>
+            
+            {/* Excerpt */}
+            <p className="hero-excerpt text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed">
+              {projectData.excerpt}
+            </p>
+
+            {/* Stats */}
+            <div className="flex flex-wrap gap-8 mb-12">
+              {projectData.stats.map((stat, i) => (
+                <div key={i} className="border-l-2 border-blue-500 pl-4 py-1">
+                  <div className="text-3xl font-bold">{stat.value}</div>
+                  <div className="text-sm text-gray-400 uppercase tracking-wider">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <a
+                href={projectData.demoLink}
+                className="hero-button bg-transparent border-2 border-white text-white px-8 py-4 rounded-none hover:bg-white hover:text-black transition-all duration-300 font-medium text-lg"
               >
-                <div className="text-3xl md:text-4xl font-bold">{stat.value}</div>
-                <div className="text-sm md:text-base text-blue-300 uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
+                View Live Demo
+              </a>
+              <a
+                href={projectData.buyLink}
+                className="hero-button bg-white text-black px-8 py-4 rounded-none hover:bg-gray-200 transition-all duration-300 font-medium text-lg"
+              >
+                Buy Script · $149
+              </a>
+            </div>
           </div>
+        </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap gap-4">
-            <a
-              href={projectData.demoLink}
-              className="hero-button bg-white text-blue-900 font-semibold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors duration-300 shadow-lg opacity-0 inline-block"
-            >
-              {projectData.demoText}
-            </a>
-            <a
-              href={projectData.buyScriptLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-button bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold px-8 py-4 rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg opacity-0 inline-block"
-            >
-              {projectData.buyText}
-            </a>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="animate-bounce">
+            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-12 md:py-24">
-        {projectData.sections.map((section, index) => (
-          <section 
-            key={section.id}
-            ref={addToRefs}
-            className="mb-20 md:mb-32 last:mb-0 opacity-0"
+      {/* Content Sections with Images */}
+      <div className="space-y-32 py-32">
+        {projectData.sections.map((section, i) => (
+          <div 
+            key={i}
+            ref={addSectionRef}
+            className={`container mx-auto px-4 ${i % 2 === 0 ? '' : ''}`}
           >
-            <div className="max-w-4xl mx-auto">
-              {/* Section Title */}
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 md:mb-10">
-                {section.title}
-              </h2>
-              
-              {/* Section Text */}
-              <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-12">
-                {section.text}
-              </p>
-              
-              {/* Stats Grid */}
-              {section.stats && (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-12">
-                  {section.stats.map((stat, idx) => (
-                    <div 
-                      key={idx}
-                      className="border-l-4 border-blue-500 pl-4 py-2"
-                    >
-                      <div className="text-gray-700">{stat}</div>
-                    </div>
-                  ))}
+            <div className={`max-w-6xl mx-auto ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} flex flex-col md:flex-row items-center gap-12 md:gap-24`}>
+              {/* Image */}
+              <div className={`md:w-1/2 ${section.wide ? 'md:w-2/3' : ''}`}>
+                <div 
+                  ref={addImageRef}
+                  className={`overflow-hidden ${section.wide ? 'aspect-video' : 'aspect-square'}`}
+                >
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="w-full h-full object-cover scale-100 hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
-              )}
+              </div>
               
-              {/* Features List */}
-              {section.features && (
-                <div className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-100">
-                  <h3 className="text-lg font-semibold text-gray-700 mb-6 uppercase tracking-wider">
-                    THE SCOPE
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {section.features.map((feature, idx) => (
-                      <div 
-                        key={idx}
-                        className="feature-item flex items-start opacity-0"
-                      >
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span className="text-gray-600">{feature}</span>
+              {/* Content */}
+              <div className="md:w-1/2 section-content">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                  {section.title}
+                </h2>
+                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                  {section.text}
+                </p>
+                
+                {section.features && (
+                  <div className="space-y-3">
+                    {section.features.map((feature, j) => (
+                      <div key={j} className="flex items-center">
+                        <span className="w-3 h-3 bg-blue-500 mr-3"></span>
+                        <span className="text-gray-400">{feature}</span>
                       </div>
                     ))}
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </section>
+          </div>
         ))}
       </div>
 
-      {/* Final CTA Section */}
-      <div className="bg-gray-100 py-16 md:py-24">
+      {/* Full-width showcase image */}
+      <div className="py-32">
+        <div className="container mx-auto px-4">
+          <div 
+            ref={addImageRef}
+            className="max-w-6xl mx-auto overflow-hidden"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+              alt="AJP Event Showcase"
+              className="w-full h-[600px] object-cover scale-100 hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Final CTA */}
+      <div className="py-32 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Ready to implement this design?
+          <h2 className="text-5xl md:text-6xl font-bold mb-8">
+            Ready to use this design?
           </h2>
-          <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
-            Get the complete React implementation with GSAP animations and responsive design.
+          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+            Get the complete React implementation with GSAP animations, responsive images, and production-ready code.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
               href={projectData.demoLink}
-              className="bg-gray-800 text-white font-semibold px-8 py-4 rounded-lg hover:bg-gray-900 transition-colors duration-300 inline-block"
+              className="border-2 border-white text-white px-10 py-5 text-lg hover:bg-white hover:text-black transition-all duration-300"
             >
               View Full Demo
             </a>
             <a
-              href={projectData.buyScriptLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-8 py-4 rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg inline-block"
+              href={projectData.buyLink}
+              className="bg-white text-black px-10 py-5 text-lg hover:bg-gray-200 transition-all duration-300 font-medium"
             >
-              Purchase Complete Script
+              Purchase Complete Script · $149
             </a>
           </div>
-          <p className="text-gray-500 text-sm mt-6">
-            Includes React components, GSAP animations, and Tailwind CSS configuration
+          <p className="text-gray-500 mt-8 text-sm">
+            Includes all React components, GSAP animations, and image optimization
           </p>
         </div>
       </div>

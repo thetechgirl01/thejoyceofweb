@@ -46,7 +46,28 @@ const Home = ({ blogs }) => {
         <Contact />
       </div>
 
-   
+      {/* Latest Blogs */}
+      {recentBlogs.length > 0 && (
+        <div className="px-9 bg-gray-900/95 border border-b-none border-white/20 rounded-tr-3xl rounded-tl-3xl py-12">
+          <h2 className="text-3xl text-white font-bold mb-6 text-center">
+            Latest Blogs
+          </h2>
+
+          {/* Pass only the latest 4 blogs and hide filters */}
+          <Blogs blogs={recentBlogs} showFilters={false} />
+
+          {/* View All Blogs Button */}
+          <div className="text-center mt-10">
+            <Link
+              to="/blogs"
+              className="px-6 py-3 bg-yellow-400 rounded-xl text-black font-semibold hover:bg-yellow-500 transition"
+            >
+              View All Blogs
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Optional Youtube Section */}
       {/*
       <div className="px-9 bg-white">

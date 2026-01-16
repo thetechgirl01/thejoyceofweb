@@ -46,8 +46,23 @@ body {
   font-family: var(--font-h3);
   margin: 0;
   padding: 0;
-  position: ;
+  position: relative;
 }
+
+h1 {
+  font-family: var(--font-h1);
+  text-transform: capitalize;
+  font-weight: lighter;
+}
+
+h2 {
+  font-family: var(--font-h2);
+}
+
+h3 {
+  font-family: var(--font-h2);
+}
+
 .yellow {
   background-color: goldenrod;
 }
@@ -64,22 +79,6 @@ html {
 }
 
 
-/* Headings */
-h1 {
-  font-family: var(--font-h1);
-  text-transform: capitalize;
-  font-weight: lighter;
- 
-  
-}
-
-h2 {
-  font-family: var(--font-h2);
-}
-
-h3 {
-  font-family: var(--font-h2);
-}
 
 p {
   font-family: var(--font-h3);
