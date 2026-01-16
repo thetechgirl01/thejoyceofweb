@@ -15,7 +15,7 @@ import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import FAQ from './pages/Faq';
 import BlogContentPage from './pages/BlogContentPage.jsx';
-import WorkContentPage from './pages/WorkContntPage.jsx';
+import WorkContentPage from './pages/WorkContentPage.jsx';
 
 function App() {
   // Fetch all blogs from Strapi with images populated
