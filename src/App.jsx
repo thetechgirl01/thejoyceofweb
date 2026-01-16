@@ -54,12 +54,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home blogs={blogsData} />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/works" element={<Works />} />
+        
         <Route path="/blogs" element={<Blogs blogs={blogsData} />} />
         <Route path="/blog/:id" element={<BlogContentPage blogs={blogsData} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/work" element={<WorkContentPage/>} />
+        <Route path="/work" element={<Works />} />
+        <Route path="/work/:slug" element={<WorkContentPage />} />
+       
         <Route path="*" element={<Blogs blogs={blogsData} />} />
       </Routes>
       <Bookcall />
