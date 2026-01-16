@@ -273,8 +273,8 @@ const Works = () => {
 
               {/* Content */}
               <div className="max-w-[800px]">
-                <h3 className="text-3xl sm:text-[2.5rem] font-bold leading-tight mb-5 text-white">
-                  {work.title}
+                <h3 className="text-3xl sm:text-[2.5rem] font-bold leading-tight mb-5 text-white cursor-pointer hover:text-yellow-300">
+                 <Link to="/work">{work.title}</Link>
                 </h3>
                 <p className="text-lg leading-relaxed text-gray-400">
                   {work.description}
