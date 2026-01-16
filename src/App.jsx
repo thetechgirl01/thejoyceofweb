@@ -5,6 +5,7 @@ import Bookcall from './components/Bookcall.jsx';
 import Footer from './components/Footer.jsx';
 import useFetch from './hooks/useFetch.js';
 import { Routes, Route } from 'react-router-dom';
+import Logo from './assets/tklogo.png'
 
 // Pages
 import Home from './pages/Home';
@@ -25,7 +26,10 @@ function App() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-xl">Loading blogs from Strapi...</p>
+        <div className="text-xl">
+          <img src={Logo} alt="" className='w-50 h-50'/>
+          <h1 className='text-2xl'>CrownaTech Web Development Services.</h1>
+        </div>
       </div>
     );
   }
