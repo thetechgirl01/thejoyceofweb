@@ -63,7 +63,7 @@ function App() {
         <Route path="/work" element={<WorkContentPage/>} />
         <Route path="*" element={<Blogs blogs={blogsData} />} />
 
-         <Route path="/errandsbybrownie" element={<Errandsbybrownie />} />
+       <Route path="/projects/errands-by-brownie" element={<Errandsbybrownie />} />
       </Routes>
       <Bookcall />
       <div className="px-9 rounded-tr-3xl rounded-tl-3xl">
