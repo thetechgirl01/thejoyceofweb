@@ -22,14 +22,14 @@ const Errandsbybrownie = () => {
     
     sections: [
       {
-        title: 'The jiu jitsu Mecca',
+        title: 'Delivery & Errands Services',
         text: 'AJP represents a unique synergy of a modern grass-roots combat subculture and a national sport in the UAE all due to the vision and support of jiu jitsu by Sheikh Mohammed bin Zayed.',
         image: EbbHeroPic,
         wide: true
       },
       {
         title: 'The mission',
-        text: 'We were brought in as a result of a concept design we delivered to showcase our passion for the sport as practitioners and as a token of gratitude to the organization that has elevated the level of professional jiu jitsu competition.',
+        text: 'We were brought in as a result of a concept design we delivered to showcase our passion for clean, straight-forward and compatible courier apps.',
         image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
       },
       {
