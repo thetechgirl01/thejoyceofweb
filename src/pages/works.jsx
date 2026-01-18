@@ -1,42 +1,57 @@
 import React, { useState } from "react";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
-import Workpic from "../assets/director.jpg";
+import Workpic from "../assets/EbbPic.jpeg";
+import ManclothPic from '../assets/mancloth.jpeg'
+import FlowerPic from '../assets/flower.jpeg'
 
 const Works = () => {
   const works = [
     {
       id: 1,
       tags: ["B2C", "JIU JITSU", "WEB PLATFORM"],
-      industries: ["Featured", "Web App", "Corporate", "Landing Page"],
+      industries: ["Featured", "Web App", "Landing Page"],
       image: Workpic,
-      title: "AJP: World's fastest growing jiu jitsu tournament organization",
+      UrlText: "www.errandsbybrownie.com",
+      title: "Courier & Errand Company in Lagos, Nigeria.",
       description:
         "Abu Dhabi Jiu Jitsu Pro (AJP) is a professional Brazilian Jiu Jitsu organization created to grow the sport globally.",
-      demoLink: "https://ajp-demo.com",
+      demoLink: "https://www.errandsbybrownie.com",
       slug: "errands-by-brownie",
     },
     {
       id: 2,
       tags: ["SOCIAL MEDIA", "SRE", "SAAS"],
       industries: ["Featured", "SaaS", "Web App"],
-      image: Workpic,
+      image: ManclothPic,
       title: "Inspired — connecting innovators & investors",
       description:
         "Inspired connects innovators and investors, enabling collaboration at scale.",
-      demoLink: "https://inspired-demo.com",
+      demoLink: "https://4thmanclothing.com",
       slug: "inspired",
     },
     {
       id: 3,
       tags: ["FINANCE", "MOBILE APP"],
       industries: ["Featured", "Mobile App", "Finance"],
-      image: Workpic,
+      image: FlowerPic,
       title: "Robo-advisor & trading platform",
       description:
         "A mobile investment platform combining automated investing and manual trading.",
       demoLink: "https://zad-demo.com",
       slug: "zad-finance",
+    },
+      {
+      id: 1,
+      tags: ["B2C", "JIU JITSU", "WEB PLATFORM"],
+      industries: ["Featured", "Web App", "Landing Page"],
+      image: Workpic,
+      UrlText: "www.errandsbybrownie.com",
+      title: "Courier & Errand Company in Lagos, Nigeria.",
+      description:
+        "Abu Dhabi Jiu Jitsu Pro (AJP) is a professional Brazilian Jiu Jitsu organization created to grow the sport globally.",
+      demoLink: "https://www.errandsbybrownie.com",
+      slug: "errands-by-brownie",
     },
   ];
 
@@ -51,8 +66,6 @@ const Works = () => {
     "Web App",
     "Web3",
     "Real Estate",
-    "Finance",
-    "Mobile App",
   ];
 
   const [selectedIndustries, setSelectedIndustries] = useState(["Featured"]);
@@ -86,7 +99,7 @@ const Works = () => {
   const ProjectCard = ({ project }) => (
     <div className="relative min-w-[320px]">
       <div
-        className="relative h-[380px] rounded-3xl overflow-hidden bg-black group"
+        className="relative h-[480px] rounded-3xl overflow-hidden group"
         style={{
           clipPath: `
             polygon(
@@ -105,16 +118,6 @@ const Works = () => {
           alt={project.title}
           className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"
         />
-        <div className="absolute inset-0 bg-black/60" />
-
-        {/* TITLE → INTERNAL PAGE */}
-        <div className="absolute bottom-6 left-6 right-6">
-          <Link to={`/projects/${project.slug}`}>
-            <h3 className="text-white font-semibold uppercase text-lg">
-              {project.title}
-            </h3>
-          </Link>
-        </div>
       </div>
 
       {/* LIVE DEMO BUTTON */}
@@ -122,7 +125,7 @@ const Works = () => {
         href={project.demoLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-2 right-2 w-14 h-14 rounded-lg bg-yellow-500 flex items-center justify-center shadow-lg hover:scale-110 transition z-10"
+        className="absolute top-2 right-2 w-28 h-18 rounded-lg bg-yellow-500 flex items-center justify-center shadow-lg hover:scale-110 transition z-10"
       >
         <HiArrowUpRight className="w-6 h-6 text-black" />
       </a>
@@ -130,25 +133,40 @@ const Works = () => {
   );
 
   return (
-    <div className="min-h-screen py-16 max-w-7xl mx-auto">
+    <div className="min-h-screen py-20 pt-32 max-w-7xl mx-auto">
+      {/* SCROLLBAR HIDE CSS */}
+      <style>
+        {`
+          .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+          .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+        `}
+      </style>
+
       {/* HEADER */}
       <header className="px-4 mb-20 mt-20">
-        <h1 className="text-white text-5xl leading-tight max-w-[800px]">
-          Helping businesses achieve goals. Solving real problems.
+        <h1 className="text-white font-bold leading-tight max-w-5xl 
+                  text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                  mt-1">
+          We help businesses achieve their goals. <bt/>By solving real, meaningful problems.
         </h1>
       </header>
 
-      {/* FILTER */}
-      <div className="overflow-x-auto mb-10 px-4">
-        <div className="flex flex-wrap gap-3">
+      {/* FILTER — SCROLLABLE, SCROLLBAR HIDDEN */}
+      <div className="mb-10 px-4 overflow-x-auto hide-scrollbar">
+        <div className="flex gap-6 whitespace-nowrap sm:flex-wrap">
           {industries.map((item) => (
             <button
               key={item}
               onClick={() => handleIndustryClick(item)}
-              className={`px-4 py-2 rounded-3xl border transition ${
+              className={`text-2xl transition ${
                 selectedIndustries.includes(item)
-                  ? "bg-yellow-500 text-black border-yellow-500"
-                  : "text-white border-gray-600 hover:border-yellow-400 hover:text-yellow-400"
+                  ? "text-gray-500"
+                  : "text-white hover:text-yellow-400"
               }`}
             >
               {item}
@@ -158,7 +176,7 @@ const Works = () => {
       </div>
 
       {/* GRID */}
-      <main className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-24 px-4">
+      <main className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 sm:gap-y-24 md:gap-y-0 gap-y-24 px-4">
         {filteredWorks.map((work, index) => (
           <div
             key={work.id}
@@ -178,22 +196,13 @@ const Works = () => {
               ))}
             </div>
 
-            {/* INDUSTRIES */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {work.industries.map(ind => (
-                <span
-                  key={ind}
-                  className="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-400"
-                >
-                  {ind}
-                </span>
-              ))}
-            </div>
+            {/* TITLE — INTERNAL LINK */}
+            <Link to={`/projects/${work.slug}`}>
+              <h3 className="text-3xl font-bold text-white mb-4 hover:text-yellow-300">
+                {work.title}
+              </h3>
+            </Link>
 
-            {/* CONTENT */}
-            <h3 className="text-3xl font-bold text-white mb-4">
-              {work.title}
-            </h3>
             <p className="text-gray-400 text-lg">
               {work.description}
             </p>

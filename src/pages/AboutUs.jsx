@@ -127,10 +127,10 @@ const AboutUs = () => {
   ];
 
   return (
-    <div ref={aboutRef} className="min-h-screen pt-32 pb-10">
+    <div ref={aboutRef} className="min-h-screen py-20 pt-32 max-w-7xl mx-auto">
       
       {/* HERO SECTION */}
-      <header className="about-header px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-20">
+      <header className="about-header pt-22 px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-20">
         <div className="flex flex-col lg:flex-row justify-between gap-8 items-start">
           
           <div className="flex-1">

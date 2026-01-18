@@ -2,6 +2,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Ebblogo from '../assets/ebblogo.png'
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,10 +15,9 @@ const Errandsbybrownie = () => {
   
   // Project data
   const projectData = {
-    logo: 'https://shakuro.com/logo-ajp.svg',
+    logo: Ebblogo,
     title: 'Errandsbybrownie',
-    description: 'World\'s fastest growing jiu jitsu tournament organization',
-    excerpt: 'Professional Brazilian Jiu Jitsu organization with global events in over 40 countries worldwide.',
+    excerpt: 'No.1 Courier Delivery & Errand Service in Lagos State Nigeria',
     
     sections: [
       {
@@ -46,7 +48,7 @@ const Errandsbybrownie = () => {
     
 
     
-    demoLink: 'https://demo.example.com',
+    demoLink: 'https://www.errabdsbybrownie.com',
     buyLink: 'https://buy.stripe.com/test_123456'
   };
 
@@ -113,28 +115,26 @@ const Errandsbybrownie = () => {
   };
 
   return (
-    <div className="min-h-[60vh] bg-black text-white">
+    <div className="min-h-screen bg-black text-white ">
       {/* Hero Section */}
       <div 
-        ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-blue-900"
+       
+        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg"
       >
-        {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl"></div>
-        </div>
-
+   
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             {/* Logo */}
-            <div className="mb-12">
+            <div className="mt-12">
               <img 
                 src={projectData.logo} 
-                alt="AJP Logo" 
-                className="h-20 w-auto opacity-90"
+                alt="ebb Logo" 
+                className="h-10 mb-3 w-auto opacity-90"
               />
             </div>
+
+            
+            
             
             {/* Title */}
             <h1 className="hero-title text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight">
@@ -175,6 +175,23 @@ const Errandsbybrownie = () => {
         </div>
 
        
+      </div>
+
+      
+      {/* Full-width showcase image */}
+      <div className="py-32">
+        <div className="container mx-auto px-4">
+          <div 
+            ref={addImageRef}
+            className="max-w-6xl mx-auto overflow-hidden"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+              alt="AJP Event Showcase"
+              className="w-full h-[600px] object-cover scale-100 hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Content Sections with Images */}
