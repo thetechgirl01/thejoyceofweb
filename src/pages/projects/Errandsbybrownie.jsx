@@ -251,7 +251,7 @@ const Errandsbybrownie = () => {
             className="max-w-6xl mx-auto overflow-hidden"
           >
             <img
-              src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+              src={EbbHeroPic}
               alt="AJP Event Showcase"
               className="w-full h-[600px] object-cover scale-100 hover:scale-105 transition-transform duration-700"
             />
