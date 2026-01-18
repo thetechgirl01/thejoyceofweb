@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Ebblogo from '../assets/ebblogo.png'
+import EbbHeroPic from '../assets/Heroebb.jpeg'
 
 
 
@@ -23,7 +24,7 @@ const Errandsbybrownie = () => {
       {
         title: 'The jiu jitsu Mecca',
         text: 'AJP represents a unique synergy of a modern grass-roots combat subculture and a national sport in the UAE all due to the vision and support of jiu jitsu by Sheikh Mohammed bin Zayed.',
-        image: 'https://images.unsplash.com/photo-1546717122-08b9d6d1ac75?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        image: EbbHeroPic,
         wide: true
       },
       {
@@ -186,7 +187,7 @@ const Errandsbybrownie = () => {
             className="max-w-6xl mx-auto overflow-hidden"
           >
             <img
-              src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+              src={EbbHeroPic}
               alt="AJP Event Showcase"
               className="w-full h-[600px] object-cover scale-100 hover:scale-105 transition-transform duration-700"
             />
