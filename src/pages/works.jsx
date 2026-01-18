@@ -24,7 +24,8 @@ const Works = () => {
       tags: ["SOCIAL MEDIA", "SRE", "SAAS"],
       industries: ["Featured", "SaaS", "Web App"],
       image: ManclothPic,
-      title: "Inspired — connecting innovators & investors",
+      UrlText: "4thmanclothing.com",
+      title: "Uk Fashion E-commerce Platform",
       description:
         "Inspired connects innovators and investors, enabling collaboration at scale.",
       demoLink: "https://4thmanclothing.com",
