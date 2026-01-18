@@ -201,7 +201,7 @@ const Errandsbybrownie = () => {
           <div 
             key={i}
             ref={addSectionRef}
-            className={`container mx-auto px-4 ${i % 2 === 0 ? '' : ''}`}
+            className={`container mx-auto px-4 text-black ${i % 2 === 0 ? '' : ''}`}
           >
             <div className={`max-w-6xl mx-auto ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} flex flex-col md:flex-row items-center gap-12 md:gap-24`}>
               {/* Image */}
@@ -223,7 +223,7 @@ const Errandsbybrownie = () => {
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   {section.title}
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                <p className="text-xl text-gray-500 mb-8 leading-relaxed">
                   {section.text}
                 </p>
                 
