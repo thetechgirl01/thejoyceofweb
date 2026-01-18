@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Ebblogo from '../assets/ebblogo.png'
 import EbbHeroPic from '../assets/Heroebb.jpeg'
+import { HiArrowRight } from 'react-icons/hi';
 
 
 
@@ -164,7 +165,7 @@ const Errandsbybrownie = () => {
                               className="
                                 group
                                 flex items-center justify-between
-                                w-2/3
+                                w-[300px]
                                 border border-white/20
                                 rounded-full
                                 px-3 py-2
@@ -173,7 +174,7 @@ const Errandsbybrownie = () => {
                                 transition
                               "
                             >
-                              <span className="text-white font-medium">
+                              <span className="text-white font-medium pl-7">
                                View Live Demo
                               </span>
               
