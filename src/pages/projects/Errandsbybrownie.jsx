@@ -152,17 +152,42 @@ const Errandsbybrownie = () => {
               {projectData.excerpt}
             </p>
 
-            {/* Stats */}
+    
          
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
-              <a
-                href={projectData.demoLink}
-                className="hero-button bg-transparent border-2 border-white text-white px-8 py-4 rounded-none hover:bg-white hover:text-black transition-all duration-300 font-medium text-lg"
-              >
-                View Live Demo
-              </a>
+              
+
+               <a
+                              href={projectData.demoLink}
+                              className="
+                                group
+                                flex items-center justify-between
+                                w-2/3
+                                border border-white/20
+                                rounded-full
+                                px-3 py-2
+                                text-xs sm:text-sm
+                                hover:bg-white/10
+                                transition
+                              "
+                            >
+                              <span className="text-white font-medium">
+                               View Live Demo
+                              </span>
+              
+                              <span className="
+                                w-8 h-8
+                                bg-yellow-400
+                                rounded-full
+                                flex items-center justify-center
+                                group-hover:translate-x-1
+                                transition
+                              ">
+                                <HiArrowRight className="text-black w-4 h-4 -rotate-45" />
+                              </span>
+                            </a>
               {/* Buy Button
               <a
                 href={projectData.buyLink}
