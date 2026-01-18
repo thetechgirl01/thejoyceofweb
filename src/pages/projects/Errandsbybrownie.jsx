@@ -120,7 +120,7 @@ const Errandsbybrownie = () => {
       {/* Hero Section */}
       <div 
        
-        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg"
+        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg"
       >
    
         <div className="container mx-auto px-4 relative z-10">
