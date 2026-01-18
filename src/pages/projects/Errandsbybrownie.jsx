@@ -115,7 +115,7 @@ const Errandsbybrownie = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white ">
+    <div className="min-h-screen bg-white text-white ">
       {/* Hero Section */}
       <div 
        
