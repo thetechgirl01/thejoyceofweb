@@ -83,7 +83,7 @@ export default function Navbar() {
 
       {/* SLIDE MENU */}
       <aside
-        className={`fixed top-0 right-0 h-screen z-50 bg-white text-black
+        className={`fixed top-0 right-0 h-screen z-50 bg-gray-900/95 text-black
         transition-transform duration-500 ease-in-out
         w-full md:w-[35%]
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
