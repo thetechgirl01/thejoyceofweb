@@ -24,19 +24,18 @@ export default function Navbar() {
 
   const services = [
     "Custom web development",
-    "UI/UX design",
+    "UI/UX design", 
     "Content marketing",
-    "E-commerce solutions",
     "SEO optimization",
-    "Mobile app development",
     "Brand strategy",
     "Digital transformation"
   ];
 
   const tools = [
-    'JavaScript', 'React', 'Node', 'Express', 'Bootstrap', 'jQuery',
-    'PHP', 'MySQL', 'MongoDB', 'Git', 'GitHub', 'Figma', 'WordPress',
-    'Tailwind CSS', 'Next.js', 'TypeScript', 'GraphQL', 'AWS', 'Docker'
+    'JavaScript', 'React', 'Node', 'Express', 
+    'Bootstrap', 'jQuery', 'PHP', 'MySQL', 
+    'MongoDB', 'Git', 'GitHub', 'Figma', 
+    'WordPress', 'Tailwind CSS', 'Next.js'
   ];
 
   return (
@@ -100,126 +99,126 @@ export default function Navbar() {
         onClick={() => setIsOpen(false)}
       />
 
-      {/* Slide Menu - Below navbar but above overlay */}
+      {/* Slide Menu - 1/3 of screen width */}
       <aside
         className={`fixed top-0 right-0 h-screen z-[95] bg-gray-900/95 backdrop-blur-md
           transition-transform duration-700 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full"}
-          w-full md:w-[35%] lg:w-[30%] xl:w-[25%]
-          overflow-y-auto`}
+          w-full md:w-1/3 lg:w-1/3 xl:w-1/3
+          overflow-y-auto overflow-x-hidden`}
       >
-        <div className="h-full flex flex-col px-8 sm:px-12 md:px-16 pt-16 pb-8">
+        <div className="h-full flex flex-col items-start px-6 sm:px-8 md:px-10 pt-20 pb-10">
           {/* Navigation Links */}
-          <div className="flex-grow">
-            <ul className="space-y-6 md:space-y-8 mb-12">
-              {navLinks.map((link, index) => (
-                <li key={link.name} className="overflow-hidden">
-                  <Link
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-3xl md:text-4xl lg:text-5xl font-light text-white 
-                             tracking-tight hover:text-yellow-300 
-                             transition-all duration-300 transform hover:translate-x-4
-                             hover:opacity-80"
-                    style={{
-                      transitionDelay: `${index * 100}ms`,
-                      transform: isOpen ? 'translateX(0)' : 'translateX(100px)',
-                      opacity: isOpen ? 1 : 0,
-                      transition: `transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${index * 100}ms, 
-                                   opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${index * 100}ms, 
-                                   color 0.3s ease`
-                    }}
-                  >
-                    {link.name}
-                  </Link>
+          <ul className="space-y-6 md:space-y-8 w-full mb-12">
+            {navLinks.map((link, index) => (
+              <li key={link.name} className="overflow-hidden">
+                <Link
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className="block text-3xl md:text-4xl lg:text-4xl font-light text-white 
+                           tracking-tight hover:text-yellow-300 
+                           transition-all duration-300 transform hover:translate-x-4
+                           hover:opacity-80"
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                    transform: isOpen ? 'translateX(0)' : 'translateX(100px)',
+                    opacity: isOpen ? 1 : 0,
+                    transition: `transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${index * 100}ms, 
+                                 opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${index * 100}ms, 
+                                 color 0.3s ease`
+                  }}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* "What we bring to the table" Section */}
+          <div className="w-full mb-10 overflow-hidden"
+            style={{
+              transitionDelay: `${navLinks.length * 100 + 200}ms`,
+              transform: isOpen ? 'translateX(0)' : 'translateX(100px)',
+              opacity: isOpen ? 1 : 0,
+              transition: `transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 200}ms, 
+                           opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 200}ms`
+            }}
+          >
+            <h2 className="text-xl md:text-2xl font-semibold text-white mb-5 pb-2 border-b border-white/20">
+              What we bring to the table
+            </h2>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {services.map((service, index) => (
+                <li 
+                  key={service} 
+                  className="text-white/80 text-sm md:text-base font-light py-1.5"
+                  style={{
+                    transitionDelay: `${navLinks.length * 100 + 300 + (index * 50)}ms`,
+                    transform: isOpen ? 'translateX(0)' : 'translateX(50px)',
+                    opacity: isOpen ? 1 : 0,
+                    transition: `transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 300 + (index * 50)}ms, 
+                                 opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 300 + (index * 50)}ms`
+                  }}
+                >
+                  • {service}
                 </li>
               ))}
             </ul>
-
-            {/* Services Section */}
-            <div 
-              className="mb-10 overflow-hidden"
-              style={{
-                transitionDelay: `${navLinks.length * 100 + 200}ms`,
-                transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
-                opacity: isOpen ? 1 : 0,
-                transition: `transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 200}ms, 
-                             opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 200}ms`
-              }}
-            >
-              <h2 className="text-xl md:text-2xl font-semibold text-yellow-300 mb-4">
-                What We Bring to the Table
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {services.map((service, index) => (
-                  <div 
-                    key={service}
-                    className="text-white/80 hover:text-yellow-300 transition-colors duration-300"
-                    style={{
-                      transitionDelay: `${navLinks.length * 100 + 300 + (index * 50)}ms`,
-                      transform: isOpen ? 'translateX(0)' : 'translateX(20px)',
-                      opacity: isOpen ? 1 : 0,
-                      transition: `transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 300 + (index * 50)}ms, 
-                                   opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 300 + (index * 50)}ms`
-                    }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="text-yellow-300 text-xs">▸</span>
-                      <span className="text-sm md:text-base">{service}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Tools Section */}
-            <div 
-              className="overflow-hidden"
-              style={{
-                transitionDelay: `${navLinks.length * 100 + 600}ms`,
-                transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
-                opacity: isOpen ? 1 : 0,
-                transition: `transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 600}ms, 
-                             opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 600}ms`
-              }}
-            >
-              <h2 className="text-xl md:text-2xl font-semibold text-yellow-300 mb-4">
-                Tools & Technologies
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {tools.map((tool, index) => (
-                  <span 
-                    key={tool}
-                    className="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full 
-                             text-white/90 hover:text-yellow-300 hover:bg-white/20 
-                             text-xs md:text-sm transition-all duration-300"
-                    style={{
-                      transitionDelay: `${navLinks.length * 100 + 700 + (index * 30)}ms`,
-                      transform: isOpen ? 'scale(1)' : 'scale(0.8)',
-                      opacity: isOpen ? 1 : 0,
-                      transition: `transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 700 + (index * 30)}ms, 
-                                   opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 700 + (index * 30)}ms`
-                    }}
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
-          {/* Contact Button - Sticky at bottom */}
-          <div 
-            className="pt-8 mt-8 border-t border-white/20 overflow-hidden"
+          {/* Tools Section */}
+          <div className="w-full overflow-hidden"
             style={{
-              transitionDelay: `${navLinks.length * 100 + 1000}ms`,
-              transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
+              transitionDelay: `${navLinks.length * 100 + 500}ms`,
+              transform: isOpen ? 'translateX(0)' : 'translateX(100px)',
               opacity: isOpen ? 1 : 0,
-              transition: `transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 1000}ms, 
-                           opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 1000}ms`
+              transition: `transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 500}ms, 
+                           opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 500}ms`
             }}
           >
-          
+            <h2 className="text-xl md:text-2xl font-semibold text-white mb-5 pb-2 border-b border-white/20">
+              Tools & Technologies
+            </h2>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3">
+              {tools.map((tool, index) => (
+                <li 
+                  key={tool} 
+                  className="text-white/70 text-xs sm:text-sm font-light py-1.5 px-2 bg-white/5 rounded"
+                  style={{
+                    transitionDelay: `${navLinks.length * 100 + 600 + (index * 30)}ms`,
+                    transform: isOpen ? 'translateX(0)' : 'translateX(50px)',
+                    opacity: isOpen ? 1 : 0,
+                    transition: `transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 600 + (index * 30)}ms, 
+                                 opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 600 + (index * 30)}ms`
+                  }}
+                >
+                  {tool}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Button - Last item with animation */}
+          <div className="w-full mt-10 overflow-hidden"
+            style={{
+              transitionDelay: `${navLinks.length * 100 + 800}ms`,
+              transform: isOpen ? 'translateX(0)' : 'translateX(100px)',
+              opacity: isOpen ? 1 : 0,
+              transition: `transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 800}ms, 
+                           opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 800}ms`
+            }}
+          >
+            <Link
+              to="/contact"
+              onClick={() => setIsOpen(false)}
+              className="inline-block border-2 border-white/40 text-white 
+                       font-medium py-3 px-8 rounded-2xl shadow-lg 
+                       transition-all duration-300 transform hover:translate-x-4
+                       hover:border-yellow-300 hover:text-yellow-300
+                       hover:bg-white/5 backdrop-blur-sm w-full text-center"
+            >
+              Get yours now
+            </Link>
           </div>
         </div>
       </aside>
