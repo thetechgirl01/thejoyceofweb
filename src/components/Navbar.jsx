@@ -24,9 +24,9 @@ export default function Navbar() {
 
   return (
     <>
-      {/* NAVBAR */}
+      {/* NAVBAR - Fixed with highest z-index */}
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
+        className={`fixed w-full z-[100] transition-all duration-300 ${
           scrolled
             ? "bg-white/5 backdrop-blur-sm shadow-md text-black"
             : "bg-transparent text-white bg-white/5 backdrop-blur-sm"
@@ -39,10 +39,10 @@ export default function Navbar() {
               <img src={Tklogo} alt="Teckneik Logo" />
             </div>
 
-            {/* Menu Button - Styled like Shakuro.com */}
+            {/* Menu Button - Always clickable */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="relative z-[60] w-11 h-11 flex items-center justify-center rounded-full overflow-visible"
+              className="relative w-11 h-11 flex items-center justify-center rounded-full overflow-visible"
               aria-label="Toggle menu"
             >
               {/* Animated White Circle Background */}
@@ -73,9 +73,9 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Overlay */}
+      {/* Overlay - Behind nav but above content */}
       <div
-        className={`fixed inset-0 z-40 bg-black transition-opacity duration-500 ${
+        className={`fixed inset-0 z-[90] bg-black transition-opacity duration-500 ${
           isOpen
             ? "opacity-40 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -83,15 +83,15 @@ export default function Navbar() {
         onClick={() => setIsOpen(false)}
       />
 
-      {/* Slide Menu - Different sizes for mobile and desktop */}
+      {/* Slide Menu - Below navbar but above overlay */}
       <aside
-        className={`fixed top-0 right-0 h-screen z-50 bg-gray-900/95 backdrop-blur-md
+        className={`fixed top-0 right-0 h-screen z-[95] bg-gray-900/95 backdrop-blur-md
           transition-transform duration-700 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full"}
           w-full md:w-[35%] lg:w-[30%] xl:w-[25%]
           overflow-hidden`}
       >
-        <div className="h-full flex flex-col justify-center items-start px-8 sm:px-12 md:px-16">
+        <div className="h-full flex flex-col justify-center items-start px-8 sm:px-12 md:px-16 pt-16">
           <ul className="space-y-6 md:space-y-8 w-full">
             {navLinks.map((link, index) => (
               <li key={link.name} className="overflow-hidden">
