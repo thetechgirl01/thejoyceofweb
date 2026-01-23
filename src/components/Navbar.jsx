@@ -35,33 +35,37 @@ export default function Navbar() {
               <img src={Tklogo} alt="Teckneik Logo" />
             </div>
 
-            {/* Menu Button */}
+            {/* Menu Button - FIXED SECTION */}
             <button
-              onClick={() => setIsOpen((prev) => !prev)}
+              onClick={() => setIsOpen(!isOpen)}
               className="relative z-[60] w-11 h-11 flex items-center justify-center"
               aria-label="Toggle menu"
             >
-              {/* Animated Circle (visual only) */}
+              {/* Animated Circle - Now white when open */}
               <span
-                className={`pointer-events-none absolute inset-0 rounded-full bg-white transition-transform duration-500 ease-out ${
-                  isOpen ? "scale-100" : "scale-0"
+                className={`absolute inset-0 rounded-full transition-all duration-500 ease-out ${
+                  isOpen ? "scale-100 bg-white" : "scale-0 bg-transparent"
                 }`}
               />
 
-              {/* ICON */}
-              {!isOpen ? (
-                /* Two-line Menu Icon */
-                <span className="relative flex flex-col gap-2">
-                  <span className="block h-[2px] w-7 bg-white" />
-                  <span className="block h-[2px] w-5 bg-white" />
-                </span>
-              ) : (
-                /* X Icon */
-                <span className="relative w-6 h-6">
-                  <span className="absolute top-1/2 left-0 w-full h-[2px] bg-black rotate-45 -translate-y-1/2" />
-                  <span className="absolute top-1/2 left-0 w-full h-[2px] bg-black -rotate-45 -translate-y-1/2" />
-                </span>
-              )}
+              {/* ICON Container - Always on top */}
+              <span className="relative z-10">
+                {!isOpen ? (
+                  /* Two-line Menu Icon */
+                  <span className="relative flex flex-col gap-2">
+                    <span className="block h-[2px] w-7 bg-white" />
+                    <span className="block h-[2px] w-5 bg-white" />
+                  </span>
+                ) : (
+                  /* X Icon - Now white and properly positioned */
+                  <span className="relative w-6 h-6 flex items-center justify-center">
+                    <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center">
+                      <span className="absolute w-6 h-[2px] bg-black rotate-45" />
+                      <span className="absolute w-6 h-[2px] bg-black -rotate-45" />
+                    </span>
+                  </span>
+                )}
+              </span>
             </button>
           </div>
         </div>
@@ -69,19 +73,21 @@ export default function Navbar() {
 
       {/* OVERLAY */}
       <div
-        className={`fixed inset-0 z-50 transition-opacity duration-500 ${
+        className={`fixed inset-0 z-40 transition-opacity duration-500 ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
-        onClick={() => setIsOpen(false)}
       >
-        <div className="absolute inset-0 bg-black/40" />
+        <div
+          className="absolute inset-0 bg-black/40"
+          onClick={() => setIsOpen(false)}
+        />
       </div>
 
       {/* SLIDE MENU */}
       <aside
-        className={`fixed top-0 right-0 h-screen z-50 bg-gray-900/95 text-white
+        className={`fixed top-0 right-0 h-screen z-50 bg-gray-900/95 text-black
         transition-transform duration-500 ease-in-out
         w-full md:w-[35%]
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
