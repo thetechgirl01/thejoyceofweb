@@ -37,13 +37,13 @@ export default function Navbar() {
 
             {/* Menu Button */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen((prev) => !prev)}
               className="relative z-[60] w-11 h-11 flex items-center justify-center"
               aria-label="Toggle menu"
             >
-              {/* Animated Circle */}
+              {/* Animated Circle (visual only) */}
               <span
-                className={`absolute inset-0 rounded-full bg-white transition-transform duration-500 ease-out ${
+                className={`pointer-events-none absolute inset-0 rounded-full bg-white transition-transform duration-500 ease-out ${
                   isOpen ? "scale-100" : "scale-0"
                 }`}
               />
@@ -58,8 +58,8 @@ export default function Navbar() {
               ) : (
                 /* X Icon */
                 <span className="relative w-6 h-6">
-                  <span className="absolute inset-0 rotate-45 bg-black h-[2px] w-full top-1/2" />
-                  <span className="absolute inset-0 -rotate-45 bg-black h-[2px] w-full top-1/2" />
+                  <span className="absolute top-1/2 left-0 w-full h-[2px] bg-black rotate-45 -translate-y-1/2" />
+                  <span className="absolute top-1/2 left-0 w-full h-[2px] bg-black -rotate-45 -translate-y-1/2" />
                 </span>
               )}
             </button>
@@ -69,21 +69,19 @@ export default function Navbar() {
 
       {/* OVERLAY */}
       <div
-        className={`fixed inset-0 z-40 transition-opacity duration-500 ${
+        className={`fixed inset-0 z-50 transition-opacity duration-500 ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
+        onClick={() => setIsOpen(false)}
       >
-        <div
-          className="absolute inset-0 bg-black/40"
-          onClick={() => setIsOpen(false)}
-        />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* SLIDE MENU */}
       <aside
-        className={`fixed top-0 right-0 h-screen z-50 bg-gray-900/95 text-black
+        className={`fixed top-0 right-0 h-screen z-50 bg-gray-900/95 text-white
         transition-transform duration-500 ease-in-out
         w-full md:w-[35%]
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
