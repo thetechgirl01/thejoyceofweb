@@ -103,7 +103,7 @@ export default function Navbar() {
           w-full md:w-1/3 
           overflow-y-auto overflow-x-hidden`}
       >
-        <div className="h-full flex flex-col items-start justify-center px-6 sm:px-8 md:px-10">
+        <div className="h-full flex flex-col items-start justify-center px-6 sm:px-8 md:px-10 mt-24">
           {/* Navigation Links - Centered container */}
           <div className="w-full mx-auto">
             <ul className="space-y-6 md:space-y-8 w-full mb-12">
