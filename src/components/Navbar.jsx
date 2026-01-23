@@ -24,18 +24,15 @@ export default function Navbar() {
 
   const services = [
     "Custom web development",
-    "UI/UX design", 
-    "Content marketing",
-    "SEO optimization",
-    "Brand strategy",
-    "Digital transformation"
+    "Design",
+    "Content marketing"
   ];
 
   const tools = [
     'JavaScript', 'React', 'Node', 'Express', 
     'Bootstrap', 'jQuery', 'PHP', 'MySQL', 
     'MongoDB', 'Git', 'GitHub', 'Figma', 
-    'WordPress', 'Tailwind CSS', 'Next.js'
+    'WordPress'
   ];
 
   return (
@@ -144,14 +141,14 @@ export default function Navbar() {
                            opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 200}ms`
             }}
           >
-            <h2 className="text-xl md:text-2xl font-semibold text-white mb-5 pb-2 border-b border-white/20">
+            <h2 className="text-lg md:text-xl font-medium text-white mb-4">
               What we bring to the table
             </h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <ul className="space-y-2">
               {services.map((service, index) => (
                 <li 
                   key={service} 
-                  className="text-white/80 text-sm md:text-base font-light py-1.5"
+                  className="text-white/80 text-sm"
                   style={{
                     transitionDelay: `${navLinks.length * 100 + 300 + (index * 50)}ms`,
                     transform: isOpen ? 'translateX(0)' : 'translateX(50px)',
@@ -160,14 +157,14 @@ export default function Navbar() {
                                  opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 300 + (index * 50)}ms`
                   }}
                 >
-                  • {service}
+                  {service}
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Tools Section */}
-          <div className="w-full overflow-hidden"
+          <div className="w-full mb-10 overflow-hidden"
             style={{
               transitionDelay: `${navLinks.length * 100 + 500}ms`,
               transform: isOpen ? 'translateX(0)' : 'translateX(100px)',
@@ -176,14 +173,14 @@ export default function Navbar() {
                            opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${navLinks.length * 100 + 500}ms`
             }}
           >
-            <h2 className="text-xl md:text-2xl font-semibold text-white mb-5 pb-2 border-b border-white/20">
-              Tools & Technologies
+            <h2 className="text-lg md:text-xl font-medium text-white mb-4">
+              Tools
             </h2>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3">
+            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {tools.map((tool, index) => (
                 <li 
                   key={tool} 
-                  className="text-white/70 text-xs sm:text-sm font-light py-1.5 px-2 bg-white/5 rounded"
+                  className="text-white/70 text-sm"
                   style={{
                     transitionDelay: `${navLinks.length * 100 + 600 + (index * 30)}ms`,
                     transform: isOpen ? 'translateX(0)' : 'translateX(50px)',
@@ -198,8 +195,8 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* Contact Button - Last item with animation */}
-          <div className="w-full mt-10 overflow-hidden"
+          {/* Contact Button */}
+          <div className="w-full mt-auto overflow-hidden"
             style={{
               transitionDelay: `${navLinks.length * 100 + 800}ms`,
               transform: isOpen ? 'translateX(0)' : 'translateX(100px)',
