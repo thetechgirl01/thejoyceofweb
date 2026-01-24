@@ -1,16 +1,11 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { MdLocationOn } from 'react-icons/md';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import gsap from 'gsap';
 
 export const Hero = () => {
-  const scrollRef = useRef(null);
   const techneikRef = useRef(null);
   const overlayRef = useRef(null);
-
-  const [isDown, setIsDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
 
   // GSAP intro animation
   useEffect(() => {
@@ -45,85 +40,66 @@ export const Hero = () => {
     };
   }, []);
 
-  // Drag logic
-  const handleMouseDown = (e) => {
-    setIsDown(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    scrollRef.current.scrollLeft = scrollLeft - (x - startX) * 2;
-  };
-
-  // Touch logic
-  const handleTouchStart = (e) => {
-    setStartX(e.touches[0].pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const handleTouchMove = (e) => {
-    const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
-    scrollRef.current.scrollLeft = scrollLeft - (x - startX) * 2;
-  };
-
   return (
-    <div className="py-10 sm:py-1" style={{ minHeight: '80vh' }}>
-      <section 
-        className="flex flex-col items-start justify-start px-4 md:px-24 py-8 relative"
-      >
-        <div className="bg max-w-6xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
-          <div className="flex flex-col items-start text-left">
-
+    <div className="min-h-screen flex items-center justify-center pt-16 sm:pt-24">
+      <section className="w-full px-4 md:px-24 py-8 md:py-16">
+        <div className="max-w-6xl w-full p-6 sm:p-8 md:p-12">
+          <div className="flex flex-col items-start space-y-6 md:space-y-8 text-left">
+            
             {/* Location */}
-            <h3 className="flex items-center gap-2 text-white/50 text-sm md:text-lg font-semibold mb-2">
-              <MdLocationOn className="w-5 h-5" />
-              Lagos, Nigeria.
-            </h3>
+            <div className="space-y-2">
+              <h3 className="flex items-center gap-2 text-white/50 text-sm md:text-lg font-semibold">
+                <MdLocationOn className="w-5 h-5" />
+                Lagos, Nigeria.
+              </h3>
+            </div>
 
             {/* Title */}
-            <h1
-              ref={techneikRef}
-              className="
-                text-white
-                text-4xl sm:text-5xl md:text-7xl
-                font-bold
-                leading-none
-                m-0
-                p-0
-                inline-block
-                relative
-                overflow-hidden
-              "
-            >
-              Web design & development company
-            </h1>
+            <div className="space-y-4">
+              <h1
+                ref={techneikRef}
+                className="
+                  text-white
+                  text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+                  font-bold
+                  leading-tight md:leading-none
+                  inline-block
+                  relative
+                  overflow-hidden
+                "
+              >
+                Web design & development company
+              </h1>
+            </div>
 
             {/* Subtitle */}
-            <h2 className="text-blue-300 text-lg sm:text-xl md:text-3xl font-semibold mt-2 mb-4">
-              CROWNATECH
-            </h2>
+            <div className="space-y-2">
+              <h2 className="text-blue-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
+                CROWNATECH
+              </h2>
+            </div>
 
             {/* Description */}
-            <p className="text-gray-300 text-sm sm:text-base md:text-xl mb-8 max-w-3xl">
-              A creative code studio focused on building software solutions
-              for businesses and startups with taste.
-            </p>
+            <div className="space-y-4 max-w-3xl">
+              <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl">
+                A creative code studio focused on building software solutions
+                for businesses and startups with taste.
+              </p>
+            </div>
 
             {/* Buttons */}
-            <div className="flex flex-wrap justify-start gap-4 mb-12">
-              <button className="flex items-center gap-2 bg-white text-black font-semibold py-3 px-8 rounded-xl transition hover:scale-105">
-                Get in touch
-                <AiOutlineArrowRight className="-rotate-45" />
-              </button>
+            <div className="space-y-4 pt-4">
+              <div className="flex flex-wrap gap-4 md:gap-6">
+                <button className="flex items-center gap-2 bg-white text-black font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  Get in touch
+                  <AiOutlineArrowRight className="-rotate-45" />
+                </button>
 
-              <button className="flex items-center gap-2 border-2 border-white text-white font-semibold py-3 px-8 rounded-xl transition hover:bg-blue-500/20 hover:scale-105">
-                Works
-                <AiOutlineArrowRight className="-rotate-45" />
-              </button>
+                <button className="flex items-center gap-2 border-2 border-white text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:bg-blue-500/20 hover:scale-105 hover:shadow-lg">
+                  Works
+                  <AiOutlineArrowRight className="-rotate-45" />
+                </button>
+              </div>
             </div>
 
           </div>
