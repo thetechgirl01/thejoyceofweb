@@ -3,53 +3,26 @@ import Logo from '../assets/tklogo.png'
 import { 
   FaRegEnvelope, 
   FaMapMarkerAlt, 
-  FaPhoneAlt, 
   FaPaperPlane,
   FaTwitter,
   FaLinkedin,
   FaGithub,
-  FaInstagram,
-  FaYoutube,
-  FaDribbble
+  FaInstagram
 } from 'react-icons/fa';
-import { HiArrowRight } from 'react-icons/hi';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: '',
-    budget: '',
-    customBudget: '',
-    message: ''
+    message: '',
+    budget: ''
   });
-
-  const projectTypes = [
-    'Business Website',
-    'E-commerce Store',
-    'Web Application',
-    'Portfolio Site',
-    'Blog/Content',
-    'SaaS Platform',
-    'Landing Page',
-    'Redesign/Update'
-  ];
-
-  const budgetRanges = [
-    'Under $500',
-    '$500 - $2,000',
-    '$2,000 - $5,000',
-    '$5,000 - $10,000',
-    'Over $10,000'
-  ];
 
   const socialLinks = [
     { icon: <FaTwitter />, label: 'Twitter', url: 'https://twitter.com/crownatech' },
     { icon: <FaLinkedin />, label: 'LinkedIn', url: 'https://linkedin.com/company/crownatech' },
     { icon: <FaGithub />, label: 'GitHub', url: 'https://github.com/crownatech' },
-    { icon: <FaInstagram />, label: 'Instagram', url: 'https://instagram.com/crownatech' },
-    { icon: <FaYoutube />, label: 'YouTube', url: 'https://youtube.com/@crownatech' },
-    { icon: <FaDribbble />, label: 'Dribbble', url: 'https://dribbble.com/crownatech' }
+    { icon: <FaInstagram />, label: 'Instagram', url: 'https://instagram.com/crownatech' }
   ];
 
   const handleInputChange = (e) => {
@@ -60,21 +33,6 @@ const Contact = () => {
     }));
   };
 
-  const handleProjectTypeSelect = (type) => {
-    setFormData(prev => ({
-      ...prev,
-      projectType: type
-    }));
-  };
-
-  const handleBudgetSelect = (range) => {
-    setFormData(prev => ({
-      ...prev,
-      budget: range,
-      customBudget: '' // Clear custom budget when selecting a range
-    }));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
@@ -82,162 +40,175 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen  sm:py-16 py-20">
+    <div className="min-h-screen">
       
-      {/* HERO */}
-      <header className=" px-4 sm:px-6 max-w-7xl mx-auto mb-20 sm:mb-20 ">
-        <div className="flex flex-col lg:flex-row justify-between gap-8 items-center">
-          
-          <div className="flex-1">
-            <h1 className="
-              text-white font-bold leading-tight text-center lg:text-left
-              text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-              max-w-lg sm:max-w-xl
-            ">
-              Let's Build Something Amazing
-            </h1>
+      {/* HEADER SECTION - Same as Hero.jsx */}
+      <div className="py-10 sm:py-1">
+        <section className="flex flex-col items-start justify-start px-4 md:px-24 py-8 relative">
+          <div className="max-w-6xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
+            <div className="flex flex-col items-start text-left">
+              
+              <h1 className="
+                text-white font-bold leading-tight
+                text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                mb-6
+              ">
+                Let's Build Something Amazing
+              </h1>
+              
+              <p className="
+                text-white/70
+                text-base sm:text-lg md:text-xl
+                leading-relaxed max-w-3xl mb-12
+              ">
+                Get in touch and let's discuss how we can bring your vision to life.
+              </p>
 
-            {/* Subtitle */}
-            <p className="
-              text-center lg:text-left
-              text-gray-300 mt-4 sm:mt-6
-              text-sm sm:text-base md:text-lg
-              max-w-2xl
-            ">
-              Get in touch and let's discuss how we can bring your vision to life.
-            </p>
-
-         
+            </div>
           </div>
+        </section>
+      </div>
 
-          {/* Envelope Icon */}
-          <div className="
-            w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32
-            rounded-full border-2 border-blue-400 
-            bg-blue-400
-            flex items-center justify-center
-            flex-shrink-0
-            mt-6 lg:mt-0
-            mx-auto lg:mx-0
-          ">
-            <FaRegEnvelope className="text-white w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
-          </div>
-
-        </div>
-      </header>
-
-      {/* CONTENT SECTION */}
-      <div className="px-4 sm:px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+      {/* MAIN CONTENT */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col-reverse lg:flex-row gap-8 lg:gap-12">
           
-          {/* LEFT COLUMN - CONTACT INFO */}
-          <div className="lg:col-span-1">
+          {/* LEFT COLUMN - CONTACT INFO (Shows second on mobile) */}
+          <div className="lg:w-1/2 space-y-8">
+            {/* Why Choose Us Card */}
             <div className="
               backdrop-blur-xl bg-white/5
               border border-white/10
               rounded-2xl
               p-6 sm:p-8
-              h-fit
-              sticky top-6
             ">
               <h3 className="
                 text-white
                 text-xl sm:text-2xl font-bold
                 mb-6
               ">
-                Why Choose CrownaTech
+                Why Work With Us
               </h3>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
                   <div className="
                     w-10 h-10
-                    bg-blue-500/20
+                    bg-white
                     rounded-lg
                     flex items-center justify-center
                     flex-shrink-0
                   ">
-                    <span className="text-blue-400 text-lg font-bold">✓</span>
+                    <span className="text-black text-lg font-bold">✓</span>
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1">Expert Consultation</h4>
                     <p className="text-white/60 text-sm">
-                      Free initial consultation to understand your needs
+                      Free initial consultation to understand your needs and goals
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-4">
                   <div className="
                     w-10 h-10
-                    bg-blue-500/20
+                    bg-white
                     rounded-lg
                     flex items-center justify-center
                     flex-shrink-0
                   ">
-                    <span className="text-blue-400 text-lg font-bold">✓</span>
+                    <span className="text-black text-lg font-bold">✓</span>
                   </div>
                   <div>
-                    <h4 className="text-white font-medium mb-1">Transparent Pricing</h4>
+                    <h4 className="text-white font-medium mb-1">Transparent Process</h4>
                     <p className="text-white/60 text-sm">
-                      Clear quotes with no hidden fees
+                      Clear communication and regular updates throughout the project
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-4">
                   <div className="
                     w-10 h-10
-                    bg-blue-500/20
+                    bg-white
                     rounded-lg
                     flex items-center justify-center
                     flex-shrink-0
                   ">
-                    <span className="text-blue-400 text-lg font-bold">✓</span>
+                    <span className="text-black text-lg font-bold">✓</span>
                   </div>
                   <div>
-                    <h4 className="text-white font-medium mb-1">Fast Response</h4>
+                    <h4 className="text-white font-medium mb-1">Quality Focus</h4>
                     <p className="text-white/60 text-sm">
-                      We typically respond within 24 hours
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="
-                    w-10 h-10
-                    bg-blue-500/20
-                    rounded-lg
-                    flex items-center justify-center
-                    flex-shrink-0
-                  ">
-                    <span className="text-blue-400 text-lg font-bold">✓</span>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium mb-1">Ongoing Support</h4>
-                    <p className="text-white/60 text-sm">
-                      Post-launch support and maintenance included
+                      Clean code, modern design, and scalable solutions
                     </p>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Location Info */}
-              <div className="mt-8 pt-8 border-t border-white/10">
-                <div className="flex items-center gap-3 mb-4">
-                  <FaMapMarkerAlt className="w-5 h-5 text-blue-400" />
-                  <h4 className="text-white font-medium">Our Location</h4>
+            {/* Contact Details Card */}
+            <div className="
+              backdrop-blur-xl bg-white/5
+              border border-white/10
+              rounded-2xl
+              p-6 sm:p-8
+            ">
+              <div className="flex items-center gap-3 mb-6">
+                <FaMapMarkerAlt className="w-5 h-5 text-white" />
+                <h4 className="text-white font-medium">Our Location</h4>
+              </div>
+              <p className="text-white/60 text-sm mb-4">
+                Lagos, Nigeria<br />
+                Available for worldwide projects
+              </p>
+              
+              <div className="flex items-center gap-3 mb-4">
+                <FaRegEnvelope className="w-5 h-5 text-white" />
+                <h4 className="text-white font-medium">Get in Touch</h4>
+              </div>
+              <p className="text-white/60 text-sm">
+                Typically respond within 24 hours<br />
+                100+ projects successfully delivered
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="
+                backdrop-blur-xl bg-white/5
+                border border-white/10
+                rounded-xl
+                p-4
+                text-center
+              ">
+                <div className="text-white text-lg font-bold mb-1">
+                  24-48 Hours
                 </div>
-                <p className="text-white/60 text-sm">
-                  Lagos, Nigeria<br />
-                  Available for worldwide projects
-                </p>
+                <div className="text-white/60 text-sm">
+                  Average Response
+                </div>
+              </div>
+
+              <div className="
+                backdrop-blur-xl bg-white/5
+                border border-white/10
+                rounded-xl
+                p-4
+                text-center
+              ">
+                <div className="text-white text-lg font-bold mb-1">
+                  100+ Projects
+                </div>
+                <div className="text-white/60 text-sm">
+                  Successfully Delivered
+                </div>
               </div>
             </div>
           </div>
 
-          {/* RIGHT COLUMN - CONTACT FORM */}
-          <div className="lg:col-span-2">
+          {/* RIGHT COLUMN - CONTACT FORM (Shows first on mobile) */}
+          <div className="lg:w-1/2">
             <form onSubmit={handleSubmit} className="
               backdrop-blur-xl bg-white/5
               border border-white/10
@@ -272,7 +243,7 @@ const Contact = () => {
                       rounded-xl
                       text-white
                       placeholder:text-white/40
-                      focus:outline-none focus:border-blue-500
+                      focus:outline-none focus:border-white/40
                       transition
                     "
                     placeholder="John Doe"
@@ -297,7 +268,7 @@ const Contact = () => {
                       rounded-xl
                       text-white
                       placeholder:text-white/40
-                      focus:outline-none focus:border-blue-500
+                      focus:outline-none focus:border-white/40
                       transition
                     "
                     placeholder="john@example.com"
@@ -305,98 +276,16 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Project Type */}
-              <div className="mb-6">
-                <label className="block text-white/70 text-sm mb-3">
-                  Project Type *
-                </label>
-                <div className="flex flex-wrap gap-2">
-                  {projectTypes.map((type) => (
-                    <button
-                      key={type}
-                      type="button"
-                      onClick={() => handleProjectTypeSelect(type)}
-                      className={`
-                        px-4 py-2
-                        rounded-full
-                        text-sm font-medium
-                        transition-all
-                        ${formData.projectType === type
-                          ? 'bg-blue-500 text-white'
-                          : 'backdrop-blur-xl bg-white/10 text-white hover:bg-white/20'
-                        }
-                      `}
-                    >
-                      {type}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
               {/* Budget */}
               <div className="mb-6">
-                <label className="block text-white/70 text-sm mb-3">
-                  Estimated Budget *
-                </label>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {budgetRanges.map((range) => (
-                    <button
-                      key={range}
-                      type="button"
-                      onClick={() => handleBudgetSelect(range)}
-                      className={`
-                        px-4 py-2
-                        rounded-full
-                        text-sm font-medium
-                        transition-all
-                        ${formData.budget === range
-                          ? 'bg-blue-500 text-white'
-                          : 'backdrop-blur-xl bg-white/10 text-white hover:bg-white/20'
-                        }
-                      `}
-                    >
-                      {range}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Custom Budget Input */}
-                <div>
-                  <label className="block text-white/70 text-sm mb-2">
-                    Or enter a custom budget (optional)
-                  </label>
-                  <input
-                    type="text"
-                    name="customBudget"
-                    value={formData.customBudget}
-                    onChange={handleInputChange}
-                    placeholder="Enter specific amount"
-                    className="
-                      w-full
-                      px-4 py-3
-                      backdrop-blur-xl bg-white/10
-                      border border-white/20
-                      rounded-xl
-                      text-white
-                      placeholder:text-white/40
-                      focus:outline-none focus:border-blue-500
-                      transition
-                    "
-                  />
-                </div>
-              </div>
-
-              {/* Message */}
-              <div className="mb-8">
                 <label className="block text-white/70 text-sm mb-2">
-                  Tell us about your project *
+                  Project Budget (Optional)
                 </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
+                <input
+                  type="text"
+                  name="budget"
+                  value={formData.budget}
                   onChange={handleInputChange}
-                  required
-                  rows={5}
                   className="
                     w-full
                     px-4 py-3
@@ -405,11 +294,37 @@ const Contact = () => {
                     rounded-xl
                     text-white
                     placeholder:text-white/40
-                    focus:outline-none focus:border-blue-500
+                    focus:outline-none focus:border-white/40
+                    transition
+                  "
+                  placeholder="e.g., $5,000 - $10,000 or Not sure yet"
+                />
+              </div>
+
+              {/* Message */}
+              <div className="mb-8">
+                <label className="block text-white/70 text-sm mb-2">
+                  Project Details *
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={6}
+                  className="
+                    w-full
+                    px-4 py-3
+                    backdrop-blur-xl bg-white/10
+                    border border-white/20
+                    rounded-xl
+                    text-white
+                    placeholder:text-white/40
+                    focus:outline-none focus:border-white/40
                     transition
                     resize-none
                   "
-                  placeholder="Describe your project, goals, timeline, and any specific requirements..."
+                  placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
                 />
               </div>
 
@@ -417,31 +332,29 @@ const Contact = () => {
               <button
                 type="submit"
                 className="
-                  group
-                  flex items-center justify-between
                   w-full
-                  border border-white/20
-                  rounded-full
                   px-6 py-4
-                  text-sm sm:text-base
-                  hover:bg-white/10
-                  transition
+                  bg-white
+                  text-black
+                  rounded-xl
+                  font-semibold
+                  flex items-center justify-center gap-3
+                  hover:bg-white/90
+                  transition-all duration-300
+                  group
                 "
               >
-                <span className="text-white font-medium">
-                  Send Request
-                </span>
-
+                Send Message
                 <span className="
                   w-8 h-8
-                  sm:w-10 sm:h-10
-                  bg-yellow-400
+                  bg-black
+                  text-white
                   rounded-full
                   flex items-center justify-center
                   group-hover:translate-x-1
-                  transition
+                  transition-transform
                 ">
-                  <FaPaperPlane className="text-black w-4 h-4 -rotate-45" />
+                  <FaPaperPlane className="w-4 h-4 -rotate-45" />
                 </span>
               </button>
 
@@ -450,183 +363,122 @@ const Contact = () => {
                 text-white/40 text-xs sm:text-sm
                 text-center mt-6
               ">
-                By submitting this form, you agree to our Privacy Policy. 
-                We'll never share your information with third parties.
+                We respect your privacy. Your information is secure with us.
               </p>
             </form>
-
-            {/* Additional Info */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="
-                backdrop-blur-xl bg-white/5
-                border border-white/10
-                rounded-xl
-                p-4
-                text-center
-              ">
-                <div className="text-blue-400 text-lg font-bold mb-1">
-                  24-48 Hours
-                </div>
-                <div className="text-white/60 text-sm">
-                  Average Response Time
-                </div>
-              </div>
-
-              <div className="
-                backdrop-blur-xl bg-white/5
-                border border-white/10
-                rounded-xl
-                p-4
-                text-center
-              ">
-                <div className="text-blue-400 text-lg font-bold mb-1">
-                  100+ Projects
-                </div>
-                <div className="text-white/60 text-sm">
-                  Successfully Delivered
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
 
-      {/* SOCIALS & LOGO SECTION */}
-      <div className="mt-20 px-4 sm:px-6 max-w-7xl mx-auto">
-        <div className="
-          bg-white
-          rounded-2xl sm:rounded-3xl
-          overflow-hidden
-          shadow-2xl
-        ">
-          <div className="flex flex-col lg:flex-row">
-            
-            {/* LEFT SIDE - SOCIALS */}
-            <div className="
-              lg:w-1/2
-              p-8 sm:p-12 md:p-16
-              bg-gradient-to-br from-blue-50 to-gray-50
-            ">
-              <h3 className="
-                text-gray-800
-                text-2xl sm:text-3xl md:text-4xl
-                font-bold
-                mb-6 sm:mb-8
+        {/* SOCIALS & LOGO SECTION - Dark Theme */}
+        <div className="mt-20">
+          <div className="
+            backdrop-blur-xl bg-white/5
+            border border-white/10
+            rounded-2xl
+            overflow-hidden
+          ">
+            <div className="flex flex-col lg:flex-row">
+              
+              {/* LEFT SIDE - SOCIALS */}
+              <div className="
+                lg:w-1/2
+                p-8 sm:p-12 md:p-16
+                flex flex-col justify-center
               ">
-                Connect With Us
-              </h3>
-              
-              <p className="
-                text-gray-600
-                text-base sm:text-lg
-                mb-8 sm:mb-10
-                leading-relaxed
-              ">
-                Follow CrownaTech on social media to stay updated with our latest projects, 
-                tech insights, and company news.
-              </p>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      group
-                      flex flex-col items-center
-                      p-4
-                      bg-white
-                      border border-gray-200
-                      rounded-xl
-                      hover:bg-blue-50
-                      hover:border-blue-300
-                      hover:shadow-lg
-                      transition-all duration-300
-                    "
-                  >
-                    <div className="
-                      w-12 h-12
-                      flex items-center justify-center
-                      text-gray-700
-                      group-hover:text-blue-600
-                      transition-colors
-                      mb-3
-                    ">
-                      <div className="w-6 h-6">
-                        {social.icon}
-                      </div>
-                    </div>
-                    <span className="
-                      text-gray-800
-                      text-sm font-medium
-                      group-hover:text-blue-700
-                      transition-colors
-                    ">
-                      {social.label}
-                    </span>
-                  </a>
-                ))}
-              </div>
-              
-              <div className="mt-8 sm:mt-10 pt-6 border-t border-gray-200">
-                <p className="text-gray-500 text-sm">
-                  Connect with our community of developers, designers, and innovators.
-                </p>
-              </div>
-            </div>
-            
-            {/* RIGHT SIDE - LOGO */}
-            <div className="
-              lg:w-1/2
-              p-8 sm:p-12 md:p-16
-              flex flex-col items-center justify-center
-              bg-gray-900/95
-              relative
-              overflow-hidden
-            ">
-              {/* Decorative Elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-10 translate-x-16"></div>
-              <div className="absolute bottom-0 left-0 w-40 h-40 bg-white rounded-full -translate-x-20 translate-y-20"></div>
-              
-              {/* Logo Container */}
-              <div className="relative z-10 text-center">
-                <div className="
-                  w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48
-                  mx-auto
-                  mb-6 sm:mb-8
-                  relative
-                ">
-                  {/* Logo Placeholder - Replace with your actual logo */}
-                  <div className="">
-
-                    <img src={Logo} alt="" />
-                  </div>
-                  {/* Decorative Ring */}
-                  <div className="
-                    absolute inset-0
-                  
-                    rounded-3xl
-                    animate-pulse
-                  "></div>
-                </div>
-                
-                {/* Logo Text */}
-                <h2 className="
+                <h3 className="
                   text-white
-                  text-3xl sm:text-4xl md:text-5xl
+                  text-2xl sm:text-3xl md:text-4xl
                   font-bold
-                  mb-3
-                  tracking-tight
+                  mb-6 sm:mb-8
                 ">
-                  CrownaTech
-                </h2>
-           
+                  Connect With Us
+                </h3>
+                
+                <p className="
+                  text-white/60
+                  text-base sm:text-lg
+                  mb-8 sm:mb-10
+                  leading-relaxed
+                ">
+                  Follow for updates, insights, and behind-the-scenes looks at our latest projects.
+                </p>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        group
+                        flex flex-col items-center
+                        p-4
+                        backdrop-blur-xl bg-white/5
+                        border border-white/10
+                        rounded-xl
+                        hover:bg-white/10
+                        transition-all duration-300
+                      "
+                    >
+                      <div className="
+                        w-12 h-12
+                        flex items-center justify-center
+                        text-white
+                        group-hover:text-white
+                        transition-colors
+                        mb-3
+                      ">
+                        <div className="w-6 h-6">
+                          {social.icon}
+                        </div>
+                      </div>
+                      <span className="
+                        text-white
+                        text-sm font-medium
+                        group-hover:text-white
+                        transition-colors
+                      ">
+                        {social.label}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
               
+              {/* RIGHT SIDE - LOGO */}
+              <div className="
+                lg:w-1/2
+                p-8 sm:p-12 md:p-16
+                flex flex-col items-center justify-center
+                border-t lg:border-t-0 lg:border-l border-white/10
+              ">
+                <div className="text-center">
+                  <div className="
+                    w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48
+                    mx-auto
+                    mb-6 sm:mb-8
+                    relative
+                  ">
+                    <img src={Logo} alt="Crownatech Logo" className="w-full h-full object-contain" />
+                  </div>
+                  
+                  <h2 className="
+                    text-white
+                    text-3xl sm:text-4xl md:text-5xl
+                    font-bold
+                    mb-3
+                    tracking-tight
+                  ">
+                    CrownaTech
+                  </h2>
+                  
+                  <p className="text-white/60 text-sm">
+                    Building digital excellence since 2019
+                  </p>
+                </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
