@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { FaRocket, FaUsers, FaAward, FaLightbulb, FaHeart, FaCode } from 'react-icons/fa';
-import { HiArrowRight } from 'react-icons/hi';
+import { FaRocket, FaUsers, FaAward, FaLightbulb } from 'react-icons/fa';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -23,26 +21,17 @@ const AboutUs = () => {
         ease: "power3.out"
       });
 
-      // Hero icon animation
-      gsap.from(".hero-icon", {
-        scale: 0,
-        rotation: 180,
-        duration: 1,
-        delay: 0.4,
-        ease: "back.out(1.7)"
-      });
-
       // Stats cards staggered animation
       gsap.from(".stat-card", {
         y: 40,
         opacity: 0,
         duration: 0.8,
         stagger: 0.1,
-        delay: 0.6,
+        delay: 0.4,
         ease: "power3.out"
       });
 
-      // Section animations with scroll trigger
+      // Content sections animation
       sectionRefs.current.forEach((section, index) => {
         if (section) {
           gsap.from(section, {
@@ -60,21 +49,6 @@ const AboutUs = () => {
         }
       });
 
-      // Team members animation
-      gsap.from(".team-member", {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: ".team-grid",
-          start: "top 70%",
-          end: "top 40%",
-          toggleActions: "play none none reverse"
-        },
-        ease: "power3.out"
-      });
-
     }, aboutRef);
 
     return () => ctx.revert();
@@ -87,390 +61,309 @@ const AboutUs = () => {
     { icon: <FaLightbulb className="w-6 h-6" />, value: "24/7", label: "Support Available" }
   ];
 
-  const values = [
+  const services = [
     {
-      icon: <FaHeart className="w-6 h-6" />,
-      title: "Passion Driven",
-      description: "We genuinely care about every project. Our team pours creativity and dedication into every line of code."
+      title: "Custom Web Development",
+      description: "Tailored web applications built with modern technologies to meet your specific business needs."
     },
     {
-      icon: <FaCode className="w-6 h-6" />,
-      title: "Technical Excellence",
-      description: "We stay updated with the latest technologies and best practices to deliver cutting-edge solutions."
+      title: "UI/UX Design",
+      description: "User-centered design solutions that combine aesthetics with functionality for optimal user experience."
     },
     {
-      icon: <FaUsers className="w-6 h-6" />,
-      title: "Client Partnership",
-      description: "We work with you, not just for you. Your success is our success, and we're committed to your goals."
+      title: "Web Strategy & Consulting",
+      description: "Expert guidance to help you make informed decisions about your digital presence and online strategy."
     }
   ];
 
-  const teamMembers = [
+  const process = [
     {
-      name: "Alex Johnson",
-      role: "Lead Developer",
-      expertise: "React, Node.js, Cloud Architecture",
-      description: "10+ years experience in full-stack development"
+      step: "01",
+      title: "Discovery & Planning",
+      description: "We start by understanding your goals, audience, and requirements to create a strategic plan."
     },
     {
-      name: "Sarah Miller",
-      role: "UI/UX Designer",
-      expertise: "Figma, User Research, Prototyping",
-      description: "Creates intuitive and beautiful user experiences"
+      step: "02",
+      title: "Design & Prototyping",
+      description: "Creating wireframes and prototypes to visualize the final product before development begins."
     },
     {
-      name: "David Chen",
-      role: "Project Manager",
-      expertise: "Agile, Scrum, Client Relations",
-      description: "Ensures projects stay on track and on budget"
+      step: "03",
+      title: "Development",
+      description: "Building your solution with clean, efficient code using the latest technologies and best practices."
+    },
+    {
+      step: "04",
+      title: "Launch & Support",
+      description: "Deploying your project and providing ongoing support to ensure optimal performance."
     }
   ];
 
   return (
-    <div ref={aboutRef} className="min-h-screen py-20 pt-32 max-w-7xl mx-auto">
+    <div ref={aboutRef} className="min-h-screen">
       
-      {/* HERO SECTION */}
-      <header className="about-header pt-22 px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-20">
-        <div className="flex flex-col lg:flex-row justify-between gap-8 items-start">
-          
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-4">
-             
-              <div>
+      {/* HERO SECTION - Same as Hero.jsx */}
+      <div className="py-10 sm:py-1">
+        <section className="flex flex-col items-start justify-start px-4 md:px-24 py-8 relative">
+          <div className="max-w-6xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
+            <div className="about-header flex flex-col items-start text-left">
               
-                <h1 className="
-                  text-white font-bold leading-tight
-                  text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-                  mt-1
-                ">
-                  Building Digital Excellence
-                </h1>
+              <h1 className="
+                text-white font-bold leading-tight
+                text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                mb-6
+              ">
+                Building Digital Excellence
+              </h1>
+              
+              <p className="
+                text-white/70
+                text-base sm:text-lg md:text-xl
+                leading-relaxed max-w-3xl mb-12
+              ">
+                We are a passionate team of web developers and designers dedicated to creating 
+                exceptional digital experiences. Based in Lagos, Nigeria, we serve clients 
+                worldwide with cutting-edge web solutions.
+              </p>
+
+              {/* STATS GRID */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+                {stats.map((stat, index) => (
+                  <div
+                    key={index}
+                    className="stat-card"
+                    ref={el => sectionRefs.current[index] = el}
+                  >
+                    <div className="
+                      backdrop-blur-xl bg-white/5
+                      border border-white/10
+                      rounded-xl
+                      p-6
+                      text-center
+                      transition-all duration-300
+                      hover:bg-white/10
+                    ">
+                      <div className="
+                        w-12 h-12
+                        bg-white
+                        rounded-xl
+                        flex items-center justify-center
+                        mx-auto mb-4
+                      ">
+                        <div className="text-black">
+                          {stat.icon}
+                        </div>
+                      </div>
+                      <div className="text-white text-2xl font-bold">
+                        {stat.value}
+                      </div>
+                      <div className="text-white/60 text-sm mt-1">
+                        {stat.label}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            
+          </div>
+        </section>
+      </div>
+
+      {/* REST OF THE CONTENT - Full width */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+        {/* OUR APPROACH SECTION */}
+        <section className="mb-16 md:mb-24" ref={el => sectionRefs.current[4] = el}>
+          <div className="mb-8">
+            <h2 className="
+              text-white
+              text-2xl sm:text-3xl md:text-4xl font-bold
+              mb-4
+            ">
+              Our Approach
+            </h2>
             <p className="
               text-white/70
-              text-base sm:text-lg md:text-xl
-              leading-relaxed mt-4 max-w-3xl
+              text-base sm:text-lg
+              max-w-3xl
             ">
-              We are a passionate team of web developers and designers dedicated to creating 
-              exceptional digital experiences. Based in Lagos, Nigeria, we serve clients 
-              worldwide with cutting-edge web solutions.
+              We follow a structured process to ensure every project meets the highest standards of quality and delivers real value.
             </p>
           </div>
 
-          {/* STATS CARD */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {process.map((item, index) => (
+              <div
+                key={index}
+                className="
+                  backdrop-blur-xl bg-white/5
+                  border border-white/10
+                  rounded-xl
+                  p-6
+                  transition-all duration-300
+                  hover:bg-white/10
+                "
+              >
+                <div className="
+                  text-white text-3xl font-bold
+                  mb-4
+                  opacity-60
+                ">
+                  {item.step}
+                </div>
+                <h3 className="
+                  text-white
+                  text-xl font-bold
+                  mb-3
+                ">
+                  {item.title}
+                </h3>
+                <p className="
+                  text-white/60
+                  text-sm leading-relaxed
+                ">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SERVICES SECTION */}
+        <section className="mb-16 md:mb-24" ref={el => sectionRefs.current[5] = el}>
+          <div className="mb-8">
+            <h2 className="
+              text-white
+              text-2xl sm:text-3xl md:text-4xl font-bold
+              mb-4
+            ">
+              What We Offer
+            </h2>
+            <p className="
+              text-white/70
+              text-base sm:text-lg
+              max-w-3xl
+            ">
+              Comprehensive web solutions tailored to your business objectives.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="
+                  backdrop-blur-xl bg-white/5
+                  border border-white/10
+                  rounded-xl
+                  p-6
+                  transition-all duration-300
+                  hover:bg-white/10
+                "
+              >
+                <h3 className="
+                  text-white
+                  text-xl font-bold
+                  mb-4
+                ">
+                  {service.title}
+                </h3>
+                <p className="
+                  text-white/60
+                  text-sm leading-relaxed
+                ">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* WHY CHOOSE US SECTION */}
+        <section className="mb-16 md:mb-24" ref={el => sectionRefs.current[6] = el}>
           <div className="
             backdrop-blur-xl bg-white/5
             border border-white/10
             rounded-2xl
-            p-6 sm:p-8
-            max-w-sm w-full
-          ">
-            <div className="text-center">
-              <div className="
-                w-16 h-16
-                bg-blue-300
-                rounded-xl
-                flex items-center justify-center
-                mx-auto mb-4
-              ">
-                <FaAward className="w-8 h-8 text-black" />
-              </div>
-              <h3 className="text-white text-xl font-bold mb-2">
-                Our Numbers
-              </h3>
-              <p className="text-blue-300 text-sm mb-4">
-                Quality over quantity
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* STATS GRID */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="stat-card"
-              ref={el => sectionRefs.current[index] = el}
-            >
-              <div className="
-                backdrop-blur-xl bg-white/5
-                border border-white/10
-                rounded-xl
-                p-6
-                text-center
-                hover:bg-white/10
-                transition-colors duration-300
-              ">
-                <div className="
-                  w-12 h-12
-                  bg-blue-300
-                  rounded-xl
-                  flex items-center justify-center
-                  mx-auto mb-4
-                ">
-                  <div className="text-black">
-                    {stat.icon}
-                  </div>
-                </div>
-                <div className="text-white text-2xl font-bold">
-                  {stat.value}
-                </div>
-                <div className="text-white/60 text-sm mt-1">
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </header>
-
-      {/* OUR STORY SECTION */}
-      <section className="px-4 sm:px-6 max-w-7xl mx-auto mb-16 sm:mb-24">
-        <div
-          ref={el => sectionRefs.current[4] = el}
-          className="
-            backdrop-blur-xl bg-white/5
-            border border-white/10
-            rounded-2xl
             p-6 sm:p-8 md:p-12
-          "
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="
-              w-10 h-10
-              bg-blue-300
-              rounded-lg
-              flex items-center justify-center
-            ">
-              <FaLightbulb className="w-5 h-5 text-black" />
-            </div>
-            <h3 className="
-              text-white
-              text-2xl sm:text-3xl font-bold
-            ">
-              Our Story
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-              <p className="
-                text-gray-300
-                text-base sm:text-lg
-                leading-relaxed mb-6
-              ">
-                Founded in 2019, CrownTech began as a small team of developers with a 
-                shared vision: to create digital solutions that actually make a difference. 
-                We believed that great web development should be accessible, transparent, 
-                and results-driven.
-              </p>
-              
-              <p className="
-                text-gray-300
-                text-base sm:text-lg
-                leading-relaxed mb-6
-              ">
-                Over the years, we've grown into a full-service web development agency, 
-                but our core philosophy remains the same. We're still that passionate 
-                team, now with more experience and skills, ready to tackle complex 
-                challenges and deliver exceptional results.
-              </p>
-            </div>
-            
-            <div>
-              <p className="
-                text-gray-300
-                text-base sm:text-lg
-                leading-relaxed mb-6
-              ">
-                What sets us apart is our commitment to understanding our clients' 
-                unique needs. We don't just build websites; we create strategic 
-                digital assets that help businesses grow and thrive in today's 
-                competitive online landscape.
-              </p>
-              
-              <div className="
-                mt-6 p-4
-                backdrop-blur-xl bg-white/5
-                border border-blue-300/30
-                rounded-xl
-              ">
-                <p className="text-white text-sm sm:text-base italic">
-                  "Our mission is simple: Deliver outstanding web solutions that exceed 
-                  expectations and drive real business results."
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* OUR VALUES SECTION */}
-      <section className="px-4 sm:px-6 max-w-7xl mx-auto mb-16 sm:mb-24">
-        <div
-          ref={el => sectionRefs.current[5] = el}
-          className="text-center mb-12"
-        >
-          <h3 className="
-            text-white
-            text-2xl sm:text-3xl font-bold
-            mb-4
           ">
-            Our Core Values
-          </h3>
-          <p className="
-            text-white/70
-            text-base sm:text-lg
-            max-w-2xl mx-auto
-          ">
-            These principles guide everything we do and every project we undertake.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {values.map((value, index) => (
-            <div
-              key={index}
-              ref={el => sectionRefs.current[6 + index] = el}
-              className="
-                backdrop-blur-xl bg-white/5
-                border border-white/10
-                rounded-2xl
-                p-6
-                hover:bg-white/10
-                transition-colors duration-300
-                group
-              "
-            >
+            <div className="flex items-center gap-4 mb-6">
               <div className="
-                w-14 h-14
-                bg-blue-300
-                rounded-xl
+                w-12 h-12
+                bg-white
+                rounded-lg
                 flex items-center justify-center
-                mb-6
-                group-hover:scale-110
-                transition-transform duration-300
               ">
-                <div className="text-black">
-                  {value.icon}
-                </div>
+                <FaLightbulb className="w-6 h-6 text-black" />
               </div>
-              
-              <h4 className="
+              <h2 className="
                 text-white
-                text-xl font-bold
-                mb-3
+                text-2xl sm:text-3xl font-bold
               ">
-                {value.title}
-              </h4>
-              
-              <p className="
-                text-gray-300
-                text-sm leading-relaxed
-              ">
-                {value.description}
-              </p>
+                Why Choose CrownTech
+              </h2>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* TEAM SECTION */}
-      <section className="px-4 sm:px-6 max-w-7xl mx-auto mb-16 sm:mb-24">
-        <div
-          ref={el => sectionRefs.current[9] = el}
-          className="text-center mb-12"
-        >
-          <h3 className="
-            text-white
-            text-2xl sm:text-3xl font-bold
-            mb-4
-          ">
-            Meet Our Team
-          </h3>
-          <p className="
-            text-white/70
-            text-base sm:text-lg
-            max-w-2xl mx-auto
-          ">
-            The talented individuals behind CrownTech's success.
-          </p>
-        </div>
-
-        <div className="team-grid grid grid-cols-1 md:grid-cols-3 gap-6">
-          {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="team-member"
-            >
-              <div className="
-                backdrop-blur-xl bg-white/5
-                border border-white/10
-                rounded-2xl
-                p-6
-                text-center
-                hover:bg-white/10
-                transition-colors duration-300
-                h-full
-              ">
-                <div className="
-                  w-20 h-20
-                  bg-blue-300
-                  rounded-full
-                  flex items-center justify-center
-                  mx-auto mb-4
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div>
+                <p className="
+                  text-white/70
+                  text-base sm:text-lg
+                  leading-relaxed mb-6
                 ">
-                  <span className="text-black text-2xl font-bold">
-                    {member.name.charAt(0)}
-                  </span>
-                </div>
-                
-                <h4 className="
-                  text-white
-                  text-xl font-bold
-                  mb-1
-                ">
-                  {member.name}
-                </h4>
-                
-                <div className="
-                  text-blue-300
-                  text-sm font-medium
-                  mb-3
-                ">
-                  {member.role}
-                </div>
-                
-                <div className="
-                  text-white/80
-                  text-sm
-                  mb-4
-                ">
-                  {member.expertise}
-                </div>
+                  We combine technical expertise with creative thinking to deliver solutions that not only look great but perform exceptionally. Every project is treated as a partnership, with clear communication and transparent processes from start to finish.
+                </p>
                 
                 <p className="
-                  text-gray-400
-                  text-sm leading-relaxed
+                  text-white/70
+                  text-base sm:text-lg
+                  leading-relaxed
                 ">
-                  {member.description}
+                  Our commitment to quality and attention to detail ensures that we deliver solutions that are scalable, maintainable, and aligned with your long-term business goals.
                 </p>
               </div>
+              
+              <div className="space-y-4">
+                <div className="
+                  p-4
+                  backdrop-blur-xl bg-white/5
+                  border border-white/10
+                  rounded-xl
+                ">
+                  <h4 className="text-white font-bold mb-2">Technical Excellence</h4>
+                  <p className="text-white/60 text-sm">
+                    Clean code, modern frameworks, and scalable architecture
+                  </p>
+                </div>
+                
+                <div className="
+                  p-4
+                  backdrop-blur-xl bg-white/5
+                  border border-white/10
+                  rounded-xl
+                ">
+                  <h4 className="text-white font-bold mb-2">Client-Focused</h4>
+                  <p className="text-white/60 text-sm">
+                    Your goals are our priority, with regular updates and collaboration
+                  </p>
+                </div>
+                
+                <div className="
+                  p-4
+                  backdrop-blur-xl bg-white/5
+                  border border-white/10
+                  rounded-xl
+                ">
+                  <h4 className="text-white font-bold mb-2">Quality Assurance</h4>
+                  <p className="text-white/60 text-sm">
+                    Rigorous testing and quality checks at every stage
+                  </p>
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA SECTION */}
-  
-
- 
-
-      {/* SPACER FOR NAVBAR */}
-      <div className="h-16 sm:h-20"></div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

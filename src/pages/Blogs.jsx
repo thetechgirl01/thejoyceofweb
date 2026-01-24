@@ -54,110 +54,134 @@ const Blogs = ({ blogs = [] }) => {
   };
 
   return (
-    <div className="min-h-screen py-16 bg-gray-900">
-      {/* HEADER */}
-      <header className="px-6 max-w-7xl mx-auto mb-12">
-        <h1 className="text-white text-4xl font-bold">Read our daily blogs on everything web</h1>
-        <p className="text-white/70 mt-4 max-w-2xl">
-          Articles on web development, design, technology, and business.
-        </p>
-      </header>
+    <div className="min-h-screen">
+      
+      {/* HEADER SECTION - Same as Hero.jsx */}
+      <div className="py-10 sm:py-1">
+        <section className="flex flex-col items-start justify-start px-4 md:px-24 py-8 relative">
+          <div className="max-w-6xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
+            <div className="flex flex-col items-start text-left">
+              
+              <h1 className="
+                text-white font-bold leading-tight
+                text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                mb-6
+              ">
+                Read our daily blogs on everything web
+              </h1>
+              
+              <p className="
+                text-white/70
+                text-base sm:text-lg md:text-xl
+                leading-relaxed max-w-3xl mb-12
+              ">
+                Articles on web development, design, technology, and business.
+              </p>
 
-      {/* SEARCH */}
-      <section className="px-6 max-w-4xl mx-auto mb-8">
-        <div className="relative">
-          <HiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" />
-          <input
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-            placeholder="Search articles..."
-            className="w-full pl-12 py-4 bg-white/5 border border-white/10 rounded-xl text-white"
-          />
-        </div>
-      </section>
+            </div>
+          </div>
+        </section>
+      </div>
 
-      {/* CATEGORY BUTTONS */}
-      <section className="px-6 max-w-7xl mx-auto mb-8 flex gap-2 flex-wrap">
-        {categories.map(cat => (
-          <button
-            key={cat.name}
-            onClick={() => setActiveCategory(cat.name)}
-            className={`px-4 py-2 rounded-full text-sm ${
-              activeCategory === cat.name ? "bg-yellow-400 text-black" : "bg-white/10 text-white"
-            }`}
-          >
-            {cat.name} ({cat.count})
-          </button>
-        ))}
-      </section>
+      {/* REST OF THE CONTENT - Full width */}
+      <div className="bg-gray-900 max-w-7xl mx-auto px-4 sm:px-6">
 
-      {/* BLOG GRID */}
-      <section className="px-6 max-w-7xl mx-auto">
-        {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((blog, i) => {
-              const headerText = blog.header?.[0]?.children?.[0]?.text || "No description available";
-              return (
-                <Link to={`/blog/${blog.id}`} key={blog.id}>
-                  <article
-                    ref={el => (postRefs.current[i] = el)}
-                    className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
-                  >
-                    <div className="h-48 w-full overflow-hidden">
-                      <img
-                        src={getImageUrl(blog)}
-                        alt={blog.blogTitle || "Blog post"}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">
-                        {blog.category || "Uncategorized"}
-                      </span>
+        {/* SEARCH */}
+        <section className="mb-8">
+          <div className="relative">
+            <HiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" />
+            <input
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              placeholder="Search articles..."
+              className="w-full pl-12 py-4 bg-white/5 border border-white/10 rounded-xl text-white"
+            />
+          </div>
+        </section>
 
-                      <div className="flex gap-4 text-sm text-white/60 mb-3">
-                        <span className="flex items-center gap-1">
-                          <HiCalendar /> {formatDate(blog.date)}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <HiClock /> {blog.readTime || "?"} min read
-                        </span>
+        {/* CATEGORY BUTTONS */}
+        <section className="mb-8 flex gap-2 flex-wrap">
+          {categories.map(cat => (
+            <button
+              key={cat.name}
+              onClick={() => setActiveCategory(cat.name)}
+              className={`px-4 py-2 rounded-full text-sm ${
+                activeCategory === cat.name ? "bg-yellow-400 text-black" : "bg-white/10 text-white"
+              }`}
+            >
+              {cat.name} ({cat.count})
+            </button>
+          ))}
+        </section>
+
+        {/* BLOG GRID */}
+        <section>
+          {filteredPosts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredPosts.map((blog, i) => {
+                const headerText = blog.header?.[0]?.children?.[0]?.text || "No description available";
+                return (
+                  <Link to={`/blog/${blog.id}`} key={blog.id}>
+                    <article
+                      ref={el => (postRefs.current[i] = el)}
+                      className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
+                    >
+                      <div className="h-48 w-full overflow-hidden">
+                        <img
+                          src={getImageUrl(blog)}
+                          alt={blog.blogTitle || "Blog post"}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
+                      <div className="p-6">
+                        <span className="inline-block mb-3 px-3 py-1 bg-yellow-400/20 text-yellow-400 text-xs rounded-full">
+                          {blog.category || "Uncategorized"}
+                        </span>
 
-                      <h3 className="text-white font-bold text-lg mb-2 line-clamp-2">{blog.blogTitle}</h3>
+                        <div className="flex gap-4 text-sm text-white/60 mb-3">
+                          <span className="flex items-center gap-1">
+                            <HiCalendar /> {formatDate(blog.date)}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <HiClock /> {blog.readTime || "?"} min read
+                          </span>
+                        </div>
 
-                      <p className="text-white/70 text-sm mb-4 line-clamp-3">{headerText}</p>
+                        <h3 className="text-white font-bold text-lg mb-2 line-clamp-2">{blog.blogTitle}</h3>
 
-                      <button className="w-full py-3 bg-white/10 rounded-xl text-white hover:bg-yellow-400 hover:text-black transition flex items-center justify-center">
-                        Read Article <HiArrowRight className="inline ml-2" />
-                      </button>
-                    </div>
-                  </article>
-                </Link>
-              );
-            })}
+                        <p className="text-white/70 text-sm mb-4 line-clamp-3">{headerText}</p>
+
+                        <button className="w-full py-3 bg-white/10 rounded-xl text-white hover:bg-yellow-400 hover:text-black transition flex items-center justify-center">
+                          Read Article <HiArrowRight className="inline ml-2" />
+                        </button>
+                      </div>
+                    </article>
+                  </Link>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="text-center py-20 text-white/70">
+              <h3 className="text-xl font-bold mb-2">No posts available</h3>
+              <p>Try selecting a different category or search term.</p>
+            </div>
+          )}
+        </section>
+
+        {/* NEWSLETTER */}
+        <section className="mt-20">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-10 text-center">
+            <FaEnvelope className="mx-auto text-3xl text-yellow-400 mb-4" />
+            <h3 className="text-white text-2xl font-bold mb-2">Stay Updated</h3>
+            <p className="text-white/60 mb-6">Get new articles straight to your inbox.</p>
+            <input
+              placeholder="Email address"
+              className="w-full px-6 py-4 bg-white/10 rounded-xl text-white mb-4"
+            />
+            <button className="px-8 py-4 bg-yellow-400 rounded-xl font-semibold">Subscribe</button>
           </div>
-        ) : (
-          <div className="text-center py-20 text-white/70">
-            <h3 className="text-xl font-bold mb-2">No posts available</h3>
-            <p>Try selecting a different category or search term.</p>
-          </div>
-        )}
-      </section>
-
-      {/* NEWSLETTER */}
-      <section className="px-6 max-w-4xl mx-auto mt-20">
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-10 text-center">
-          <FaEnvelope className="mx-auto text-3xl text-yellow-400 mb-4" />
-          <h3 className="text-white text-2xl font-bold mb-2">Stay Updated</h3>
-          <p className="text-white/60 mb-6">Get new articles straight to your inbox.</p>
-          <input
-            placeholder="Email address"
-            className="w-full px-6 py-4 bg-white/10 rounded-xl text-white mb-4"
-          />
-          <button className="px-8 py-4 bg-yellow-400 rounded-xl font-semibold">Subscribe</button>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
