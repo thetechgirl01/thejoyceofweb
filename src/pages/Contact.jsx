@@ -46,7 +46,7 @@ const Contact = () => {
       <div className="py-10 sm:py-1">
         <section className="flex flex-col items-start justify-start px-4 md:px-24 py-8 relative">
           <div className="max-w-6xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
-            <div className="flex flex-col items-start text-left">
+            <div className="flex flex-col items-start text-left bg">
               
               <h1 className="
                 text-white font-bold leading-tight
@@ -70,7 +70,8 @@ const Contact = () => {
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className='bg-gray-900/95 py-20 rounded-tl-4xl rounded-tr-4xl'>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col-reverse lg:flex-row gap-8 lg:gap-12">
           
           {/* LEFT COLUMN - CONTACT INFO (Shows second on mobile) */}
@@ -238,8 +239,8 @@ const Contact = () => {
                     className="
                       w-full
                       px-4 py-3
-                      backdrop-blur-xl bg-white/10
-                      border border-white/20
+                      backdrop-blur-xl 
+                     
                       rounded-xl
                       text-white
                       placeholder:text-white/40
@@ -263,8 +264,8 @@ const Contact = () => {
                     className="
                       w-full
                       px-4 py-3
-                      backdrop-blur-xl bg-white/10
-                      border border-white/20
+                      backdrop-blur-xl 
+                     
                       rounded-xl
                       text-white
                       placeholder:text-white/40
@@ -287,17 +288,17 @@ const Contact = () => {
                   value={formData.budget}
                   onChange={handleInputChange}
                   className="
-                    w-full
-                    px-4 py-3
-                    backdrop-blur-xl bg-white/10
-                    border border-white/20
-                    rounded-xl
-                    text-white
-                    placeholder:text-white/40
-                    focus:outline-none focus:border-white/40
-                    transition
+                     w-full
+                      px-4 py-3
+                      backdrop-blur-xl 
+                     
+                      rounded-xl
+                      text-white
+                      placeholder:text-white/40
+                      focus:outline-none focus:border-white/40
+                      transition
                   "
-                  placeholder="e.g., $5,000 - $10,000 or Not sure yet"
+                  placeholder="e.g., $500 - $10,000 or Not sure yet"
                 />
               </div>
 
@@ -314,14 +315,14 @@ const Contact = () => {
                   rows={6}
                   className="
                     w-full
-                    px-4 py-3
-                    backdrop-blur-xl bg-white/10
-                    border border-white/20
-                    rounded-xl
-                    text-white
-                    placeholder:text-white/40
-                    focus:outline-none focus:border-white/40
-                    transition
+                      px-4 py-3
+                      backdrop-blur-xl 
+                     
+                      rounded-xl
+                      text-white
+                      placeholder:text-white/40
+                      focus:outline-none focus:border-white/40
+                      transition
                     resize-none
                   "
                   placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
@@ -332,11 +333,11 @@ const Contact = () => {
               <button
                 type="submit"
                 className="
-                  w-full
+                  w-fit
                   px-6 py-4
                   bg-white
                   text-black
-                  rounded-xl
+                  rounded-4xl
                   font-semibold
                   flex items-center justify-center gap-3
                   hover:bg-white/90
@@ -353,6 +354,7 @@ const Contact = () => {
                   flex items-center justify-center
                   group-hover:translate-x-1
                   transition-transform
+                  rotate-45
                 ">
                   <FaPaperPlane className="w-4 h-4 -rotate-45" />
                 </span>
@@ -482,6 +484,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      </section>
+
     </div>
   );
 };

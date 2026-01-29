@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { MdLocationOn } from 'react-icons/md';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import gsap from 'gsap';
+import { HiArrowRight } from 'react-icons/hi';
 
 export const Hero = () => {
   const techneikRef = useRef(null);
@@ -44,7 +45,7 @@ export const Hero = () => {
     <div className="min-h-screen flex items-center justify-center pt-16 sm:pt-24">
       <section className="w-full px-4 md:px-24 py-8 md:py-16">
         <div className="max-w-6xl w-full p-6 sm:p-8 md:p-12">
-          <div className="flex flex-col items-start space-y-6 md:space-y-8 text-left">
+          <div className="flex flex-col items-start space-y-6 md:space-y-8 text-left bg">
             
             {/* Location */}
             <div className="space-y-2">
@@ -90,12 +91,14 @@ export const Hero = () => {
             {/* Buttons */}
             <div className="space-y-4 pt-4">
               <div className="flex flex-wrap gap-4 md:gap-6">
-                <button className="flex items-center gap-2 bg-white text-black font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <button className="flex items-center gap-2 bg-white rounded-full text-black font-semibold py-3 px-8  transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   Get in touch
-                  <AiOutlineArrowRight className="-rotate-45" />
+                  <span className='bg-black w-9 h-9 rounded-4xl '>
+                    <HiArrowRight className="-rotate-45  text-white mx-auto my-2" />
+                  </span>
                 </button>
 
-                <button className="flex items-center gap-2 border-2 border-white text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:bg-blue-500/20 hover:scale-105 hover:shadow-lg">
+                <button className="flex items-center gap-2 hover:border-2 border-white text-white font-semibold py-3 px-8 hover:rounded-4xl transition-all duration-300  hover:scale-105 hover:shadow-lg">
                   Works
                   <AiOutlineArrowRight className="-rotate-45" />
                 </button>

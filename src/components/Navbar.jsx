@@ -41,15 +41,17 @@ export default function Navbar() {
         className={`fixed w-full z-[100] transition-all duration-300 ${
           scrolled
             ? "bg-white/5 backdrop-blur-sm shadow-md text-black"
-            : "bg-transparent text-white bg-white/5 backdrop-blur-sm"
+            : "bg-transparent text-white  backdrop-blur-sm"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
+            <Link to='/'>
             <div className="flex-shrink-0 w-14">
               <img src={Tklogo} alt="crownatech Logo" />
             </div>
+            </Link>
 
             {/* Menu Button - Always clickable */}
             <button

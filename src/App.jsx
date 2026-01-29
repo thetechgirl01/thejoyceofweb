@@ -26,10 +26,15 @@ function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl">
-          <img src={Logo} alt="" className='w-50 h-50'/>
-          <h1 className='text-2xl'>CrownaTech Web Development Services.</h1>
+      <div className="min-h-screen flex items-center self-center justify-center text-center ">
+        <div className="">
+          <img src={Logo} alt="" className='w-24 h-24 mx-auto'/>
+          <h1 className='text-2xl'>CrownaTech
+        </h1>
+        <h2 className="text-gray-500 ">
+             Web Development Services.
+             
+        </h2>
         </div>
       </div>
     );
@@ -38,11 +43,8 @@ function App() {
   if (error) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-4">
-        <h1 className="text-2xl text-red-600 mb-4">Error Loading Data</h1>
-        <p className="text-gray-600 mb-4">{error.message}</p>
-        <p className="text-sm text-gray-500 mb-4">
-          Make sure Strapi is running on http://localhost:1337
-        </p>
+        <h1 className="text-2xl text-red-600 mb-4">Error Loading site, confirm internet connection</h1>
+      
       </div>
     );
   }

@@ -58,7 +58,7 @@ const Blogs = ({ blogs = [] }) => {
       
       {/* HEADER SECTION - Same as Hero.jsx */}
       <div className="py-10 sm:py-1">
-        <section className="flex flex-col items-start justify-start px-4 md:px-24 py-8 relative">
+        <section className="bg flex flex-col items-start justify-start px-4 md:px-24 py-8 relative">
           <div className="max-w-6xl w-full p-6 sm:p-8 md:p-16 pt-24 md:pt-32">
             <div className="flex flex-col items-start text-left">
               
@@ -84,8 +84,8 @@ const Blogs = ({ blogs = [] }) => {
       </div>
 
       {/* REST OF THE CONTENT - Full width */}
-      <div className="bg-gray-900 max-w-7xl mx-auto px-4 sm:px-6">
-
+      <div className="bg-gray-900 py-20 mx-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* SEARCH */}
         <section className="mb-8">
           <div className="relative">
@@ -105,8 +105,8 @@ const Blogs = ({ blogs = [] }) => {
             <button
               key={cat.name}
               onClick={() => setActiveCategory(cat.name)}
-              className={`px-4 py-2 rounded-full text-sm ${
-                activeCategory === cat.name ? "bg-yellow-400 text-black" : "bg-white/10 text-white"
+              className={`px-4 py-2 rounded-full text-sm  ${
+                activeCategory === cat.name ? " text-gray-400 " : " text-white hover:text-yellow-300"
               }`}
             >
               {cat.name} ({cat.count})
@@ -126,7 +126,7 @@ const Blogs = ({ blogs = [] }) => {
                       ref={el => (postRefs.current[i] = el)}
                       className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
                     >
-                      <div className="h-48 w-full overflow-hidden">
+                      <div className="h1/28 w-full overflow-hidden">
                         <img
                           src={getImageUrl(blog)}
                           alt={blog.blogTitle || "Blog post"}
@@ -168,6 +168,7 @@ const Blogs = ({ blogs = [] }) => {
           )}
         </section>
 
+        
         {/* NEWSLETTER */}
         <section className="mt-20">
           <div className="bg-white/5 border border-white/10 rounded-2xl p-10 text-center">
@@ -181,6 +182,9 @@ const Blogs = ({ blogs = [] }) => {
             <button className="px-8 py-4 bg-yellow-400 rounded-xl font-semibold">Subscribe</button>
           </div>
         </section>
+        </div>
+
+
       </div>
     </div>
   );

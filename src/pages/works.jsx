@@ -135,31 +135,19 @@ const Works = () => {
 
   return (
     <div className="min-h-screen py-20 pt-32 max-w-7xl mx-auto">
-      {/* SCROLLBAR HIDE CSS */}
-      <style>
-        {`
-          .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-          }
-          .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-          }
-        `}
-      </style>
-
+   
       {/* HEADER */}
       <header className="px-4 mb-20 mt-20">
         <h1 className="text-white font-bold leading-tight max-w-5xl 
                   text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-                  mt-1">
+                  mt-1 bg">
           We help businesses achieve their goals. <bt/>By solving real, meaningful problems.
         </h1>
       </header>
 
       {/* FILTER — SCROLLABLE, SCROLLBAR HIDDEN */}
-      <div className="mb-10 px-4 overflow-x-auto hide-scrollbar">
-        <div className="flex gap-6 whitespace-nowrap sm:flex-wrap">
+      <div className="bg mb-10 px-4 p">
+        <div className="space-x-6 space-y-4">
           {industries.map((item) => (
             <button
               key={item}
