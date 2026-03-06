@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Workpic from "../assets/EbbPic.jpeg";
 import ManclothPic from '../assets/mancloth.jpeg'
 import FlowerPic from '../assets/flower.jpeg'
+import Contact from "./Contact";
 
 const Works = () => {
   const works = [
@@ -198,6 +199,8 @@ const Works = () => {
           </div>
         ))}
       </main>
+
+      <Contact/>
     </div>
   );
 };
