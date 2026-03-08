@@ -3,6 +3,7 @@ import Project from "../assets/director.jpg";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import Asterisks from "./Asterisks";
+import { Link } from "react-router-dom";
 
 const projects = [
   { title: "Best Lagos State Logistics & Errands Company", image: Project, link: "#" },
@@ -35,7 +36,7 @@ const Projects = () => {
   };
 
   return (
-    <section className="px-6 py-24 max-w-7xl mx-auto">
+    <section className="px-auto  py-24 max-w-7xl mx-auto">
 
       {/* TWO FLEX SIDES */}
       <div className="flex flex-col lg:flex-row gap-16">
@@ -80,7 +81,7 @@ const Projects = () => {
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-6 hide-scrollbar"
+            className="flex gap-6 overflow-x-auto scroll-smooth pb-6 hide-scrollbar px-4 md:px-auto "
           >
             {projects.map((project, i) => (
               <ProjectCard key={i} project={project} />
@@ -106,9 +107,12 @@ const Projects = () => {
 
           {/* MORE PROJECTS BUTTON */}
           <div className="mt-12 flex justify-end">
-            <button className="px-8 py-4 yellow text-black font-semibold rounded-lg shadow-lg hover:scale-105 transition">
-             
+            <Link to="/works">
+            <button className="cursor-pointer px-8 py-4 yellow text-black font-semibold rounded-4xl shadow-lg hover:scale-105 transition">
+             More 
             </button>
+            
+            </Link>
           </div>
          </div>
         </div>

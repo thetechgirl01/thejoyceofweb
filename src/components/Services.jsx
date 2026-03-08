@@ -51,7 +51,7 @@ const ServicesPage = () => {
     <div className="min-h-screen py-10 sm:py-16 ">
       
       {/* HERO */}
-      <header className="px-auto sm:px- max-w-9xl  md:max-w-7xl mx-auto mb-12 sm:mb-20">
+      <header className="px-auto  max-w-9xl  md:max-w-7xl mx-auto mb-12 sm:mb-20">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           
           <h1 className="
@@ -124,16 +124,16 @@ const ServicesPage = () => {
                 className="
                   group
                   flex items-center justify-between
-                  w-2/3
+                  w-2/4
                   border border-white/20
-                  rounded-full
+                  rounded-4xl
                   px-3 py-2
                   text-xs sm:text-sm
                   hover:bg-white/10
                   transition
                 "
               >
-                <span className="text-white font-medium">
+                <span className="text-white font-medium  mx-auto">
                   Read more
                 </span>
 

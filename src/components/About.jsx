@@ -4,7 +4,7 @@ import { HiArrowRight } from 'react-icons/hi'
 
 const About = () => {
   return (
-    <section className="px-4 sm:px-6 py-16 sm:py-24 max-w-7xl mx-auto">
+    <section className="px-auto  py-16 sm:py-24 max-w-7xl mx-auto">
       
       {/* MAIN GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 sm:gap-20 items-center">
@@ -50,7 +50,7 @@ const About = () => {
             "
           >
             <span className="text-black font-medium">
-              Read more about us
+              There's more to us
             </span>
 
             <span className="

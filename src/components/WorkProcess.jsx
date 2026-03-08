@@ -21,7 +21,7 @@ const steps = [
 
 const Workprocess = () => {
   return (
-    <div className="min-h-fit  py-12 sm:py-16 md:py-20 px-4 sm:px-6">
+    <div className="min-h-fit  py-12 sm:py-16 md:py-20 px-auto ">
       {/* Header */}
       <header className="max-w-6xl mx-auto mb-12 sm:mb-16 text-center">
         <h1 className="text-black font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
@@ -33,7 +33,7 @@ const Workprocess = () => {
       </header>
 
       {/* Steps Container */}
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4">
         {/* Desktop Layout */}
         <div className="hidden sm:flex items-start justify-between relative">
           {steps.map((step, index) => (
