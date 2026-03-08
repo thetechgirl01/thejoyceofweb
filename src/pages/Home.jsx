@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import Blogs from './Blogs'; // your Blogs component
 import YoutubeSection from '../components/Youtube';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Home = ({ blogs }) => {
   // Get the latest 4 blogs
@@ -16,6 +17,13 @@ const Home = ({ blogs }) => {
 
   return (
     <div className="relative min-h-screen">
+      <Helmet>
+        <title>
+          CrownaTech | Creative tech Solutions For Your Digital Success.
+          <meta name="description" content="CrownaTech delivers creative & innovative web solutions to help your business succeed in the digital world." />
+          <meta name='keywords' content='crownatech, crowna, tech, web dev in Nigeria, tech in nigeria, web design, web development, digital marketing, creative solutions' />
+        </title>
+      </Helmet>
       {/* Hero Section */}
       <div className="px- rounded-tr-3xl rounded-tl-3xl">
         <Hero />
