@@ -43,7 +43,7 @@ export const Hero = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center pt-16 sm:pt-24">
-      <section className="w-full px-4 md:px-24 py-8 md:py-16">
+      <section className="w-full px-auto md:px-24 py-8 md:py-16">
         <div className="max-w-6xl w-full p-6 sm:p-8 md:p-12">
           <div className="flex flex-col items-start space-y-6 md:space-y-8 text-left bg">
             

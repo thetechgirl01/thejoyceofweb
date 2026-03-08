@@ -63,7 +63,7 @@ const Bookcall = () => {
           {/* Blur rest of page */}
           <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30"></div>
 
-          <div className="fixed bottom-[200px] md:bottom-[270px] right-4 md:right-40  z-50 flex flex-col items-end">
+          <div className="fixed bottom-[200px] md:bottom-[270px] right-0 md:right-40  z-50 flex flex-col items-end">
             {/* Close button outside modal */}
             <button
               onClick={() => setIsOpen(false)}
