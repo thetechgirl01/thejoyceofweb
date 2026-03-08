@@ -10,38 +10,38 @@ const Works = () => {
   const works = [
     {
       id: 1,
-      tags: ["B2C", "JIU JITSU", "WEB PLATFORM"],
-      industries: ["Featured", "Web App", "Landing Page"],
+      tags: ["Courier", "Errands", "WEB PLATFORM"],
+      industries: ["Featured", "Web Design & Development"],
       image: Workpic,
       UrlText: "www.errandsbybrownie.com",
       title: "Courier & Errand Company in Lagos, Nigeria.",
-      description:""
+      description:"A responsive website for a Lagos-based courier and errand service, designed to showcase services and make it easy for customers to request deliveries and errands online."
         ,
       demoLink: "https://www.errandsbybrownie.com",
       slug: "errands-by-brownie",
     },
     {
       id: 2,
-      tags: ["SOCIAL MEDIA", "SRE", "SAAS"],
-      industries: ["Featured", "SaaS", "Web App"],
+      tags: ["E-commerce", "Fashion", "Brand"],
+      industries:  ["Featured", "Web Design & Development"],
       image: ManclothPic,
       UrlText: "4thmanclothing.com",
       title: "Uk Fashion E-commerce Platform",
       description:
-        "Inspired connects innovators and investors, enabling collaboration at scale.",
+        "A modern e-commerce website for a UK fashion brand, designed to showcase products, provide a smooth shopping experience, and make online purchasing simple and fast.",
       demoLink: "https://4thmanclothing.com",
-      slug: "inspired",
+      slug: "4thmanclothing",
     },
     {
       id: 3,
       tags: ["FINANCE", "MOBILE APP"],
       industries: ["Featured", "Mobile App", "Finance"],
       image: FlowerPic,
-      title: "Robo-advisor & trading platform",
+      title: "Online Flower Store",
       description:
-        "A mobile investment platform combining automated investing and manual trading.",
+        "A beautifully designed online flower store that showcases floral products and allows customers to easily browse and order flowers online",
       demoLink: "https://zad-demo.com",
-      slug: "zad-finance",
+      slug: "the-rose-room-by-adelas",
     },
       {
       id: 1,
