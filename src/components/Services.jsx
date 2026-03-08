@@ -51,7 +51,7 @@ const ServicesPage = () => {
     <div className="min-h-screen py-10 sm:py-16 ">
       
       {/* HERO */}
-      <header className="px-auto sm:px- max-w-8xl  md:max-w-7xl mx-auto mb-12 sm:mb-20">
+      <header className="px-auto sm:px- max-w-9xl  md:max-w-7xl mx-auto mb-12 sm:mb-20">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           
           <h1 className="
