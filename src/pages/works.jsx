@@ -100,38 +100,41 @@ const Works = () => {
 
   const ProjectCard = ({ project }) => (
     <div className="relative min-w-[320px]">
-      <div
-        className="relative h-[480px] rounded-3xl overflow-hidden group"
-        style={{
-          clipPath: `
-            polygon(
-              0 0,
-              76% 0,
-              76% 20%,
-              100% 20%,
-              100% 100%,
-              0 100%
-            )
-          `,
-        }}
-      >
-        <img
-          src={project.image}
-          alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"
-        />
-      </div>
+  <div
+    className="relative h-[480px] rounded-3xl overflow-hidden group"
+    style={{
+      clipPath: `
+        polygon(
+          0 0,
+          76% 0,
+          76% 18%,
+          100% 18%,
+          100% 100%,
+          0 100%
+        )
+      `,
+    }}
+  >
+    <img
+      src={project.image}
+      alt={project.title}
+      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"
+    />
+  </div>
 
-      {/* LIVE DEMO BUTTON */}
-      <a
-        href={project.demoLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute top-2 right-2 w-28 h-18 rounded-lg bg-yellow-500 flex items-center justify-center shadow-lg hover:scale-110 transition z-10"
-      >
-        <HiArrowUpRight className="w-6 h-6 text-black" />
-      </a>
-    </div>
+  {/* LIVE DEMO BUTTON */}
+  <a
+    href={project.demoLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="absolute top-2 right-2 
+               w-20 h-14 sm:w-20 sm:h-12 md:w-24 md:h-14 lg:w-28 lg:h-16 
+               rounded-lg bg-yellow-500 flex items-center justify-center 
+               shadow-lg hover:scale-110 transition z-10"
+  >
+    <HiArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-black" />
+  </a>
+</div>
   );
 
   return (
