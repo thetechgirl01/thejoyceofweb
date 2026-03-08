@@ -59,15 +59,9 @@ const Works = () => {
 
   const industries = [
     "Featured",
-    "E-commerce",
-    "Portfolio",
-    "Blog",
-    "Landing Page",
-    "Corporate",
-    "SaaS",
-    "Web App",
-    "Web3",
-    "Real Estate",
+    "Web Design & Development",
+    "Logo Design"
+   
   ];
 
   const [selectedIndustries, setSelectedIndustries] = useState(["Featured"]);
