@@ -34,8 +34,8 @@ const Works = () => {
     },
     {
       id: 3,
-      tags: ["FINANCE", "MOBILE APP"],
-      industries: ["Featured", "Mobile App", "Finance"],
+      tags: ["Flowershop", "Store", "Web App"],
+      industries: ["Featured", "Web Design & Development"],
       image: FlowerPic,
       title: "Online Flower Store",
       description:
@@ -43,18 +43,7 @@ const Works = () => {
       demoLink: "https://zad-demo.com",
       slug: "the-rose-room-by-adelas",
     },
-      {
-      id: 1,
-      tags: ["B2C", "JIU JITSU", "WEB PLATFORM"],
-      industries: ["Featured", "Web App", "Landing Page"],
-      image: Workpic,
-      UrlText: "www.errandsbybrownie.com",
-      title: "Courier & Errand Company in Lagos, Nigeria.",
-      description:
-        "Abu Dhabi Jiu Jitsu Pro (AJP) is a professional Brazilian Jiu Jitsu organization created to grow the sport globally.",
-      demoLink: "https://www.errandsbybrownie.com",
-      slug: "errands-by-brownie",
-    },
+    
   ];
 
   const industries = [
