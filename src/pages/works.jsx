@@ -15,8 +15,8 @@ const Works = () => {
       image: Workpic,
       UrlText: "www.errandsbybrownie.com",
       title: "Courier & Errand Company in Lagos, Nigeria.",
-      description:
-        "Abu Dhabi Jiu Jitsu Pro (AJP) is a professional Brazilian Jiu Jitsu organization created to grow the sport globally.",
+      description:""
+        ,
       demoLink: "https://www.errandsbybrownie.com",
       slug: "errands-by-brownie",
     },

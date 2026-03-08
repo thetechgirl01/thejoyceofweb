@@ -56,7 +56,7 @@ export default function Navbar() {
             {/* Menu Button - Always clickable */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="relative w-11 h-11 flex items-center justify-center rounded-full overflow-visible"
+              className="relative w-11 h-11 flex items-center justify-center rounded-full overflow-visible cursor-pointer"
               aria-label="Toggle menu"
             >
               {/* Animated White Circle Background */}

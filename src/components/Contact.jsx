@@ -86,7 +86,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen py-10 sm:py-16">
         {/* HERO */}
-      <header className="px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-20">
+      <header className="px-auto  max-w-7xl mx-auto mb-12 sm:mb-20">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           
           <h1 className="
@@ -96,7 +96,7 @@ const Contact = () => {
             max-w-xl
           ">
            
-                  Have an idea? <br />
+                  Have an idea? 
                     We can help.
 
           </h1>
@@ -111,16 +111,16 @@ const Contact = () => {
                     className="
                       group
                       flex items-center justify-between
-                      w-full max-w-sm
+                       w-fit
                       border border-gray-500
-                      rounded-full
-                      px-6 py-4
+                      rounded-4xl
+                      px-4 py-2
                       text-sm sm:text-base
                       hover:bg-gray-800
                       transition-all duration-300
                     "
                   >
-                    <span className="text-white font-medium group-hover:text-white transition-colors">
+                    <span className="text-white font-medium mx-auto pr-7 group-hover:text-white transition-colors">
                       Get in Touch
                     </span>
 
@@ -144,7 +144,7 @@ const Contact = () => {
                     href="mailto:hello@crownatech.com" 
                     className="text-gray-800 text-lg font-medium hover:text-blue-600 transition-colors"
                   >
-                    hello@crownatech.com
+                    contact@crownatech.com
                   </a>
                 </div>
               </div>
@@ -158,147 +158,7 @@ const Contact = () => {
    
         
    
-         {/* SOCIALS & LOGO SECTION */}
-            <div className="mt-20 px-4 sm:px-6 max-w-7xl mx-auto">
-              <div className="
-                bg-white
-                rounded-2xl sm:rounded-3xl
-                overflow-hidden
-                shadow-2xl
-              ">
-                
-                <div className="flex flex-col lg:flex-row">
-                  
-                  {/* LEFT SIDE - SOCIALS */}
-                  
-                  <div className="
-                    lg:w-1/2
-                    p-8 sm:p-12 md:p-16
-                    bg-gradient-to-br from-blue-50 to-gray-50
-                  ">
-                    <h3 className="
-                      text-gray-800
-                      text-2xl sm:text-3xl md:text-4xl
-                      font-bold
-                      mb-6 sm:mb-8
-                    ">
-                      Connect With Us
-                    </h3>
-                    
-                    <p className="
-                      text-gray-600
-                      text-base sm:text-lg
-                      mb-8 sm:mb-10
-                      leading-relaxed
-                    ">
-                      Follow CrownaTech on social media to stay updated with our latest projects, 
-                      tech insights, and company news.
-                    </p>
-                    
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                      {socialLinks.map((social, index) => (
-                        <a
-                          key={index}
-                          href={social.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="
-                            group
-                            flex flex-col items-center
-                            p-4
-                            bg-white
-                            border border-gray-200
-                            rounded-xl
-                            hover:bg-blue-50
-                            hover:border-blue-300
-                            hover:shadow-lg
-                            transition-all duration-300
-                          "
-                        >
-                          <div className="
-                            w-12 h-12
-                            flex items-center justify-center
-                            text-gray-700
-                            group-hover:text-blue-600
-                            transition-colors
-                            mb-3
-                          ">
-                            <div className="w-6 h-6">
-                              {social.icon}
-                            </div>
-                          </div>
-                          <span className="
-                            text-gray-800
-                            text-sm font-medium
-                            group-hover:text-blue-700
-                            transition-colors
-                          ">
-                            {social.label}
-                          </span>
-                        </a>
-                      ))}
-                    </div>
-                    
-                    <div className="mt-8 sm:mt-10 pt-6 border-t border-gray-200">
-                      <p className="text-gray-500 text-sm">
-                        Connect with our community of developers, designers, and innovators.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* RIGHT SIDE - LOGO */}
-                  <div className="
-                    lg:w-1/2
-                    p-8 sm:p-12 md:p-16
-                    flex flex-col items-center justify-center
-                    bg-gray-900/95
-                    relative
-                    overflow-hidden
-                  ">
-                    {/* Decorative Elements */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-10 translate-x-16"></div>
-                    <div className="absolute bottom-0 left-0 w-40 h-40 bg-white rounded-full -translate-x-20 translate-y-20"></div>
-                    
-                    {/* Logo Container */}
-                    <div className="relative z-10 text-center">
-                      <div className="
-                        w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48
-                        mx-auto
-                        mb-6 sm:mb-8
-                        relative
-                      ">
-                        {/* Logo Placeholder - Replace with your actual logo */}
-                        <div className="">
       
-                          <img src={Logo} alt="" />
-                        </div>
-                        {/* Decorative Ring */}
-                        <div className="
-                          absolute inset-0
-                        
-                          rounded-3xl
-                          animate-pulse
-                        "></div>
-                      </div>
-                      
-                      {/* Logo Text */}
-                      <h2 className="
-                        text-white
-                        text-3xl sm:text-4xl md:text-5xl
-                        font-bold
-                        mb-3
-                        tracking-tight
-                      ">
-                        CrownaTech
-                      </h2>
-                 
-                    
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
     </div>
   );
 };
