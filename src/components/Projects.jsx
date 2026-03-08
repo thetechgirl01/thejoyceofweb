@@ -81,7 +81,7 @@ const Projects = () => {
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-6 hide-scrollbar px-4 md:px-auto "
+            className="flex gap-6 overflow-x-auto scroll-smooth pb-6 hide-scrollbar px-auto "
           >
             {projects.map((project, i) => (
               <ProjectCard key={i} project={project} />

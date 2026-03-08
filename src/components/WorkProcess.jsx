@@ -33,7 +33,7 @@ const Workprocess = () => {
       </header>
 
       {/* Steps Container */}
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-auto">
         {/* Desktop Layout */}
         <div className="hidden sm:flex items-start justify-between relative">
           {steps.map((step, index) => (

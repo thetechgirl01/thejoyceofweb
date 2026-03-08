@@ -1,6 +1,7 @@
 import React from 'react'
 import AboutPic from '../assets/director.jpg'
 import { HiArrowRight } from 'react-icons/hi'
+import { Link } from 'react-router-dom'
 
 const About = () => {
   return (
@@ -35,6 +36,7 @@ const About = () => {
           </p>
 
           {/* BUTTON */}
+          <Link to="/about">
           <a
             href="#"
             className="
@@ -64,6 +66,8 @@ const About = () => {
               <HiArrowRight className="text-black w-4 h-4 sm:w-5 sm:h-5 -rotate-45" />
             </span>
           </a>
+          
+          </Link>
         </div>
 
         {/* RIGHT IMAGE SLICES */}
