@@ -3,6 +3,7 @@ import { MdLocationOn } from 'react-icons/md';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import gsap from 'gsap';
 import { HiArrowRight } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 export const Hero = () => {
   const techneikRef = useRef(null);
@@ -93,10 +94,12 @@ export const Hero = () => {
                   </span>
                 </button>
 
+               <Link to="works">
                 <button className="flex items-center gap-2 hover:border-2 border-white text-white font-semibold py-3 px-8 hover:rounded-4xl transition-all duration-300  hover:scale-105 hover:shadow-lg">
                   Works
                   <AiOutlineArrowRight className="-rotate-45" />
                 </button>
+               </Link>
               </div>
             </div>
 
