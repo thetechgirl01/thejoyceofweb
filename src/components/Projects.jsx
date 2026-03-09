@@ -5,7 +5,7 @@ import { HiArrowUpRight } from "react-icons/hi2";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import Asterisks from "./Asterisks";
 import { Link } from "react-router-dom";
-import Project3 from "../assests/Baller.jpeg"
+import Project3 from "../assets/Baller.jpeg";
 
 const projects = [
   { title: "Best Lagos State Logistics & Errands Company", image: Project1, link: "https://www.errandsbybrownie.com" },
