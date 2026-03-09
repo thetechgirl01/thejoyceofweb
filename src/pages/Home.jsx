@@ -18,11 +18,19 @@ const Home = ({ blogs }) => {
   return (
     <div className="relative min-h-screen">
       <Helmet>
-        <title>
-          CrownaTech | Creative tech Solutions For Your Digital Success.
-          <meta name="description" content="CrownaTech delivers creative & innovative web solutions to help your business succeed in the digital world." />
-          <meta name='keywords' content='crownatech, crowna, tech, web dev in Nigeria, tech in nigeria, web design, web development, digital marketing, creative solutions' />
-        </title>
+       <Helmet>
+  <title>CrownaTech | Creative Tech Solutions For Your Digital Success</title>
+
+  <meta
+    name="description"
+    content="CrownaTech delivers creative & innovative web solutions to help your business succeed in the digital world."
+  />
+
+  <meta
+    name="keywords"
+    content="crownatech, crowna, tech, web dev in Nigeria, tech in nigeria, web design, web development, digital marketing, creative solutions"
+  />
+</Helmet>
       </Helmet>
       {/* Hero Section */}
       <div className="px- rounded-tr-3xl rounded-tl-3xl">
