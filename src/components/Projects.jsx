@@ -1,13 +1,14 @@
 import React, { useRef, useState } from "react";
-import Project from "../assets/director.jpg";
+import Project1 from "../assets/EbbPic.jpeg";
+import Project from "../assets/4thmanclothing.jpeg";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import Asterisks from "./Asterisks";
 import { Link } from "react-router-dom";
 
 const projects = [
-  { title: "Best Lagos State Logistics & Errands Company", image: Project, link: "#" },
-  { title: "Performance & SEO Optimization", image: Project, link: "#" },
+  { title: "Best Lagos State Logistics & Errands Company", image: Project1, link: "https://www.errandsbybrownie.com" },
+  { title: "Uk Fashion E-commerce Platform", image: Project, link: "#" },
   { title: "Content Management System", image: Project, link: "#" },
   { title: "High Conversion Landing Pages", image: Project, link: "#" },
 ];
