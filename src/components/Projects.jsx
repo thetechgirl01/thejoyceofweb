@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 
 const projects = [
   { title: "Best Lagos State Logistics & Errands Company", image: Project1, link: "https://www.errandsbybrownie.com" },
-  { title: "Uk Fashion E-commerce Platform", image: Project, link: "https://4thmanclothing.com" },
-
+  { title: "Uk Fashion E-commerce Platform", image: Project2, link: "https://4thmanclothing.com" },
+  
 ];
 
 const websiteTypes = [
