@@ -48,12 +48,7 @@ export const Hero = () => {
           <div className="flex flex-col items-start space-y-6 md:space-y-8 text-left bg">
             
             {/* Location */}
-            <div className="space-y-2">
-              <h3 className="flex items-center gap-2 text-white/50 text-sm md:text-lg font-semibold">
-                <MdLocationOn className="w-5 h-5" />
-                Lagos, Nigeria.
-              </h3>
-            </div>
+           
 
             {/* Title */}
             <div className="space-y-4">
