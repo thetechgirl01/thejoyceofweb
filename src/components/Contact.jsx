@@ -4,12 +4,9 @@ import {
   FaMapMarkerAlt, 
   FaPhoneAlt, 
   FaPaperPlane,
-  FaTwitter,
+  FaFacebook,
   FaLinkedin,
-  FaGithub,
-  FaInstagram,
-  FaYoutube,
-  FaDribbble
+  FaTiktok
 } from 'react-icons/fa';
 import { HiArrowRight } from 'react-icons/hi';
 
@@ -46,12 +43,9 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: <FaTwitter />, label: 'Twitter', url: 'https://twitter.com/crownatech' },
+    { icon: <FaFacebook />, label: 'Facebook', url: 'https://facebook.com/crownatech' },
     { icon: <FaLinkedin />, label: 'LinkedIn', url: 'https://linkedin.com/company/crownatech' },
-    { icon: <FaGithub />, label: 'GitHub', url: 'https://github.com/crownatech' },
-    { icon: <FaInstagram />, label: 'Instagram', url: 'https://instagram.com/crownatech' },
-    { icon: <FaYoutube />, label: 'YouTube', url: 'https://youtube.com/@crownatech' },
-    { icon: <FaDribbble />, label: 'Dribbble', url: 'https://dribbble.com/crownatech' }
+    { icon: <FaTiktok />, label: 'TikTok', url: 'https://tiktok.com/@crownatech' }
   ];
 
   const handleInputChange = (e) => {
@@ -181,7 +175,7 @@ const Contact = () => {
                 Follow for updates, insights, and behind-the-scenes looks at our latest projects.
               </p>
               
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
