@@ -87,15 +87,16 @@ export const Hero = () => {
             {/* Buttons */}
             <div className="space-y-4 pt-4">
               <div className="flex flex-wrap gap-4 md:gap-6">
-                <button className="flex items-center gap-2 bg-white rounded-full text-black font-semibold py-3 px-8  transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <Link to="contact"> 
+                <button className="cursor-pointer flex items-center gap-2 bg-white rounded-full text-black font-semibold py-3 px-8  transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   Get in touch
                   <span className='bg-black w-9 h-9 rounded-4xl '>
                     <HiArrowRight className="-rotate-45  text-white mx-auto my-2" />
                   </span>
-                </button>
+                </button></Link>
 
                <Link to="works">
-                <button className="flex items-center gap-2 hover:border-2 border-white text-white font-semibold py-3 px-8 hover:rounded-4xl transition-all duration-300  hover:scale-105 hover:shadow-lg">
+                <button className="cursor-pointer flex items-center gap-2 hover:border-2 border-white text-white font-semibold py-3 px-8 hover:rounded-4xl transition-all duration-300  hover:scale-105 hover:shadow-lg">
                   Works
                   <AiOutlineArrowRight className="-rotate-45" />
                 </button>
