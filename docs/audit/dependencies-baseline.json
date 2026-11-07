@@ -1,0 +1,570 @@
+{
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 4,
+      "moderate": 3,
+      "high": 28,
+      "critical": 4,
+      "total": 39
+    },
+    "dependencies": {
+      "prod": 44,
+      "dev": 277,
+      "optional": 44,
+      "peer": 11,
+      "peerOptional": 0,
+      "total": 369
+    }
+  },
+  "packages": [
+    {
+      "name": "@babel/core",
+      "severity": "low",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "@babel/core: Arbitrary File Read via sourceMappingURL Comment",
+          "url": "https://github.com/advisories/GHSA-4x5r-pxfx-6jf8"
+        }
+      ]
+    },
+    {
+      "name": "@humanfs/node",
+      "severity": "moderate",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "humanfs: Recursive copy follows symlinked files and copies data from outside the source tree",
+          "url": "https://github.com/advisories/GHSA-p498-v437-472g"
+        }
+      ]
+    },
+    {
+      "name": "ajv",
+      "severity": "moderate",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "ajv has ReDoS when using `$data` option",
+          "url": "https://github.com/advisories/GHSA-2g4f-4pwh-qvx6"
+        }
+      ]
+    },
+    {
+      "name": "baseline-browser-mapping",
+      "severity": "moderate",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "baseline-browser-mapping process termination on invalid input causes denial of service",
+          "url": "https://github.com/advisories/GHSA-w5vr-8v7q-w6rv"
+        }
+      ]
+    },
+    {
+      "name": "body-parser",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "body-parser vulnerable to denial of service when url encoding is enabled",
+          "url": "https://github.com/advisories/GHSA-qwcr-r2fm-qrc7"
+        },
+        {
+          "title": "body-parser vulnerable to denial of service when invalid limit value silently disables size enforcement",
+          "url": "https://github.com/advisories/GHSA-v422-hmwv-36x6"
+        },
+        {
+          "title": "body-parser vulnerable to Denial of Service via trailing bytes after a compressed request body",
+          "url": "https://github.com/advisories/GHSA-27r3-jxmh-p828"
+        }
+      ]
+    },
+    {
+      "name": "brace-expansion",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "brace-expansion: Zero-step sequence causes process hang and memory exhaustion",
+          "url": "https://github.com/advisories/GHSA-f886-m6hf-6m8v"
+        },
+        {
+          "title": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+          "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp"
+        },
+        {
+          "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+          "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg"
+        },
+        {
+          "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+          "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895"
+        },
+        {
+          "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+          "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr"
+        },
+        {
+          "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+          "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7"
+        },
+        {
+          "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+          "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p"
+        }
+      ]
+    },
+    {
+      "name": "browserslist",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM",
+          "url": "https://github.com/advisories/GHSA-c83g-rgw3-j3cx"
+        },
+        {
+          "title": "Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)",
+          "url": "https://github.com/advisories/GHSA-73wf-gq98-2v4g"
+        }
+      ]
+    },
+    {
+      "name": "cheerio",
+      "severity": "high",
+      "direct": false,
+      "advisories": []
+    },
+    {
+      "name": "cookie",
+      "severity": "low",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "cookie accepts cookie name, path, and domain with out of bounds characters",
+          "url": "https://github.com/advisories/GHSA-pxg6-pf52-xh8x"
+        }
+      ]
+    },
+    {
+      "name": "css-select",
+      "severity": "high",
+      "direct": false,
+      "advisories": []
+    },
+    {
+      "name": "express",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "express vulnerable to XSS via response.redirect()",
+          "url": "https://github.com/advisories/GHSA-qw6h-vgh9-j6wx"
+        },
+        {
+          "title": "Express.js Open Redirect in malformed URLs",
+          "url": "https://github.com/advisories/GHSA-rv95-896h-c2vc"
+        }
+      ]
+    },
+    {
+      "name": "extract-zip",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "extract-zip unvalidated symlink path traversal",
+          "url": "https://github.com/advisories/GHSA-jmr9-qjv8-65gv"
+        },
+        {
+          "title": "extract-zip allows arbitrary file writes through symlink archive entries",
+          "url": "https://github.com/advisories/GHSA-7pqw-9j4j-h8q3"
+        }
+      ]
+    },
+    {
+      "name": "flatted",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "flatted vulnerable to unbounded recursion DoS in parse() revive phase",
+          "url": "https://github.com/advisories/GHSA-25h7-pfq9-p65f"
+        },
+        {
+          "title": "Prototype Pollution via parse() in NodeJS flatted",
+          "url": "https://github.com/advisories/GHSA-rf6f-7fwh-wjgh"
+        }
+      ]
+    },
+    {
+      "name": "html-minifier",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "kangax html-minifier REDoS vulnerability",
+          "url": "https://github.com/advisories/GHSA-pfq8-rq6v-vf5m"
+        }
+      ]
+    },
+    {
+      "name": "isomorphic-fetch",
+      "severity": "high",
+      "direct": false,
+      "advisories": []
+    },
+    {
+      "name": "js-yaml",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "JS-YAML: Quadratic-complexity DoS in merge key handling via repeated aliases",
+          "url": "https://github.com/advisories/GHSA-h67p-54hq-rp68"
+        },
+        {
+          "title": "js-yaml: YAML merge-key chains can force quadratic CPU consumption",
+          "url": "https://github.com/advisories/GHSA-52cp-r559-cp3m"
+        },
+        {
+          "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+          "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj"
+        },
+        {
+          "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+          "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh"
+        }
+      ]
+    },
+    {
+      "name": "lodash",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "lodash vulnerable to Code Injection via `_.template` imports key names",
+          "url": "https://github.com/advisories/GHSA-r5fr-rjxr-66jc"
+        },
+        {
+          "title": "lodash vulnerable to prototype pollution via array-path bypass in `_.unset`, `_.omit`, and `_.pullAt",
+          "url": "https://github.com/advisories/GHSA-f23m-r3pf-42rh"
+        }
+      ]
+    },
+    {
+      "name": "minimalcss",
+      "severity": "high",
+      "direct": false,
+      "advisories": []
+    },
+    {
+      "name": "minimatch",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "minimatch has a ReDoS via repeated wildcards with non-matching literal in pattern",
+          "url": "https://github.com/advisories/GHSA-3ppc-4f35-3m26"
+        },
+        {
+          "title": "minimatch has ReDoS: matchOne() combinatorial backtracking via multiple non-adjacent GLOBSTAR segments",
+          "url": "https://github.com/advisories/GHSA-7r86-cg39-jmmj"
+        },
+        {
+          "title": "minimatch ReDoS: nested *() extglobs generate catastrophically backtracking regular expressions",
+          "url": "https://github.com/advisories/GHSA-23c5-xmqv-rm74"
+        }
+      ]
+    },
+    {
+      "name": "minimist",
+      "severity": "critical",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "Prototype Pollution in minimist",
+          "url": "https://github.com/advisories/GHSA-vh95-rmgr-6w4m"
+        },
+        {
+          "title": "Prototype Pollution in minimist",
+          "url": "https://github.com/advisories/GHSA-xvch-5gv4-984h"
+        }
+      ]
+    },
+    {
+      "name": "mkdirp",
+      "severity": "critical",
+      "direct": false,
+      "advisories": []
+    },
+    {
+      "name": "nanoid",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "nanoid: non-secure generators can loop indefinitely with negative size",
+          "url": "https://github.com/advisories/GHSA-28wg-ghj8-5hjv"
+        },
+        {
+          "title": "nanoid: custom generators can loop indefinitely when size is zero",
+          "url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8"
+        },
+        {
+          "title": "nanoid: Integer Overflow or Wraparound",
+          "url": "https://github.com/advisories/GHSA-xwg4-73v4-xw9w"
+        }
+      ]
+    },
+    {
+      "name": "node-fetch",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "node-fetch forwards secure headers to untrusted sites",
+          "url": "https://github.com/advisories/GHSA-r683-j2x4-v87g"
+        }
+      ]
+    },
+    {
+      "name": "nth-check",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "Inefficient Regular Expression Complexity in nth-check",
+          "url": "https://github.com/advisories/GHSA-rp65-9cf3-cjxr"
+        }
+      ]
+    },
+    {
+      "name": "path-to-regexp",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "path-to-regexp outputs backtracking regular expressions",
+          "url": "https://github.com/advisories/GHSA-9wv6-86v2-598j"
+        },
+        {
+          "title": "path-to-regexp contains a ReDoS",
+          "url": "https://github.com/advisories/GHSA-rhx6-c78j-4q9w"
+        },
+        {
+          "title": "path-to-regexp vulnerable to Regular Expression Denial of Service via multiple route parameters",
+          "url": "https://github.com/advisories/GHSA-37ch-88jc-xwx2"
+        }
+      ]
+    },
+    {
+      "name": "picomatch",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "Picomatch: Method Injection in POSIX Character Classes causes incorrect Glob Matching",
+          "url": "https://github.com/advisories/GHSA-3v7f-55p6-f55p"
+        },
+        {
+          "title": "Picomatch has a ReDoS vulnerability via extglob quantifiers",
+          "url": "https://github.com/advisories/GHSA-c2c7-rcm5-vvqj"
+        }
+      ]
+    },
+    {
+      "name": "postcss",
+      "severity": "high",
+      "direct": true,
+      "advisories": [
+        {
+          "title": "PostCSS has XSS via Unescaped </style> in its CSS Stringify Output",
+          "url": "https://github.com/advisories/GHSA-qx2v-qp2m-jg93"
+        },
+        {
+          "title": "PostCSS: Arbitrary file read and information disclosure via attacker-controlled sourceMappingURL in CSS comments",
+          "url": "https://github.com/advisories/GHSA-6g55-p6wh-862q"
+        },
+        {
+          "title": "PostCSS: incomplete fix of GHSA-6g55-p6wh-862q — attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset",
+          "url": "https://github.com/advisories/GHSA-fxqj-rqcc-2cmp"
+        },
+        {
+          "title": "PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure",
+          "url": "https://github.com/advisories/GHSA-r28c-9q8g-f849"
+        }
+      ]
+    },
+    {
+      "name": "proxy-addr",
+      "severity": "critical",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "proxy-addr vulnerable to IP spoofing via IPv4-mapped IPv6 trust subnet",
+          "url": "https://github.com/advisories/GHSA-jqcg-44mw-7w3h"
+        }
+      ]
+    },
+    {
+      "name": "puppeteer",
+      "severity": "high",
+      "direct": false,
+      "advisories": []
+    },
+    {
+      "name": "qs",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "qs vulnerable to Prototype Pollution",
+          "url": "https://github.com/advisories/GHSA-hrpp-h998-j3pp"
+        },
+        {
+          "title": "qs's arrayLimit bypass in its bracket notation allows DoS via memory exhaustion",
+          "url": "https://github.com/advisories/GHSA-6rw7-vpxm-498p"
+        },
+        {
+          "title": "qs: Denial of Service via Attacker Controlled isBuffer",
+          "url": "https://github.com/advisories/GHSA-4mjr-xmp4-gh2g"
+        }
+      ]
+    },
+    {
+      "name": "react-router",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "React Router's vendored turbo-stream v2 allows arbitrary constructor invocation via TYPE_ERROR deserialization leading to Unauth RCE",
+          "url": "https://github.com/advisories/GHSA-49rj-9fvp-4h2h"
+        },
+        {
+          "title": "React Router vulnerable to XSS in unstable RSC redirect handling via javascript: redirect targets",
+          "url": "https://github.com/advisories/GHSA-8646-j5j9-6r62"
+        },
+        {
+          "title": "React Router vulnerable to DoS via unbounded path expansion in __manifest endpoint",
+          "url": "https://github.com/advisories/GHSA-8x6r-g9mw-2r78"
+        },
+        {
+          "title": "React Router vulnerable to Denial of Service via reflected user input in single-fetch",
+          "url": "https://github.com/advisories/GHSA-rxv8-25v2-qmq8"
+        },
+        {
+          "title": "React Router: Potential CSRF via PUT/PATCH/DELETE document requests",
+          "url": "https://github.com/advisories/GHSA-84g9-w2xq-vcv6"
+        },
+        {
+          "title": "React Router: Open redirect via backslash in <Link> and useNavigate (CVE-2025-68470 bypass)",
+          "url": "https://github.com/advisories/GHSA-wrjc-x8rr-h8h6"
+        },
+        {
+          "title": "React Router: RSCErrorHandler Missing Protocol Validation (XSS)",
+          "url": "https://github.com/advisories/GHSA-h8fp-f39c-q6mh"
+        },
+        {
+          "title": "React Router: Arbitrary Constructor Injection via deserializeErrors() in React Router SSR Hydration",
+          "url": "https://github.com/advisories/GHSA-337j-9hxr-rhxg"
+        },
+        {
+          "title": "React Router: Unauthenticated Denial of Service via Inefficient Route Matching",
+          "url": "https://github.com/advisories/GHSA-chx6-hx7r-mcp5"
+        },
+        {
+          "title": "React Router's same-origin redirect with path starting // causes open redirect via protocol-relative URL reinterpretation",
+          "url": "https://github.com/advisories/GHSA-2j2x-hqr9-3h42"
+        },
+        {
+          "title": "React Router: RSC Mode CSRF Bypass Allows Action Execution Before 400 Response",
+          "url": "https://github.com/advisories/GHSA-qwww-vcr4-c8h2"
+        },
+        {
+          "title": "React Router: Open redirect leading to XSS",
+          "url": "https://github.com/advisories/GHSA-jjmj-jmhj-qwj2"
+        },
+        {
+          "title": "React Router has stored XSS via unescaped Location header in prerendered redirect HTML",
+          "url": "https://github.com/advisories/GHSA-f22v-gfqf-p8f3"
+        }
+      ]
+    },
+    {
+      "name": "react-router-dom",
+      "severity": "high",
+      "direct": true,
+      "advisories": []
+    },
+    {
+      "name": "react-snap",
+      "severity": "critical",
+      "direct": true,
+      "advisories": []
+    },
+    {
+      "name": "send",
+      "severity": "low",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "send vulnerable to template injection that can lead to XSS",
+          "url": "https://github.com/advisories/GHSA-m6fv-jmcg-4jfg"
+        }
+      ]
+    },
+    {
+      "name": "serve-static",
+      "severity": "low",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "serve-static vulnerable to template injection that can lead to XSS",
+          "url": "https://github.com/advisories/GHSA-cm22-4g7w-348p"
+        }
+      ]
+    },
+    {
+      "name": "source-map-js",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+          "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q"
+        }
+      ]
+    },
+    {
+      "name": "sourcemapped-stacktrace-node",
+      "severity": "high",
+      "direct": false,
+      "advisories": []
+    },
+    {
+      "name": "ws",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "ws: Memory exhaustion DoS from tiny fragments and data chunks",
+          "url": "https://github.com/advisories/GHSA-96hv-2xvq-fx4p"
+        }
+      ]
+    },
+    {
+      "name": "zod",
+      "severity": "high",
+      "direct": false,
+      "advisories": [
+        {
+          "title": "Zod can exhaust memory while validating oversized constrained collections",
+          "url": "https://github.com/advisories/GHSA-mrhx-c7xc-m3w5"
+        }
+      ]
+    }
+  ]
+}

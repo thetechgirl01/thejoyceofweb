@@ -80,3 +80,9 @@ Owner/legal review must establish controller identity/contact, purposes and lawf
 ## Deployment considerations
 
 Development branch only. Do not merge or deploy automatically. Resolve owner-confirmed copy, contact delivery/CMS configuration, approved legal notices, external booking/payment destinations, and production headers before claiming readiness. Verify SPA deep links, real HTTP 404 behavior, sitemap canonical hostname, integrations and caching in staging. No assertion of full security, compliance, or production readiness is made.
+
+### Security dependency milestone
+
+- Removed unused `react-snap`: no imports, package configuration, scripts, or prerender workflow references existed. Applied `npm audit fix --ignore-scripts` without force: Router 7.12.0 -> 7.18.5, PostCSS 8.5.6 -> 8.5.32 and compatible transitive patches/minors. Direct major versions unchanged. Added `.env`, environment variants and private-key ignore rules (example env remains allowed).
+- PASS: build; lockfile diff review; ignore-rule probes; all 10 route smoke checks in local Chrome with zero uncaught page errors; npm audit now **0 vulnerabilities** (point-in-time database result, not proof of security). Lint still has the same 12 pre-existing errors/1 warning; no new lint findings. React Helmet peer warning remains for later metadata remediation.
+- Browser baseline: Chrome + axe at 390px; seven-width reflow checks on all 10 routes. Work overflow confirmed at 320px (336px document). Axe found home unnamed carousel buttons and project links plus contrast failures; Work unnamed links; Blogs/legacy Work/Errands contrast issues. Baseline JSON and summarized dependency advisories retained in `docs/audit/`. No uncaught page errors during route load; interactions were not covered by this smoke check.
