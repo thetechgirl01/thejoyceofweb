@@ -17,6 +17,8 @@ const Contact = () => {
     budget: ''
   });
 
+  const [submissionStatus, setSubmissionStatus] = useState('');
+
   const socialLinks = [
     { icon: <FaFacebook />, label: 'Facebook', url: 'https://facebook.com/crownatech' },
     { icon: <FaLinkedin />, label: 'LinkedIn', url: 'https://linkedin.com/company/crownatech' },
@@ -33,8 +35,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
+    setSubmissionStatus('Your message has not been sent. Online message delivery is not configured yet.');
   };
 
   return (
@@ -208,7 +209,7 @@ const Contact = () => {
 
           {/* RIGHT COLUMN - CONTACT FORM (Shows first on mobile) */}
           <div className="lg:w-1/2">
-            <form onSubmit={handleSubmit} className="
+            <form aria-describedby="contact-delivery-note" onSubmit={handleSubmit} className="
               backdrop-blur-xl bg-white/5
               border border-white/10
               rounded-2xl
@@ -222,15 +223,22 @@ const Contact = () => {
                 Tell Us About Your Project
               </h3>
 
+              <p id="contact-delivery-note" className="text-white/80 mb-6">
+                Online message delivery is currently unavailable. This form cannot send your message.
+              </p>
+
               {/* Name & Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div>
-                  <label className="block text-white/70 text-sm mb-2">
+                  <label htmlFor="contact-name" className="block text-white/70 text-sm mb-2">
                     Your Name *
                   </label>
                   <input
                     type="text"
+                    id="contact-name"
                     name="name"
+                    maxLength={120}
+                    autoComplete="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
@@ -250,12 +258,15 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-white/70 text-sm mb-2">
+                  <label htmlFor="contact-email" className="block text-white/70 text-sm mb-2">
                     Email Address *
                   </label>
                   <input
                     type="email"
+                    id="contact-email"
                     name="email"
+                    maxLength={254}
+                    autoComplete="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -277,12 +288,14 @@ const Contact = () => {
 
               {/* Budget */}
               <div className="mb-6">
-                <label className="block text-white/70 text-sm mb-2">
+                <label htmlFor="contact-budget" className="block text-white/70 text-sm mb-2">
                   Project Budget (Optional)
                 </label>
                 <input
                   type="text"
+                  id="contact-budget"
                   name="budget"
+                  maxLength={120}
                   value={formData.budget}
                   onChange={handleInputChange}
                   className="
@@ -302,11 +315,13 @@ const Contact = () => {
 
               {/* Message */}
               <div className="mb-8">
-                <label className="block text-white/70 text-sm mb-2">
+                <label htmlFor="contact-message" className="block text-white/70 text-sm mb-2">
                   Project Details *
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
+                  maxLength={5000}
                   value={formData.message}
                   onChange={handleInputChange}
                   required
@@ -358,12 +373,14 @@ const Contact = () => {
                 </span>
               </button>
 
+              <p role="status" className="mt-4 text-white">{submissionStatus}</p>
+
               {/* Privacy Note */}
               <p className="
                 text-white/40 text-xs sm:text-sm
                 text-center mt-6
               ">
-                We respect your privacy. Your information is secure with us.
+                Your details stay in this form and are not sent to a server.
               </p>
             </form>
           </div>

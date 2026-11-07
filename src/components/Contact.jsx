@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   FaRegEnvelope, 
   FaMapMarkerAlt, 
@@ -14,68 +14,11 @@ import { HiArrowRight } from 'react-icons/hi';
 import Logo from '../assets/tklogo.png'; // Update this path to your actual logo
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    projectType: '',
-    budget: '',
-    customBudget: '',
-    message: ''
-  });
-
-  const projectTypes = [
-    'Business Website',
-    'E-commerce Store',
-    'Web Application',
-    'Portfolio Site',
-    'Blog/Content',
-    'SaaS Platform',
-    'Landing Page',
-    'Redesign/Update'
-  ];
-
-  const budgetRanges = [
-    'Under $500',
-    '$500 - $2,000',
-    '$2,000 - $5,000',
-    '$5,000 - $10,000',
-    'Over $10,000'
-  ];
-
   const socialLinks = [
     { icon: <FaFacebook />, label: 'Facebook', url: 'https://facebook.com/crownatech' },
     { icon: <FaLinkedin />, label: 'LinkedIn', url: 'https://linkedin.com/company/crownatech' },
     { icon: <FaTiktok />, label: 'TikTok', url: 'https://tiktok.com/@crownatech' }
   ];
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleProjectTypeSelect = (type) => {
-    setFormData(prev => ({
-      ...prev,
-      projectType: type
-    }));
-  };
-
-  const handleBudgetSelect = (range) => {
-    setFormData(prev => ({
-      ...prev,
-      budget: range,
-      customBudget: '' // Clear custom budget when selecting a range
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
-  };
 
   return (
     <div className="min-h-screen py-10 sm:py-16">

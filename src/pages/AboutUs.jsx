@@ -32,7 +32,7 @@ const AboutUs = () => {
       });
 
       // Content sections animation
-      sectionRefs.current.forEach((section, index) => {
+      sectionRefs.current.forEach((section) => {
         if (section) {
           gsap.from(section, {
             y: 80,

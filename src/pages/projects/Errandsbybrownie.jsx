@@ -11,7 +11,6 @@ import { HiArrowRight } from 'react-icons/hi';
 gsap.registerPlugin(ScrollTrigger);
 
 const Errandsbybrownie = () => {
-  const heroRef = useRef(null);
   const imageRefs = useRef([]);
   const sectionRefs = useRef([]);
   
@@ -58,7 +57,7 @@ const Errandsbybrownie = () => {
   useEffect(() => {
 
     // Image animations
-    imageRefs.current.forEach((img, i) => {
+    imageRefs.current.forEach((img) => {
       if (img) {
         gsap.fromTo(img,
           { y: 100, opacity: 0, scale: 0.95 },
@@ -79,7 +78,7 @@ const Errandsbybrownie = () => {
     });
 
     // Section text animations
-    sectionRefs.current.forEach((section, i) => {
+    sectionRefs.current.forEach((section) => {
       if (section) {
         gsap.fromTo(section.querySelectorAll('.section-content > *'),
           { y: 50, opacity: 0 },

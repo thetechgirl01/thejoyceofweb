@@ -57,6 +57,8 @@ const ServicesPage = () => {
     // Only run animation if component is mounted and not triggered yet
     if (!headingRef.current || animationTriggered.current) return;
 
+    const section = sectionRef.current;
+
     // Create the typing effect with SplitText
     const headingSplit = new SplitText(headingRef.current, {
       type: "chars,words",
@@ -117,7 +119,7 @@ const ServicesPage = () => {
     return () => {
       if (headingSplit) headingSplit.revert();
       ScrollTrigger.getAll().forEach(trigger => {
-        if (trigger.vars.trigger === sectionRef.current) {
+        if (trigger.vars.trigger === section) {
           trigger.kill();
         }
       });

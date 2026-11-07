@@ -93,6 +93,8 @@ const Blogs = ({ blogs = [] }) => {
             <input
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
+              type="search"
+              aria-label="Search articles"
               placeholder="Search articles..."
               className="w-full pl-12 py-4 bg-white/5 border border-white/10 rounded-xl text-white"
             />
@@ -151,9 +153,9 @@ const Blogs = ({ blogs = [] }) => {
 
                         <p className="text-white/70 text-sm mb-4 line-clamp-3">{headerText}</p>
 
-                        <button className="w-full py-3 bg-white/10 rounded-xl text-white hover:bg-yellow-400 hover:text-black transition flex items-center justify-center">
+                        <span className="w-full py-3 bg-white/10 rounded-xl text-white hover:bg-yellow-400 hover:text-black transition flex items-center justify-center">
                           Read Article <HiArrowRight className="inline ml-2" />
-                        </button>
+                        </span>
                       </div>
                     </article>
                   </Link>
@@ -176,10 +178,15 @@ const Blogs = ({ blogs = [] }) => {
             <h3 className="text-white text-2xl font-bold mb-2">Stay Updated</h3>
             <p className="text-white/60 mb-6">Get new articles straight to your inbox.</p>
             <input
+              type="email"
+              aria-label="Newsletter email address"
+              aria-describedby="newsletter-status"
+              disabled
               placeholder="Email address"
               className="w-full px-6 py-4 bg-white/10 rounded-xl text-white mb-4"
             />
-            <button className="px-8 py-4 bg-yellow-400 rounded-xl font-semibold">Subscribe</button>
+            <button disabled className="px-8 py-4 bg-yellow-400 rounded-xl font-semibold text-black disabled:opacity-70">Subscribe</button>
+            <p id="newsletter-status" className="mt-4 text-white/80">Newsletter subscriptions are currently unavailable. No email address is collected.</p>
           </div>
         </section>
         </div>

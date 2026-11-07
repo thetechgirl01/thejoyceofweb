@@ -60,7 +60,7 @@ const WorkContentPage = () => {
       .from('.hero-button', { y: 20, opacity: 0, stagger: 0.2, duration: 0.6, ease: 'back.out(1.7)' }, '-=0.2');
 
     // Image animations
-    imageRefs.current.forEach((img, i) => {
+    imageRefs.current.forEach((img) => {
       if (img) {
         gsap.fromTo(img,
           { y: 100, opacity: 0, scale: 0.95 },
@@ -81,7 +81,7 @@ const WorkContentPage = () => {
     });
 
     // Section text animations
-    sectionRefs.current.forEach((section, i) => {
+    sectionRefs.current.forEach((section) => {
       if (section) {
         gsap.fromTo(section.querySelectorAll('.section-content > *'),
           { y: 50, opacity: 0 },
