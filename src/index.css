@@ -1,6 +1,5 @@
 /* src/App.css */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gotu&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap');
 * {
   box-sizing: border-box;
 }

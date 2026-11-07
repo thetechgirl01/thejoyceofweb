@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Hero } from '../components/Hero';
 import Services from '../components/Services';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import Workprocess from '../components/WorkProcess';
 import Contact from '../components/Contact';
-import Footer from '../components/Footer';
-import Blogs from './Blogs'; // your Blogs component
-import YoutubeSection from '../components/Youtube';
 import { Link } from 'react-router-dom';
+
+const Blogs = lazy(() => import('./Blogs'));
 
 const Home = ({ blogs }) => {
   // Get the latest 4 blogs
@@ -54,7 +53,9 @@ const Home = ({ blogs }) => {
           </h2>
 
           {/* Pass only the latest 4 blogs and hide filters */}
-          <Blogs blogs={recentBlogs} showFilters={false} />
+          <Suspense fallback={<p role="status">Loading articles...</p>}>
+            <Blogs blogs={recentBlogs} showFilters={false} />
+          </Suspense>
 
           {/* View All Blogs Button */}
           <div className="text-center mt-10">

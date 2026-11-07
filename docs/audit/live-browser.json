@@ -1,0 +1,128 @@
+[
+  {
+    "route": "/",
+    "status": "PASS",
+    "axe": [
+      {
+        "id": "target-size",
+        "impact": "serious",
+        "count": 1
+      }
+    ],
+    "errors": 0,
+    "hosts": [
+      "www.crownatech.com",
+      "fonts.googleapis.com",
+      "images.unsplash.com",
+      "fonts.gstatic.com",
+      "crownatech.onrender.com",
+      "res.cloudinary.com"
+    ],
+    "failures": [],
+    "storage": {
+      "localStorageKeys": [],
+      "sessionStorageKeys": [],
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    "cookies": []
+  },
+  {
+    "route": "/about",
+    "status": "PASS",
+    "axe": [],
+    "errors": 0,
+    "hosts": [
+      "www.crownatech.com",
+      "fonts.googleapis.com",
+      "fonts.gstatic.com"
+    ],
+    "failures": [],
+    "storage": {
+      "localStorageKeys": [],
+      "sessionStorageKeys": [],
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    "cookies": []
+  },
+  {
+    "route": "/works",
+    "status": "PASS",
+    "axe": [],
+    "errors": 0,
+    "hosts": [
+      "www.crownatech.com",
+      "fonts.googleapis.com",
+      "fonts.gstatic.com",
+      "crownatech.onrender.com",
+      "res.cloudinary.com"
+    ],
+    "failures": [],
+    "storage": {
+      "localStorageKeys": [],
+      "sessionStorageKeys": [],
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    "cookies": []
+  },
+  {
+    "route": "/blogs",
+    "status": "PASS",
+    "axe": [],
+    "errors": 0,
+    "hosts": [
+      "www.crownatech.com",
+      "fonts.googleapis.com",
+      "fonts.gstatic.com",
+      "crownatech.onrender.com"
+    ],
+    "failures": [],
+    "storage": {
+      "localStorageKeys": [],
+      "sessionStorageKeys": [],
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    "cookies": []
+  },
+  {
+    "route": "/contact",
+    "status": "PASS",
+    "axe": [],
+    "errors": 0,
+    "hosts": [
+      "www.crownatech.com",
+      "fonts.googleapis.com",
+      "fonts.gstatic.com"
+    ],
+    "failures": [],
+    "storage": {
+      "localStorageKeys": [],
+      "sessionStorageKeys": [],
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    "cookies": []
+  },
+  {
+    "route": "/faq",
+    "status": "PASS",
+    "axe": [],
+    "errors": 0,
+    "hosts": [
+      "www.crownatech.com",
+      "fonts.googleapis.com",
+      "fonts.gstatic.com"
+    ],
+    "failures": [],
+    "storage": {
+      "localStorageKeys": [],
+      "sessionStorageKeys": [],
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    "cookies": []
+  }
+]
