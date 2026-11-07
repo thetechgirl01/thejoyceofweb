@@ -177,11 +177,11 @@ const Works = () => {
             </div>
 
             {/* TITLE — INTERNAL LINK */}
-            <Link to={`/projects/${work.slug}`}>
+            {work.slug === "errands-by-brownie" ? <Link to={`/projects/${work.slug}`}>
               <h3 className="text-3xl font-bold text-white mb-4 hover:text-yellow-300">
                 {work.title}
               </h3>
-            </Link>
+            </Link> : <h3 className="text-3xl font-bold text-white mb-4">{work.title}</h3>}
 
             <p className="text-gray-400 text-lg">
               {work.description}

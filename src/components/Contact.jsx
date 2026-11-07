@@ -77,7 +77,7 @@ const Contact = () => {
                 href="mailto:hello@crownatech.com" 
                 className="text-gray-200 text-lg font-medium hover:text-blue-600 transition-colors"
               >
-                contact@crownatech.com
+                hello@crownatech.com
               </a>
             </div>
           </div>

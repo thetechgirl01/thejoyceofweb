@@ -2,6 +2,10 @@
 
 Audit date: 7 November 2026. Baseline: `20385fb`, branch `audit/crownatech-improvements`. This is an incremental engineering audit, not a compliance certification. No deployment or production configuration changes are authorized.
 
+## Production/source mismatch: deployment BLOCKED
+
+Read-only inspection of the live HTML and its public `/assets/index-BdAxlOC6.js` on 7 November found an Axios client using `https://crownatech.onrender.com`, `/api/contacts`, `/api/blogs`, authentication and admin modules, and token storage in localStorage. These do not exist in this checkout or the fetched remote branches (`main` and the audit branch). Production uses dynamic `/projects/:slug` and `/blog/:slug` routes while this local version has static project routes and numeric blog IDs. A build from this checkout must not replace production: it could regress existing functionality and URLs. Source findings below apply to this checkout unless specifically identified as live checks. Reconcile the deployed commit/repository and backend source before integrating services or declaring release readiness. Existing services must be assessed before any replacement recommendation. No admin API was probed and no production form was submitted.
+
 ## Inventory and baseline
 
 - React 19 SPA, JavaScript/JSX, React Router 7, Rolldown Vite 7 alias, Tailwind 4 Vite plugin, GSAP, React Icons, Lucide, and React Helmet. npm is the package manager (`package-lock.json`).
@@ -100,3 +104,11 @@ Development branch only. Do not merge or deploy automatically. Resolve owner-con
 - FAQ answers use state-driven visibility outside their disclosure buttons with expanded/controls associations; contact CTA now navigates to `/contact`. Replaced FAQ purple gradients with existing slate/yellow treatments. JavaScript entrance/hover animations respect reduced motion, as do CSS effects and carousel scrolling. Fixed consultation modal with native dialog focus containment, named close button, Escape, trigger focus restoration, and readable booking link.
 - PASS: lint (no findings), build, diff review; Chrome keyboard skip-link/menu/FAQ checks, reduced-motion content, portfolio geometry and crop checks; open-dialog axe and focus/Escape checks. Initial test failures from reading layout before media-query reflow were fixed by waiting for layout. A modal focus-return failure was corrected before commit. A transient animation contrast result was retested with reduced motion and no violations.
 - All 10 routes: zero axe violations in tested WCAG 2 A/AA, 2.1 AA and 2.2 AA tags at 390px; zero document overflow across 320/375/390/768/1024/1280/1440px; zero uncaught route-load errors. Evidence: `docs/audit/after-a11y-browser.json` (follow-up dialog/FAQ changes separately verified). This does not establish full accessibility compliance, 200% text resizing, touch usability or screen-reader compatibility.
+
+
+### Routing and SEO milestone
+
+- Shared route metadata replaces nested React Helmet; removed incompatible dependency and seven packages. Unique title, description, canonical, OG values and index directives update on SPA navigation. Unknown local routes/blog IDs and the unrelated legacy `/work` page use noindex. Static HTML has homepage fallbacks; social bots that do not execute JavaScript still need approved prerender/SSR work for route-specific previews. No review/business schema was fabricated.
+- Unknown paths now show a not-found page instead of Blogs; existing local URLs remain. The two portfolio titles without local case studies are plain headings, retaining their existing external demo controls. Corrected Errands demo typo and made the home email text match its existing `hello@` mailto destination; owner must confirm that mailbox works.
+- Existing icon assets copied to public URLs already referenced by HTML; manifest branded using existing navy. Added robots.txt; sitemap now uses verified www canonical hostname and includes Blogs/FAQ. Unverified legacy/case-study content omitted from sitemap pending owner review. HTTP www and HTTPS apex return 308 to HTTPS www (live HEAD checks).
+- PASS: lint, build, diff review; Chrome tested ten route titles/canonical/OG/robots, SPA navigation without duplicate head tags, nine static assets returning 200 with non-HTML content types, and only valid local portfolio case-study links. Removed Helmet/side-effect confirmed absent from installed tree. JS bundle now 461.36 kB / 148.82 kB gzip. Production HTTP 404 and route previews remain manual/staging checks.

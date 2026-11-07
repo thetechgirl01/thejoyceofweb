@@ -3,6 +3,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Bookcall from './components/Bookcall.jsx';
 import Footer from './components/Footer.jsx';
+import RouteMetadata from './components/RouteMetadata.jsx';
+import NotFound from './pages/NotFound.jsx';
 import { Routes, Route } from 'react-router-dom';
 
 // Pages
@@ -20,6 +22,7 @@ function App() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
+      <RouteMetadata />
       <Navbar />
       <main id="main-content" tabIndex={-1}>
       <Routes>
@@ -31,7 +34,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/work" element={<WorkContentPage />} />
-        <Route path="*" element={<Blogs />} />
+        <Route path="*" element={<NotFound />} />
 
         <Route path="/projects/errands-by-brownie" element={<Errandsbybrownie />} />
       </Routes>

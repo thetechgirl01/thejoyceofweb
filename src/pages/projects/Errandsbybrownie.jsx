@@ -49,7 +49,7 @@ const Errandsbybrownie = () => {
     
 
     
-    demoLink: 'https://www.errabdsbybrownie.com',
+    demoLink: 'https://www.errandsbybrownie.com',
     buyLink: 'https://buy.stripe.com/test_123456'
   };
 
