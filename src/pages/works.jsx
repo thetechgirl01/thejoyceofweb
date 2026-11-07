@@ -82,7 +82,7 @@ const Works = () => {
   };
 
   const ProjectCard = ({ project }) => (
-    <div className="relative min-w-[320px]">
+    <div className="relative min-w-0">
   <div
     className="relative h-[480px] rounded-3xl overflow-hidden group"
     style={{
@@ -100,6 +100,8 @@ const Works = () => {
   >
     <img
       src={project.image}
+      loading="lazy"
+      decoding="async"
       alt={project.title}
       className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"
     />
@@ -107,6 +109,7 @@ const Works = () => {
 
   {/* LIVE DEMO BUTTON */}
   <a
+    aria-label={`Visit ${project.title} (opens in a new tab)`}
     href={project.demoLink}
     target="_blank"
     rel="noopener noreferrer"
@@ -128,7 +131,7 @@ const Works = () => {
         <h1 className="text-white font-bold leading-tight max-w-5xl 
                   text-3xl sm:text-4xl md:text-5xl lg:text-6xl
                   mt-1 bg">
-          We help businesses achieve their goals. <bt/>By solving real, meaningful problems.
+          We help businesses achieve their goals. <br />By solving real, meaningful problems.
         </h1>
       </header>
 
@@ -138,10 +141,11 @@ const Works = () => {
           {industries.map((item) => (
             <button
               key={item}
+              aria-pressed={selectedIndustries.includes(item)}
               onClick={() => handleIndustryClick(item)}
               className={`text-2xl transition ${
                 selectedIndustries.includes(item)
-                  ? "text-gray-500"
+                  ? "text-gray-300"
                   : "text-white hover:text-yellow-400"
               }`}
             >
@@ -152,7 +156,7 @@ const Works = () => {
       </div>
 
       {/* GRID */}
-      <main className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 sm:gap-y-24 md:gap-y-0 gap-y-24 px-4">
+      <section aria-label="Projects" className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-24 px-4">
         {filteredWorks.map((work, index) => (
           <div
             key={work.id}
@@ -165,7 +169,7 @@ const Works = () => {
               {work.tags.map(tag => (
                 <span
                   key={tag}
-                  className="text-xs uppercase tracking-wide text-gray-500"
+                  className="text-xs uppercase tracking-wide text-gray-300"
                 >
                   {tag}
                 </span>
@@ -184,7 +188,7 @@ const Works = () => {
             </p>
           </div>
         ))}
-      </main>
+      </section>
 
       <Contact/>
     </div>

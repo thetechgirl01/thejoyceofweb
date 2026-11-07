@@ -55,6 +55,7 @@ const Errandsbybrownie = () => {
 
   // GSAP animations
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     // Image animations
     imageRefs.current.forEach((img) => {

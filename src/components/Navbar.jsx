@@ -1,9 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Tklogo from '../assets/tklogo.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -37,7 +51,7 @@ export default function Navbar() {
   return (
     <>
       {/* NAVBAR - Fixed with highest z-index */}
-      <nav
+      <nav aria-label="Primary"
         className={`fixed w-full z-[100] transition-all duration-300 ${
           scrolled
             ? "bg-white/5 backdrop-blur-sm shadow-md text-black"
@@ -55,6 +69,10 @@ export default function Navbar() {
 
             {/* Menu Button - Always clickable */}
             <button
+              ref={menuButtonRef}
+              type="button"
+              aria-expanded={isOpen}
+              aria-controls="site-menu"
               onClick={() => setIsOpen(!isOpen)}
               className="relative w-11 h-11 flex items-center justify-center rounded-full overflow-visible cursor-pointer"
               aria-label="Toggle menu"
@@ -99,13 +117,17 @@ export default function Navbar() {
 
       {/* Slide Menu - 1/3 of screen width */}
       <aside
+        id="site-menu"
+        aria-label="Site navigation"
+        aria-hidden={!isOpen}
+        inert={!isOpen}
         className={`fixed top-0 right-0 h-screen z-[95] bg-gray-900/95 backdrop-blur-md
           transition-transform duration-700 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full"}
           w-full md:w-1/3 
           overflow-y-auto overflow-x-hidden`}
       >
-        <div className="h-full flex flex-col items-start justify-center px-6 sm:px-8 md:px-10 mt-24">
+        <div className="h-full flex flex-col items-start justify-start px-6 sm:px-8 md:px-10 pt-24 pb-8">
           {/* Navigation Links - Centered container */}
           <div className="w-full mx-auto">
             <ul className="space-y-6 md:space-y-8 w-full mb-12">
@@ -113,7 +135,7 @@ export default function Navbar() {
                 <li key={link.name} className="overflow-hidden">
                   <Link
                     to={link.path}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => { setIsOpen(false); menuButtonRef.current?.focus(); }}
                     className="block text-2xl md:text-3xl font-light text-white 
                              tracking-tight hover:text-yellow-300 
                              transition-all duration-300 transform hover:translate-x-4

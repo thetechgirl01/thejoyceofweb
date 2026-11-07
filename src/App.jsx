@@ -19,7 +19,9 @@ import Errandsbybrownie from './pages/projects/Errandsbybrownie.jsx';
 function App() {
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <Navbar />
+      <main id="main-content" tabIndex={-1}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
@@ -33,6 +35,7 @@ function App() {
 
         <Route path="/projects/errands-by-brownie" element={<Errandsbybrownie />} />
       </Routes>
+      </main>
 
       <Bookcall />
       <div className="px-9 rounded-tr-3xl rounded-tl-3xl">

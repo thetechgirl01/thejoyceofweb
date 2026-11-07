@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaQuestionCircle, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import gsap from 'gsap';
+import { Link } from 'react-router-dom';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -44,61 +45,11 @@ const FAQ = () => {
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
-    
-    // GSAP animation for opening/closing
-    if (itemRefs.current[index]) {
-      const answerElement = itemRefs.current[index].querySelector('.faq-answer');
-      const chevron = itemRefs.current[index].querySelector('.faq-chevron');
-      
-      if (activeIndex === index) {
-        // Closing animation
-        gsap.to(answerElement, {
-          height: 0,
-          opacity: 0,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-        gsap.to(chevron, {
-          rotation: 0,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      } else {
-        // Opening animation
-        gsap.to(answerElement, {
-          height: "auto",
-          opacity: 1,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-        gsap.to(chevron, {
-          rotation: 180,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-        
-        // Close previously opened FAQ
-        if (activeIndex !== null && itemRefs.current[activeIndex]) {
-          const prevAnswer = itemRefs.current[activeIndex].querySelector('.faq-answer');
-          const prevChevron = itemRefs.current[activeIndex].querySelector('.faq-chevron');
-          gsap.to(prevAnswer, {
-            height: 0,
-            opacity: 0,
-            duration: 0.3,
-            ease: "power2.out"
-          });
-          gsap.to(prevChevron, {
-            rotation: 0,
-            duration: 0.3,
-            ease: "power2.out"
-          });
-        }
-      }
-    }
   };
 
   // GSAP page entrance animation
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
       // Header animation
       gsap.from(".faq-header", {
@@ -135,6 +86,7 @@ const FAQ = () => {
 
   // Hover animation for FAQ items
   const handleMouseEnter = (index) => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     gsap.to(itemRefs.current[index], {
       scale: 1.02,
       duration: 0.3,
@@ -143,6 +95,7 @@ const FAQ = () => {
   };
 
   const handleMouseLeave = (index) => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     gsap.to(itemRefs.current[index], {
       scale: 1,
       duration: 0.3,
@@ -162,7 +115,7 @@ const FAQ = () => {
               <div className="
                 faq-icon
                 w-12 h-12
-                bg-gradient-to-br from-blue-500 to-purple-600
+                bg-slate-700
                 rounded-xl
                 flex items-center justify-center
               ">
@@ -203,7 +156,7 @@ const FAQ = () => {
             <div className="text-center">
               <div className="
                 w-16 h-16
-                bg-gradient-to-br from-blue-500 to-purple-600
+                bg-slate-700
                 rounded-xl
                 flex items-center justify-center
                 mx-auto mb-4
@@ -245,6 +198,8 @@ const FAQ = () => {
               onMouseLeave={() => handleMouseLeave(index)}
             >
               <button
+                aria-expanded={activeIndex === index}
+                aria-controls={`faq-answer-${index}`}
                 onClick={() => toggleFAQ(index)}
                 className="
                   w-full
@@ -257,7 +212,7 @@ const FAQ = () => {
                   <div className="flex items-center gap-4 mb-3">
                     <div className="
                       w-8 h-8
-                      bg-gradient-to-br from-blue-500/20 to-purple-600/20
+                      bg-white/10
                       rounded-lg
                       flex items-center justify-center
                       flex-shrink-0
@@ -273,17 +228,7 @@ const FAQ = () => {
                     </h4>
                   </div>
                   
-                  <div className="faq-answer" style={{ height: 0, opacity: 0, overflow: 'hidden' }}>
-                    <div className="pl-12 pt-4">
-                      <p className="
-                        text-gray-300
-                        text-base
-                        leading-relaxed
-                      ">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </div>
+
                 </div>
                 
                 <div className="
@@ -301,6 +246,17 @@ const FAQ = () => {
                   )}
                 </div>
               </button>
+                  <div id={`faq-answer-${index}`} className="faq-answer" hidden={activeIndex !== index}>
+                    <div className="px-6 sm:px-8 pb-6 sm:pb-8">
+                      <p className="
+                        text-gray-300
+                        text-base
+                        leading-relaxed
+                      ">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
             </div>
           ))}
         </div>
@@ -309,7 +265,7 @@ const FAQ = () => {
         <div className="
           faq-item
           mt-12
-          backdrop-blur-xl bg-gradient-to-r from-blue-900/20 to-purple-900/20
+          backdrop-blur-xl bg-white/5
           border border-white/10
           rounded-2xl
           p-8 sm:p-12
@@ -331,22 +287,15 @@ const FAQ = () => {
             Can't find what you're looking for? Our team is ready to help.
           </p>
           
-          <button
-            onClick={() => {
-              gsap.to(window, {
-                duration: 1,
-                scrollTo: { y: "#contact", offsetY: 100 },
-                ease: "power2.inOut"
-              });
-            }}
+          <Link to="/contact"
             className="
               group
               inline-flex items-center gap-3
               px-8 py-4
-              bg-gradient-to-r from-blue-500 to-purple-600
+              bg-yellow-400
               rounded-xl
-              text-white font-semibold
-              hover:from-blue-600 hover:to-purple-700
+              text-black font-semibold
+              hover:bg-yellow-300
               hover:scale-105
               transition-all duration-300
             "
@@ -357,7 +306,7 @@ const FAQ = () => {
               group-hover:translate-y-1
               transition-transform
             " />
-          </button>
+          </Link>
         </div>
       </section>
     </div>

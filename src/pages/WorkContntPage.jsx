@@ -51,6 +51,7 @@ const WorkContentPage = () => {
 
   // GSAP animations
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     // Hero animations
     const heroTl = gsap.timeline();
     heroTl

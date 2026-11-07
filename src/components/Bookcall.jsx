@@ -1,14 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HiArrowRight, HiX } from 'react-icons/hi';
 import BookcallPick from '../assets/director.jpg';
 
 const Bookcall = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const dialogRef = useRef(null);
+  const triggerRef = useRef(null);
+
   useEffect(() => {
     // Prevent scrolling when modal is open
-    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
-    return () => { document.body.style.overflow = 'unset'; };
+    if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const dialog = dialogRef.current;
+    const trigger = triggerRef.current;
+    dialog?.showModal();
+    document.body.style.overflow = 'hidden';
+    return () => {
+      dialog?.close();
+      document.body.style.overflow = previousOverflow;
+      trigger?.focus();
+    };
   }, [isOpen]);
 
   return (
@@ -46,6 +58,9 @@ const Bookcall = () => {
 
         {/* Circular image button - slightly smaller on md+ to create more gap */}
         <button
+          ref={triggerRef}
+          aria-haspopup="dialog"
+          aria-expanded={isOpen}
           onClick={() => setIsOpen(!isOpen)}
           className="w-18 h-18 md:w-20 md:h-20 rounded-full overflow-hidden  shadow-lg hover:scale-105 transition-transform duration-300 relative flex items-center justify-center bg-black"
         >
@@ -60,12 +75,17 @@ const Bookcall = () => {
       {/* Modal above the button */}
       {isOpen && (
         <>
-          {/* Blur rest of page */}
-          <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30"></div>
 
-          <div className="fixed bottom-[200px] md:bottom-[270px] right-0 md:right-40  z-50 flex flex-col items-end">
+
+          <dialog
+            ref={dialogRef}
+            aria-labelledby="booking-title"
+            onCancel={(event) => { event.preventDefault(); setIsOpen(false); }}
+            className="booking-dialog fixed top-auto left-auto m-0 border-0 p-0 bg-transparent bottom-[200px] md:bottom-[270px] right-0 md:right-40 z-50 flex flex-col items-end max-w-[calc(100%-1rem)]"
+          >
             {/* Close button outside modal */}
             <button
+              aria-label="Close consultation dialog"
               onClick={() => setIsOpen(false)}
               className="mb-2 mr-2 w-8 h-8 rounded-full  flex items-center justify-center shadow-lg transition-colors"
             >
@@ -77,7 +97,7 @@ const Bookcall = () => {
               
               {/* Modal header flex justified */}
               <div className="flex justify-between items-center mb-3">
-                <h2 className=" text-2xl font-semibold  text-gray-900 w-1/2 ">15 - minute consult</h2>
+                <h2 id="booking-title" className=" text-2xl font-semibold  text-gray-900 w-1/2 ">15 - minute consult</h2>
                 <span className="mb-5 px-3 py-1 border-1 border-black text-sm font-light rounded-full bg-transparent text-black">
                   FREE
                 </span>
@@ -93,7 +113,7 @@ const Bookcall = () => {
                 href="https://calendly.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-full inline-flex items-center bg-black justify-between border-2 border-black rounded-full px-6 py-3 hover:bg-black/95 transition-all duration-300 text-black font-medium no-underline"
+                className="group w-full inline-flex items-center bg-black justify-between border-2 border-black rounded-full px-6 py-3 hover:bg-black/95 transition-all duration-300 text-white font-medium no-underline"
               >
                 <span>Book a call</span>
                 <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
@@ -101,7 +121,7 @@ const Bookcall = () => {
                 </span>
               </a>
             </div>
-          </div>
+          </dialog>
         </>
       )}
 

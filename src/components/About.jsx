@@ -12,12 +12,12 @@ const About = () => {
         
         {/* LEFT CONTENT */}
         <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
-          <h1 className="
+          <h2 className="
             text-black font-bold uppercase leading-tight
             text-3xl sm:text-4xl md:text-5xl lg:text-6xl h1
           ">
             Behind <br className="hidden lg:block" /> The Pixels
-          </h1>
+          </h2>
 
           <p className="
             mt-4 sm:mt-6
@@ -30,15 +30,13 @@ const About = () => {
             precision, and a commitment to doing things right even when no one is watching.
             That is why we focus on delivering quality, performance, and reliability in
             every line of code we write.”
-            <span className="block mt-3 text-gray-400 text-xs sm:text-sm">
-              — Inspired by Aristotle
+            <span className="block mt-3 text-gray-600 text-xs sm:text-sm">
+              Inspired by Aristotle
             </span>
           </p>
 
           {/* BUTTON */}
-          <Link to="/about">
-          <a
-            href="#"
+          <Link to="/about"
             className="
               group
               mt-6 sm:mt-10
@@ -65,8 +63,6 @@ const About = () => {
             ">
               <HiArrowRight className="text-black w-4 h-4 sm:w-5 sm:h-5 -rotate-45" />
             </span>
-          </a>
-          
           </Link>
         </div>
 

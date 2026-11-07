@@ -26,7 +26,7 @@ const Contact = () => {
       <header className="px-auto max-w-7xl mx-auto mb-12 sm:mb-20">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           
-          <h1 className="
+          <h2 className="
             text-white font-bold leading-tight
             text-3xl sm:text-4xl md:text-5xl lg:text-6xl
             text-center lg:text-left
@@ -34,7 +34,7 @@ const Contact = () => {
           ">
             Have an idea? 
             We can help.
-          </h1>
+          </h2>
 
           {/* Have an idea? Section */}
           <div className="mb-10 sm:mb-12">
@@ -75,7 +75,7 @@ const Contact = () => {
               <FaRegEnvelope className="w-5 h-5 text-gray-600" />
               <a 
                 href="mailto:hello@crownatech.com" 
-                className="text-gray-800 text-lg font-medium hover:text-blue-600 transition-colors"
+                className="text-gray-200 text-lg font-medium hover:text-blue-600 transition-colors"
               >
                 contact@crownatech.com
               </a>

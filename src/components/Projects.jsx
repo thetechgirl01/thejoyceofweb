@@ -27,7 +27,7 @@ const Projects = () => {
     const cardWidth = 340; // card + gap
     scrollRef.current.scrollTo({
       left: index * cardWidth,
-      behavior: "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
     });
   };
 
@@ -45,10 +45,10 @@ const Projects = () => {
 
         {/* LEFT SIDE — TEXTS */}
         <div className="lg:w-1/3">
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-white">
+          <h2 className="text-4xl sm:text-5xl font-bold leading-tight text-white">
             Real projects.
             <span className=""> Real results.</span>
-          </h1>
+          </h2>
 
           <p className="text-gray-400 mt-6 text-lg">
             Carefully engineered websites designed to convert,
@@ -96,6 +96,8 @@ const Projects = () => {
             {projects.map((_, i) => (
               <button
                 key={i}
+                aria-label={`Show project ${i + 1}: ${projects[i].title}`}
+                aria-pressed={active === i}
                 onClick={() => scrollTo(i)}
                 className={`
                   transition-all duration-300
@@ -110,9 +112,9 @@ const Projects = () => {
           {/* MORE PROJECTS BUTTON */}
           <div className="mt-12 flex justify-end">
             <Link to="/works">
-            <button className="cursor-pointer px-8 py-4 yellow text-black font-semibold rounded-4xl shadow-lg hover:scale-105 transition">
+            <span className="inline-block cursor-pointer px-8 py-4 yellow text-black font-semibold rounded-4xl shadow-lg hover:scale-105 transition">
              More 
-            </button>
+            </span>
             
             </Link>
           </div>
@@ -148,6 +150,8 @@ const ProjectCard = ({ project }) => (
     >
       <img
         src={project.image}
+        loading="lazy"
+        decoding="async"
         alt={project.title}
         className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
       />
@@ -161,6 +165,7 @@ const ProjectCard = ({ project }) => (
 
     {/* LINK BUTTON — RESTORED */}
     <a
+      aria-label={`Visit ${project.title}`}
       href={project.link}
       className="absolute top-2 right-2 w-14 h-14 rounded-lg yellow flex items-center justify-center shadow-lg hover:scale-110 transition z-10"
     >

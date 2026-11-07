@@ -24,9 +24,9 @@ const Workprocess = () => {
     <div className="min-h-fit  py-12 sm:py-16 md:py-20 px-auto ">
       {/* Header */}
       <header className="max-w-6xl mx-auto mb-12 sm:mb-16 text-center">
-        <h1 className="text-black font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
+        <h2 className="text-black font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
           Our Work Process
-        </h1>
+        </h2>
         <p className="text-black text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
           A clear and simple 4-step process to ensure every project is delivered efficiently and with excellence.
         </p>
@@ -57,7 +57,7 @@ const Workprocess = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-blue-400 font-semibold text-lg md:text-xl mb-2 sm:mb-3 text-center">
+              <h3 className="text-blue-700 font-semibold text-lg md:text-xl mb-2 sm:mb-3 text-center">
                 {step.title}
               </h3>
 
@@ -89,12 +89,12 @@ const Workprocess = () => {
 
                 {/* Content */}
                 <div>
-                  <h3 className="text-white font-semibold text-lg mb-1">
+                  <h3 className="text-black font-semibold text-lg mb-1">
                     {step.title}
                   </h3>
                   
 
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {step.description}
                   </p>
                 </div>

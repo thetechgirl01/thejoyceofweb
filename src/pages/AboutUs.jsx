@@ -11,6 +11,7 @@ const AboutUs = () => {
   const sectionRefs = useRef([]);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
       // Header animation
       gsap.from(".about-header", {

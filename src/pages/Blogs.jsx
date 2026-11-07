@@ -32,6 +32,7 @@ const Blogs = ({ blogs = [] }) => {
 
   // GSAP animation
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     gsap.fromTo(
       postRefs.current,
       { y: 40, opacity: 0 },

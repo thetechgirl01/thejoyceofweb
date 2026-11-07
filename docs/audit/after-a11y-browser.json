@@ -1,0 +1,432 @@
+[
+  {
+    "route": "/",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  },
+  {
+    "route": "/about",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  },
+  {
+    "route": "/works",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  },
+  {
+    "route": "/blogs",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  },
+  {
+    "route": "/blog/1",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  },
+  {
+    "route": "/contact",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  },
+  {
+    "route": "/faq",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  },
+  {
+    "route": "/work",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  },
+  {
+    "route": "/projects/errands-by-brownie",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  },
+  {
+    "route": "/missing",
+    "errors": [],
+    "axe": [],
+    "widths": [
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "scrollWidth": 375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      {
+        "width": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    ],
+    "title": "CrownaTech | Creative Web Solutions"
+  }
+]

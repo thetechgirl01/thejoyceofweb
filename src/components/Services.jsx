@@ -54,6 +54,7 @@ const ServicesPage = () => {
   ];
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     // Only run animation if component is mounted and not triggered yet
     if (!headingRef.current || animationTriggered.current) return;
 
@@ -134,7 +135,7 @@ const ServicesPage = () => {
         className="px-auto max-w-9xl md:max-w-7xl mx-auto mb-12 sm:mb-20"
       >
         <div className="flex flex-col lg:flex-row justify-between gap-8">
-          <h1 
+          <h2
             ref={headingRef}
             className="
               text-white font-bold leading-tight
@@ -144,7 +145,7 @@ const ServicesPage = () => {
             "
           >
             What Are The Services We Offer?
-          </h1>
+          </h2>
 
           <p 
             ref={quoteRef}
@@ -154,13 +155,13 @@ const ServicesPage = () => {
               max-w-lg
               text-center lg:text-right
               leading-relaxed
-              opacity-0
+
             "
           >
             “Excellence is not an act, but a habit. It is achieved through discipline,
             precision, and a commitment to doing things right even when no one is watching.”
             <span className="block mt-2 text-white/40 text-xs sm:text-sm">
-              — Inspired by Aristotle
+              Inspired by Aristotle
             </span>
           </p>
         </div>
