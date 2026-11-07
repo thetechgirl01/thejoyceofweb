@@ -30,7 +30,7 @@ const ServicesPage = () => {
       description:
         "Custom-built websites and web applications using modern, reliable technologies.",
       longDescription:
-        "Fully responsive layouts that adapt seamlessly across all screen sizes. We ensure your website looks and works perfectly across smartphones, tablets, and desktops through responsive design and testing. Our web development process focuses on fast, secure, and scalable digital products that are easy to maintain and ready to grow.",
+        "Fully responsive layouts that adapt seamlessly across all screen sizes. Our web development process focuses on fast, secure, and scalable digital products that are easy to maintain and ready to grow.",
       link: "#"
     },
     {

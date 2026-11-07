@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 import Project3 from "../assets/Baller.jpeg";
 
 const projects = [
-  { title: "Best Lagos State Logistics & Errands Company", image: Project1, link: "https://www.errandsbybrownie.com" },
+  { title: "Courier & Errand Company in Lagos, Nigeria.", image: Project1, link: "https://www.errandsbybrownie.com" },
   { title: "Uk Fashion E-commerce Platform", image: Project2, link: "https://4thmanclothing.com" },
-  { title: "Baowling Alley", image: Project3, link: "https://parabola-drab.vercel.app/" },
+  { title: "Bowling Alley", image: Project3, link: "https://parabola-drab.vercel.app/" },
   
 ];
 

@@ -104,7 +104,7 @@ const Contact = () => {
                   <div>
                     <h4 className="text-white font-medium mb-1">Expert Consultation</h4>
                     <p className="text-white/60 text-sm">
-                      Free initial consultation to understand your needs and goals
+                      Consultation to understand your needs and goals
                     </p>
                   </div>
                 </div>
@@ -168,43 +168,11 @@ const Contact = () => {
                 <h4 className="text-white font-medium">Get in Touch</h4>
               </div>
               <p className="text-white/60 text-sm">
-                Typically respond within 24 hours<br />
-                100+ projects successfully delivered
+                <a href="mailto:hello@crownatech.com" className="underline">hello@crownatech.com</a>
               </p>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="
-                backdrop-blur-xl bg-white/5
-                border border-white/10
-                rounded-xl
-                p-4
-                text-center
-              ">
-                <div className="text-white text-lg font-bold mb-1">
-                  24-48 Hours
-                </div>
-                <div className="text-white/60 text-sm">
-                  Average Response
-                </div>
-              </div>
 
-              <div className="
-                backdrop-blur-xl bg-white/5
-                border border-white/10
-                rounded-xl
-                p-4
-                text-center
-              ">
-                <div className="text-white text-lg font-bold mb-1">
-                  100+ Projects
-                </div>
-                <div className="text-white/60 text-sm">
-                  Successfully Delivered
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* RIGHT COLUMN - CONTACT FORM (Shows first on mobile) */}
@@ -309,7 +277,7 @@ const Contact = () => {
                       focus:outline-none focus:border-white/40
                       transition
                   "
-                  placeholder="e.g., $500 - $10,000 or Not sure yet"
+                  placeholder="Your budget, or Not sure yet"
                 />
               </div>
 
@@ -489,10 +457,6 @@ const Contact = () => {
                   ">
                     CrownaTech
                   </h2>
-                  
-                  <p className="text-white/60 text-sm">
-                    Building digital excellence since 2019
-                  </p>
                 </div>
               </div>
             </div>

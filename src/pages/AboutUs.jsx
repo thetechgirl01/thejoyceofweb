@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { FaRocket, FaUsers, FaAward, FaLightbulb } from 'react-icons/fa';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -19,16 +18,6 @@ const AboutUs = () => {
         opacity: 0,
         duration: 1,
         delay: 0.2,
-        ease: "power3.out"
-      });
-
-      // Stats cards staggered animation
-      gsap.from(".stat-card", {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        delay: 0.4,
         ease: "power3.out"
       });
 
@@ -54,13 +43,6 @@ const AboutUs = () => {
 
     return () => ctx.revert();
   }, []);
-
-  const stats = [
-    { icon: <FaRocket className="w-6 h-6" />, value: "100+", label: "Projects Delivered" },
-    { icon: <FaUsers className="w-6 h-6" />, value: "50+", label: "Happy Clients" },
-    { icon: <FaAward className="w-6 h-6" />, value: "5+", label: "Years Experience" },
-    { icon: <FaLightbulb className="w-6 h-6" />, value: "24/7", label: "Support Available" }
-  ];
 
   const services = [
     {
@@ -127,44 +109,7 @@ const AboutUs = () => {
                 worldwide with cutting-edge web solutions.
               </p>
 
-              {/* STATS GRID */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-                {stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className="stat-card"
-                    ref={el => sectionRefs.current[index] = el}
-                  >
-                    <div className="
-                      backdrop-blur-xl bg-white/5
-                      border border-white/10
-                      rounded-xl
-                      p-6
-                      text-center
-                      transition-all duration-300
-                      hover:bg-white/10
-                    ">
-                      <div className="
-                        w-12 h-12
-                        bg-white
-                        rounded-xl
-                        flex items-center justify-center
-                        mx-auto mb-4
-                      ">
-                        <div className="text-black">
-                          {stat.icon}
-                        </div>
-                      </div>
-                      <div className="text-white text-2xl font-bold">
-                        {stat.value}
-                      </div>
-                      <div className="text-white/60 text-sm mt-1">
-                        {stat.label}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+
             </div>
           </div>
         </section>

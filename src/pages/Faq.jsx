@@ -8,19 +8,8 @@ const FAQ = () => {
   const faqRef = useRef(null);
   const itemRefs = useRef([]);
 
+  // Commercial terms and guarantees are withheld pending owner verification.
   const faqs = [
-    {
-      question: "How long does it take to build a website?",
-      answer: "Timeline varies by complexity: simple websites take 2-4 weeks, business sites 4-6 weeks, and complex applications 8-12 weeks. We provide a detailed timeline during consultation."
-    },
-    {
-      question: "What is your pricing structure?",
-      answer: "We offer transparent project-based pricing. Basic websites start at $1,500, business sites at $3,000-$7,000, e-commerce at $5,000-$15,000, and custom applications from $10,000+."
-    },
-    {
-      question: "Do you offer post-launch support?",
-      answer: "Yes, we provide comprehensive maintenance packages including security updates, performance monitoring, content updates, and technical support with monthly, quarterly, or annual plans."
-    },
     {
       question: "What technologies do you use?",
       answer: "We use modern stacks: React/Next.js for frontend, Node.js/Express for backend, MongoDB/PostgreSQL for databases, and Tailwind CSS for styling. We choose based on project needs."
@@ -28,18 +17,6 @@ const FAQ = () => {
     {
       question: "Can you work with existing websites?",
       answer: "Absolutely. We specialize in redesigns, updates, and migrations. We can improve performance, add features, or rebuild with modern tech while maintaining your brand identity."
-    },
-    {
-      question: "Is the website mobile-responsive?",
-      answer: "Yes, all our websites are built mobile-first and tested across all devices and browsers to ensure perfect performance and consistent user experience everywhere."
-    },
-    {
-      question: "Who owns the website after completion?",
-      answer: "You own 100% of the website, design, and custom code. We transfer all rights upon final payment. Source code and assets are delivered to you."
-    },
-    {
-      question: "What's included in your hosting services?",
-      answer: "Our managed hosting includes automatic backups, SSL certificates, 24/7 monitoring, security updates, and performance optimization. We can also help set up third-party hosting."
     }
   ];
 
@@ -161,13 +138,13 @@ const FAQ = () => {
                 flex items-center justify-center
                 mx-auto mb-4
               ">
-                <span className="text-white text-2xl font-bold">8</span>
+                <span className="text-white text-2xl font-bold">{faqs.length}</span>
               </div>
               <h3 className="text-white text-xl font-bold mb-2">
                 Common Questions
               </h3>
               <p className="text-blue-300 text-sm mb-4">
-                Most asked by clients
+                Common questions
               </p>
               <p className="text-gray-300 text-sm leading-snug">
                 Quick answers to help you get started

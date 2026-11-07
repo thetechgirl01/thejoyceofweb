@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { HiArrowRight, HiX } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 import BookcallPick from '../assets/director.jpg';
 
 const Bookcall = () => {
@@ -30,7 +31,7 @@ const Bookcall = () => {
         {/* Rotating text ring - larger on md+ screens */}
         <div className="absolute w-32 h-32 md:w-36 md:h-36 flex items-center justify-center">
           <div className="w-full h-full rounded-full animate-spin-slow">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
+            <svg aria-hidden="true" viewBox="0 0 100 100" className="w-full h-full">
               <defs>
                 <path
                   id="circlePath"
@@ -49,7 +50,7 @@ const Bookcall = () => {
                 textTransform="uppercase"
               >
                 <textPath href="#circlePath" startOffset="0%">
-                  15 MINUTES • FREE • CONSULT • 15 MINUTES • FREE • CONSULT •
+                  CROWNATECH • GET IN TOUCH • CROWNATECH • GET IN TOUCH •
                 </textPath>
               </text>
             </svg>
@@ -66,7 +67,7 @@ const Bookcall = () => {
         >
           <img 
             src={BookcallPick} 
-            alt="Book a free consultation" 
+            alt="Contact Crownatech"
             className="w-full h-full object-cover rounded-full"
           />
         </button>
@@ -97,29 +98,26 @@ const Bookcall = () => {
               
               {/* Modal header flex justified */}
               <div className="flex justify-between items-center mb-3">
-                <h2 id="booking-title" className=" text-2xl font-semibold  text-gray-900 w-1/2 ">15 - minute consult</h2>
-                <span className="mb-5 px-3 py-1 border-1 border-black text-sm font-light rounded-full bg-transparent text-black">
-                  FREE
-                </span>
+                <h2 id="booking-title" className=" text-2xl font-semibold  text-gray-900 w-1/2 ">Get in touch</h2>
+
               </div>
 
               {/* Description */}
               <p className="text-gray-700 text-sm sm:text-base my-6">
-                This is a quick free call with CrownaTech's design & development producer to talk about your project and figure out if there is a match.
+                For project enquiries, visit our contact page. Online booking is currently unavailable.
               </p>
 
               {/* Book button */}
-              <a
-                href="https://calendly.com"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/contact"
+                onClick={() => setIsOpen(false)}
                 className="group w-full inline-flex items-center bg-black justify-between border-2 border-black rounded-full px-6 py-3 hover:bg-black/95 transition-all duration-300 text-white font-medium no-underline"
               >
-                <span>Book a call</span>
+                <span>Contact us</span>
                 <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
                   <HiArrowRight className="text-black w-5 h-5 -rotate-45" />
                 </span>
-              </a>
+              </Link>
             </div>
           </dialog>
         </>

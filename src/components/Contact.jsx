@@ -187,10 +187,6 @@ const Contact = () => {
                 ">
                   CrownaTech
                 </h2>
-                
-                <p className="text-white/60 text-sm">
-                  Building digital excellence since 2019
-                </p>
               </div>
             </div>
           </div>
